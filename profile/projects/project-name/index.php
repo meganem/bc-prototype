@@ -58,7 +58,24 @@ include $headerInclude;
             
 	        <div id="content" class="container">
                 <div class="light">
-                    <p class="lead">Map goes here</p>
+                    
+                    <svg id="timeline">
+                    </svg>
+
+                    <div class="new-node">
+                        <div id="new-node-thumb">
+                            <img src="" alt="node thumbnail" width="100" height="100" />
+                        </div>
+                        <form id="new-node-form">
+                            <input name="node-title" type="text" placeholder="Name it" >
+                            <input type="submit" value="Done">
+                        </form>
+                        <div id="new-node-cancel">
+                            <a class="btn" href="#">Cancel</a>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
 
