@@ -62,16 +62,19 @@ include $headerInclude;
                     <svg id="timeline">
                     </svg>
 
-                    <div class="new-node">
-                        <div id="new-node-thumb">
-                            <img src="" alt="node thumbnail" width="100" height="100" />
-                        </div>
+                    <div id="new-node">
                         <form id="new-node-form">
-                            <input name="node-title" type="text" placeholder="Name it" >
-                            <input type="submit" value="Done">
+                            <div id="new-node-thumb">
+                                <img src="<?php print $pathPrefix; ?>img/nodethumb.jpg" alt="node thumbnail" width="60" height="60" />
+                            </div>
+                            <input id="new-node-form-title" name="node-title" type="text" placeholder="Name it" >
+                            <div id="new-node-form-buttons">
+                                <input id="new-node-form-submit" class="button green" type="submit" value="done">
+                                <a id="new-node-more" class="button purple" href="#">more</a>
+                            </div>
                         </form>
                         <div id="new-node-cancel">
-                            <a class="btn" href="#">Cancel</a>
+                            <a class="" href="#">Cancel</a>
                         </div>
 
                     </div>
