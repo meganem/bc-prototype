@@ -373,6 +373,7 @@ svg {border:1px solid black;}
 }
 #new-node-thumb {
     display:inline-block;
+    margin-right: .5em;
 }
 #new-node-form {
     display:inline-block;
@@ -397,7 +398,7 @@ input[type=email] {
 
 }
 #new-node-form-buttons {
-
+    margin-top: .5em;
 }
 #new-node-more {
     display:inline-block;
