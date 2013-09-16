@@ -29,15 +29,15 @@ include $headerInclude;
                                     <img src="<?php print $pathPrefix; ?>img/projectthumb-sm.png" width="35" height="35" alt="project thumbnail" />
                                 </a>
                                 <ul id="project-actions-menu" class="menu dropdown">
-                                    <li><a href="#">Edit description</a></li>
-                                    <li><a href="#">Share</a></li>
-                                    <li><a href="#">Archive</a></li>
-                                    <li><a href="#">Change thumbnail</a></li>
+                                    <li><a href="#"><img class="icon-edit" src="<?php print $pathPrefix; ?>img/icon-edit.png" alt="" width="20" height="20" /> Edit description</a></li>
+                                    <li><a href="#"><img class="icon-share" src="<?php print $pathPrefix; ?>img/icon-share.png" alt="" width="20" height="20" /> Share</a></li>
+                                    <li><a href="#"><img class="icon-archive" src="<?php print $pathPrefix; ?>img/icon-archive.png" alt="" width="20" height="20" /> Archive</a></li>
+                                    <li><a href="#"><img class="icon-change-thumb" src="<?php print $pathPrefix; ?>img/icon-change-thumb.png" alt="" width="20" height="20" /> Change thumbnail</a></li>
                                     <li class="separator"></li>
-                                    <li><a href="#">Edit presentation</a></li>
-                                    <li><a href="#">Launch presentation</a></li>
+                                    <li><a href="#"><img class="icon-edit-presentation" src="<?php print $pathPrefix; ?>img/icon-edit-presentation.png" alt="" width="20" height="20" /> Edit presentation</a></li>
+                                    <li><a href="#"><img class="icon-presentation" src="<?php print $pathPrefix; ?>img/icon-presentation.png" alt="" width="20" height="20" /> Launch presentation</a></li>
                                     <li class="separator"></li>
-                                    <li><a href="#">View history</a></li>
+                                    <li><a href="#"><img class="icon-history" src="<?php print $pathPrefix; ?>img/icon-history.png" alt="" width="20" height="20" /> View history</a></li>
                                 </ul>
                             </li>
                        </ul>
@@ -46,11 +46,11 @@ include $headerInclude;
                     <h1 class="project-title">My Project</h1>
                     <div id="project-menu" class="">
                         <ul class="menu">
-                            <li><a href="story">Story mode</a></li>
-                            <li><a href="presentation">Presentation mode</a></li>
-                            <li><a href="blog">Blog mode</a></li>
-                            <li><a href="#">Group</a></li>
-                            <li><a href="#">New</a></li>
+                            <li><a href="#"><img class="icon-story-mode" src="<?php print $pathPrefix; ?>img/icon-story-mode.png" alt="" width="30" height="30" /> Story mode</a></li>
+                            <li><a href="#"><img class="icon-presentation" src="<?php print $pathPrefix; ?>img/icon-presentation.png" alt="" width="30" height="30" /> Presentation mode</a></li>
+                            <li><a href="#"><img class="icon-blog-mode" src="<?php print $pathPrefix; ?>img/icon-blog-mode.png" alt="" width="30" height="30" /> Blog mode</a></li>
+                            <li><a href="#"><img class="icon-group" src="<?php print $pathPrefix; ?>img/icon-group.png" alt="" width="30" height="30" /> Group</a></li>
+                            <li><a href="#"><img class="icon-new" src="<?php print $pathPrefix; ?>img/icon-new.png" alt="" width="30" height="30" /> New</a></li>
                         </ul>
                     </div>
                 </div> <!-- End container -->
@@ -62,7 +62,7 @@ include $headerInclude;
                     <svg id="timeline">
                     </svg>
 
-                    <div id="new-node" class="modal is-long">
+                    <div id="new-node" class="modal is-short">
                         <div id="new-node-cancel">
                             <a class="" href="#">
                                 <img class="icon-cancel" src="<?php print $pathPrefix; ?>img/icon-cancel.png" alt="Cancel" width="17" height="17" />

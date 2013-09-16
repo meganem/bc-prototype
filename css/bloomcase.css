@@ -202,6 +202,12 @@ h1.project-title {
 	display:inline-block;
 	float: right;
 }
+#project-menu img {
+    display:block;
+}
+#project-actions-menu img {
+    margin-right: 0.25em;
+}
 
 .notification {
 	background: #AE2F2C;
@@ -369,6 +375,7 @@ svg {border:1px solid black;}
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    left: 50%;
 }
 .modal.is-short {
     height: 185px;

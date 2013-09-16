@@ -30,3 +30,5 @@ $(function () {
         }
     });
 });
+
+// New node form modal expose longer form
