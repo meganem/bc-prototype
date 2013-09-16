@@ -357,7 +357,7 @@ svg {border:1px solid black;}
 .node-title {display:block; font-size: 1.1em; font-weight: bold;}
 
 /* ----- New node modal ----- */
-#new-node {
+.modal {
     background:#ffffff;
     border:1px solid #121212;
     -webkit-border-radius: .5em;
@@ -365,11 +365,16 @@ svg {border:1px solid black;}
     border-radius: .5em;
     padding: 0.7em 1em;
     display: block;
+    position:absolute;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
-#new-node.is-short {
-    width:200px;
+.modal.is-short {
+    height: 185px;
+    width: 230px;
 }
-#new-node.is-long {
+.modal.is-long {
     width:260px;
 }
 #new-node-thumb {
@@ -425,6 +430,7 @@ textarea {
     background-repeat: no-repeat;
     display: inline-block;
     padding-right: 30px;
+    float:right;
 }
 .dark-background {
     background: #121212;
@@ -477,4 +483,40 @@ textarea {
 }
 .is-long #new-node-form-submit {
     float:right;
+}
+
+/* modal arrows */
+.modal:before, .modal:after {
+    content: " ";
+    height: 0;
+    position: absolute;
+    width: 0;
+    border: 15px solid transparent;
+}
+.modal:before {
+    z-index: 2;
+}
+.modal.is-long:before {
+    border-right-color: #FFFFFF;
+    left: -28px;
+    margin-top: 160px;
+}
+
+.modal:after {
+    z-index: 1;
+}
+.modal.is-long:after {
+    border-right-color: #333333;
+    left: -30px;
+    margin-top: 156px;
+}
+.modal.is-short:before {
+    border-top-color: #FFFFFF;
+    left: 95px;
+    margin-top: 170px;
+}
+.modal.is-short:after {
+    border-top-color: #333333;
+    left: 95px;
+    margin-top: 168px;
 }

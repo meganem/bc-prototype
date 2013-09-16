@@ -62,7 +62,7 @@ include $headerInclude;
                     <svg id="timeline">
                     </svg>
 
-                    <div id="new-node" class="modal modal-above is-short">
+                    <div id="new-node" class="modal is-long">
                         <div id="new-node-cancel">
                             <a class="" href="#">
                                 <img class="icon-cancel" src="<?php print $pathPrefix; ?>img/icon-cancel.png" alt="Cancel" width="17" height="17" />
