@@ -66,11 +66,28 @@ a {
     color: #B38C14;
     font-weight: 600;
 }
-/*a:after {
-    content: " »";
-}*/
+
 a:hover, a:focus {
     text-decoration: underline;
+    position: relative;
+}
+a[data-title]:hover:after {
+    content: attr(data-title);
+    color: #000000;
+    background:#ffffff;
+    font-size: 0.7em;
+    left: -25px;
+    padding: 0.2em 0.5em;
+    position: absolute;
+    top: 250%;
+    white-space: nowrap;
+    z-index: 20px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0px 0px 4px #222;
+    -webkit-box-shadow: 0px 0px 4px #222;
+    box-shadow: 0px 0px 4px #222;
 }
 
 .button {
@@ -205,6 +222,16 @@ h1.project-title {
 #project-menu img {
     display:block;
 }
+#project-menu a {
+    opacity: 0.6;
+}
+#project-menu a:hover, #project-menu a:focus, #project-menu a.active  {
+    opacity: 1;
+}
+#project-menu .menu li {
+    border:0;
+}
+
 #project-actions-menu img {
     margin-right: 0.25em;
 }
@@ -332,8 +359,9 @@ ul.dropdown li.separator {
     padding-top: 0.5em;
 }
 
-.click-nav {display: inline-block; margin-right: 0.5em;}
-.click-nav ul {position:relative; margin: 0; padding: 0;}
+.click-nav {display: inline-block;}
+.click-nav-2 {margin-right: 0.5em;}
+.click-nav ul {position:relative; margin: 0; padding: 0; z-index: 10;}
 .click-nav ul li {position:relative;list-style:none;cursor:pointer;}
 .click-nav ul li ul {position:absolute;left:0;right:0;}
 .click-nav.click-nav-1 ul li ul {position:absolute;left:auto;right:0;}
@@ -393,11 +421,9 @@ svg {border:1px solid black;}
     width: 100%;
 }
 #new-node-cancel {
-    display: block;
-    margin-bottom: -15px;
-    position: relative;
-    text-align: right;
     line-height: 17px;
+    position: absolute;
+    right: 17px;
 }
 #new-node-cancel img {
     opacity: 0.5;
@@ -515,7 +541,7 @@ textarea {
 .modal.is-long:after {
     border-right-color: #333333;
     left: -30px;
-    margin-top: 156px;
+    margin-top: 160px;
 }
 .modal.is-short:before {
     border-top-color: #FFFFFF;
@@ -525,5 +551,5 @@ textarea {
 .modal.is-short:after {
     border-top-color: #333333;
     left: 95px;
-    margin-top: 168px;
+    margin-top: 172px;
 }

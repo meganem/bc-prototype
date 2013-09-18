@@ -46,11 +46,11 @@ include $headerInclude;
                     <h1 class="project-title">My Project</h1>
                     <div id="project-menu" class="">
                         <ul class="menu">
-                            <li><a href="#"><img class="icon-story-mode" src="<?php print $pathPrefix; ?>img/icon-story-mode.png" alt="" width="30" height="30" /> Story mode</a></li>
-                            <li><a href="#"><img class="icon-presentation" src="<?php print $pathPrefix; ?>img/icon-presentation.png" alt="" width="30" height="30" /> Presentation mode</a></li>
-                            <li><a href="#"><img class="icon-blog-mode" src="<?php print $pathPrefix; ?>img/icon-blog-mode.png" alt="" width="30" height="30" /> Blog mode</a></li>
-                            <li><a href="#"><img class="icon-group" src="<?php print $pathPrefix; ?>img/icon-group.png" alt="" width="30" height="30" /> Group</a></li>
-                            <li><a href="#"><img class="icon-new" src="<?php print $pathPrefix; ?>img/icon-new.png" alt="" width="30" height="30" /> New</a></li>
+                            <li><a href="#" data-title="Story Mode" class="active"><img class="icon-story-mode" src="<?php print $pathPrefix; ?>img/icon-story-mode.png" alt="Story Mode" width="30" height="30" /></a></li>
+                            <li><a href="#" data-title="Presentation Mode" ><img class="icon-presentation" src="<?php print $pathPrefix; ?>img/icon-presentation.png" alt="Presentation Mode" width="30" height="30" /></a></li>
+                            <li><a href="#" data-title="Blog Mode"><img class="icon-blog-mode" src="<?php print $pathPrefix; ?>img/icon-blog-mode.png" alt="Blog Mode" width="30" height="30" /></a></li>
+                            <!-- <li><a href="#"><img class="icon-group" src="<?php //print $pathPrefix; ?>img/icon-group.png" alt="" width="30" height="30" /> Group</a></li>
+                            <li><a href="#"><img class="icon-new" src="<?php //print $pathPrefix; ?>img/icon-new.png" alt="" width="30" height="30" /> New</a></li> -->
                         </ul>
                     </div>
                 </div> <!-- End container -->
@@ -81,8 +81,13 @@ include $headerInclude;
                             <input id="new-node-form-title" name="node-title" type="text" placeholder="Name it" >
                             <textarea id="new-node-form-desc" rows="5" name="node-desc" placeholder="Describe it"></textarea>
                             <input id="new-node-form-url" name="node-url" type="text" placeholder="http://" >
-                            <input id="new-node-form-date" name="node-date" type="text" placeholder="09/15/2013" >
-                            <input id="new-node-form-tags" name="node-tags" type="text" placeholder="Tag it" >
+                            <input id="new-node-form-date" name="node-date" type="text" placeholder="
+                            <?php 
+                                date_default_timezone_set('America/Los_Angeles');
+                                $date = date('m/d/Y', time());
+                                print $date;
+                             ?>" >
+                            <input id="new-node-form-tags" name="node-tags" type="text" placeholder="Tag it, comma separated" >
                             <div id="new-node-form-buttons">
                                 <input id="new-node-delete" class="button red" type="button" value="delete">
                                 <input id="new-node-form-submit" class="button green" type="submit" value="done">
