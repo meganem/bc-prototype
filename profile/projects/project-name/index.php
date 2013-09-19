@@ -19,6 +19,10 @@ $footerInclude = $pathPrefix . "parts/footer.php";
 // INCLUDE HEADER
 include $headerInclude; 
 ?>
+<script src="d3.v3.min.js"></script>
+<script src="bloomcase_layout.js"></script>
+<script src="draw_bc.js"></script>
+
 			<div id="project-header" class="light">
                 <div class="container">
                 
@@ -60,6 +64,9 @@ include $headerInclude;
                 <div class="light">
                     
                     <svg id="timeline">
+			<script type="text/javascript">
+				drawBloomcase();
+			</script>
                     </svg>
 
                     <div id="new-node" class="modal is-short">
