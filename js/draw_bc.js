@@ -11,7 +11,7 @@ function drawBloomcase() {
     
     newNodes = {};
     testLayout = new d3_layout_bloomcase();
-    d3.json("new8.json", function(data) {
+    d3.json("../../../json/new8.json", function(data) {
     newNodes = data;
     testLayout.nodes(newNodes.nodes);
     
@@ -73,14 +73,14 @@ function drawBC(nodeData,linkData) {
 	return "translate(" + (-1*(shapeMeasures[d.kind]["myWidth"]/2)) + "," + (-1*(shapeMeasures[d.kind]["myHeight"]/2)) + ")"; 
     });
 
-    secG.append("text")
+    /*secG.append("text")
                 .attr("dx", -1)
                 .attr("dy", ".35em")
                 .attr("alignment-baseline", "center")
                 .attr("text-anchor", "middle")
                 .style("fill", "white")
                 .text(function(d) { return d.nid })
-		.style("pointer-events", "none");
+		.style("pointer-events", "none");*/
 		
     redrawBC();
 }

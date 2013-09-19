@@ -19,9 +19,9 @@ $footerInclude = $pathPrefix . "parts/footer.php";
 // INCLUDE HEADER
 include $headerInclude; 
 ?>
-<script src="d3.v3.min.js"></script>
-<script src="bloomcase_layout.js"></script>
-<script src="draw_bc.js"></script>
+<script src="<?php print $pathPrefix; ?>js/d3.v3.min.js"></script>
+<script src="<?php print $pathPrefix; ?>js/bloomcase_layout.js"></script>
+<script src="<?php print $pathPrefix; ?>js/draw_bc.js"></script>
 
 			<div id="project-header" class="light">
                 <div class="container">
