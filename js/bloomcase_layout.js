@@ -57,6 +57,10 @@ d3_layout_bloomcase = function() {
                 incNodes[incNode].datetime = new Date(tArr[0], tArr[1], tArr[2], tArr[3],tArr[4],tArr[5]);
                 incNodes[incNode].column = -1;
                 incNodes[incNode].row = -1;
+                incNodes[incNode].lane = 1;
+                incNodes[incNode].lane2 = 1;
+		incNodes[incNode].sourceCount = 0;
+		incNodes[incNode].targetCount = 0;
                 incNodes[incNode].isMeta = false;                
                 incNodes[incNode].evolvedFromArray = [];
                 blNodeHash[incNodes[incNode].nid] = incNodes[incNode];
@@ -102,7 +106,13 @@ d3_layout_bloomcase = function() {
                             metaNodeObject = blNodeHash["meta" + incNodes[incNode].nid]
                         }
                         else {
-                            metaNodeObject = {kind: blNodeHash[incNodes[incNode].nid].kind, datetime: blNodeHash[incNodes[incNode].nid].datetime, row: -1, column: -1, isMeta: true, nid: "meta" + incNodes[incNode].nid, evolvedFromArray: []}
+                            metaNodeObject = {kind: blNodeHash[incNodes[incNode].nid].kind,
+			    datetime: blNodeHash[incNodes[incNode].nid].datetime,
+			    lane: 1,
+			    lane2: 1,
+			    sourceCount: 0,
+			    targetCount: 0,
+			    row: -1, column: -1, isMeta: true, nid: "meta" + incNodes[incNode].nid, evolvedFromArray: []}
                         blNodes.push(metaNodeObject);
                         incNodes[incNode].evolvedFromArray.push(metaNodeObject);
                             blNodeHash["meta" + incNodes[incNode].nid] = metaNodeObject;
@@ -111,6 +121,10 @@ d3_layout_bloomcase = function() {
                         linkObject1.target = metaNodeObject;
                         linkObject2.source = metaNodeObject;
                         linkObject2.target = blNodeHash[incNodes[incNode].nid];
+			blNodeHash[incNodes[incNode].nid].sourceCount++;
+			blNodeHash[linkArray[l]].targetCount++;
+			metaNodeObject.sourceCount++;
+			metaNodeObject.targetCount++;
                         metaNodeObject.evolvedFromArray.push(blNodeHash[linkArray[l]]);
                         blLinks.push(linkObject1);
                         blLinks.push(linkObject2);
@@ -148,17 +162,10 @@ d3_layout_bloomcase = function() {
                             connections++;
                         }
                     }
-                    console.log(connections);
-                    console.log(newSource);
-                    console.log(newTarget);
                     if (connections == 2) {
-                        console.log("delete");
                         newTarget.evolvedFromArray = [newSource];
-                        console.log(blLinks[deleteLinkID]);
                         blLinks.splice(deleteLinkID,1);
                         updateLink.source = newSource;
-                        console.log(updateLink);
-                        console.log(blNodes[deleteNodeID])
                         blNodes.splice(deleteNodeID,1);
                     }
                 }
@@ -188,6 +195,46 @@ d3_layout_bloomcase = function() {
     
     //Set the earliest node to column position 2 (we're numbering columns in intervals of 2 to leave room for meta-columns)
     blNodes[0].column = 2;
+    
+    zeroSourceLinks = blLinks.filter(function(el) {return el.source.sourceCount == 0})
+    var z = 0;
+    while (z <= zeroSourceLinks.length) {
+	if (zeroSourceLinks[0]) {
+	    if (zeroSourceLinks[0].target.lane <= zeroSourceLinks[0].source.lane) {
+		zeroSourceLinks[0].target.lane = zeroSourceLinks[0].source.lane + 1;
+	    }
+	    foundLinks = blLinks.filter(function(el) {return el.source.nid == zeroSourceLinks[0].target.nid})
+	    for (x in foundLinks) {
+		if (zeroSourceLinks.indexOf(foundLinks[x]) == -1) {
+		    zeroSourceLinks.push(foundLinks[x])
+		}
+	    }
+	    zeroSourceLinks.shift();
+	}
+	else {
+	    break;
+	}
+    }
+    
+        zeroSourceLinks = blLinks.filter(function(el) {return el.target.targetCount == 0})
+    var z = 0;
+    while (z <= zeroSourceLinks.length) {
+	if (zeroSourceLinks[0]) {
+	    if (zeroSourceLinks[0].source.lane2 <= zeroSourceLinks[0].target.lane2) {
+		zeroSourceLinks[0].source.lane2 = zeroSourceLinks[0].target.lane2 + 1;
+	    }
+	    foundLinks = blLinks.filter(function(el) {return el.target.nid == zeroSourceLinks[0].source.nid})
+	    for (x in foundLinks) {
+		if (zeroSourceLinks.indexOf(foundLinks[x]) == -1) {
+		    zeroSourceLinks.push(foundLinks[x])
+		}
+	    }
+	    zeroSourceLinks.shift();
+	}
+	else {
+	    break;
+	}
+    }
 
     //Step through the array again starting
     var newLinks = [];
@@ -237,6 +284,10 @@ d3_layout_bloomcase = function() {
     for (col in columnsByRows) {
     columnsByRows[col].sort(function (a,b) {
     var sortReturn = 0;
+    if ((a["lane"] + a["lane2"]) < (b["lane"] + b.kind["lane2"]))
+    return 1;
+    if ((a["lane"] + a["lane2"]) > (b["lane"] + b.kind["lane2"]))
+    return -1;
     if (shapeMeasures[a.kind]["rank"] < shapeMeasures[b.kind]["rank"])
     return 1;
     if (shapeMeasures[a.kind]["rank"] > shapeMeasures[b.kind]["rank"])
@@ -253,20 +304,22 @@ d3_layout_bloomcase = function() {
             var currentKind = "";
         var currentList = [];
         var offset = 0;
-        var isFirst = true;
+        var isFirst = false;
         
     for (c in columnsByRows) {
         currentKind = "";
+        currentLane = 0;
         currentList = [];
         offset = 0;
         isFirst = true;
         for (node in columnsByRows[c]) {
-        if (columnsByRows[c][node].kind == currentKind) {
-                currentList.push(columnsByRows[c][node]);
+        if (columnsByRows[c][node].kind == currentKind && (columnsByRows[c][node].lane + columnsByRows[c][node].lane2) == currentLane) {
+            currentList.push(columnsByRows[c][node]);
         }
             else {
             placeRows();
-            currentKind = columnsByRows[c][node].kind
+            currentKind = columnsByRows[c][node].kind;
+	    currentLane = (columnsByRows[c][node].lane + columnsByRows[c][node].lane2);
             currentList.push(columnsByRows[c][node]);
             }
         }
@@ -274,9 +327,11 @@ d3_layout_bloomcase = function() {
     }
     
     function placeRows() {
+	console.log(currentList)
                if (currentList.length > 0) {
                 for (pc in currentList) {
                 if (isFirst == true) {
+		    console.log("first")
                     currentList[pc].row = pc - (currentList.length / 2)
                     offset = (currentList.length / 2);
                 }
@@ -284,6 +339,7 @@ d3_layout_bloomcase = function() {
                     currentList[pc].row = offset;
                     offset++;
                 }
+		console.log(currentList[pc].row)
                 }
                 isFirst = false;
             currentList = [];

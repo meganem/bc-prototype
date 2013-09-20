@@ -1,14 +1,14 @@
 
-    rowSize = 50;
+    rowSize = -50;
     columnSize = 25;
     updatingNode = {};
+    forBack = 0;
     x1GenLine = 0;
     y1GenLine = 0;
     currentNewNode = "Idea";
     possibleShapes = ["Inspiration", "Final", "Draft", "Sketch"]
 
 function drawBloomcase() {
-    
     newNodes = {};
     testLayout = new d3_layout_bloomcase();
     d3.json("../../../json/new8.json", function(data) {
@@ -26,21 +26,27 @@ function drawBloomcase() {
 
 	var xStep = (endPoint[0] - startPoint[0]);
 	var yStep = (endPoint[1] - startPoint[1]);
-	var xyDiff = Math.abs(yStep) - rowSize;
-	var firstDiff = xyDiff * .375;
+	var xyDiff = Math.abs(yStep) + rowSize;
+	var firstDiff = xyDiff * .135;
 	var secDiff = xyDiff * .17;
+	var firstDiff2 = xyDiff * .375;
+	var secDiff2 = xyDiff * .17;
+	var firstDiff3 = xyDiff * .375;
+	var secDiff3 = xyDiff * .17;
 		
 	if (startPoint[1] < endPoint[1] && startPoint[0] < endPoint[0]) {
+// Above forward
 	return "M" + startPoint[0] + "," + startPoint[1] + "c" + (xStep + firstDiff) + ",0 " + (-secDiff) + ","+ (yStep) + " " + xStep + "," + yStep;
 	}
 	else if (startPoint[1] < endPoint[1] && startPoint[0] > endPoint[0]) {
-	return "M" + startPoint[0] + "," + startPoint[1] + "c" + (xStep + firstDiff) + ",0 " + (-secDiff) + ","+ (yStep) + " " + xStep + "," + yStep;
+	return "M" + startPoint[0] + "," + startPoint[1] + "c" + (xStep + firstDiff2) + ",0 " + (-secDiff2) + ","+ (yStep) + " " + xStep + "," + yStep;
 	}
+// Above forward
 	else if (startPoint[1] > endPoint[1] && startPoint[0] < endPoint[0]) {
-	return "M" + startPoint[0] + "," + startPoint[1] + "c" + (xStep + firstDiff) + ",0 " + (-secDiff) + ","+ (yStep) + " " + xStep + "," + yStep;
+	return "M" + startPoint[0] + "," + startPoint[1] + "c" + (xStep + firstDiff2) + ",0 " + (-secDiff2) + ","+ (yStep) + " " + xStep + "," + yStep;
 	}
 	else if (startPoint[1] > endPoint[1] && startPoint[0] > endPoint[0]) {
-	return "M" + startPoint[0] + "," + startPoint[1] + "c" + (xStep + firstDiff) + ",0 " + (-secDiff) + ","+ (yStep) + " " + xStep + "," + yStep;
+	return "M" + startPoint[0] + "," + startPoint[1] + "c" + (xStep + firstDiff2) + ",0 " + (-secDiff2) + ","+ (yStep) + " " + xStep + "," + yStep;
 	}
 	else {
 	return "M" + startPoint[0] + "," + startPoint[1] + "c0,0 "+xStep+"," + (yStep) + " " + xStep + "," + yStep;
@@ -48,6 +54,7 @@ function drawBloomcase() {
     }
     
 function drawBC(nodeData,linkData) {
+    d3.select("#new-node").style("display", "none");
     d3.selectAll("path.connections").remove();
     d3.selectAll("g.sec").remove();
     
@@ -72,16 +79,16 @@ function drawBC(nodeData,linkData) {
     .attr("transform", function(d) { 
 	return "translate(" + (-1*(shapeMeasures[d.kind]["myWidth"]/2)) + "," + (-1*(shapeMeasures[d.kind]["myHeight"]/2)) + ")"; 
     });
-
-    /*secG.append("text")
+/*
+    secG.append("text")
                 .attr("dx", -1)
                 .attr("dy", ".35em")
                 .attr("alignment-baseline", "center")
                 .attr("text-anchor", "middle")
                 .style("fill", "white")
-                .text(function(d) { return d.nid })
-		.style("pointer-events", "none");*/
-		
+                .text(function(d) { return "" + (d.lane + d.lane2)})
+		.style("pointer-events", "none");
+*/
     redrawBC();
 }
 
@@ -132,7 +139,13 @@ function endMove(d,i) {
 	var checkX = Math.abs(blNodes[no].column * columnSize - curMouse[0]);
 	var checkY = Math.abs(200 + (blNodes[no].row * rowSize) - curMouse[1]);
 	if (checkX < 20 && checkY < 20) {
-	    blNodes[no].evolvedFrom.length == 0 ? blNodes[no].evolvedFrom = updatingNode.nid : blNodes[no].evolvedFrom += ("," + updatingNode.nid)
+	    
+	        if (forBack > 0) {
+		    blNodes[no].evolvedFrom.length == 0 ? blNodes[no].evolvedFrom = updatingNode.nid : blNodes[no].evolvedFrom += ("," + updatingNode.nid)
+		}
+		else {
+		    updatingNode.evolvedFrom.length == 0 ? updatingNode.evolvedFrom = blNodes[no].nid : updatingNode.evolvedFrom += ("," + blNodes[no].nid)
+		}
 	    d3.select("#genNode").remove();
 	    d3.select("#genLine").remove();
 	    d3.select("svg").on("mousemove", null)
@@ -234,16 +247,13 @@ function selectNewNode(d,i) {
 	}
     }
     d3.select("#opt"+d)
-    .transition()
-    .duration(500)
+    .attr("id", "opt" + currentNewNode)
     .attr("d", shapeMeasures[currentNewNode]["pathd"])
     .style("fill", shapeMeasures[currentNewNode]["color"]);
 
     currentNewNode = d;
     d3.select("#newNode")
     .on("click", function() {createNewNode(d,0)})
-    .transition()
-    .duration(500)
     .attr("d", shapeMeasures[d]["pathd"])
     .style("fill", shapeMeasures[d]["color"]);
 }
@@ -251,7 +261,6 @@ function selectNewNode(d,i) {
 function createNewNode(d,i) {
     d3.select("#genNode").remove();
     d3.select("#genLine").remove();
-    var forBack = 50;
     var evolvedVal = "";
     var newNodeID = "100" + testLayout.nodes().length;
     if (forBack > 0) {
@@ -282,6 +291,7 @@ function createNewNode(d,i) {
 
 function moveGenNode(d,i) {
     var curMouse = d3.mouse(this);
+    forBack = (curMouse[0] - x1GenLine);
     d3.select("#genNode")
     .attr("transform","translate("+curMouse[0]+","+curMouse[1]+")")
 
