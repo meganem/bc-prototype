@@ -2,7 +2,7 @@ blHashExposed = {};
 d3_layout_bloomcase = function() {
     var topLayer = 0, bottomLayer = 0, eventRelations = [], temporalProjection, eventHash = {}, tlWidth = 100, tlHeight = 100, temporalRange =[0,1], temporalType = "date", timeScale = 1, featureCollection, temporalPeriods = [], temporalEvents = [], timeSegments, numLanes = 1, earliestDate = 1, latestDate = 10;
 
-    var firstNodes=[], lastNodes=[], numColumns = 1, blNodes = [], blLinks = [], columnStep = 30, blNodeHash = {};
+    var firstNodes=[], lastNodes=[], numColumns = 1, blNodes = [], blLinks = [], columnStep = 30, blNodeHash = {},columnsByRows = {};
     var shapeHierarchy = ["Draft", "Final", "Sketch","Idea","Inspiration", "last", "meta"];
     shapeMeasures = {
 	    Inspiration: {myWidth: 21.6, myHeight: 21.6, rank: 1, color: "#874C81",
@@ -34,6 +34,10 @@ d3_layout_bloomcase = function() {
         else {
             return blNodes;
         }
+    }
+    
+    this.columnContents = function() {
+        return columnsByRows;
     }
     
     this.firstNodes = function() {
@@ -93,7 +97,6 @@ d3_layout_bloomcase = function() {
                                 if (blNodes[tt].isMeta) {
                                     for (tz in blNodes[tt].evolvedFromArray) {
                                         if(blNodes[tt].evolvedFromArray[tz].nid == linkArray[l]) {
-                                            console.log("found it");
                                             metaNodeObject = blNodes[tt];
                                             alreadyExists = true;
                                         }
@@ -216,7 +219,7 @@ d3_layout_bloomcase = function() {
 	}
     }
     
-        zeroSourceLinks = blLinks.filter(function(el) {return el.target.targetCount == 0})
+    zeroSourceLinks = blLinks.filter(function(el) {return el.target.targetCount == 0})
     var z = 0;
     while (z <= zeroSourceLinks.length) {
 	if (zeroSourceLinks[0]) {
@@ -234,6 +237,11 @@ d3_layout_bloomcase = function() {
 	else {
 	    break;
 	}
+    }
+    
+    //add them up
+    for (x in blNodes) {
+	blNodes[x].laneTotal = blNodes[x].lane + blNodes[x].lane2;
     }
 
     //Step through the array again starting
@@ -269,7 +277,6 @@ d3_layout_bloomcase = function() {
     }
     //Arrange rows
     
-    var columnsByRows = {};
     for (shapes in shapeHierarchy) {
         for (bn in blNodes) {
             if (blNodes[bn].kind == shapeHierarchy[shapes]) {
@@ -284,9 +291,9 @@ d3_layout_bloomcase = function() {
     for (col in columnsByRows) {
     columnsByRows[col].sort(function (a,b) {
     var sortReturn = 0;
-    if ((a["lane"] + a["lane2"]) < (b["lane"] + b.kind["lane2"]))
+    if (a["laneTotal"] < b["laneTotal"])
     return 1;
-    if ((a["lane"] + a["lane2"]) > (b["lane"] + b.kind["lane2"]))
+    if (a["laneTotal"] > b["laneTotal"])
     return -1;
     if (shapeMeasures[a.kind]["rank"] < shapeMeasures[b.kind]["rank"])
     return 1;
@@ -327,11 +334,9 @@ d3_layout_bloomcase = function() {
     }
     
     function placeRows() {
-	console.log(currentList)
                if (currentList.length > 0) {
                 for (pc in currentList) {
                 if (isFirst == true) {
-		    console.log("first")
                     currentList[pc].row = pc - (currentList.length / 2)
                     offset = (currentList.length / 2);
                 }
@@ -339,7 +344,6 @@ d3_layout_bloomcase = function() {
                     currentList[pc].row = offset;
                     offset++;
                 }
-		console.log(currentList[pc].row)
                 }
                 isFirst = false;
             currentList = [];
