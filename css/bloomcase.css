@@ -55,10 +55,22 @@ h6 {
     line-height: 1.5em;
 }
 
+img {
+    max-width: 100%;
+    height:auto;
+}
+.front h1 {
+    display:none;
+}
+.border-top {
+    border-top: 1px solid #3F3F3F;
+}
+
 .lead {
     font-weight: 300;
     font-size:1.75em;
     line-height: 1.25em;
+    margin-bottom: 0.5em;
 }
 
 a {
@@ -168,9 +180,7 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 
 #main-menu {
     display: inline-block;
-    margin-left: 1em;
-}
-.logged-in #main-menu {
+    margin-top: 0.25em;
 	float:right;
 }
 ul.menu {
@@ -275,6 +285,27 @@ ul.dropdown li .notification-link a {
 }
 ul.dropdown li .notification-link a:after {
 	content: " »";
+}
+
+
+.row {
+    clear:both;
+}
+.align-center {
+    text-align: center;
+}
+.grid-4 {
+    width:30%;
+    display: inline-block;
+    margin-right: 1em;
+    width: 30%;
+    vertical-align: top;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+}
+.grid-4:last-child {
+    margin-right:0;
 }
 
 
