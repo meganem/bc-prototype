@@ -1,20 +1,28 @@
 
-    rowSize = 50;
+    rowSize = -50;
     columnSize = 25;
     updatingNode = {};
+    forBack = 0;
     x1GenLine = 0;
     y1GenLine = 0;
     currentNewNode = "Idea";
-    possibleShapes = ["Inspiration", "Final", "Draft", "Sketch"]
+    possibleShapes = ["Inspiration", "Final", "Draft", "Sketch"];
+    fD = .135;
+    sD = .17;
+    fD2 = .375;
+    sD2 = .17;
+    fD3 = .375;
+    sD3 = .17;
+    fD4 = .375;
+    sD4 = .17;
 
 function drawBloomcase() {
-    
     newNodes = {};
     testLayout = new d3_layout_bloomcase();
     d3.json("../../../json/new8.json", function(data) {
     newNodes = data;
     testLayout.nodes(newNodes.nodes);
-    
+    d3.select("svg").on("click", hideModal);
     d3.select("svg").append("g").attr("id", "bloomG");    
 
     drawBC(testLayout.nodes(),testLayout.links());
@@ -26,21 +34,36 @@ function drawBloomcase() {
 
 	var xStep = (endPoint[0] - startPoint[0]);
 	var yStep = (endPoint[1] - startPoint[1]);
-	var xyDiff = Math.abs(yStep) - rowSize;
-	var firstDiff = xyDiff * .375;
-	var secDiff = xyDiff * .17;
-		
+	var downLine = (endPoint[1] - startPoint[1]) + (rowSize / 2);
+	var upLine = (endPoint[1] - startPoint[1]) - (rowSize / 2);
+	var curveWidth = xStep / 2;
+	var curveHeight = rowSize / 4;
+	var xyDiff = Math.abs(yStep) + rowSize;
+	var firstDiff = xyDiff * fD;
+	var secDiff = xyDiff * sD;
+	var firstDiff2 = xyDiff * fD2;
+	var secDiff2 = xyDiff * sD2;
+	var firstDiff3 = xyDiff * fD3;
+	var secDiff3 = xyDiff * sD3;
+	var firstDiff4 = xyDiff * fD4;
+	var secDiff4 = xyDiff * sD4;
+
 	if (startPoint[1] < endPoint[1] && startPoint[0] < endPoint[0]) {
-	return "M" + startPoint[0] + "," + startPoint[1] + "c" + (xStep + firstDiff) + ",0 " + (-secDiff) + ","+ (yStep) + " " + xStep + "," + yStep;
+// Above forward
+//	return "M" + startPoint[0] + "," + startPoint[1] + "c" + (xStep + firstDiff) + ",0 " + (-secDiff) + ","+ (yStep) + " " + xStep + "," + yStep;
+	return "M" + startPoint[0] + "," + startPoint[1] + "c" + (0) + ",0 " + (curveWidth) + ","+ (0) + " " + curveWidth + "," + (-curveHeight) + " l 0," + downLine + " c" + (0) + ",0 " + (0) + ","+ (-curveHeight) + " " + curveWidth + "," + (-curveHeight);
 	}
 	else if (startPoint[1] < endPoint[1] && startPoint[0] > endPoint[0]) {
-	return "M" + startPoint[0] + "," + startPoint[1] + "c" + (xStep + firstDiff) + ",0 " + (-secDiff) + ","+ (yStep) + " " + xStep + "," + yStep;
+//	return "M" + startPoint[0] + "," + startPoint[1] + "c" + (xStep + firstDiff2) + ",0 " + (-secDiff2) + ","+ (yStep) + " " + xStep + "," + yStep;
+	return "M" + startPoint[0] + "," + startPoint[1] + "c" + (0) + ",0 " + (curveWidth) + ","+ (0) + " " + curveWidth + "," + (-curveHeight) + " l 0," + downLine + " c" + (0) + ",0 " + (0) + ","+ (-curveHeight) + " " + curveWidth + "," + (-curveHeight);
 	}
+// Above forward
 	else if (startPoint[1] > endPoint[1] && startPoint[0] < endPoint[0]) {
-	return "M" + startPoint[0] + "," + startPoint[1] + "c" + (xStep + firstDiff) + ",0 " + (-secDiff) + ","+ (yStep) + " " + xStep + "," + yStep;
+//	return "M" + startPoint[0] + "," + startPoint[1] + "c" + (xStep + firstDiff3) + ",0 " + (-secDiff3) + ","+ (yStep) + " " + xStep + "," + yStep;
+	return "M" + startPoint[0] + "," + startPoint[1] + "c" + (0) + ",0 " + (curveWidth) + ","+ (0) + " " + curveWidth + "," + (curveHeight) + " l 0," + upLine + " c" + (0) + ",0 " + (0) + ","+ (curveHeight) + " " + curveWidth + "," + (curveHeight);
 	}
 	else if (startPoint[1] > endPoint[1] && startPoint[0] > endPoint[0]) {
-	return "M" + startPoint[0] + "," + startPoint[1] + "c" + (xStep + firstDiff) + ",0 " + (-secDiff) + ","+ (yStep) + " " + xStep + "," + yStep;
+	return "M" + startPoint[0] + "," + startPoint[1] + "c" + (xStep + firstDiff4) + ",0 " + (-secDiff4) + ","+ (yStep) + " " + xStep + "," + yStep;
 	}
 	else {
 	return "M" + startPoint[0] + "," + startPoint[1] + "c0,0 "+xStep+"," + (yStep) + " " + xStep + "," + yStep;
@@ -48,8 +71,11 @@ function drawBloomcase() {
     }
     
 function drawBC(nodeData,linkData) {
+    d3.select("#new-node").style("display", "none");
     d3.selectAll("path.connections").remove();
     d3.selectAll("g.sec").remove();
+    d3.selectAll("#inserted").remove();
+
     
     d3.select("#bloomG").selectAll("path.connections").data(linkData).enter().append("path")
     .style("stroke", "black")
@@ -72,16 +98,14 @@ function drawBC(nodeData,linkData) {
     .attr("transform", function(d) { 
 	return "translate(" + (-1*(shapeMeasures[d.kind]["myWidth"]/2)) + "," + (-1*(shapeMeasures[d.kind]["myHeight"]/2)) + ")"; 
     });
-
-    /*secG.append("text")
+    secG.append("text")
                 .attr("dx", -1)
                 .attr("dy", ".35em")
                 .attr("alignment-baseline", "center")
                 .attr("text-anchor", "middle")
                 .style("fill", "white")
-                .text(function(d) { return d.nid })
-		.style("pointer-events", "none");*/
-		
+                .text(function(d) { return "" + (d.laneTotal)})
+		.style("pointer-events", "none");
     redrawBC();
 }
 
@@ -103,7 +127,7 @@ function startMove(d,i) {
     var curMouse = d3.mouse(this.parentNode);
     d3.select("svg").on("mousemove", moveGenNode)
     d3.select("#bloomG").on("mouseup", endMove)
-    d3.select("#bloomG").append("path")
+    d3.select("#bloomG").insert("path", ".sec")
     .attr("id", "genLine")
     .attr("d", function(d) {return curvyLine([x1GenLine, y1GenLine],[curMouse[0], curMouse[1]]) })
     .style("stroke", "black")
@@ -132,7 +156,15 @@ function endMove(d,i) {
 	var checkX = Math.abs(blNodes[no].column * columnSize - curMouse[0]);
 	var checkY = Math.abs(200 + (blNodes[no].row * rowSize) - curMouse[1]);
 	if (checkX < 20 && checkY < 20) {
-	    blNodes[no].evolvedFrom.length == 0 ? blNodes[no].evolvedFrom = updatingNode.nid : blNodes[no].evolvedFrom += ("," + updatingNode.nid)
+	    if (blNodes[no].column != updatingNode.column && !(blNodes[no].evolvedFrom.indexOf(updatingNode.nid) > -1 || updatingNode.evolvedFrom.indexOf(blNodes[no].nid) > -1)) {
+	    
+	        if (forBack > 0) {
+		    blNodes[no].evolvedFrom.length == 0 ? blNodes[no].evolvedFrom = updatingNode.nid : blNodes[no].evolvedFrom += ("," + updatingNode.nid)
+		}
+		else {
+		    updatingNode.evolvedFrom.length == 0 ? updatingNode.evolvedFrom = blNodes[no].nid : updatingNode.evolvedFrom += ("," + blNodes[no].nid)
+		}
+	    }
 	    d3.select("#genNode").remove();
 	    d3.select("#genLine").remove();
 	    d3.select("svg").on("mousemove", null)
@@ -140,7 +172,6 @@ function endMove(d,i) {
 	    freshLayout = new d3_layout_bloomcase();
 	    freshLayout.nodes(newNodeArray);
 	    drawBC(freshLayout.nodes(),freshLayout.links())
-
 	    return;
 	}
     }
@@ -149,6 +180,7 @@ function endMove(d,i) {
     
     d3.select("#genNode")
     .insert("circle", "#newNode")
+    .attr("class", "options")
     .style("fill", "white")
     .style("stroke", "black")
     .style("stroke-width", "2px")
@@ -183,7 +215,7 @@ function endMove(d,i) {
     .append("g")
 
     var circBCOpts = nodeOpts.append("circle")
-    .attr("class", "optionsBC")
+    .attr("class", "options optionsBC")
     .attr("r", 1)
     .attr("cx", 0)
     .attr("cy", 0)
@@ -234,54 +266,98 @@ function selectNewNode(d,i) {
 	}
     }
     d3.select("#opt"+d)
-    .transition()
-    .duration(500)
+    .attr("id", "opt" + currentNewNode)
     .attr("d", shapeMeasures[currentNewNode]["pathd"])
     .style("fill", shapeMeasures[currentNewNode]["color"]);
 
     currentNewNode = d;
     d3.select("#newNode")
     .on("click", function() {createNewNode(d,0)})
-    .transition()
-    .duration(500)
     .attr("d", shapeMeasures[d]["pathd"])
     .style("fill", shapeMeasures[d]["color"]);
 }
 
 function createNewNode(d,i) {
-    d3.select("#genNode").remove();
-    d3.select("#genLine").remove();
-    var forBack = 50;
     var evolvedVal = "";
     var newNodeID = "100" + testLayout.nodes().length;
-    if (forBack > 0) {
-	evolvedVal = updatingNode.nid;
-    }
-    else {
-	updatingNode.evolvedFrom.length == 0 ? updatingNode.evolvedFrom = newNodeID : updatingNode.evolvedFrom += ("," + newNodeID)
-    }
-    
+    var newSource = {};
+    var newTarget = {};
     var newNode = {nid: newNodeID,
     kind: d, datetime: testLayout.nodes()[0].datetime,
     timestamp: testLayout.nodes()[0].timestamp,
-    row: -1,
-    column: -1,
+    row: -0.5,
+    column: 0,
     isMeta: false,
-    evolvedFrom: evolvedVal}
+    evolvedFrom: ""}
+    
+    if (forBack > 0) {
+	newSource = updatingNode;
+	newTarget = newNode;
+	newNode.evolvedFrom = updatingNode.nid;
+	newNode.column = updatingNode.column + 2;
+    }
+    else {
+	newSource = newNode;
+	newTarget = updatingNode;
+	updatingNode.evolvedFrom.length == 0 ? updatingNode.evolvedFrom = newNodeID : updatingNode.evolvedFrom += ("," + newNodeID)
+	newNode.column = updatingNode.column - 2;
+    }
+
+    if (testLayout.columnContents()[newNode.column]) {
+        newNode.row = testLayout.columnContents()[newNode.column][testLayout.columnContents()[newNode.column].length - 1].row + 1;
+        testLayout.columnContents()[newNode.column].push(newNode)
+    }
+    else {
+        testLayout.columnContents()[newNode.column] = [newNode]	
+    }
+    
+
+    d3.selectAll(".options").remove();
+    
+    d3.select("#newNode").attr("id", "inserted")
+//    .attr("transform", "translate(-13,-15)")
+    var createdNode = d3.select("#genNode")
+    .data([newNode])
+    .attr("id", "insertedNode")
+    .attr("class", "sec")
+    .on("mousedown", startMove)
+    .on("mouseup", endMove)
+    
+    d3.select("#genLine")
+    .data([{source: newSource, target: newTarget}])
+    .attr("id", "inserted")
+    .attr("class", "connections")
+    .transition()
+    .duration(500)
+    .attr("d", function(d) {return curvyLine([x1GenLine, y1GenLine],[(newNode.column * columnSize), (200 + (newNode.row * rowSize))])});
     
     testLayout.nodes().push(newNode)
     newNodeArray = testLayout.nodes().filter(function(el) {return el.isMeta ? null : this});
     
-    freshLayout = new d3_layout_bloomcase();
-    freshLayout.nodes(newNodeArray);
+//    freshLayout = new d3_layout_bloomcase();
+//    freshLayout.nodes(newNodeArray);
     
-    drawBC(freshLayout.nodes(),freshLayout.links())
+//    drawBC(freshLayout.nodes(),freshLayout.links())
 //    testLayout.nodes(newNodeArray);
-//    redrawBC();
+    redrawBC();
+    var runLater = setTimeout(function() {nodeDetailsDialog(createdNode)}, 1000)
+}
+
+function nodeDetailsDialog(targetNode) {
+    var translateAtt = targetNode.attr("transform");
+    console.log(translateAtt);
+    var nodeXY = translateAtt.split("(")[1].split(")")[0].split(",");
+    d3.select("#new-node").style("display", "block").style("left", (parseInt(nodeXY[0]) - 75) + "px").style("top", (parseInt(nodeXY[1]) - 40) + "px")
+
+}
+
+function hideModal() {
+    d3.select("#new-node").style("display", "none");
 }
 
 function moveGenNode(d,i) {
     var curMouse = d3.mouse(this);
+    forBack = (curMouse[0] - x1GenLine);
     d3.select("#genNode")
     .attr("transform","translate("+curMouse[0]+","+curMouse[1]+")")
 
