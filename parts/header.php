@@ -18,7 +18,10 @@
 
         <script src="<?php print $pathPrefix; ?>js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
-    <body class="<?php if($loggedIn == true) { print "logged-in"; } ?>">
+    <body class="<?php 
+        if($frontPage == true) { print "front"; }
+        if($loggedIn == true) { print "logged-in"; } 
+        ?>">
 
         <div id="wrapper">
             <div id="header" class="dark">
@@ -30,9 +33,10 @@
                     <div id="main-menu" class="">
                     <?php if($loggedIn == false) { ?>
                         <ul class="menu">
-                            <li><a href="<?php print $pathPrefix; ?>">Home</a></li>
-                            <li><a href="<?php print $pathPrefix; ?>help">Help</a></li>
-                            <li><a href="<?php print $pathPrefix; ?>account">Account</a></li>
+                            <li><a href="<?php print $pathPrefix; ?>features">Features</a></li>
+                            <li><a href="<?php print $pathPrefix; ?>pricing">Pricing</a></li>
+                            <li><a href="<?php print $pathPrefix; ?>sign-up">Sign Up</a></li>
+                            <li><a href="<?php print $pathPrefix; ?>sign-in" class="button green">Sign in</a></li>
                         </ul>
                     <?php } elseif($loggedIn == true) { ?>
                     	
