@@ -409,7 +409,7 @@ a.clicker:hover, a.clicker:focus, a.clicker:active {text-decoration:none; border
 .click-nav .no-js:hover ul {display:block;}
 
 /* Process map styles */
-.Idea:hover, .Draft:hover, .Inspiration:hover, .Final:hover, .Sketch:hover {fill:#000000;}
+.Idea:hover, .Draft:hover, .Inspiration:hover, .Final:hover, .Sketch:hover {stroke:#000000;}
 .Idea {fill:#C69722;}
 .Draft {fill:#628C31;}
 .Inspiration {fill:#874C81;}
