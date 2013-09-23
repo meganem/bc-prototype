@@ -17,17 +17,27 @@
     sD4 = .17;
 
 function drawBloomcase() {
+    d3.select(".light").append("button").attr("onclick", "setZoomLevel(1)").html("Zoom 1").style("position", "absolute").style("right", "10px").style("top", "200px")
+    d3.select(".light").append("button").attr("onclick", "setZoomLevel(2)").html("Zoom 2").style("position", "absolute").style("right", "10px").style("top", "230px")
+    d3.select(".light").append("button").attr("onclick", "setZoomLevel(3)").html("Zoom 3").style("position", "absolute").style("right", "10px").style("top", "260px")
     newNodes = {};
     testLayout = new d3_layout_bloomcase();
     d3.json("../../../json/new8.json", function(data) {
     newNodes = data;
     testLayout.nodes(newNodes.nodes);
-    d3.select("svg").on("click", hideModal);
+    bloomZoom = d3.behavior.zoom()
+    .on("zoom", panBC);
+
+    d3.select("svg").on("click", hideModal).call(bloomZoom);
     d3.select("svg").append("g").attr("id", "bloomG");    
 
     drawBC(testLayout.nodes(),testLayout.links());
     });
     
+}
+
+function panBC() {
+    d3.select("#bloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
 }
 
     var curvyLine = function(startPoint,endPoint) {
@@ -112,7 +122,7 @@ function drawBC(nodeData,linkData) {
 function redrawBC() {
     d3.selectAll("g.sec").transition().duration(1000)
     .attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ (200 + (d.row * rowSize)) +")"})
-    
+
     d3.selectAll("path.connections").transition()
     .duration(1000)
     .attr("d", function(d) {return curvyLine([d.source.column * columnSize, (200 + d.source.row * rowSize)],[d.target.column * columnSize, (200 + d.target.row * rowSize)]) });
@@ -120,6 +130,7 @@ function redrawBC() {
 }
 
 function startMove(d,i) {
+    d3.event.stopPropagation();
     if (!d3.select("#genNode").empty()) {return;}
     x1GenLine = d.column * columnSize;
     y1GenLine = 200 + (d.row * rowSize);
@@ -254,8 +265,6 @@ function endMove(d,i) {
     .duration(500)
     .style("fill", "#C69722")
     .attr("d", shapeMeasures[currentNewNode]["pathd"])
-    
-
 }
 
 function selectNewNode(d,i) {
@@ -347,8 +356,26 @@ function nodeDetailsDialog(targetNode) {
     var translateAtt = targetNode.attr("transform");
     console.log(translateAtt);
     var nodeXY = translateAtt.split("(")[1].split(")")[0].split(",");
-    d3.select("#new-node").style("display", "block").style("left", (parseInt(nodeXY[0]) - 75) + "px").style("top", (parseInt(nodeXY[1]) - 40) + "px")
+    d3.select("#new-node").style("display", "block").style("left", ((parseInt(nodeXY[0]) - 75) + bloomZoom.translate()[0]) + "px").style("top", ((parseInt(nodeXY[1]) - 40) + bloomZoom.translate()[1]) + "px")
 
+}
+
+function setZoomLevel(zl) {
+    switch(zl) {
+	case 1:
+	    rowSize = -50;
+	    columnSize = 25;
+	    break;
+	case 2:
+	    rowSize = -100;
+	    columnSize = 100;
+	    break;
+	case 3:
+	    rowSize = -200;
+	    columnSize = 200;
+	break;
+    }
+    redrawBC();
 }
 
 function hideModal() {
@@ -357,11 +384,11 @@ function hideModal() {
 
 function moveGenNode(d,i) {
     var curMouse = d3.mouse(this);
-    forBack = (curMouse[0] - x1GenLine);
+    forBack = (curMouse[0] - bloomZoom.translate()[0] - x1GenLine);
     d3.select("#genNode")
-    .attr("transform","translate("+curMouse[0]+","+curMouse[1]+")")
+    .attr("transform","translate("+(curMouse[0] - bloomZoom.translate()[0])+","+(curMouse[1] - bloomZoom.translate()[1])+")")
 
     d3.select("#genLine")
-    .attr("d", function(d) {return curvyLine([x1GenLine, y1GenLine],[curMouse[0], curMouse[1]])});
+    .attr("d", function(d) {return curvyLine([x1GenLine, y1GenLine],[(curMouse[0] - bloomZoom.translate()[0]), (curMouse[1] - bloomZoom.translate()[1])])});
         
 }
