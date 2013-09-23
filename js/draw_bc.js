@@ -85,8 +85,34 @@ function drawBC(nodeData,linkData) {
     d3.selectAll("path.connections").remove();
     d3.selectAll("g.sec").remove();
     d3.selectAll("#inserted").remove();
-
     
+    vGridData = [];
+    hGridData = [];
+    var x = 0;
+    while (x < 100) {
+	vGridData.push((x - 50));
+	hGridData.push((x - 50));
+	x++;
+    }
+    
+    d3.select("#bloomG").selectAll("line.hGrid").data(vGridData).enter().append("line")
+    .attr("x1", -10000)
+    .attr("x2", 10000)
+    .attr("class", "hGrid")
+    .attr("y1", function(d) {return d * columnSize})
+    .attr("y2", function(d) {return d * columnSize})
+    .style("stroke", "lightgray")
+    .style("stroke-width", "1px")
+
+    d3.select("#bloomG").selectAll("line.vGrid").data(vGridData).enter().append("line")
+    .attr("y1", -10000)
+    .attr("y2", 10000)
+    .attr("class", "vGrid")
+    .attr("x1", function(d) {return d * rowSize})
+    .attr("x2", function(d) {return d * rowSize})
+    .style("stroke", "lightgray")
+    .style("stroke-width", "1px")
+
     d3.select("#bloomG").selectAll("path.connections").data(linkData).enter().append("path")
     .style("stroke", "black")
     .attr("class", "connections")
@@ -100,6 +126,18 @@ function drawBC(nodeData,linkData) {
     .attr("transform", function(d,i) {return "translate(30,200)"})
     .on("mousedown", startMove)
     .on("mouseup", endMove)
+
+    /*
+    var secG = d3.select(".light").selectAll("div.sec").data(nodeData).enter().append("div")
+    .style("display", function(d) {return d.isMeta ? "none" : "block"})
+    .attr("class", "sec")
+    .style("width", "100px")
+    .style("height", "100px")
+    .style("background", "red")
+    .style("position", "absolute")
+    .style("left", "30px")
+    .style("top", "200px");
+    */
 
     
     secG.append("path")
@@ -126,7 +164,24 @@ function redrawBC() {
     d3.selectAll("path.connections").transition()
     .duration(1000)
     .attr("d", function(d) {return curvyLine([d.source.column * columnSize, (200 + d.source.row * rowSize)],[d.target.column * columnSize, (200 + d.target.row * rowSize)]) });
+    
+    d3.selectAll("line.hGrid")
+    .transition()
+    .duration(1000)
+    .attr("y1", function(d) {return d * columnSize})
+    .attr("y2", function(d) {return d * columnSize})
 
+    d3.selectAll("line.vGrid")
+    .transition()
+    .duration(1000)
+    .attr("x1", function(d) {return d * rowSize})
+    .attr("x2", function(d) {return d * rowSize})
+
+/*
+    d3.selectAll("div.sec").transition().duration(1000)
+    .style("left", function(d) {return "" + (d.column * columnSize) + "px"})
+    .style("top", function(d) {return "" + (200 + (d.row * rowSize) + "px")})
+    */
 }
 
 function startMove(d,i) {
