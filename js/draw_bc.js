@@ -1,6 +1,11 @@
 
     rowSize = -50;
     columnSize = 25;
+    secDivSize = 25;
+    secDivOffset = 25;
+    secDivOpacity = 1;
+    secDivPE = "auto";
+    
     updatingNode = {};
     forBack = 0;
     x1GenLine = 0;
@@ -15,11 +20,12 @@
     sD3 = .17;
     fD4 = .375;
     sD4 = .17;
+    
 
 function drawBloomcase() {
-    d3.select(".light").append("button").attr("onclick", "setZoomLevel(1)").html("Zoom 1").style("position", "absolute").style("right", "10px").style("top", "200px")
-    d3.select(".light").append("button").attr("onclick", "setZoomLevel(2)").html("Zoom 2").style("position", "absolute").style("right", "10px").style("top", "230px")
-    d3.select(".light").append("button").attr("onclick", "setZoomLevel(3)").html("Zoom 3").style("position", "absolute").style("right", "10px").style("top", "260px")
+    d3.select("#bloomViz").append("button").attr("onclick", "setZoomLevel(1)").html("Zoom 1").style("position", "absolute").style("right", "10px").style("top", "200px")
+    d3.select("#bloomViz").append("button").attr("onclick", "setZoomLevel(2)").html("Zoom 2").style("position", "absolute").style("right", "10px").style("top", "230px")
+    d3.select("#bloomViz").append("button").attr("onclick", "setZoomLevel(3)").html("Zoom 3").style("position", "absolute").style("right", "10px").style("top", "260px")
     newNodes = {};
     testLayout = new d3_layout_bloomcase();
     d3.json("../../../json/new8.json", function(data) {
@@ -38,6 +44,11 @@ function drawBloomcase() {
 
 function panBC() {
     d3.select("#bloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
+    
+    d3.selectAll("div.sec")
+    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - (secDivSize / 2)) + "px")})
+    .style("top", function(d) {return "" + ((270 + (secDivOffset) + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+
 }
 
     var curvyLine = function(startPoint,endPoint) {
@@ -127,18 +138,26 @@ function drawBC(nodeData,linkData) {
     .on("mousedown", startMove)
     .on("mouseup", endMove)
 
-    /*
-    var secG = d3.select(".light").selectAll("div.sec").data(nodeData).enter().append("div")
+    var secDiv = d3.select("#bloomViz").selectAll("div.sec").data(nodeData).enter().append("div")
     .style("display", function(d) {return d.isMeta ? "none" : "block"})
     .attr("class", "sec")
     .style("width", "100px")
     .style("height", "100px")
-    .style("background", "red")
+    .style("background", "beige")
+    .style("border", "1px gray solid")
+    .style("border-radius", "5px")
     .style("position", "absolute")
     .style("left", "30px")
-    .style("top", "200px");
-    */
-
+    .style("top", "200px")
+    .style("opacity", 0)
+    .style("pointer-events", "none");
+    
+    secDiv.append("img").attr("src", "../../../img/bc-logo-dark.png")
+    .attr("class", "secImage")
+    .style("width", "100%")
+    .style("height", "30%");
+    
+    secDiv.append("p").attr("class", "secText").html("Some text")
     
     secG.append("path")
     .attr("class", function(d){ return d.kind; })
@@ -177,11 +196,9 @@ function redrawBC() {
     .attr("x1", function(d) {return d * rowSize})
     .attr("x2", function(d) {return d * rowSize})
 
-/*
     d3.selectAll("div.sec").transition().duration(1000)
-    .style("left", function(d) {return "" + (d.column * columnSize) + "px"})
-    .style("top", function(d) {return "" + (200 + (d.row * rowSize) + "px")})
-    */
+    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - (secDivSize / 2)) + "px")})
+    .style("top", function(d) {return "" + ((270 + secDivOffset + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
 }
 
 function startMove(d,i) {
@@ -420,16 +437,35 @@ function setZoomLevel(zl) {
 	case 1:
 	    rowSize = -50;
 	    columnSize = 25;
+	    secDivOpacity = 0;
+	    secDivPE = "none";
 	    break;
 	case 2:
 	    rowSize = -100;
 	    columnSize = 100;
+	    secDivSize = 50;
+	    secDivOffset = 50;
+	    secDivOpacity = 1;
+	    secDivPE = "auto";
+	    d3.selectAll(".secText").style("display", "none")
 	    break;
 	case 3:
 	    rowSize = -200;
 	    columnSize = 200;
+	    secDivSize = 100;
+	    secDivOffset = 25;
+	    secDivOpacity = 1;
+	    secDivPE = "auto";
+	    d3.selectAll(".secText").style("display", "block")
 	break;
     }
+    
+    	    d3.selectAll("div.sec")
+	    .style("pointer-events", secDivPE)
+	    .style("height", secDivSize + "px")
+	    .style("width", secDivSize + "px")
+	    .style("opacity", secDivOpacity)
+
     redrawBC();
 }
 
