@@ -165,6 +165,7 @@ function drawBC(nodeData,linkData) {
     .attr("transform", function(d) { 
 	return "translate(" + (-1*(shapeMeasures[d.kind]["myWidth"]/2)) + "," + (-1*(shapeMeasures[d.kind]["myHeight"]/2)) + ")"; 
     });
+    /*
     secG.append("text")
                 .attr("dx", -1)
                 .attr("dy", ".35em")
@@ -173,6 +174,7 @@ function drawBC(nodeData,linkData) {
                 .style("fill", "white")
                 .text(function(d) { return "" + (d.laneTotal)})
 		.style("pointer-events", "none");
+		*/
     redrawBC();
 }
 
