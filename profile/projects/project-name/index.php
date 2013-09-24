@@ -60,7 +60,7 @@ include $headerInclude;
                 </div> <!-- End container -->
             </div> <!-- End project-header -->
             
-	        <div class="light">
+	        <div class="light" id="bloomViz">
                     
                 <svg id="map">
         			<script type="text/javascript">
