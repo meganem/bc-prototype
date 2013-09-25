@@ -1,4 +1,4 @@
-            <div id="footer" class="dark">
+            <div id="footer" class="dark align-center">
                 <div class="container">
                     <div id="footer-menu" class="">
                         <?php if($loggedIn == false) { ?>
