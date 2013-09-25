@@ -153,7 +153,7 @@ function drawBC(nodeData,linkData) {
     .style("width", "100%")
     .style("height", "30%");
     
-    secDiv.append("div").attr("id", "node-info-type").attr("class", "idea")
+    secDiv.append("div").attr("id", "node-info-type").attr("class", function(d) {return d.kind.toLowerCase()})
     secDiv.append("div").attr("id", "node-info-title").html("A big idea")
     secDiv.append("div").attr("id", "node-info-desc").html("My big idea is to create a website to showcase funny cats.")
     var secButtonDiv = secDiv.append("div").attr("id", "node-info-buttons")
