@@ -23,9 +23,6 @@
     
 
 function drawBloomcase() {
-    d3.select("#bloomViz").append("button").attr("onclick", "setZoomLevel(1)").html("Zoom 1").style("position", "absolute").style("right", "10px").style("top", "200px")
-    d3.select("#bloomViz").append("button").attr("onclick", "setZoomLevel(2)").html("Zoom 2").style("position", "absolute").style("right", "10px").style("top", "230px")
-    d3.select("#bloomViz").append("button").attr("onclick", "setZoomLevel(3)").html("Zoom 3").style("position", "absolute").style("right", "10px").style("top", "260px")
     newNodes = {};
     testLayout = new d3_layout_bloomcase();
     d3.json("../../../json/new8.json", function(data) {
