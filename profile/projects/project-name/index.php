@@ -68,6 +68,14 @@ include $headerInclude;
         			</script>
                 </svg>
 
+                <!-- Zoom controls -->
+                <div id="zoom-controls">
+                    <div id="zoom-label">Zoom</div>
+                    <button id="zoom-1" onclick="setZoomLevel(1)" class="zoom-control">Zoom 1</button>
+                    <button id="zoom-2" onclick="setZoomLevel(2)" class="zoom-control">Zoom 2</button>
+                    <button id="zoom-3" onclick="setZoomLevel(3)" class="zoom-control">Zoom 3</button>
+                </div>
+
                 <!-- Modal popup for new node form -->
                 <div id="new-node" class="modal is-short">
                     <div id="new-node-cancel">
@@ -106,7 +114,7 @@ include $headerInclude;
                 <!-- Modal popup for on-click of a node -->
                 <div id="node42" class="modal node-info">
                     <div id="node-info-image">
-                        <img class="" src="<?php print $pathPrefix; ?>img/placeholder.png" alt="" width="200" height="120" />
+                        <img class="" src="<?php print $pathPrefix; ?>img/node-thumb-popup.png" alt="" width="200" height="120" />
                     </div>
                     <div id="node-info-title">A big idea</div>
                     <div id="node-info-desc">My big idea is to create a website to showcase funny cats.</div>
