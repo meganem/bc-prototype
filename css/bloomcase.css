@@ -176,6 +176,9 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
     margin-left: auto;
     margin-right:auto;
 }
+.container.constrained {
+    max-width: 1200px;
+}
 
 #main-menu {
     display: inline-block;
