@@ -172,7 +172,6 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 }
 
 .container {
-    max-width: 1200px;
     padding:16px 32px;
     margin-left: auto;
     margin-right:auto;
