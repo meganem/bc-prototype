@@ -621,7 +621,7 @@ textarea {
 /* -- Zoom controls -- */
 #zoom-controls {
     position:absolute;
-    top: 155px;
+    top: 5px;
     right: 5px;
     background:#ffffff;
     border: 1px solid #121212;
