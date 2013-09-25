@@ -491,12 +491,14 @@ textarea {
     vertical-align: top;
 }
 #new-node-more {
+    display: inline-block;
+    float:right;
+}
+.button.more-link, .button.more-link:hover {
     background-image: url("../img/icon-arrow-right.png");
     background-position: 87% center;
     background-repeat: no-repeat;
-    display: inline-block;
     padding-right: 30px;
-    float:right;
 }
 .dark-background {
     background: #121212;
@@ -585,4 +587,26 @@ textarea {
     border-top-color: #333333;
     left: 95px;
     margin-top: 15px;
+}
+
+/* -- node info modal --*/
+.node-info {
+    width: 234px;
+}
+#node-info-title {
+    font-weight: 600;
+}
+#node-info-desc {
+    font-size: 0.8em;
+    line-height: 1.3em;
+    margin-bottom: 1em;
+}
+#node-info-buttons {
+
+}
+#node-info-edit {
+
+}
+#node-info-more {
+    float: right;
 }
