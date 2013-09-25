@@ -126,7 +126,19 @@ include $headerInclude;
 
                 <!-- Example div for zoom level 2 -->
 
-                <!-- Example div for zoom level 3 -->
+                <!-- Example div for zoom level 3: cards are the same as the node-info popup, but they also have the node type icon-->
+                <div id="card" class="modal node-info">
+                    <div id="node-info-image">
+                        <img class="" src="<?php print $pathPrefix; ?>img/node-thumb-popup.png" alt="" width="200" height="120" />
+                    </div>
+                    <div id="node-info-type" class="idea"></div>
+                    <div id="node-info-title">A big idea</div>
+                    <div id="node-info-desc">My big idea is to create a website to showcase funny cats.</div>
+                    <div id="node-info-buttons">
+                        <a id="node-info-edit" class="button blue" href="#">edit</a>
+                        <a id="node-info-more" class="button purple more-link" href="#">more</a>
+                    </div>
+                </div>
 
 
             </div>

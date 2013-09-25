@@ -654,3 +654,35 @@ textarea {
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
+
+/* -- zoom level 3 cards --*/
+#card {
+    left: 200px;
+}
+#card #node-info-title {
+    display: inline-block;
+}
+#node-info-type {
+    display:inline-block;
+    vertical-align: text-bottom;
+    width:20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#node-info-type.idea {
+    background-image:url("../img/icon-idea-sm.png");   
+}
+#node-info-type.sketch {
+    background-image:url("../img/icon-sketch-sm.png");
+}
+#node-info-type.draft {
+    background-image:url("../img/icon-draft-sm.png");
+}
+#node-info-type.final {
+    background-image:url("../img/icon-final-sm.png");
+}
+#node-info-type.inspiration {
+    background-image:url("../img/icon-inspiration-sm.png");
+}
