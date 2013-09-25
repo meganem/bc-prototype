@@ -61,12 +61,6 @@ include $headerInclude;
             </div> <!-- End project-header -->
             
 	        <div class="light" id="bloomViz">
-                    
-                <svg id="map">
-        			<script type="text/javascript">
-        				drawBloomcase();
-        			</script>
-                </svg>
 
                 <!-- Zoom controls -->
                 <div id="zoom-controls">
@@ -75,6 +69,12 @@ include $headerInclude;
                     <button id="zoom-2" onclick="setZoomLevel(2)" class="zoom-control">Zoom 2</button>
                     <button id="zoom-3" onclick="setZoomLevel(3)" class="zoom-control">Zoom 3</button>
                 </div>
+		
+                <svg id="map">
+        			<script type="text/javascript">
+        				drawBloomcase();
+        			</script>
+                </svg>
 
                 <!-- Modal popup for new node form -->
                 <div id="new-node" class="modal is-short">
@@ -112,7 +112,7 @@ include $headerInclude;
                 </div>
 
                 <!-- Modal popup for on-click of a node -->
-                <div id="node42" class="modal node-info">
+                <div id="node42" class="modal node-info" style="display: none">
                     <div id="node-info-image">
                         <img class="" src="<?php print $pathPrefix; ?>img/node-thumb-popup.png" alt="" width="200" height="120" />
                     </div>
@@ -127,7 +127,7 @@ include $headerInclude;
                 <!-- Example div for zoom level 2 -->
 
                 <!-- Example div for zoom level 3: cards are the same as the node-info popup, but they also have the node type icon-->
-                <div id="card" class="modal node-info">
+                <div id="card" class="modal node-info"  style="display: none">
                     <div id="node-info-image">
                         <img class="" src="<?php print $pathPrefix; ?>img/node-thumb-popup.png" alt="" width="200" height="120" />
                     </div>

@@ -31,7 +31,10 @@ function drawBloomcase() {
     bloomZoom = d3.behavior.zoom()
     .on("zoom", panBC);
 
-    d3.select("svg").on("click", hideModal).call(bloomZoom);
+    d3.select("svg").on("click", hideModal).call(bloomZoom)
+    .on("dblclick.zoom", null)
+    .on("mousewheel.zoom", null);
+    
     d3.select("svg").append("g").attr("id", "bloomG");    
 
     drawBC(testLayout.nodes(),testLayout.links());
@@ -137,24 +140,35 @@ function drawBC(nodeData,linkData) {
 
     var secDiv = d3.select("#bloomViz").selectAll("div.sec").data(nodeData).enter().append("div")
     .style("display", function(d) {return d.isMeta ? "none" : "block"})
-    .attr("class", "sec")
-    .style("width", "100px")
-    .style("height", "100px")
-    .style("background", "beige")
-    .style("border", "1px gray solid")
-    .style("border-radius", "5px")
+    .attr("id", "card")
+    .attr("class", "sec modal node-info")
     .style("position", "absolute")
     .style("left", "30px")
     .style("top", "200px")
     .style("opacity", 0)
     .style("pointer-events", "none");
     
-    secDiv.append("img").attr("src", "../../../img/bc-logo-dark.png")
-    .attr("class", "secImage")
+    secDiv.append("div").attr("id", "node-info-image")
+    .append("img").attr("src", "../../../img/node-thumb-popup.png")
     .style("width", "100%")
     .style("height", "30%");
     
-    secDiv.append("p").attr("class", "secText").html("Some text")
+    secDiv.append("div").attr("id", "node-info-type").attr("class", "idea")
+    secDiv.append("div").attr("id", "node-info-title").html("A big idea")
+    secDiv.append("div").attr("id", "node-info-desc").html("My big idea is to create a website to showcase funny cats.")
+    var secButtonDiv = secDiv.append("div").attr("id", "node-info-buttons")
+    
+    secButtonDiv.append("a")
+    .attr("id", "node-info-edit")
+    .attr("class", "button blue")
+    .attr("href", "#")
+    .html("edit")
+
+    secButtonDiv.append("a")
+    .attr("id", "node-info-more")
+    .attr("class", "button purple")
+    .attr("href", "#")
+    .html("more")
     
     secG.append("path")
     .attr("class", function(d){ return d.kind; })
@@ -266,9 +280,6 @@ function endMove(d,i) {
     .style("fill", "white")
     .style("stroke", "black")
     .style("stroke-width", "2px")
-    .attr("r", 0)
-    .transition()
-    .duration(500)
     .attr("r", 50)
     
     function pointsOnCircle(shapeType,inc) {
@@ -295,10 +306,11 @@ function endMove(d,i) {
     var nodeOpts = d3.select("#genNode").selectAll("path.options").data(possibleShapes)
     .enter()
     .append("g")
+    .attr("transform", function (p,q) {return "translate("+ pointsOnCircle(p,q) + ")scale(1)"});
 
     var circBCOpts = nodeOpts.append("circle")
     .attr("class", "options optionsBC")
-    .attr("r", 1)
+    .attr("r", 15)
     .attr("cx", 0)
     .attr("cy", 0)
     .style("fill", "white")
@@ -307,33 +319,16 @@ function endMove(d,i) {
     
     var shapeOpts = nodeOpts.append("path")
     .attr("class", function(p){ return "options " + p; })
-    .attr("d", "M 1,1 m -1,0 a 1,1 0 1,0 2,0 a 1,1 0 1,0 -2,0")
-    .attr("transform", "translate(-1,-1)")
     .attr("id", function(p) {return "opt" + p})
     .on("click", function(p) {selectNewNode(p,d)})
-    
-    nodeOpts
-    .transition()
-    .duration(500).attr("transform", function (p,q) {return "translate("+ pointsOnCircle(p,q) + ")scale(1)"});
-
-    shapeOpts
-    .transition()
-    .duration(500)
     .attr("d", function(p) {
 	return shapeMeasures[p]["pathd"]
     })
     .attr("transform", function(p) { 
 	return "translate(" + (-1*(shapeMeasures[p]["myWidth"]/2)) + "," + (-1*(shapeMeasures[p]["myHeight"]/2)) + ")scale(1)"; 
     })
-    
-    circBCOpts
-    .transition()
-    .duration(500)
-    .attr("r", 15)
-    
+
     d3.select("#newNode")
-    .transition()
-    .duration(500)
     .style("fill", "#C69722")
     .attr("d", shapeMeasures[currentNewNode]["pathd"])
 }
@@ -449,10 +444,10 @@ function setZoomLevel(zl) {
 	    d3.selectAll(".secText").style("display", "none")
 	    break;
 	case 3:
-	    rowSize = -200;
+	    rowSize = -300;
 	    columnSize = 200;
-	    secDivSize = 100;
-	    secDivOffset = 25;
+	    secDivSize = 200;
+	    secDivOffset = -50;
 	    secDivOpacity = 1;
 	    secDivPE = "auto";
 	    d3.selectAll(".secText").style("display", "block")
@@ -461,8 +456,8 @@ function setZoomLevel(zl) {
     
     	    d3.selectAll("div.sec")
 	    .style("pointer-events", secDivPE)
-	    .style("height", secDivSize + "px")
-	    .style("width", secDivSize + "px")
+//	    .style("height", secDivSize + "px")
+//	    .style("width", secDivSize + "px")
 	    .style("opacity", secDivOpacity)
 
     redrawBC();
