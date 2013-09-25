@@ -68,6 +68,7 @@ include $headerInclude;
         			</script>
                 </svg>
 
+                <!-- Modal popup for new node form -->
                 <div id="new-node" class="modal is-short">
                     <div id="new-node-cancel">
                         <a class="" href="#">
@@ -97,10 +98,28 @@ include $headerInclude;
                         <div id="new-node-form-buttons">
                             <input id="new-node-delete" class="button red" type="button" value="delete">
                             <input id="new-node-form-submit" class="button green" type="submit" value="done">
-                            <input id="new-node-more" class="button purple" type="button" value="more">
+                            <input id="new-node-more" class="button purple more-link" type="button" value="more">
                         </div>
                     </form>
                 </div>
+
+                <!-- Modal popup for on-click of a node -->
+                <div id="node42" class="modal node-info">
+                    <div id="node-info-image">
+                        <img class="" src="<?php print $pathPrefix; ?>img/placeholder.png" alt="" width="200" height="120" />
+                    </div>
+                    <div id="node-info-title">A big idea</div>
+                    <div id="node-info-desc">My big idea is to create a website to showcase funny cats.</div>
+                    <div id="node-info-buttons">
+                        <a id="node-info-edit" class="button blue" href="#">edit</a>
+                        <a id="node-info-more" class="button purple more-link" href="#">more</a>
+                    </div>
+                </div>
+
+                <!-- Example div for zoom level 2 -->
+
+                <!-- Example div for zoom level 3 -->
+
 
             </div>
 
