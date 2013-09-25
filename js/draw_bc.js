@@ -447,7 +447,7 @@ function setZoomLevel(zl) {
 	    rowSize = -300;
 	    columnSize = 200;
 	    secDivSize = 200;
-	    secDivOffset = -50;
+	    secDivOffset = -200;
 	    secDivOpacity = 1;
 	    secDivPE = "auto";
 	    d3.selectAll(".secText").style("display", "block")

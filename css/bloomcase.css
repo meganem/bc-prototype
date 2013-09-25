@@ -423,6 +423,12 @@ a.clicker:hover, a.clicker:focus, a.clicker:active {text-decoration:none; border
 #info {width:200px; display:block; background-color:white; border:1px solid black; padding:20px;}
 .node-title {display:block; font-size: 1.1em; font-weight: bold;}
 
+/* ----- Display Parent ----- */
+#bloomViz {
+    position: relative;
+    overflow: hidden;
+}
+
 /* ----- New node modal ----- */
 .modal {
     background:#ffffff;
