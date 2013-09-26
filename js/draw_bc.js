@@ -33,7 +33,8 @@ function drawBloomcase() {
 
     d3.select("svg").on("click", hideModal).call(bloomZoom)
     .on("dblclick.zoom", null)
-    .on("mousewheel.zoom", null);
+    .on("mousewheel.zoom", null)
+    .on("DOMMouseScroll",null);
     
     d3.select("svg").append("g").attr("id", "bloomG");    
 
@@ -154,8 +155,8 @@ function drawBC(nodeData,linkData) {
     .style("height", "30%");
     
     secDiv.append("div").attr("id", "node-info-type").attr("class", function(d) {return d.kind.toLowerCase()})
-    secDiv.append("div").attr("id", "node-info-title").html("A big idea")
-    secDiv.append("div").attr("id", "node-info-desc").html("My big idea is to create a website to showcase funny cats.")
+    secDiv.append("div").attr("id", "node-info-title").html(function(d) {return d.title})
+    secDiv.append("div").attr("id", "node-info-desc").html(function(d) {return d.summary})
     var secButtonDiv = secDiv.append("div").attr("id", "node-info-buttons")
     
     secButtonDiv.append("a")
@@ -446,7 +447,6 @@ function setZoomLevel(zl) {
 	case 3:
 	    rowSize = -300;
 	    columnSize = 200;
-	    secDivSize = 200;
 	    secDivOffset = -200;
 	    secDivOpacity = 1;
 	    secDivPE = "auto";
