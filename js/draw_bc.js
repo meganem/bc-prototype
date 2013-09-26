@@ -34,7 +34,7 @@ function drawBloomcase() {
     d3.select("svg").on("click", hideModal).call(bloomZoom)
     .on("dblclick.zoom", null)
     .on("mousewheel.zoom", null)
-    .on("DOMMouseScroll",null);
+    .on("DOMMouseScroll.zoom",null);
     
     d3.select("svg").append("g").attr("id", "bloomG");    
 
