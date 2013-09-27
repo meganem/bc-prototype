@@ -2,7 +2,8 @@
     rowSize = -50;
     columnSize = 25;
     secDivSize = 25;
-    secDivOffset = 25;
+    secDivOffset = -200;
+    zoom2DivOffset = -50;
     secDivOpacity = 1;
     secDivPE = "auto";
     
@@ -48,9 +49,13 @@ function panBC() {
     d3.select("#bloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
     d3.select("#bgBloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
     
+    d3.selectAll("div.zoom2")
+    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 50) + "px")})
+    .style("top", function(d) {return "" + ((165 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    
     d3.selectAll("div.sec")
-    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - (secDivSize / 2)) + "px")})
-    .style("top", function(d) {return "" + ((270 + (secDivOffset) + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 100) + "px")})
+    .style("top", function(d) {return "" + ((70 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
 
 }
 
@@ -141,6 +146,21 @@ function drawBC(nodeData,linkData) {
     .on("mousedown", startMove)
     .on("mouseup", endMove)
 
+    var zoom2Div = d3.select("#betweenLayer").selectAll("div.zoom2").data(nodeData).enter().append("div")
+    .style("display", function(d) {return d.isMeta ? "none" : "block"})
+    .attr("id", "card")
+    .attr("class", "zoom2")
+    .style("position", "absolute")
+    .style("left", "30px")
+    .style("top", "200px")
+    .style("opacity", 0)
+    .style("pointer-events", "none")
+    .style("width", "100px")
+    .style("height", "100px")
+    .style("background-color", "black")
+    .style("border", "2px black solid")
+    ;
+    
     var secDiv = d3.select("#betweenLayer").selectAll("div.sec").data(nodeData).enter().append("div")
     .style("display", function(d) {return d.isMeta ? "none" : "block"})
     .attr("id", "card")
@@ -155,6 +175,19 @@ function drawBC(nodeData,linkData) {
     .append("img").attr("src", "../../../img/node-thumb-popup.png")
     .style("width", "100%")
     .style("height", "30%");
+    
+    zoom2Div.append("img").attr("src", "../../../img/node-thumb-popup.png")
+    .style("width", "100%")
+    .style("height", "100%")
+    .style("opacity", function(d,i) {return i%2 == 1 ? 1 : 0});
+    
+    zoom2Div.append("div").style("width", "100%").style("position", "relative")
+    .style("padding", "0 5px")
+    .style("bottom", function(d,i) {return i%2 == 1 ? "-5px" : "50px"})
+    .style("color", function(d,i) {return i%2 == 1 ? "black" : "white"})
+    .style("line-height", "10px")
+    .style("font-size", "10px")
+    .html(function(d) {return d.title})
     
     secDiv.append("div").attr("id", "node-info-type").attr("class", function(d) {return d.kind.toLowerCase()})
     secDiv.append("div").attr("id", "node-info-title").html(function(d) {return d.title})
@@ -174,7 +207,7 @@ function drawBC(nodeData,linkData) {
     .html("more")
     
     secG.append("path")
-    .attr("class", function(d){ return d.kind; })
+    .attr("class", function(d){ return "nodeSymbol " + d.kind; })
     .attr("d", function(d,i) {return shapeMeasures[d.kind]["pathd"]})
     .attr("transform", function(d) { 
 	return "translate(" + (-1*(shapeMeasures[d.kind]["myWidth"]/2)) + "," + (-1*(shapeMeasures[d.kind]["myHeight"]/2)) + ")"; 
@@ -212,9 +245,14 @@ function redrawBC() {
     .attr("x1", function(d) {return d * rowSize})
     .attr("x2", function(d) {return d * rowSize})
 
+    d3.selectAll("div.zoom2").transition().duration(1000)
+    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 50) + "px")})
+    .style("top", function(d) {return "" + ((165 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+
+    
     d3.selectAll("div.sec").transition().duration(1000)
-    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - (secDivSize / 2)) + "px")})
-    .style("top", function(d) {return "" + ((270 + secDivOffset + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 100) + "px")})
+    .style("top", function(d) {return "" + ((70 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
 }
 
 function startMove(d,i) {
@@ -430,38 +468,53 @@ function nodeDetailsDialog(targetNode) {
 }
 
 function setZoomLevel(zl) {
+            d3.selectAll("div.sec")
+	    .style("pointer-events", "none")
+	    .style("opacity", 0)
+            d3.selectAll("div.zoom2")
+	    .style("pointer-events", "none")
+	    .style("opacity", 0)
+
     switch(zl) {
 	case 1:
 	    rowSize = -50;
 	    columnSize = 25;
-	    secDivOpacity = 0;
-	    secDivPE = "none";
+	    
+	    	    d3.selectAll("path.nodeSymbol")
+	    .attr("transform", function(d) { 
+	return "translate(" + ((-1*(shapeMeasures[d.kind]["myWidth"]/2))) + "," + ((-1*(shapeMeasures[d.kind]["myHeight"]/2))) + ")"; 
+    });
+
 	    break;
 	case 2:
-	    rowSize = -100;
+	    rowSize = -200;
 	    columnSize = 100;
-	    secDivSize = 50;
-	    secDivOffset = 50;
-	    secDivOpacity = 1;
-	    secDivPE = "auto";
+            d3.selectAll("div.zoom2")
+	    .style("pointer-events", "auto")
+	    .style("opacity", 1)
 	    d3.selectAll(".secText").style("display", "none")
+	    
+	    d3.selectAll("path.nodeSymbol")
+	    .attr("transform", function(d) { 
+	return "translate(" + (55 + (-1*(shapeMeasures[d.kind]["myWidth"]/2))) + "," + ((-1*(shapeMeasures[d.kind]["myHeight"]/2)) - 35) + ")"; 
+    });
+
 	    break;
 	case 3:
 	    rowSize = -300;
 	    columnSize = 200;
-	    secDivOffset = -200;
-	    secDivOpacity = 1;
-	    secDivPE = "auto";
+            d3.selectAll("div.sec")
+	    .style("pointer-events", "auto")
+	    .style("opacity", 1)
 	    d3.selectAll(".secText").style("display", "block")
+
+	    d3.selectAll("path.nodeSymbol")
+	    .attr("transform", function(d) { 
+		return "translate(" + ((-1*(shapeMeasures[d.kind]["myWidth"]/2)) - 75) + "," + ((-1*(shapeMeasures[d.kind]["myHeight"]/2)) + 20) + ")"; 
+	    });
+
 	break;
     }
-    
-    	    d3.selectAll("div.sec")
-	    .style("pointer-events", secDivPE)
-//	    .style("height", secDivSize + "px")
-//	    .style("width", secDivSize + "px")
-	    .style("opacity", secDivOpacity)
-
     redrawBC();
 }
 
