@@ -70,7 +70,12 @@ include $headerInclude;
                     <button id="zoom-3" onclick="setZoomLevel(3)" class="zoom-control">Zoom 3</button>
                 </div>
 		
-                <svg id="map">
+                <svg id="background" style="position:absolute;top:0;width:100%;height:500px;">
+                </svg>
+	        <div class="light" id="betweenLayer" style="position:relative;top:0;">
+		</div>
+
+                <svg id="map" style="position:relative;top:0;">
         			<script type="text/javascript">
         				drawBloomcase();
         			</script>

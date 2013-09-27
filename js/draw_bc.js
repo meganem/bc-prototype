@@ -31,12 +31,13 @@ function drawBloomcase() {
     bloomZoom = d3.behavior.zoom()
     .on("zoom", panBC);
 
-    d3.select("svg").on("click", hideModal).call(bloomZoom)
+    d3.select("#map").on("click", hideModal).call(bloomZoom)
     .on("dblclick.zoom", null)
     .on("mousewheel.zoom", null)
     .on("DOMMouseScroll.zoom",null);
     
-    d3.select("svg").append("g").attr("id", "bloomG");    
+    d3.select("#map").append("g").attr("id", "bloomG");    
+    d3.select("#background").append("g").attr("id", "bgBloomG");    
 
     drawBC(testLayout.nodes(),testLayout.links());
     });
@@ -45,6 +46,7 @@ function drawBloomcase() {
 
 function panBC() {
     d3.select("#bloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
+    d3.select("#bgBloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
     
     d3.selectAll("div.sec")
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - (secDivSize / 2)) + "px")})
@@ -107,7 +109,7 @@ function drawBC(nodeData,linkData) {
 	x++;
     }
     
-    d3.select("#bloomG").selectAll("line.hGrid").data(vGridData).enter().append("line")
+    d3.select("#bgBloomG").selectAll("line.hGrid").data(vGridData).enter().append("line")
     .attr("x1", -10000)
     .attr("x2", 10000)
     .attr("class", "hGrid")
@@ -116,7 +118,7 @@ function drawBC(nodeData,linkData) {
     .style("stroke", "lightgray")
     .style("stroke-width", "1px")
 
-    d3.select("#bloomG").selectAll("line.vGrid").data(vGridData).enter().append("line")
+    d3.select("#bgBloomG").selectAll("line.vGrid").data(vGridData).enter().append("line")
     .attr("y1", -10000)
     .attr("y2", 10000)
     .attr("class", "vGrid")
@@ -125,7 +127,7 @@ function drawBC(nodeData,linkData) {
     .style("stroke", "lightgray")
     .style("stroke-width", "1px")
 
-    d3.select("#bloomG").selectAll("path.connections").data(linkData).enter().append("path")
+    d3.select("#bgBloomG").selectAll("path.connections").data(linkData).enter().append("path")
     .style("stroke", "black")
     .attr("class", "connections")
     .style("stroke-width", 2)
@@ -139,7 +141,7 @@ function drawBC(nodeData,linkData) {
     .on("mousedown", startMove)
     .on("mouseup", endMove)
 
-    var secDiv = d3.select("#bloomViz").selectAll("div.sec").data(nodeData).enter().append("div")
+    var secDiv = d3.select("#betweenLayer").selectAll("div.sec").data(nodeData).enter().append("div")
     .style("display", function(d) {return d.isMeta ? "none" : "block"})
     .attr("id", "card")
     .attr("class", "sec modal node-info")
@@ -222,7 +224,7 @@ function startMove(d,i) {
     y1GenLine = 200 + (d.row * rowSize);
     updatingNode = d;
     var curMouse = d3.mouse(this.parentNode);
-    d3.select("svg").on("mousemove", moveGenNode)
+    d3.select("#map").on("mousemove", moveGenNode)
     d3.select("#bloomG").on("mouseup", endMove)
     d3.select("#bloomG").insert("path", ".sec")
     .attr("id", "genLine")
@@ -264,7 +266,7 @@ function endMove(d,i) {
 	    }
 	    d3.select("#genNode").remove();
 	    d3.select("#genLine").remove();
-	    d3.select("svg").on("mousemove", null)
+	    d3.select("#map").on("mousemove", null)
 	    var newNodeArray = testLayout.nodes().filter(function(el) {return el.isMeta ? null : this});
 	    freshLayout = new d3_layout_bloomcase();
 	    freshLayout.nodes(newNodeArray);
@@ -273,7 +275,7 @@ function endMove(d,i) {
 	}
     }
 
-    d3.select("svg").on("mousemove", null)
+    d3.select("#map").on("mousemove", null)
     
     d3.select("#genNode")
     .insert("circle", "#newNode")
