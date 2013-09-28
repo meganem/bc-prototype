@@ -87,7 +87,6 @@ d3_layout_bloomcase = function() {
                 }
                 if (incNodes[incNode].evolvedFrom) {
                     var linkArray = incNodes[incNode].evolvedFrom.split(",").sort();
-		    console.log(linkArray);
                     for (l in linkArray) {
                         var linkObject1 = {target: {}, source: {}}
                         var linkObject2 = {target: {}, source: {}}
@@ -96,14 +95,10 @@ d3_layout_bloomcase = function() {
                         if(linkArray[l]) {
                             for (tt in blNodes) {
                                 if (blNodes[tt].isMeta) {
-				    console.log(blNodes[tt].evolvedFrom.split(",").sort())
-//                                    for (tz in blNodes[tt].evolvedFromArray) {
                                         if(blNodes[tt].evolvedFrom.split(",").sort() == linkArray) {
-//                                        if(blNodes[tt].evolvedFromArray[tz].nid == linkArray[l]) {
                                             metaNodeObject = blNodes[tt];
                                             alreadyExists = true;
                                         }
-//                                    }
                                 }
                             }
                         if (alreadyExists == true) {
