@@ -45,20 +45,6 @@ function drawBloomcase() {
     
 }
 
-function panBC() {
-    d3.select("#bloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
-    d3.select("#bgBloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
-    
-    d3.selectAll("div.zoom2")
-    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 50) + "px")})
-    .style("top", function(d) {return "" + ((150 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
-    
-    d3.selectAll("div.sec")
-    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 100) + "px")})
-    .style("top", function(d) {return "" + ((70 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
-
-}
-
     var curvyLine = function(startPoint,endPoint) {
 
 	var xStep = (endPoint[0] - startPoint[0]);
@@ -225,7 +211,24 @@ function drawBC(nodeData,linkData) {
     redrawBC();
 }
 
+function panBC() {
+    d3.select("#bloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
+    d3.select("#bgBloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
+    
+    d3.selectAll("div.zoom2")
+    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 50) + "px")})
+    .style("top", function(d) {return "" + ((150 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    
+    d3.selectAll("div.sec")
+    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 100) + "px")})
+    .style("top", function(d) {return "" + ((70 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+
+}
+
 function redrawBC() {
+    d3.select("#bloomG").transition().duration(1000).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
+    d3.select("#bgBloomG").transition().duration(1000).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
+
     d3.selectAll("g.sec").transition().duration(1000)
     .attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ (200 + (d.row * rowSize)) +")"})
 
@@ -253,6 +256,66 @@ function redrawBC() {
     d3.selectAll("div.sec").transition().duration(1000)
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 100) + "px")})
     .style("top", function(d) {return "" + ((70 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+}
+
+function setZoomLevel(zl) {
+            d3.selectAll("div.sec")
+	    .style("pointer-events", "none")
+	    .style("opacity", 0)
+            d3.selectAll("div.zoom2")
+	    .style("pointer-events", "none")
+	    .style("opacity", 0)
+
+    switch(zl) {
+	case 1:
+	    rowSize = -50;
+	    
+	    var rescaleG = columnSize / 25;
+	    
+	    columnSize = 25;
+	    
+	    	    d3.selectAll("path.nodeSymbol")
+	    .attr("transform", function(d) { 
+	return "translate(" + ((-1*(shapeMeasures[d.kind]["myWidth"]/2))) + "," + ((-1*(shapeMeasures[d.kind]["myHeight"]/2))) + ")"; 
+    });
+
+	    break;
+	case 2:
+	    rowSize = -200;
+	    var rescaleG = columnSize / 100;
+	    columnSize = 100;
+            d3.selectAll("div.zoom2")
+	    .style("pointer-events", "auto")
+	    .style("opacity", 1)
+	    d3.selectAll(".secText").style("display", "none")
+	    
+	    d3.selectAll("path.nodeSymbol")
+	    .attr("transform", function(d) { 
+	return "translate(" + (55 + (-1*(shapeMeasures[d.kind]["myWidth"]/2))) + "," + ((-1*(shapeMeasures[d.kind]["myHeight"]/2)) - 50) + ")"; 
+    });
+
+	    break;
+	case 3:
+	    rowSize = -300;
+	    var rescaleG = columnSize / 200;
+	    columnSize = 200;
+            d3.selectAll("div.sec")
+	    .style("pointer-events", "auto")
+	    .style("opacity", 1)
+	    d3.selectAll(".secText").style("display", "block")
+
+	    d3.selectAll("path.nodeSymbol")
+	    .attr("transform", function(d) { 
+		return "translate(" + ((-1*(shapeMeasures[d.kind]["myWidth"]/2)) - 75) + "," + ((-1*(shapeMeasures[d.kind]["myHeight"]/2)) + 20) + ")"; 
+	    });
+
+	break;
+    }
+    console.log("Old - " + bloomZoom.translate());
+    var newZoomX = bloomZoom.translate()[0] / rescaleG;
+    var newZoomY = bloomZoom.translate()[1] / rescaleG;
+    bloomZoom.translate([newZoomX,newZoomY])
+    redrawBC();
 }
 
 function startMove(d,i) {
@@ -461,61 +524,9 @@ function createNewNode(d,i) {
 
 function nodeDetailsDialog(targetNode) {
     var translateAtt = targetNode.attr("transform");
-    console.log(translateAtt);
     var nodeXY = translateAtt.split("(")[1].split(")")[0].split(",");
     d3.select("#new-node").style("display", "block").style("left", ((parseInt(nodeXY[0]) - 75) + bloomZoom.translate()[0]) + "px").style("top", ((parseInt(nodeXY[1]) - 40) + bloomZoom.translate()[1]) + "px")
 
-}
-
-function setZoomLevel(zl) {
-            d3.selectAll("div.sec")
-	    .style("pointer-events", "none")
-	    .style("opacity", 0)
-            d3.selectAll("div.zoom2")
-	    .style("pointer-events", "none")
-	    .style("opacity", 0)
-
-    switch(zl) {
-	case 1:
-	    rowSize = -50;
-	    columnSize = 25;
-	    
-	    	    d3.selectAll("path.nodeSymbol")
-	    .attr("transform", function(d) { 
-	return "translate(" + ((-1*(shapeMeasures[d.kind]["myWidth"]/2))) + "," + ((-1*(shapeMeasures[d.kind]["myHeight"]/2))) + ")"; 
-    });
-
-	    break;
-	case 2:
-	    rowSize = -200;
-	    columnSize = 100;
-            d3.selectAll("div.zoom2")
-	    .style("pointer-events", "auto")
-	    .style("opacity", 1)
-	    d3.selectAll(".secText").style("display", "none")
-	    
-	    d3.selectAll("path.nodeSymbol")
-	    .attr("transform", function(d) { 
-	return "translate(" + (55 + (-1*(shapeMeasures[d.kind]["myWidth"]/2))) + "," + ((-1*(shapeMeasures[d.kind]["myHeight"]/2)) - 50) + ")"; 
-    });
-
-	    break;
-	case 3:
-	    rowSize = -300;
-	    columnSize = 200;
-            d3.selectAll("div.sec")
-	    .style("pointer-events", "auto")
-	    .style("opacity", 1)
-	    d3.selectAll(".secText").style("display", "block")
-
-	    d3.selectAll("path.nodeSymbol")
-	    .attr("transform", function(d) { 
-		return "translate(" + ((-1*(shapeMeasures[d.kind]["myWidth"]/2)) - 75) + "," + ((-1*(shapeMeasures[d.kind]["myHeight"]/2)) + 20) + ")"; 
-	    });
-
-	break;
-    }
-    redrawBC();
 }
 
 function hideModal() {
