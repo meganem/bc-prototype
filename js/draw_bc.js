@@ -244,8 +244,8 @@ function redrawBC() {
     d3.selectAll("line.vGrid")
     .transition()
     .duration(1000)
-    .attr("x1", function(d) {return d * rowSize})
-    .attr("x2", function(d) {return d * rowSize})
+    .attr("x1", function(d) {return 200 + (d * rowSize)})
+    .attr("x2", function(d) {return 200 + (d * rowSize)})
 
     d3.selectAll("div.zoom2").transition().duration(1000)
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 50) + "px")})
@@ -340,12 +340,11 @@ function startMove(d,i) {
     .attr("transform","translate("+curMouse[0]+","+curMouse[1]+")")
     .append("path")
     .attr("id","newNode")
-    .attr("d", "M 1,1 m -1,0 a 1,1 0 1,0 2,0 a 1,1 0 1,0 -2,0")
-    .attr("transform", "translate(1,1)")
-    .style("fill", "black")
-    .style("opacity", 0).transition().duration(500).style("opacity",1)
     .attr("d","M 10,10 m -10,0 a 10,10 0 1,0 20,0 a 10,10 0 1,0 -20,0")
     .attr("transform", "translate(-10,-10)")
+    .style("fill", "black")
+    .style("opacity", 0)
+    .transition().duration(500).style("opacity",1)
   
 }
 
@@ -425,7 +424,7 @@ function endMove(d,i) {
     var shapeOpts = nodeOpts.append("path")
     .attr("class", function(p){ return "options " + p; })
     .attr("id", function(p) {return "opt" + p})
-    .on("click", function(p) {selectNewNode(p,d)})
+    .on("click", function(p) {selectNewNode(p)})
     .attr("d", function(p) {
 	return shapeMeasures[p]["pathd"]
     })
@@ -434,22 +433,34 @@ function endMove(d,i) {
     })
 
     d3.select("#newNode")
-    .style("fill", "#C69722")
+    .style("fill", shapeMeasures[currentNewNode]["color"])
     .attr("d", shapeMeasures[currentNewNode]["pathd"])
+    .on("click", function() {createNewNode(currentNewNode,0)})
+
+    
+
 }
 
 function selectNewNode(d,i) {
-    possibleShapes.push(currentNewNode);
+    console.log(d)
+        d3.event.stopPropagation();
+//    possibleShapes.push(currentNewNode);
+    console.log("Selected Node: " + d)
+    console.log("Old Current Node: " + currentNewNode)
     for (i in possibleShapes) {
 	if (possibleShapes[i] == d) {
-	    possibleShapes.splice(i,1);
+	    possibleShapes[i] = currentNewNode;
 	}
     }
+
+    d3.select("#opt"+d)[0][0]["__data__"] = currentNewNode;
+    
     d3.select("#opt"+d)
     .attr("id", "opt" + currentNewNode)
     .attr("d", shapeMeasures[currentNewNode]["pathd"])
     .style("fill", shapeMeasures[currentNewNode]["color"]);
 
+    
     currentNewNode = d;
     d3.select("#newNode")
     .on("click", function() {createNewNode(d,0)})
@@ -532,6 +543,10 @@ function nodeDetailsDialog(targetNode) {
 
 function hideModal() {
     d3.select("#new-node").style("display", "none");
+    d3.selectAll(".options").remove();
+    	    d3.select("#genNode").remove();
+	    d3.select("#genLine").remove();
+	    d3.select("#map").on("mousemove", null)
 }
 
 function moveGenNode(d,i) {
