@@ -223,6 +223,8 @@ function panBC() {
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 100) + "px")})
     .style("top", function(d) {return "" + ((70 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
 
+    d3.selectAll(".project-title").html("" + bloomZoom.translate()[0] + " - Width: " + d3.select("#map").style("width") +" offset? " + ((parseInt(d3.select("#map").style("width")) / 2) - bloomZoom.translate()[0]) / 50);
+
 }
 
 function redrawBC() {
@@ -266,6 +268,9 @@ function setZoomLevel(zl) {
 	    .style("pointer-events", "none")
 	    .style("opacity", 0)
 
+	    var currentCenterColumn = ((parseInt(d3.select("#map").style("width")) / 2) - bloomZoom.translate()[0]) / columnSize;
+	    console.log(currentCenterColumn)
+	    
     switch(zl) {
 	case 1:
 	    rowSize = -50;
@@ -274,7 +279,7 @@ function setZoomLevel(zl) {
 	    
 	    columnSize = 25;
 	    
-	    	    d3.selectAll("path.nodeSymbol")
+	    d3.selectAll("path.nodeSymbol")
 	    .attr("transform", function(d) { 
 	return "translate(" + ((-1*(shapeMeasures[d.kind]["myWidth"]/2))) + "," + ((-1*(shapeMeasures[d.kind]["myHeight"]/2))) + ")"; 
     });
@@ -312,7 +317,9 @@ function setZoomLevel(zl) {
 	break;
     }
     console.log("Old - " + bloomZoom.translate());
-    var newZoomX = bloomZoom.translate()[0] / rescaleG;
+    console.log();
+    var newZoomX = (parseInt(d3.select("#map").style("width")) / 2) - (columnSize * currentCenterColumn);
+//    var newZoomX = bloomZoom.translate()[0] / rescaleG;
     var newZoomY = bloomZoom.translate()[1] / rescaleG;
     bloomZoom.translate([newZoomX,newZoomY])
     redrawBC();
