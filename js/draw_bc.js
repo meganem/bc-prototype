@@ -51,7 +51,7 @@ function panBC() {
     
     d3.selectAll("div.zoom2")
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 50) + "px")})
-    .style("top", function(d) {return "" + ((165 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    .style("top", function(d) {return "" + ((150 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
     
     d3.selectAll("div.sec")
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 100) + "px")})
@@ -247,7 +247,7 @@ function redrawBC() {
 
     d3.selectAll("div.zoom2").transition().duration(1000)
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 50) + "px")})
-    .style("top", function(d) {return "" + ((165 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    .style("top", function(d) {return "" + ((150 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
 
     
     d3.selectAll("div.sec").transition().duration(1000)
@@ -496,7 +496,7 @@ function setZoomLevel(zl) {
 	    
 	    d3.selectAll("path.nodeSymbol")
 	    .attr("transform", function(d) { 
-	return "translate(" + (55 + (-1*(shapeMeasures[d.kind]["myWidth"]/2))) + "," + ((-1*(shapeMeasures[d.kind]["myHeight"]/2)) - 35) + ")"; 
+	return "translate(" + (55 + (-1*(shapeMeasures[d.kind]["myWidth"]/2))) + "," + ((-1*(shapeMeasures[d.kind]["myHeight"]/2)) - 50) + ")"; 
     });
 
 	    break;
