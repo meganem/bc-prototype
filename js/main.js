@@ -44,6 +44,11 @@ $(function () {
 $('#new-node-more').click(function(e) {
     $('#new-node').toggleClass('is-short is-long');
 });
+
+// New node
+$('#new-node-form-submit').click(function(e) {
+    alert("Your node is added!");
+});
     
 // New node form validation
 // validate string is a date in javascript
