@@ -165,6 +165,11 @@ a.logo-link:after {
 a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 	text-decoration:none;
 }
+
+.hidden {
+    display:none;
+}
+
 .site-title {
     color: #FFFFFF;
     font-size: 1.5em;
@@ -443,6 +448,7 @@ a.clicker:hover, a.clicker:focus, a.clicker:active {text-decoration:none; border
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     left: 50%;
+    top: 100px;
 }
 .modal.is-short {
     height: 185px;
@@ -597,24 +603,29 @@ textarea {
 
 /* -- node info modal --*/
 .node-info {
-    width: 234px;
+    width: 190px;
 }
 #node-info-title {
     font-weight: 600;
-    margin: 0.25em 0;
+    margin: 0.75em 0;
+    line-height: 1em;
+}
+.node-info-type {
+    margin-right: 5px;
 }
 #node-info-desc {
-    font-size: 0.8em;
-    line-height: 1.3em;
-    margin-bottom: 1em;
+    
 }
+
 #node-info-buttons {
 
 }
 #node-info-edit {
-
+    padding: 0.3em 1em 0.5em 1em;
+    float:left;
 }
 #node-info-more {
+    padding: 0.3em 21px 0.5em 1em;
     float: right;
 }
 
@@ -665,34 +676,42 @@ textarea {
     border-radius: 5px;
 }
 
-/* -- zoom level 3 cards --*/
-#card {
-    left: 200px;
-}
-#card #node-info-title {
-    display: inline-block;
-}
-#node-info-type {
-    display:inline-block;
-    vertical-align: text-bottom;
-    width:20px;
-    height: 20px;
-    background-repeat: no-repeat;
-    background-position: center;
+/* For trimming overflow text */
+.ellipsis:before, .ellipsis:after, .ellipsis > * {
+    opacity: 1; 
 }
 
-#node-info-type.idea {
-    background-image:url("../img/icon-idea-sm.png");   
+.ellipsis {
+    overflow: hidden;
+    font-size: 0.8em;
+    height: 3.9em;
+    line-height: 1.3em;
+    margin: 1em 0; 
 }
-#node-info-type.sketch {
-    background-image:url("../img/icon-sketch-sm.png");
+
+.ellipsis:before {
+    content: "";
+    float: left;
+    width: 5px; 
+    height: 3.9em; 
+    background: #FFF; 
 }
-#node-info-type.draft {
-    background-image:url("../img/icon-draft-sm.png");
+.ellipsis > *:first-child {
+    float: right;
+    width: 100%; 
+    margin-left: -5px;
+    background: #FFF; 
 }
-#node-info-type.final {
-    background-image:url("../img/icon-final-sm.png");
+.ellipsis:after {
+    content: " ...";
+    float: right; 
+    position: relative;
+    top: -1.3em; 
+    left: 100%;
+    width: 30px; 
+    margin-left: -30px;
+    padding-right: 5px;
+    background: #FFF; 
 }
-#node-info-type.inspiration {
-    background-image:url("../img/icon-inspiration-sm.png");
-}
+
+
