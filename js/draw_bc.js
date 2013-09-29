@@ -134,17 +134,12 @@ function drawBC(nodeData,linkData) {
 
     var zoom2Div = d3.select("#betweenLayer").selectAll("div.zoom2").data(nodeData).enter().append("div")
     .style("display", function(d) {return d.isMeta ? "none" : "block"})
-    .attr("id", "card")
     .attr("class", "zoom2")
     .style("position", "absolute")
     .style("left", "30px")
     .style("top", "200px")
     .style("opacity", 0)
     .style("pointer-events", "none")
-    .style("width", "100px")
-    .style("height", "100px")
-    .style("background-color", "black")
-    .style("border", "2px black solid")
     ;
     
     var secDiv = d3.select("#betweenLayer").selectAll("div.sec").data(nodeData).enter().append("div")
@@ -162,17 +157,13 @@ function drawBC(nodeData,linkData) {
     .style("width", "100%")
     .style("height", "30%");
     
-    zoom2Div.append("img").attr("src", "../../../img/node-thumb-popup.png")
+    zoom2Div.append("img").attr("src", "../../../img/node-thumb.png")
     .style("width", "100%")
     .style("height", "100%")
     .style("opacity", function(d,i) {return i%2 == 1 ? 1 : 0});
     
-    zoom2Div.append("div").style("width", "100%").style("position", "relative")
-    .style("padding", "0 5px")
-    .style("bottom", function(d,i) {return i%2 == 1 ? "-5px" : "50px"})
-    .style("color", function(d,i) {return i%2 == 1 ? "black" : "white"})
-    .style("line-height", "10px")
-    .style("font-size", "10px")
+    zoom2Div.append("div")
+    .attr("class", function(d,i) {return i%2 == 1 ? "text below" : "text"})
     .html(function(d) {return d.title})
     
     secDiv.append("div").attr("id", "node-info-type").attr("class", function(d) {return d.kind.toLowerCase()})
@@ -220,8 +211,8 @@ function panBC() {
     .style("top", function(d) {return "" + ((150 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
     
     d3.selectAll("div.sec")
-    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 100) + "px")})
-    .style("top", function(d) {return "" + ((70 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 105) + "px")})
+    .style("top", function(d) {return "" + ((85 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
 }
 
 function redrawBC() {
@@ -253,8 +244,8 @@ function redrawBC() {
 
     
     d3.selectAll("div.sec").transition().duration(1000)
-    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 100) + "px")})
-    .style("top", function(d) {return "" + ((70 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 105) + "px")})
+    .style("top", function(d) {return "" + ((85 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
 }
 
 function setZoomLevel(zl) {
@@ -292,7 +283,7 @@ function setZoomLevel(zl) {
 	    
 	    d3.selectAll("path.nodeSymbol")
 	    .attr("transform", function(d) { 
-	return "translate(" + (55 + (-1*(shapeMeasures[d.kind]["myWidth"]/2))) + "," + ((-1*(shapeMeasures[d.kind]["myHeight"]/2)) - 50) + ")"; 
+	return "translate(" + (25 + (-1*(shapeMeasures[d.kind]["myWidth"]/2))) + "," + ((-1*(shapeMeasures[d.kind]["myHeight"]/2)) - 50) + ")"; 
     });
 
 	    break;
