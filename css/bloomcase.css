@@ -744,13 +744,13 @@ textarea {
 }
 .zoom2 .text {
     color: #FFFFFF;
-    font-size: 0.7em;
+    font-size: 0.6em;
     line-height: 1.3em;
     padding: 0 5%;
     position: relative;
     text-align: center;
     width: 90%;
-    bottom:50%;
+    bottom:78%;
 }
 .zoom2 .text.below {
     color:#000000;
