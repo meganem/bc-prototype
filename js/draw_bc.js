@@ -153,18 +153,35 @@ function drawBC(nodeData,linkData) {
     .style("pointer-events", "none");
     
     secDiv.append("div").attr("id", "node-info-image")
-    .append("img").attr("src", "../../../img/node-thumb-popup.png")
-    .style("width", "100%")
-    .style("height", "30%");
+    .each(function(d,i) {
+	if(d.imgUrl) {
+    if (d.imgUrl.length > 2) {
+    d3.select(this)
+    .append("img").attr("src", "../../../img/example/zoom3/" + d.imgUrl)
+    }
+    }
+    });
     
-    zoom2Div.append("img").attr("src", "../../../img/node-thumb.png")
-    .style("width", "100%")
-    .style("height", "100%")
-    .style("opacity", function(d,i) {return i%2 == 1 ? 1 : 0});
+    zoom2Div.each(function(d,i) {
+    if(d.imgUrl) {
+    if (d.imgUrl.length > 2) {
+    d3.select(this)
+    .append("img").attr("src", "../../../img/example/zoom2/" + d.imgUrl)
+    .style("opacity", 1);
+    d3.select(this).append("div")
+    .attr("class", "text below")
+    .html(d.title);
+    }    
+    }
+        else {
+    d3.select(this).append("div")
+    .attr("class", "text")
+    .style("bottom", "-10%")
+    .html(d.title);
+    }
+
+    });
     
-    zoom2Div.append("div")
-    .attr("class", function(d,i) {return i%2 == 1 ? "text below" : "text"})
-    .html(function(d) {return d.title})
     
     secDiv.append("div").attr("id", "node-info-type").attr("class", function(d) {return d.kind.toLowerCase()})
     secDiv.append("div").attr("id", "node-info-title").html(function(d) {return d.title})
