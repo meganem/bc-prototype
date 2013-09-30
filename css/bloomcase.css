@@ -750,7 +750,7 @@ textarea {
     position: relative;
     text-align: center;
     width: 90%;
-    bottom:78%;
+    bottom:-10%;
 }
 .zoom2 .text.below {
     color:#000000;
