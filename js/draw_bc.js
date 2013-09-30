@@ -22,6 +22,23 @@
     fD4 = .375;
     sD4 = .17;
     
+window.onresize = function(event) {
+	resizePanels();
+}
+
+function resizePanels() {
+
+    var a = document.getElementById("header").clientHeight;
+    var b = document.getElementById("project-header").clientHeight;
+    var c = document.getElementById("footer").clientHeight;
+    
+    var height = html = document.documentElement.clientHeight;
+    
+    svgHeight = height - a - b - c;
+
+    d3.selectAll("#background").style("height", svgHeight + "px")
+    d3.selectAll("#map").style("height", svgHeight + "px")
+}
 
 function drawBloomcase() {
     newNodes = {};
@@ -41,6 +58,7 @@ function drawBloomcase() {
     d3.select("#background").append("g").attr("id", "bgBloomG");    
 
     drawBC(testLayout.nodes(),testLayout.links());
+     resizePanels()
     });
     
 }
@@ -176,7 +194,6 @@ function drawBC(nodeData,linkData) {
         else {
     d3.select(this).append("div")
     .attr("class", "text")
-    .style("bottom", "-10%")
     .html(d.title);
     }
 
