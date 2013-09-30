@@ -184,7 +184,7 @@ function drawBC(nodeData,linkData) {
     
     
     secDiv.append("div").attr("id", "node-info-type").attr("class", function(d) {return d.kind.toLowerCase()})
-    secDiv.append("div").attr("id", "node-info-title").html(function(d) {return d.title})
+    secDiv.append("div").attr("id", "node-info-title").html(function(d) {return "<img class='node-info-type' src='../../../img/icon-"+d.kind.toLowerCase() +"-sm.png' />" + d.title})
     secDiv.append("div").attr("id", "node-info-desc").html(function(d) {return d.summary})
     var secButtonDiv = secDiv.append("div").attr("id", "node-info-buttons")
     
@@ -272,6 +272,10 @@ function setZoomLevel(zl) {
             d3.selectAll("div.zoom2")
 	    .style("pointer-events", "none")
 	    .style("opacity", 0)
+	    
+	    d3.selectAll("path.nodeSymbol")
+	    .style("opacity", 1)
+
 
 	    var currentCenterColumn = ((parseInt(d3.select("#map").style("width")) / 2) - bloomZoom.translate()[0]) / columnSize;
 
@@ -296,6 +300,7 @@ function setZoomLevel(zl) {
             d3.selectAll("div.zoom2")
 	    .style("pointer-events", "auto")
 	    .style("opacity", 1)
+	    .style("pointer-events", "auto")
 	    d3.selectAll(".secText").style("display", "none")
 	    
 	    d3.selectAll("path.nodeSymbol")
@@ -311,12 +316,13 @@ function setZoomLevel(zl) {
             d3.selectAll("div.sec")
 	    .style("pointer-events", "auto")
 	    .style("opacity", 1)
+	    .style("pointer-events", "auto")
+
 	    d3.selectAll(".secText").style("display", "block")
 
 	    d3.selectAll("path.nodeSymbol")
-	    .attr("transform", function(d) { 
-		return "translate(" + ((-1*(shapeMeasures[d.kind]["myWidth"]/2)) - 75) + "," + ((-1*(shapeMeasures[d.kind]["myHeight"]/2)) + 20) + ")"; 
-	    });
+	    .style("opacity", 0)
+
 
 	break;
     }
