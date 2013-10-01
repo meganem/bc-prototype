@@ -83,7 +83,7 @@ include $headerInclude;
                 </svg>
 
 
-            </div>
+            </div> <!-- End bloomViz -->
 
 
 <?php 
