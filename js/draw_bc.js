@@ -131,8 +131,8 @@ function drawBC(nodeData,linkData) {
     .attr("y1", -10000)
     .attr("y2", 10000)
     .attr("class", "vGrid")
-    .attr("x1", function(d) {return d * rowSize})
-    .attr("x2", function(d) {return d * rowSize})
+    .attr("x1", function(d) {return 200 + (d * rowSize)})
+    .attr("x2", function(d) {return 200 + (d * rowSize)})
     .style("stroke", "lightgray")
     .style("stroke-width", "1px")
 
@@ -141,14 +141,20 @@ function drawBC(nodeData,linkData) {
     .attr("class", "connections")
     .style("stroke-width", 2)
     .style("fill", "none")
-    .attr("d", function(d) {return "M"+rowSize+"," + (200) + "c0,0 0,0 0,0"})
+    .attr("d", function(d) {return curvyLine([d.source.column * columnSize, (200 + d.source.row * rowSize)],[d.target.column * columnSize, (200 + d.target.row * rowSize)]) })
+    .style("opacity", 0);
+    
+    d3.selectAll("path.connections")
+    .transition()
+    .duration(1000)
+    .style("opacity", 1);
     
     var secG = d3.select("#bloomG").selectAll("g.sec").data(nodeData).enter().append("g")
     .style("display", function(d) {return d.isMeta ? "none" : "block"})
     .attr("class", "sec")
-    .attr("transform", function(d,i) {return "translate(30,200)"})
+    .attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ (200 + (d.row * rowSize)) +")"})
     .on("mousedown", startMove)
-    .on("mouseup", endMove)
+    .on("mouseup", endMove);
 
     var zoom2Div = d3.select("#betweenLayer").selectAll("div.zoom2").data(nodeData).enter().append("div")
     .style("display", function(d) {return d.isMeta ? "none" : "block"})
@@ -222,7 +228,11 @@ function drawBC(nodeData,linkData) {
     .attr("d", function(d,i) {return shapeMeasures[d.kind]["pathd"]})
     .attr("transform", function(d) { 
 	return "translate(" + (-1*(shapeMeasures[d.kind]["myWidth"]/2)) + "," + (-1*(shapeMeasures[d.kind]["myHeight"]/2)) + ")"; 
-    });
+    })
+    .style("opacity", 0)
+    .transition()
+    .duration(1000)
+    .style("opacity", 1);
     /*
     secG.append("text")
                 .attr("dx", -1)
@@ -250,34 +260,27 @@ function panBC() {
 }
 
 function redrawBC() {
-    d3.select("#bloomG").transition().duration(1000).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
-    d3.select("#bgBloomG").transition().duration(1000).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
+    d3.select("#bloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
+    d3.select("#bgBloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
 
-    d3.selectAll("g.sec").transition().duration(1000)
-    .attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ (200 + (d.row * rowSize)) +")"})
+    d3.selectAll("g.sec").attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ (200 + (d.row * rowSize)) +")"})
 
-    d3.selectAll("path.connections").transition()
-    .duration(1000)
-    .attr("d", function(d) {return curvyLine([d.source.column * columnSize, (200 + d.source.row * rowSize)],[d.target.column * columnSize, (200 + d.target.row * rowSize)]) });
+    d3.selectAll("path.connections").attr("d", function(d) {return curvyLine([d.source.column * columnSize, (200 + d.source.row * rowSize)],[d.target.column * columnSize, (200 + d.target.row * rowSize)]) });
     
     d3.selectAll("line.hGrid")
-    .transition()
-    .duration(1000)
     .attr("y1", function(d) {return d * columnSize})
     .attr("y2", function(d) {return d * columnSize})
 
     d3.selectAll("line.vGrid")
-    .transition()
-    .duration(1000)
     .attr("x1", function(d) {return 200 + (d * rowSize)})
     .attr("x2", function(d) {return 200 + (d * rowSize)})
 
-    d3.selectAll("div.zoom2").transition().duration(1000)
+    d3.selectAll("div.zoom2")
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 50) + "px")})
     .style("top", function(d) {return "" + ((150 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
 
     
-    d3.selectAll("div.sec").transition().duration(1000)
+    d3.selectAll("div.sec")
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 105) + "px")})
     .style("top", function(d) {return "" + ((85 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
 }
