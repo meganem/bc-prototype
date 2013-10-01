@@ -61,7 +61,7 @@ include $headerInclude;
 
 
                 <!-- Modal popup for new node form -->
-                <div id="new-node" class="modal is-short">
+                <div id="new-node" class="modal is-short hidden">
                     <div id="new-node-cancel">
                         <a class="" href="#">
                             <img class="icon-cancel" src="<?php print $pathPrefix; ?>img/icon-cancel.png" alt="Cancel" width="17" height="17" />
@@ -96,7 +96,7 @@ include $headerInclude;
                 </div>
 
                 <!-- Example div for zoom level 3: cards are the same as the node-info popup -->
-                <div class="modal node-info">
+                <div class="modal node-info hidden">
                     <div id="node-info-image">
                         <img class="" src="<?php print $pathPrefix; ?>img/node-thumb-popup.png" alt="" width="156" height="94" />
                     </div>
@@ -111,7 +111,7 @@ include $headerInclude;
                 </div>
 
                 <!-- Example side panel when you have a node selected and then click "more" -->
-                <div class="panel">
+                <div class="panel hidden">
                     <div id="node-info-image">
                         <img class="" src="<?php print $pathPrefix; ?>img/node-big.png" alt="" width="347" height="" />
                     </div>
