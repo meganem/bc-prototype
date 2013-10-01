@@ -1,5 +1,5 @@
 <?php 
-// PROJECT NAME
+// TEMPLATES PAGE for storing template markup
 $nestLevel = 3;
 $loggedIn = true;
 
@@ -19,9 +19,6 @@ $footerInclude = $pathPrefix . "parts/footer.php";
 // INCLUDE HEADER
 include $headerInclude; 
 ?>
-<script src="<?php print $pathPrefix; ?>js/d3.v3.min.js"></script>
-<script src="<?php print $pathPrefix; ?>js/bloomcase_layout.js"></script>
-<script src="<?php print $pathPrefix; ?>js/draw_bc.js"></script>
 
 			<div id="project-header" class="light">
                 <div class="container">
@@ -60,6 +57,7 @@ include $headerInclude;
                 </div> <!-- End container -->
             </div> <!-- End project-header -->
             
+            <div class="light" id="templates">
 
 
                 <!-- Modal popup for new node form -->
