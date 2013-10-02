@@ -429,7 +429,7 @@ function populatePopup(incNode) {
 function endMove(d,i) {
     
     if(clickNotDrag == true) {
-	panToCenter(500, updatingNode.column);
+	panToCenter(1000, updatingNode.column);
 	hideModal();
 	
 	if(!d3.select("#zoom-3").classed("active")) {
