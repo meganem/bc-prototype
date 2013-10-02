@@ -82,7 +82,6 @@ include $headerInclude;
         			</script>
                 </svg>
 
-<<<<<<< HEAD
                 <!-- Modal popup for new node form -->
                 <div id="new-node" class="modal is-short">
                     <div id="new-node-cancel">
@@ -146,9 +145,6 @@ include $headerInclude;
                         <a id="node-info-edit" class="button blue" href="#">edit</a>
                     </div>
                 </div>
-
-=======
->>>>>>> 26a7098a3b0542dcc37c3f495b8a1d18f9217bec
 
             </div> <!-- End bloomViz -->
 
