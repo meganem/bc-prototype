@@ -418,12 +418,9 @@ function startMove(d,i) {
 }
 
 function populatePopup(incNode) {
-    d3.select("#node-popup > #node-info-image > img").attr("src", incNode.imgUrl.length > 2 ? "../../../img/example/zoom3/" + incNode.imgUrl : "")
+    d3.select("#node-popup > #node-info-image > img").style("display", incNode.imgUrl.length > 2 ? "block" : "none").attr("src", "../../../img/example/zoom3/" + incNode.imgUrl)
     d3.select("#node-popup > #node-info-title").html(function(d) {return "<img class='node-info-type' src='../../../img/icon-"+incNode.kind.toLowerCase() +"-sm.png' />" + incNode.title})
     d3.select("#node-popup > #node-info-desc").html(function(d) {return incNode.summary})
-
-    
-    
 }
 
 function endMove(d,i) {
