@@ -1,0 +1,595 @@
+/* Variables */
+/* line 1, ../scss/_base.scss */
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  background: #F5F5F5;
+  color: #121212;
+  line-height: 1.75em;
+}
+
+/* line 9, ../scss/_base.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  margin: 1em 0 .5em 0;
+}
+
+/* line 13, ../scss/_base.scss */
+h1 {
+  font-size: 3em;
+  line-height: 1.2em;
+}
+
+/* line 17, ../scss/_base.scss */
+h2 {
+  font-size: 2.25em;
+  line-height: 1.25em;
+}
+
+/* line 21, ../scss/_base.scss */
+h3 {
+  font-size: 1.5em;
+  line-height: 1.4em;
+}
+
+/* line 25, ../scss/_base.scss */
+h4 {
+  font-size: 1.25em;
+  line-height: 1.5em;
+}
+
+/* line 29, ../scss/_base.scss */
+h5 {
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+/* line 33, ../scss/_base.scss */
+h6 {
+  font-size: 0.9em;
+  line-height: 1.5em;
+}
+
+/* line 38, ../scss/_base.scss */
+.lead {
+  font-weight: 300;
+  font-size: 1.75em;
+  line-height: 1.25em;
+}
+
+/* line 44, ../scss/_base.scss */
+a {
+  text-decoration: none;
+  color: #B38C14;
+  font-weight: 600;
+}
+
+/* line 50, ../scss/_base.scss */
+.logo, .site-title {
+  display: inline-block;
+}
+
+/* line 53, ../scss/_base.scss */
+.logo {
+  margin-right: 0.5em;
+  vertical-align: super;
+}
+
+/* line 60, ../scss/_base.scss */
+.site-title {
+  color: #FFFFFF;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+/* line 1, ../scss/_states.scss */
+a:after {
+  content: " »";
+}
+
+/* line 4, ../scss/_states.scss */
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+/* line 8, ../scss/_states.scss */
+a.button:after {
+  content: none;
+}
+
+/* line 11, ../scss/_states.scss */
+.button:hover, .button:focus {
+  background: #262626;
+  text-decoration: none;
+}
+
+/* line 16, ../scss/_states.scss */
+a.logo-link:after {
+  content: none;
+}
+
+/* line 19, ../scss/_states.scss */
+a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
+  text-decoration: none;
+}
+
+/* line 23, ../scss/_states.scss */
+.menu a:after {
+  content: none;
+}
+
+/* line 1, ../scss/layout/_grid.scss */
+.container {
+  max-width: 1200px;
+  padding: 16px 32px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 8, ../scss/layout/_grid.scss */
+#main-menu {
+  display: inline-block;
+  margin-left: 1em;
+}
+
+/* line 12, ../scss/layout/_grid.scss */
+.logged-in #main-menu {
+  float: right;
+}
+
+/* line 32, ../scss/layout/_grid.scss */
+#footer {
+  font-size: 0.8em;
+}
+
+/* line 35, ../scss/layout/_grid.scss */
+#footer p {
+  margin: 0;
+}
+
+/* ----- DARK ------ */
+/* line 3, ../scss/_themes.scss */
+.dark {
+  background: #121212;
+  color: #E9E9E9;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+/* line 11, ../scss/_themes.scss */
+.dark a {
+  color: #E5C04E;
+  font-weight: 300;
+}
+
+/* line 15, ../scss/_themes.scss */
+.dark .button {
+  color: #ffffff;
+}
+
+/* line 1, ../scss/module/_buttons.scss */
+.button {
+  background: #3F3F3F;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  color: #FFFFFF;
+  display: inline-block;
+  line-height: 1.2em;
+  padding: 0.7em 2em;
+  font-size: 0.8em;
+  font-weight: 500;
+  border: 0;
+}
+
+/* line 15, ../scss/module/_buttons.scss */
+.button.red {
+  background: #AE2F2C;
+}
+
+/* line 18, ../scss/module/_buttons.scss */
+.button.red:hover, .button.red:focus {
+  background: #951613;
+}
+
+/* line 21, ../scss/module/_buttons.scss */
+.button.purple {
+  background: #783D7A;
+}
+
+/* line 24, ../scss/module/_buttons.scss */
+.button.purple:hover, .button.purple:focus {
+  background: #5F2461;
+}
+
+/* line 27, ../scss/module/_buttons.scss */
+.button.green {
+  background: #4B6A18;
+}
+
+/* line 30, ../scss/module/_buttons.scss */
+.button.green:hover, .button.green:focus {
+  background: #325100;
+}
+
+/* line 33, ../scss/module/_buttons.scss */
+.button.blue {
+  background: #086989;
+}
+
+/* line 36, ../scss/module/_buttons.scss */
+.button.blue:hover, .button.blue:focus {
+  background: #005070;
+}
+
+/* Process map styles */
+/* line 2, ../scss/module/_map.scss */
+.Idea:hover, .Draft:hover, .Inspiration:hover, .Final:hover, .Sketch:hover {
+  fill: #000000;
+}
+
+/* line 3, ../scss/module/_map.scss */
+.Idea {
+  fill: #C69722;
+}
+
+/* line 4, ../scss/module/_map.scss */
+.Draft {
+  fill: #628C31;
+}
+
+/* line 5, ../scss/module/_map.scss */
+.Inspiration {
+  fill: #874C81;
+}
+
+/* line 6, ../scss/module/_map.scss */
+.Final {
+  fill: #352C2A;
+}
+
+/* line 7, ../scss/module/_map.scss */
+.Sketch {
+  fill: #2D83A5;
+}
+
+/* line 8, ../scss/module/_map.scss */
+.link {
+  stroke: #352C2A;
+  fill: none;
+  stroke-width: 2px;
+}
+
+/* line 9, ../scss/module/_map.scss */
+.node text {
+  pointer-events: none;
+  font: 10px sans-serif;
+  fill: #FFF;
+}
+
+/* line 10, ../scss/module/_map.scss */
+svg {
+  border: 1px solid black;
+}
+
+/* line 11, ../scss/module/_map.scss */
+#info {
+  width: 200px;
+  display: block;
+  background-color: white;
+  border: 1px solid black;
+  padding: 20px;
+}
+
+/* line 12, ../scss/module/_map.scss */
+.node-title {
+  display: block;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+/* ----- Click nav and Dropdown menu ----- */
+/* line 3, ../scss/module/_menu-dropdown.scss */
+ul.dropdown {
+  color: #121212;
+  background: #ffffff;
+  width: 215px;
+  border: 1px solid #3F3F3F;
+  -webkit-box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.5);
+  box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.5);
+}
+
+/* line 12, ../scss/module/_menu-dropdown.scss */
+ul.dropdown li {
+  display: block;
+  padding: 0em 0.5em;
+  border-right: none;
+  margin-right: 0;
+}
+
+/* line 18, ../scss/module/_menu-dropdown.scss */
+ul.dropdown li:first-child {
+  padding-top: 1em;
+}
+
+/* line 21, ../scss/module/_menu-dropdown.scss */
+ul.dropdown li:last-child {
+  padding-bottom: 1em;
+}
+
+/* line 24, ../scss/module/_menu-dropdown.scss */
+ul.dropdown li a {
+  color: #B38C14;
+  display: block;
+  font-size: 0.9em;
+  font-weight: 400;
+  padding: 0.25em 1em;
+}
+
+/* line 31, ../scss/module/_menu-dropdown.scss */
+ul.dropdown li a:hover, ul.dropdown li a:focus, ul.dropdown li a:active {
+  text-decoration: none;
+  color: #121212;
+}
+
+/* line 35, ../scss/module/_menu-dropdown.scss */
+ul.dropdown li.separator {
+  border-bottom: 1px solid #3F3F3F;
+  margin-bottom: 0.5em;
+  padding-top: 0.5em;
+}
+
+/* line 41, ../scss/module/_menu-dropdown.scss */
+.click-nav {
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+/* line 42, ../scss/module/_menu-dropdown.scss */
+.click-nav ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 43, ../scss/module/_menu-dropdown.scss */
+.click-nav ul li {
+  position: relative;
+  list-style: none;
+  cursor: pointer;
+}
+
+/* line 44, ../scss/module/_menu-dropdown.scss */
+.click-nav ul li ul {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+/* line 45, ../scss/module/_menu-dropdown.scss */
+.click-nav.click-nav-1 ul li ul {
+  position: absolute;
+  left: auto;
+  right: 0;
+}
+
+/* line 46, ../scss/module/_menu-dropdown.scss */
+.click-nav ul .clicker {
+  position: relative;
+}
+
+/* line 47, ../scss/module/_menu-dropdown.scss */
+.click-nav ul li a {
+  display: block;
+}
+
+/* line 48, ../scss/module/_menu-dropdown.scss */
+a.clicker {
+  color: #121212;
+  height: 35px;
+  width: 35px;
+  border: 1px solid #F5F5F5;
+}
+
+/* line 49, ../scss/module/_menu-dropdown.scss */
+a.clicker:hover, a.clicker:focus, a.clicker:active {
+  text-decoration: none;
+  border: 1px solid #121212;
+}
+
+/* line 50, ../scss/module/_menu-dropdown.scss */
+.click-nav-1 a.clicker {
+  border: 1px solid #121212;
+}
+
+/* line 51, ../scss/module/_menu-dropdown.scss */
+.click-nav-1 a.clicker:hover, .click-nav-1 a.clicker:focus, .click-nav-1 a.clicker:active {
+  border: 1px solid #E5C04E;
+}
+
+/* line 52, ../scss/module/_menu-dropdown.scss */
+.clicker:after {
+  content: none;
+}
+
+/* line 53, ../scss/module/_menu-dropdown.scss */
+.clicker img {
+  height: 35px;
+  vertical-align: bottom;
+  width: 35px;
+}
+
+/* Fallbacks */
+/* line 55, ../scss/module/_menu-dropdown.scss */
+.click-nav .no-js ul {
+  display: none;
+}
+
+/* line 56, ../scss/module/_menu-dropdown.scss */
+.click-nav .no-js:hover ul {
+  display: block;
+}
+
+/* line 1, ../scss/module/_menu-main.scss */
+ul.menu {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 5, ../scss/module/_menu-main.scss */
+.logged-in #main-menu ul#general-links.menu {
+  display: inline-block;
+  margin-right: 0.5em;
+  position: relative;
+  top: -5px;
+  height: 35px;
+}
+
+/* line 12, ../scss/module/_menu-main.scss */
+.menu li {
+  margin-right: 0.5em;
+  padding-right: 0.5em;
+  display: inline-block;
+  list-style-type: none;
+  border-right: 1px solid #fff;
+  line-height: 1em;
+}
+
+/* line 20, ../scss/module/_menu-main.scss */
+.logged-in #main-menu .menu li {
+  border-right: 0;
+}
+
+/* line 23, ../scss/module/_menu-main.scss */
+.menu li:last-child {
+  border-right: none;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+/* line 1, ../scss/module/_menu-project.scss */
+#project-header {
+  border-bottom: 1px solid #121212;
+}
+
+/* line 4, ../scss/module/_menu-project.scss */
+.project-thumb {
+  display: inline-block;
+  margin-right: 0.5em;
+  vertical-align: super;
+}
+
+/* line 9, ../scss/module/_menu-project.scss */
+h1.project-title {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 0;
+  display: inline-block;
+}
+
+/* line 15, ../scss/module/_menu-project.scss */
+#project-menu {
+  display: inline-block;
+  float: right;
+}
+
+/* ----- New node modal ----- */
+/* line 2, ../scss/module/_modal.scss */
+#new-node {
+  background: #ffffff;
+  border: 1px solid #121212;
+  -webkit-border-radius: .5em;
+  -moz-border-radius: .5em;
+  border-radius: .5em;
+  padding: 0.5em 1em;
+  display: inline-block;
+}
+
+/* line 11, ../scss/module/_modal.scss */
+#new-node-thumb {
+  display: inline-block;
+  margin-right: .5em;
+}
+
+/* line 15, ../scss/module/_modal.scss */
+#new-node-form {
+  display: inline-block;
+}
+
+/* line 26, ../scss/module/_modal.scss */
+input[type=text],
+input[type=url],
+input[type=tel],
+input[type=number],
+input[type=color],
+input[type=email] {
+  border: 1px solid #CCCCCC;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  font-weight: 300;
+}
+
+/* line 37, ../scss/module/_modal.scss */
+#new-node-form-buttons {
+  margin-top: .5em;
+}
+
+/* line 40, ../scss/module/_modal.scss */
+#new-node-more {
+  display: inline-block;
+}
+
+/* line 1, ../scss/module/_notification.scss */
+.notification {
+  background: #AE2F2C;
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+  border-radius: 1em;
+  color: #FFFFFF;
+  font-size: 0.6em;
+  height: 1em;
+  line-height: 1em;
+  margin: 0;
+  padding: 3px;
+  position: absolute;
+  right: -7px;
+  text-align: center;
+  top: -7px;
+  width: 1em;
+  -webkit-box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
+}
+
+/* line 21, ../scss/module/_notification.scss */
+ul.dropdown li.notifications {
+  padding: 0 1.5em;
+}
+
+/* line 24, ../scss/module/_notification.scss */
+.notifications-title {
+  font-size: 0.7em;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+
+/* line 30, ../scss/module/_notification.scss */
+.notification-message {
+  font-size: 0.8em;
+  margin-bottom: 0.5em;
+}
+
+/* line 34, ../scss/module/_notification.scss */
+ul.dropdown li .notification-link a {
+  padding: 0;
+  font-size: 0.8em;
+}
+
+/* line 38, ../scss/module/_notification.scss */
+ul.dropdown li .notification-link a:after {
+  content: " »";
+}
