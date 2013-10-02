@@ -1,5 +1,5 @@
 <?php 
-// PROJECT NAME
+// TEMPLATES PAGE for storing template markup
 $nestLevel = 3;
 $loggedIn = true;
 
@@ -19,9 +19,6 @@ $footerInclude = $pathPrefix . "parts/footer.php";
 // INCLUDE HEADER
 include $headerInclude; 
 ?>
-<script src="<?php print $pathPrefix; ?>js/d3.v3.min.js"></script>
-<script src="<?php print $pathPrefix; ?>js/bloomcase_layout.js"></script>
-<script src="<?php print $pathPrefix; ?>js/draw_bc.js"></script>
 
 			<div id="project-header" class="light">
                 <div class="container">
@@ -60,31 +57,11 @@ include $headerInclude;
                 </div> <!-- End container -->
             </div> <!-- End project-header -->
             
-	        <div class="light" id="bloomViz">
+            <div class="light" id="templates">
 
-                <!-- Zoom controls -->
-                <div id="zoom-controls">
-                    <div id="zoom-label">Zoom</div>
-                    <button id="zoom-1" onclick="setZoomLevel(1)" class="zoom-control active">Zoom 1</button>
-                    <button id="zoom-2" onclick="setZoomLevel(2)" class="zoom-control">Zoom 2</button>
-                    <button id="zoom-3" onclick="setZoomLevel(3)" class="zoom-control">Zoom 3</button>
-                </div>
-		
-                <svg id="background">
-                </svg>
 
-                <div class="light" id="betweenLayer">
-                </div>
-
-                <svg id="map">
-        			<script type="text/javascript">
-        				drawBloomcase();
-        			</script>
-                </svg>
-
-<<<<<<< HEAD
                 <!-- Modal popup for new node form -->
-                <div id="new-node" class="modal is-short">
+                <div id="new-node" class="modal is-short hidden">
                     <div id="new-node-cancel">
                         <a class="" href="#">
                             <img class="icon-cancel" src="<?php print $pathPrefix; ?>img/icon-cancel.png" alt="Cancel" width="17" height="17" />
@@ -119,7 +96,7 @@ include $headerInclude;
                 </div>
 
                 <!-- Example div for zoom level 3: cards are the same as the node-info popup -->
-                <div id="node-popup" class="modal node-info hidden">
+                <div class="modal node-info hidden">
                     <div id="node-info-image">
                         <img class="" src="<?php print $pathPrefix; ?>img/node-thumb-popup.png" alt="" width="156" height="94" />
                     </div>
@@ -147,10 +124,8 @@ include $headerInclude;
                     </div>
                 </div>
 
-=======
->>>>>>> 26a7098a3b0542dcc37c3f495b8a1d18f9217bec
 
-            </div> <!-- End bloomViz -->
+            </div>
 
 
 <?php 

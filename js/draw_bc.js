@@ -6,6 +6,8 @@
     zoom2DivOffset = -50;
     secDivOpacity = 1;
     secDivPE = "auto";
+    clickNotDrag = true;
+    clicked = true;
     
     updatingNode = {};
     forBack = 0;
@@ -243,7 +245,28 @@ function drawBC(nodeData,linkData) {
                 .text(function(d) { return "" + (d.laneTotal)})
 		.style("pointer-events", "none");
 		*/
-    redrawBC();
+//    redrawBC(0);
+    panToCenter(0)
+}
+
+function panToCenter(transitionDuration, centerColumn) {
+    var newCenter = centerColumn || d3.max(testLayout.nodes(), function(d) {return d.column}) / 2;
+    var newZoomX = (parseInt(d3.select("#map").style("width")) / 2) - (columnSize * newCenter);
+    var newZoomY = bloomZoom.translate()[1];
+
+    bloomZoom.translate([newZoomX,newZoomY])
+
+    d3.select("#bloomG").transition().duration(transitionDuration).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
+    d3.select("#bgBloomG").transition().duration(transitionDuration).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
+
+    d3.selectAll("div.zoom2").transition().duration(transitionDuration)
+    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 50) + "px")})
+    .style("top", function(d) {return "" + ((150 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    
+    d3.selectAll("div.sec").transition().duration(transitionDuration)
+    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 105) + "px")})
+    .style("top", function(d) {return "" + ((85 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+
 }
 
 function panBC() {
@@ -259,33 +282,38 @@ function panBC() {
     .style("top", function(d) {return "" + ((85 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
 }
 
-function redrawBC() {
-    d3.select("#bloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
-    d3.select("#bgBloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
+function redrawBC(transitionSpeed) {
+    d3.select("#bloomG").transition().duration(transitionSpeed).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
+    d3.select("#bgBloomG").transition().duration(transitionSpeed).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
 
-    d3.selectAll("g.sec").attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ (200 + (d.row * rowSize)) +")"})
+    d3.selectAll("g.sec").transition().duration(transitionSpeed).attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ (200 + (d.row * rowSize)) +")"})
 
-    d3.selectAll("path.connections").attr("d", function(d) {return curvyLine([d.source.column * columnSize, (200 + d.source.row * rowSize)],[d.target.column * columnSize, (200 + d.target.row * rowSize)]) });
+    d3.selectAll("path.connections").transition().duration(transitionSpeed).attr("d", function(d) {return curvyLine([d.source.column * columnSize, (200 + d.source.row * rowSize)],[d.target.column * columnSize, (200 + d.target.row * rowSize)]) });
     
     d3.selectAll("line.hGrid")
+    .transition().duration(transitionSpeed)
     .attr("y1", function(d) {return d * columnSize})
     .attr("y2", function(d) {return d * columnSize})
 
     d3.selectAll("line.vGrid")
+    .transition().duration(transitionSpeed)
     .attr("x1", function(d) {return 200 + (d * rowSize)})
     .attr("x2", function(d) {return 200 + (d * rowSize)})
 
     d3.selectAll("div.zoom2")
+    .transition().duration(transitionSpeed)
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 50) + "px")})
     .style("top", function(d) {return "" + ((150 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
 
-    
     d3.selectAll("div.sec")
+    .transition().duration(transitionSpeed)
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 105) + "px")})
     .style("top", function(d) {return "" + ((85 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
 }
 
 function setZoomLevel(zl) {
+	    d3.selectAll(".zoom-control").classed("active", false);
+	    d3.select("#zoom-"+zl).classed("active", true);
             d3.selectAll("div.sec")
 	    .style("pointer-events", "none")
 	    .style("opacity", 0)
@@ -295,8 +323,6 @@ function setZoomLevel(zl) {
 	    
 	    d3.selectAll("path.nodeSymbol")
 	    .style("opacity", 1)
-
-
 	    var currentCenterColumn = ((parseInt(d3.select("#map").style("width")) / 2) - bloomZoom.translate()[0]) / columnSize;
 
     switch(zl) {
@@ -350,12 +376,21 @@ function setZoomLevel(zl) {
 //    var newZoomX = bloomZoom.translate()[0] / rescaleG;
     var newZoomY = bloomZoom.translate()[1] / rescaleG;
     bloomZoom.translate([newZoomX,newZoomY])
-    redrawBC();
+    redrawBC(500);
 }
+
+function draggingClicking() {
+    clickNotDrag = false;
+}
+
 
 function startMove(d,i) {
     d3.event.stopPropagation();
+    clickNotDrag = true;
+    clickDragTimer = setTimeout('draggingClicking()', 250);
+    
     if (!d3.select("#genNode").empty()) {return;}
+
     x1GenLine = d.column * columnSize;
     y1GenLine = 200 + (d.row * rowSize);
     updatingNode = d;
@@ -382,7 +417,28 @@ function startMove(d,i) {
   
 }
 
+function populatePopup(incNode) {
+    d3.select("#node-popup > #node-info-image > img").attr("src", incNode.imgUrl.length > 2 ? "../../../img/example/zoom3/" + incNode.imgUrl : "")
+    d3.select("#node-popup > #node-info-title").html(function(d) {return "<img class='node-info-type' src='../../../img/icon-"+incNode.kind.toLowerCase() +"-sm.png' />" + incNode.title})
+    d3.select("#node-popup > #node-info-desc").html(function(d) {return incNode.summary})
+
+    
+    
+}
+
 function endMove(d,i) {
+    
+    if(clickNotDrag == true) {
+	panToCenter(500, updatingNode.column);
+	hideModal();
+	
+	if(!d3.select("#zoom-3").classed("active")) {
+	    d3.select("#node-popup").classed("hidden", false);
+	    populatePopup(updatingNode);
+	}
+	
+	return;
+    }
     if (!d3.select(".options").empty()) {return;}
     var curMouse = d3.mouse(this);
     var blNodes = testLayout.nodes();
@@ -476,9 +532,7 @@ function endMove(d,i) {
 }
 
 function selectNewNode(d,i) {
-    console.log(d)
-        d3.event.stopPropagation();
-//    possibleShapes.push(currentNewNode);
+    d3.event.stopPropagation();
     console.log("Selected Node: " + d)
     console.log("Old Current Node: " + currentNewNode)
     for (i in possibleShapes) {
@@ -564,7 +618,7 @@ function createNewNode(d,i) {
     
 //    drawBC(freshLayout.nodes(),freshLayout.links())
 //    testLayout.nodes(newNodeArray);
-    redrawBC();
+    redrawBC(500);
     var runLater = setTimeout(function() {nodeDetailsDialog(createdNode)}, 1000)
 }
 
@@ -576,11 +630,12 @@ function nodeDetailsDialog(targetNode) {
 }
 
 function hideModal() {
+    d3.select("#node-popup").classed("hidden", true);
     d3.select("#new-node").style("display", "none");
     d3.selectAll(".options").remove();
-    	    d3.select("#genNode").remove();
-	    d3.select("#genLine").remove();
-	    d3.select("#map").on("mousemove", null)
+    d3.select("#genNode").remove();
+    d3.select("#genLine").remove();
+    d3.select("#map").on("mousemove", null)
 }
 
 function moveGenNode(d,i) {

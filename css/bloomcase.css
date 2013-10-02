@@ -425,7 +425,9 @@ a.clicker:hover, a.clicker:focus, a.clicker:active {text-decoration:none; border
 .link {stroke:#352C2A; fill:none; stroke-width:2px;}
 .node text { pointer-events: none; font: 10px sans-serif; fill:#FFF; }
 #map, #background {width:100%; height:500px;}
-#background {position: absolute; top: 0;}
+#map, #background, #betweenLayer {top: 0;}
+#background {position: absolute;}
+#map, #betweenLayer {position:relative;}
 #info {width:200px; display:block; background-color:white; border:1px solid black; padding:20px;}
 .node-title {display:block; font-size: 1.1em; font-weight: bold;}
 
@@ -613,6 +615,12 @@ textarea {
     border-top-color: #333333;
     left: 95px;
     margin-top: 15px;
+}
+
+/* -- id for the popup modal for nodes -- */
+#node-popup {
+    left: 55%;
+    top: 10px;
 }
 
 /* -- node info modal --*/
