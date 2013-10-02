@@ -45,10 +45,53 @@ $('#new-node-more').click(function(e) {
     $('#new-node').toggleClass('is-short is-long');
 });
 
-// New node
+// New node form
 $('#new-node-form-submit').click(function(e) {
-    alert("Your node is added!");
+    //alert("Your node is added!");
+
 });
+
+// Bind form to parsley
+$( '#new-node-form' ).parsley();
+// Add a listener to the form
+
+
+$( '#new-node-form' ).parsley( 'addListener', {
+
+    /*var isValid = $( '#new-node-form' ).parsley ( 'validate' );
+    if(isValid == true) {
+        //$('#new-node-form-submit').attr("disabled", "");
+        console.log("Your form is valid!");
+    }*/
+
+    /*onFieldValidate: function() {
+        var isValid = $( '#new-node-form' ).parsley( 'isValid' );
+        if(isValid == true) {
+            //$('#new-node-form-submit').attr("disabled", "");
+            console.log("Your form is valid!");
+        }
+    }*/
+
+    /*onFieldSuccess: function(a) {
+        console.log("field success!");
+        var isValid = $( '#new-node-form' ).parsley( 'isValid' );
+        console.log(isValid);
+    }*/
+
+    /*
+    onFieldError: function(elem) {
+        console.log("field error!");
+    }*/
+
+    /*onFieldValidate: function ( elem ) {
+        if ( !$( elem ).is( ':visible' ) ) {
+            return true;
+            console.log("Your form is valid!");
+        }
+        return false;
+        console.log("Your form is NOT valid!");
+    }*/
+} );
     
 // New node form validation
 // validate string is a date in javascript
