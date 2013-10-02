@@ -1,14 +1,14 @@
 @import
-	"site-settings",
+	"variables",
 	"mixins",
 	"base",
 	"states",
-	"layout/grid",
+	"layouts/containers",
 	"themes",
-	"module/buttons",
-	"module/map",
-	"module/menu-dropdown",
-	"module/menu-main",
-	"module/menu-project",
-	"module/modal",
-	"module/notification";
+	"modules/buttons",
+	"modules/map",
+	"modules/menu-dropdown",
+	"modules/menu-main",
+	"modules/menu-project",
+	"modules/modal",
+	"modules/notification";
