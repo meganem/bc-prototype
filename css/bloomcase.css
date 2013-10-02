@@ -638,6 +638,12 @@ textarea {
     margin-top: 15px;
 }
 
+/* -- id for the popup modal for nodes -- */
+#node-popup {
+    left: 55%;
+    top: 10px;
+}
+
 /* -- node info modal --*/
 .node-info {
     width: 190px;
