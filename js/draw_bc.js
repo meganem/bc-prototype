@@ -34,12 +34,13 @@ function resizePanels() {
     var b = document.getElementById("project-header").clientHeight;
     var c = document.getElementById("footer").clientHeight;
     
-    var height = html = document.documentElement.clientHeight;
+    var width = document.documentElement.clientWidth;
+    var height = document.documentElement.clientHeight;
     
     svgHeight = height - a - b - c;
 
-    d3.selectAll("#background").style("height", svgHeight + "px")
-    d3.selectAll("#map").style("height", svgHeight + "px")
+    d3.selectAll("#background").style("width", width + "px").style("height", svgHeight + "px")
+    d3.selectAll("#map").style("width", width + "px").style("height", svgHeight + "px")
 }
 
 function drawBloomcase() {
