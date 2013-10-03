@@ -133,8 +133,8 @@ function drawBC(nodeData,linkData) {
     .attr("y1", -10000)
     .attr("y2", 10000)
     .attr("class", "vGrid")
-    .attr("x1", function(d) {return 200 + (d * rowSize)})
-    .attr("x2", function(d) {return 200 + (d * rowSize)})
+    .attr("x1", function(d) {return (d * rowSize)})
+    .attr("x2", function(d) {return (d * rowSize)})
     .style("stroke", "lightgray")
     .style("stroke-width", "1px")
 
@@ -143,7 +143,7 @@ function drawBC(nodeData,linkData) {
     .attr("class", "connections")
     .style("stroke-width", 2)
     .style("fill", "none")
-    .attr("d", function(d) {return curvyLine([d.source.column * columnSize, (200 + d.source.row * rowSize)],[d.target.column * columnSize, (200 + d.target.row * rowSize)]) })
+    .attr("d", function(d) {return curvyLine([d.source.column * columnSize, (d.source.row * rowSize)],[d.target.column * columnSize, (d.target.row * rowSize)]) })
     .style("opacity", 0);
     
     d3.selectAll("path.connections")
@@ -154,7 +154,7 @@ function drawBC(nodeData,linkData) {
     var secG = d3.select("#bloomG").selectAll("g.sec").data(nodeData).enter().append("g")
     .style("display", function(d) {return d.isMeta ? "none" : "block"})
     .attr("class", "sec")
-    .attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ (200 + (d.row * rowSize)) +")"})
+    .attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ ((d.row * rowSize)) +")"})
     .on("mousedown", startMove)
     .on("mouseup", endMove);
 
@@ -168,7 +168,7 @@ function drawBC(nodeData,linkData) {
     .style("pointer-events", "none")
     ;
     
-    var secDiv = d3.select("#betweenLayer").selectAll("div.sec").data(nodeData).enter().append("div")
+    var secDiv = d3.select("#aboveLayer").selectAll("div.sec").data(nodeData).enter().append("div")
     .style("display", function(d) {return d.isMeta ? "none" : "block"})
     .attr("id", "card")
     .attr("class", "sec modal node-info")
@@ -223,6 +223,7 @@ function drawBC(nodeData,linkData) {
     .attr("id", "node-info-more")
     .attr("class", "button purple")
     .attr("href", "#")
+    .on("click", function(d) {	panToCenter(1000, d.column, d.row);populateMorePanel(d);d3.select("#morePanel").classed("hidden", false)})
     .html("more")
     
     secG.append("path")
@@ -249,10 +250,16 @@ function drawBC(nodeData,linkData) {
     panToCenter(0)
 }
 
-function panToCenter(transitionDuration, centerColumn) {
+function panToCenter(transitionDuration, centerColumn,centerRow) {
+    var svgCenter = (parseInt(d3.select("#map").style("width")) / 2);
     var newCenter = centerColumn || d3.max(testLayout.nodes(), function(d) {return d.column}) / 2;
-    var newZoomX = (parseInt(d3.select("#map").style("width")) / 2) - (columnSize * newCenter);
-    var newZoomY = bloomZoom.translate()[1];
+    var newMiddle = centerRow + 0 || -1;
+//    var newMiddle = 0;
+    var newZoomX = svgCenter - (columnSize * newCenter);
+    var newZoomY = (parseInt(d3.select("#map").style("height")) / 2) - (rowSize * newMiddle);
+//    var newZoomY = bloomZoom.translate()[1];
+
+    d3.select("#node-popup").style("left", (svgCenter - 95) + "px")
 
     bloomZoom.translate([newZoomX,newZoomY])
 
@@ -260,12 +267,12 @@ function panToCenter(transitionDuration, centerColumn) {
     d3.select("#bgBloomG").transition().duration(transitionDuration).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
 
     d3.selectAll("div.zoom2").transition().duration(transitionDuration)
-    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 50) + "px")})
-    .style("top", function(d) {return "" + ((150 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 40) + "px")})
+    .style("top", function(d) {return "" + ((-35 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
     
     d3.selectAll("div.sec").transition().duration(transitionDuration)
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 105) + "px")})
-    .style("top", function(d) {return "" + ((85 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    .style("top", function(d) {return "" + ((-115 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
 
 }
 
@@ -274,21 +281,21 @@ function panBC() {
     d3.select("#bgBloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
     
     d3.selectAll("div.zoom2")
-    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 50) + "px")})
-    .style("top", function(d) {return "" + ((150 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 40) + "px")})
+    .style("top", function(d) {return "" + ((-35 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
     
     d3.selectAll("div.sec")
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 105) + "px")})
-    .style("top", function(d) {return "" + ((85 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    .style("top", function(d) {return "" + ((-115 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
 }
 
 function redrawBC(transitionSpeed) {
     d3.select("#bloomG").transition().duration(transitionSpeed).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
     d3.select("#bgBloomG").transition().duration(transitionSpeed).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
 
-    d3.selectAll("g.sec").transition().duration(transitionSpeed).attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ (200 + (d.row * rowSize)) +")"})
+    d3.selectAll("g.sec").transition().duration(transitionSpeed).attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ ((d.row * rowSize)) +")"})
 
-    d3.selectAll("path.connections").transition().duration(transitionSpeed).attr("d", function(d) {return curvyLine([d.source.column * columnSize, (200 + d.source.row * rowSize)],[d.target.column * columnSize, (200 + d.target.row * rowSize)]) });
+    d3.selectAll("path.connections").transition().duration(transitionSpeed).attr("d", function(d) {return curvyLine([d.source.column * columnSize, (d.source.row * rowSize)],[d.target.column * columnSize, (d.target.row * rowSize)]) });
     
     d3.selectAll("line.hGrid")
     .transition().duration(transitionSpeed)
@@ -297,18 +304,18 @@ function redrawBC(transitionSpeed) {
 
     d3.selectAll("line.vGrid")
     .transition().duration(transitionSpeed)
-    .attr("x1", function(d) {return 200 + (d * rowSize)})
-    .attr("x2", function(d) {return 200 + (d * rowSize)})
+    .attr("x1", function(d) {return (d * rowSize)})
+    .attr("x2", function(d) {return (d * rowSize)})
 
     d3.selectAll("div.zoom2")
     .transition().duration(transitionSpeed)
-    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 50) + "px")})
-    .style("top", function(d) {return "" + ((150 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 40) + "px")})
+    .style("top", function(d) {return "" + ((-35 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
 
     d3.selectAll("div.sec")
     .transition().duration(transitionSpeed)
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 105) + "px")})
-    .style("top", function(d) {return "" + ((85 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    .style("top", function(d) {return "" + ((-115 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
 }
 
 function setZoomLevel(zl) {
@@ -324,6 +331,7 @@ function setZoomLevel(zl) {
 	    d3.selectAll("path.nodeSymbol")
 	    .style("opacity", 1)
 	    var currentCenterColumn = ((parseInt(d3.select("#map").style("width")) / 2) - bloomZoom.translate()[0]) / columnSize;
+	    var currentCenterRow = ((parseInt(d3.select("#map").style("height")) / 2) - bloomZoom.translate()[1]) / rowSize;
 
     switch(zl) {
 	case 1:
@@ -340,9 +348,9 @@ function setZoomLevel(zl) {
 
 	    break;
 	case 2:
-	    rowSize = -200;
+	    rowSize = -100;
 	    var rescaleG = columnSize / 100;
-	    columnSize = 100;
+	    columnSize = 60;
             d3.selectAll("div.zoom2")
 	    .style("pointer-events", "auto")
 	    .style("opacity", 1)
@@ -351,7 +359,7 @@ function setZoomLevel(zl) {
 	    
 	    d3.selectAll("path.nodeSymbol")
 	    .attr("transform", function(d) { 
-	return "translate(" + (25 + (-1*(shapeMeasures[d.kind]["myWidth"]/2))) + "," + ((-1*(shapeMeasures[d.kind]["myHeight"]/2)) - 50) + ")"; 
+	return "translate(" + (35 + (-1*(shapeMeasures[d.kind]["myWidth"]/2))) + "," + ((-1*(shapeMeasures[d.kind]["myHeight"]/2)) - 34) + ")"; 
     });
 
 	    break;
@@ -373,8 +381,8 @@ function setZoomLevel(zl) {
 	break;
     }
     var newZoomX = (parseInt(d3.select("#map").style("width")) / 2) - (columnSize * currentCenterColumn);
-//    var newZoomX = bloomZoom.translate()[0] / rescaleG;
-    var newZoomY = bloomZoom.translate()[1] / rescaleG;
+    var newZoomY = (parseInt(d3.select("#map").style("height")) / 2) - (rowSize * currentCenterRow)
+//    var newZoomY = bloomZoom.translate()[1] / rescaleG;
     bloomZoom.translate([newZoomX,newZoomY])
     redrawBC(500);
 }
@@ -392,7 +400,7 @@ function startMove(d,i) {
     if (!d3.select("#genNode").empty()) {return;}
 
     x1GenLine = d.column * columnSize;
-    y1GenLine = 200 + (d.row * rowSize);
+    y1GenLine = (d.row * rowSize);
     updatingNode = d;
     var curMouse = d3.mouse(this.parentNode);
     d3.select("#map").on("mousemove", moveGenNode)
@@ -423,15 +431,23 @@ function populatePopup(incNode) {
     d3.select("#node-popup > #node-info-desc").html(function(d) {return incNode.summary})
 }
 
+function populateMorePanel(incNode) {
+    d3.select("#morePanel > #node-info-image > img").style("display", incNode.imgUrl.length > 2 ? "block" : "none").attr("src", "../../../img/example/zoom3/" + incNode.imgUrl)
+    d3.select("#morePanel > #node-info-title").html(function(d) {return "<img class='node-info-type' src='../../../img/icon-"+incNode.kind.toLowerCase() +"-sm.png' />" + incNode.title})
+    d3.select("#morePanel > #node-info-desc").html(function(d) {return incNode.summary})    
+}
+
 function endMove(d,i) {
     
     if(clickNotDrag == true) {
-	panToCenter(1000, updatingNode.column);
+	panToCenter(1000, updatingNode.column, updatingNode.row);
 	hideModal();
 	
 	if(!d3.select("#zoom-3").classed("active")) {
+	    d3.select("#node-popup #node-info-more").on("click", function() {d3.select("#morePanel").classed("hidden", false)})
 	    d3.select("#node-popup").classed("hidden", false);
 	    populatePopup(updatingNode);
+	    populateMorePanel(updatingNode)
 	}
 	
 	return;
@@ -441,7 +457,7 @@ function endMove(d,i) {
     var blNodes = testLayout.nodes();
     for (no in blNodes) {
 	var checkX = Math.abs(blNodes[no].column * columnSize - curMouse[0]);
-	var checkY = Math.abs(200 + (blNodes[no].row * rowSize) - curMouse[1]);
+	var checkY = Math.abs((blNodes[no].row * rowSize) - curMouse[1]);
 	if (checkX < 20 && checkY < 20) {
 	    if (blNodes[no].column != updatingNode.column && !(blNodes[no].evolvedFrom.indexOf(updatingNode.nid) > -1 || updatingNode.evolvedFrom.indexOf(blNodes[no].nid) > -1)) {
 	    
@@ -499,6 +515,28 @@ function endMove(d,i) {
     .append("g")
     .attr("transform", function (p,q) {return "translate("+ pointsOnCircle(p,q) + ")scale(1)"});
 
+    var circBCTitleRect = nodeOpts.append("rect")
+    .attr("class", "options optionsBC optionsInfo")
+    .attr("id", function(p) {return "optNameRect" + p})
+    .attr("x", function(p,q) {return q > 1 ? -120 : -15})
+    .attr("y", -15)
+    .attr("width", 135)
+    .attr("height", 30)
+    .attr("rx", 15)
+    .attr("ry", 15)
+    .style("fill", "white")
+    .style("stroke", "black")
+    .style("stroke-width", "2px")
+    .style("display", "none");
+
+    var circBCTitleText = nodeOpts.append("text")
+    .attr("class", "options optionsBC optionsInfo")
+    .attr("id", function(p) {return "optNameText" + p})
+    .attr("x", function(p,q) {return q > 1 ? -105 : 20})
+    .attr("y", 5)
+    .text(function(p,q) {return p})
+    .style("display", "none");
+
     var circBCOpts = nodeOpts.append("circle")
     .attr("class", "options optionsBC")
     .attr("r", 15)
@@ -512,26 +550,34 @@ function endMove(d,i) {
     .attr("class", function(p){ return "options " + p; })
     .attr("id", function(p) {return "opt" + p})
     .on("click", function(p) {selectNewNode(p)})
+    .on("mouseover", function(p) {d3.selectAll(".optionsInfo").style("display","none");d3.select("#optNameRect" + p).style("display","block");d3.select("#optNameText" + p).style("display","block");})
+    .on("mouseout", function() {d3.selectAll(".optionsInfo").style("display","none")})
     .attr("d", function(p) {
 	return shapeMeasures[p]["pathd"]
     })
     .attr("transform", function(p) { 
 	return "translate(" + (-1*(shapeMeasures[p]["myWidth"]/2)) + "," + (-1*(shapeMeasures[p]["myHeight"]/2)) + ")scale(1)"; 
     })
+    .style("cursor", "pointer")
 
     d3.select("#newNode")
     .style("fill", shapeMeasures[currentNewNode]["color"])
     .attr("d", shapeMeasures[currentNewNode]["pathd"])
     .on("click", function() {createNewNode(currentNewNode,0)})
+    .style("cursor", "pointer")
 
-    
+    d3.select("#genNode")
+    .append("text")
+    .attr("id", "newNodeTitle")
+    .attr("text-anchor", "middle")
+    .attr("y", 30)
+    .text(currentNewNode)
+    .style("pointer-events","none");
 
 }
 
 function selectNewNode(d,i) {
     d3.event.stopPropagation();
-    console.log("Selected Node: " + d)
-    console.log("Old Current Node: " + currentNewNode)
     for (i in possibleShapes) {
 	if (possibleShapes[i] == d) {
 	    possibleShapes[i] = currentNewNode;
@@ -545,12 +591,18 @@ function selectNewNode(d,i) {
     .attr("d", shapeMeasures[currentNewNode]["pathd"])
     .style("fill", shapeMeasures[currentNewNode]["color"]);
 
+    d3.select("#optNameRect" + d).attr("id", "optNameRect" + currentNewNode);
+    
+    d3.select("#optNameText" + d).attr("id", "optNameText" + currentNewNode).text(currentNewNode);
     
     currentNewNode = d;
     d3.select("#newNode")
     .on("click", function() {createNewNode(d,0)})
     .attr("d", shapeMeasures[d]["pathd"])
     .style("fill", shapeMeasures[d]["color"]);
+
+    d3.select("#newNodeTitle").text(d);
+    
 }
 
 function createNewNode(d,i) {
@@ -605,7 +657,7 @@ function createNewNode(d,i) {
     .attr("class", "connections")
     .transition()
     .duration(500)
-    .attr("d", function(d) {return curvyLine([x1GenLine, y1GenLine],[(newNode.column * columnSize), (200 + (newNode.row * rowSize))])});
+    .attr("d", function(d) {return curvyLine([x1GenLine, y1GenLine],[(newNode.column * columnSize), ((newNode.row * rowSize))])});
     
     testLayout.nodes().push(newNode)
     newNodeArray = testLayout.nodes().filter(function(el) {return el.isMeta ? null : this});
@@ -627,6 +679,7 @@ function nodeDetailsDialog(targetNode) {
 }
 
 function hideModal() {
+    d3.select("#morePanel").classed("hidden", true)
     d3.select("#node-popup").classed("hidden", true);
     d3.select("#new-node").style("display", "none");
     d3.selectAll(".options").remove();
