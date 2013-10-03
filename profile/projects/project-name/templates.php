@@ -89,7 +89,7 @@ include $headerInclude;
                         <input id="new-node-form-tags" name="node-tags" type="text" placeholder="Tag it, comma separated" data-trigger="keyup" data-notblank="true">
                         <div id="new-node-form-buttons">
                             <input id="new-node-delete" class="button red" type="button" value="delete">
-                            <input id="new-node-form-submit" class="button green" type="submit" value="done" disabled>
+                            <input id="new-node-form-submit" class="button green disabled" type="submit" value="done">
                             <input id="new-node-more" class="button purple more-link" type="button" value="more">
                         </div>
                     </form>

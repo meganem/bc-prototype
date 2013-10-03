@@ -616,7 +616,7 @@ textarea {
     width: 100%;
     margin-bottom: 0.5em;
 }
-input:disabled {
+input.disabled {
     opacity:0.3;
 }
 #new-node-form-buttons {
