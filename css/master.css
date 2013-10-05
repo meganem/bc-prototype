@@ -118,7 +118,7 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   content: none;
 }
 
-/* line 1, ../scss/layout/_grid.scss */
+/* line 1, ../scss/layouts/_containers.scss */
 .container {
   max-width: 1200px;
   padding: 16px 32px;
@@ -126,23 +126,23 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   margin-right: auto;
 }
 
-/* line 8, ../scss/layout/_grid.scss */
+/* line 8, ../scss/layouts/_containers.scss */
 #main-menu {
   display: inline-block;
   margin-left: 1em;
 }
 
-/* line 12, ../scss/layout/_grid.scss */
+/* line 12, ../scss/layouts/_containers.scss */
 .logged-in #main-menu {
   float: right;
 }
 
-/* line 32, ../scss/layout/_grid.scss */
+/* line 32, ../scss/layouts/_containers.scss */
 #footer {
   font-size: 0.8em;
 }
 
-/* line 35, ../scss/layout/_grid.scss */
+/* line 35, ../scss/layouts/_containers.scss */
 #footer p {
   margin: 0;
 }
@@ -167,7 +167,7 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   color: #ffffff;
 }
 
-/* line 1, ../scss/module/_buttons.scss */
+/* line 1, ../scss/modules/_buttons.scss */
 .button {
   background: #3F3F3F;
   -webkit-border-radius: 0.5em;
@@ -182,97 +182,97 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   border: 0;
 }
 
-/* line 15, ../scss/module/_buttons.scss */
+/* line 15, ../scss/modules/_buttons.scss */
 .button.red {
   background: #AE2F2C;
 }
 
-/* line 18, ../scss/module/_buttons.scss */
+/* line 18, ../scss/modules/_buttons.scss */
 .button.red:hover, .button.red:focus {
   background: #951613;
 }
 
-/* line 21, ../scss/module/_buttons.scss */
+/* line 21, ../scss/modules/_buttons.scss */
 .button.purple {
   background: #783D7A;
 }
 
-/* line 24, ../scss/module/_buttons.scss */
+/* line 24, ../scss/modules/_buttons.scss */
 .button.purple:hover, .button.purple:focus {
   background: #5F2461;
 }
 
-/* line 27, ../scss/module/_buttons.scss */
+/* line 27, ../scss/modules/_buttons.scss */
 .button.green {
   background: #4B6A18;
 }
 
-/* line 30, ../scss/module/_buttons.scss */
+/* line 30, ../scss/modules/_buttons.scss */
 .button.green:hover, .button.green:focus {
   background: #325100;
 }
 
-/* line 33, ../scss/module/_buttons.scss */
+/* line 33, ../scss/modules/_buttons.scss */
 .button.blue {
   background: #086989;
 }
 
-/* line 36, ../scss/module/_buttons.scss */
+/* line 36, ../scss/modules/_buttons.scss */
 .button.blue:hover, .button.blue:focus {
   background: #005070;
 }
 
 /* Process map styles */
-/* line 2, ../scss/module/_map.scss */
+/* line 2, ../scss/modules/_map.scss */
 .Idea:hover, .Draft:hover, .Inspiration:hover, .Final:hover, .Sketch:hover {
   fill: #000000;
 }
 
-/* line 3, ../scss/module/_map.scss */
+/* line 3, ../scss/modules/_map.scss */
 .Idea {
   fill: #C69722;
 }
 
-/* line 4, ../scss/module/_map.scss */
+/* line 4, ../scss/modules/_map.scss */
 .Draft {
   fill: #628C31;
 }
 
-/* line 5, ../scss/module/_map.scss */
+/* line 5, ../scss/modules/_map.scss */
 .Inspiration {
   fill: #874C81;
 }
 
-/* line 6, ../scss/module/_map.scss */
+/* line 6, ../scss/modules/_map.scss */
 .Final {
   fill: #352C2A;
 }
 
-/* line 7, ../scss/module/_map.scss */
+/* line 7, ../scss/modules/_map.scss */
 .Sketch {
   fill: #2D83A5;
 }
 
-/* line 8, ../scss/module/_map.scss */
+/* line 8, ../scss/modules/_map.scss */
 .link {
   stroke: #352C2A;
   fill: none;
   stroke-width: 2px;
 }
 
-/* line 9, ../scss/module/_map.scss */
+/* line 9, ../scss/modules/_map.scss */
 .node text {
   pointer-events: none;
   font: 10px sans-serif;
   fill: #FFF;
 }
 
-/* line 10, ../scss/module/_map.scss */
+/* line 10, ../scss/modules/_map.scss */
 svg {
   border: 1px solid black;
 }
 
-/* line 11, ../scss/module/_map.scss */
+/* line 11, ../scss/modules/_map.scss */
 #info {
   width: 200px;
   display: block;
@@ -281,7 +281,7 @@ svg {
   padding: 20px;
 }
 
-/* line 12, ../scss/module/_map.scss */
+/* line 12, ../scss/modules/_map.scss */
 .node-title {
   display: block;
   font-size: 1.1em;
@@ -289,7 +289,7 @@ svg {
 }
 
 /* ----- Click nav and Dropdown menu ----- */
-/* line 3, ../scss/module/_menu-dropdown.scss */
+/* line 3, ../scss/modules/_menu-dropdown.scss */
 ul.dropdown {
   color: #121212;
   background: #ffffff;
@@ -300,7 +300,7 @@ ul.dropdown {
   box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.5);
 }
 
-/* line 12, ../scss/module/_menu-dropdown.scss */
+/* line 12, ../scss/modules/_menu-dropdown.scss */
 ul.dropdown li {
   display: block;
   padding: 0em 0.5em;
@@ -308,17 +308,17 @@ ul.dropdown li {
   margin-right: 0;
 }
 
-/* line 18, ../scss/module/_menu-dropdown.scss */
+/* line 18, ../scss/modules/_menu-dropdown.scss */
 ul.dropdown li:first-child {
   padding-top: 1em;
 }
 
-/* line 21, ../scss/module/_menu-dropdown.scss */
+/* line 21, ../scss/modules/_menu-dropdown.scss */
 ul.dropdown li:last-child {
   padding-bottom: 1em;
 }
 
-/* line 24, ../scss/module/_menu-dropdown.scss */
+/* line 24, ../scss/modules/_menu-dropdown.scss */
 ul.dropdown li a {
   color: #B38C14;
   display: block;
@@ -327,64 +327,64 @@ ul.dropdown li a {
   padding: 0.25em 1em;
 }
 
-/* line 31, ../scss/module/_menu-dropdown.scss */
+/* line 31, ../scss/modules/_menu-dropdown.scss */
 ul.dropdown li a:hover, ul.dropdown li a:focus, ul.dropdown li a:active {
   text-decoration: none;
   color: #121212;
 }
 
-/* line 35, ../scss/module/_menu-dropdown.scss */
+/* line 35, ../scss/modules/_menu-dropdown.scss */
 ul.dropdown li.separator {
   border-bottom: 1px solid #3F3F3F;
   margin-bottom: 0.5em;
   padding-top: 0.5em;
 }
 
-/* line 41, ../scss/module/_menu-dropdown.scss */
+/* line 41, ../scss/modules/_menu-dropdown.scss */
 .click-nav {
   display: inline-block;
   margin-right: 0.5em;
 }
 
-/* line 42, ../scss/module/_menu-dropdown.scss */
+/* line 42, ../scss/modules/_menu-dropdown.scss */
 .click-nav ul {
   position: relative;
   margin: 0;
   padding: 0;
 }
 
-/* line 43, ../scss/module/_menu-dropdown.scss */
+/* line 43, ../scss/modules/_menu-dropdown.scss */
 .click-nav ul li {
   position: relative;
   list-style: none;
   cursor: pointer;
 }
 
-/* line 44, ../scss/module/_menu-dropdown.scss */
+/* line 44, ../scss/modules/_menu-dropdown.scss */
 .click-nav ul li ul {
   position: absolute;
   left: 0;
   right: 0;
 }
 
-/* line 45, ../scss/module/_menu-dropdown.scss */
+/* line 45, ../scss/modules/_menu-dropdown.scss */
 .click-nav.click-nav-1 ul li ul {
   position: absolute;
   left: auto;
   right: 0;
 }
 
-/* line 46, ../scss/module/_menu-dropdown.scss */
+/* line 46, ../scss/modules/_menu-dropdown.scss */
 .click-nav ul .clicker {
   position: relative;
 }
 
-/* line 47, ../scss/module/_menu-dropdown.scss */
+/* line 47, ../scss/modules/_menu-dropdown.scss */
 .click-nav ul li a {
   display: block;
 }
 
-/* line 48, ../scss/module/_menu-dropdown.scss */
+/* line 48, ../scss/modules/_menu-dropdown.scss */
 a.clicker {
   color: #121212;
   height: 35px;
@@ -392,28 +392,28 @@ a.clicker {
   border: 1px solid #F5F5F5;
 }
 
-/* line 49, ../scss/module/_menu-dropdown.scss */
+/* line 49, ../scss/modules/_menu-dropdown.scss */
 a.clicker:hover, a.clicker:focus, a.clicker:active {
   text-decoration: none;
   border: 1px solid #121212;
 }
 
-/* line 50, ../scss/module/_menu-dropdown.scss */
+/* line 50, ../scss/modules/_menu-dropdown.scss */
 .click-nav-1 a.clicker {
   border: 1px solid #121212;
 }
 
-/* line 51, ../scss/module/_menu-dropdown.scss */
+/* line 51, ../scss/modules/_menu-dropdown.scss */
 .click-nav-1 a.clicker:hover, .click-nav-1 a.clicker:focus, .click-nav-1 a.clicker:active {
   border: 1px solid #E5C04E;
 }
 
-/* line 52, ../scss/module/_menu-dropdown.scss */
+/* line 52, ../scss/modules/_menu-dropdown.scss */
 .clicker:after {
   content: none;
 }
 
-/* line 53, ../scss/module/_menu-dropdown.scss */
+/* line 53, ../scss/modules/_menu-dropdown.scss */
 .clicker img {
   height: 35px;
   vertical-align: bottom;
@@ -421,23 +421,23 @@ a.clicker:hover, a.clicker:focus, a.clicker:active {
 }
 
 /* Fallbacks */
-/* line 55, ../scss/module/_menu-dropdown.scss */
+/* line 55, ../scss/modules/_menu-dropdown.scss */
 .click-nav .no-js ul {
   display: none;
 }
 
-/* line 56, ../scss/module/_menu-dropdown.scss */
+/* line 56, ../scss/modules/_menu-dropdown.scss */
 .click-nav .no-js:hover ul {
   display: block;
 }
 
-/* line 1, ../scss/module/_menu-main.scss */
+/* line 1, ../scss/modules/_menu-main.scss */
 ul.menu {
   margin: 0;
   padding: 0;
 }
 
-/* line 5, ../scss/module/_menu-main.scss */
+/* line 5, ../scss/modules/_menu-main.scss */
 .logged-in #main-menu ul#general-links.menu {
   display: inline-block;
   margin-right: 0.5em;
@@ -446,7 +446,7 @@ ul.menu {
   height: 35px;
 }
 
-/* line 12, ../scss/module/_menu-main.scss */
+/* line 12, ../scss/modules/_menu-main.scss */
 .menu li {
   margin-right: 0.5em;
   padding-right: 0.5em;
@@ -456,31 +456,31 @@ ul.menu {
   line-height: 1em;
 }
 
-/* line 20, ../scss/module/_menu-main.scss */
+/* line 20, ../scss/modules/_menu-main.scss */
 .logged-in #main-menu .menu li {
   border-right: 0;
 }
 
-/* line 23, ../scss/module/_menu-main.scss */
+/* line 23, ../scss/modules/_menu-main.scss */
 .menu li:last-child {
   border-right: none;
   margin-right: 0;
   padding-right: 0;
 }
 
-/* line 1, ../scss/module/_menu-project.scss */
+/* line 1, ../scss/modules/_menu-project.scss */
 #project-header {
   border-bottom: 1px solid #121212;
 }
 
-/* line 4, ../scss/module/_menu-project.scss */
+/* line 4, ../scss/modules/_menu-project.scss */
 .project-thumb {
   display: inline-block;
   margin-right: 0.5em;
   vertical-align: super;
 }
 
-/* line 9, ../scss/module/_menu-project.scss */
+/* line 9, ../scss/modules/_menu-project.scss */
 h1.project-title {
   font-size: 1.5em;
   font-weight: 600;
@@ -488,14 +488,14 @@ h1.project-title {
   display: inline-block;
 }
 
-/* line 15, ../scss/module/_menu-project.scss */
+/* line 15, ../scss/modules/_menu-project.scss */
 #project-menu {
   display: inline-block;
   float: right;
 }
 
 /* ----- New node modal ----- */
-/* line 2, ../scss/module/_modal.scss */
+/* line 2, ../scss/modules/_modal.scss */
 #new-node {
   background: #ffffff;
   border: 1px solid #121212;
@@ -506,18 +506,18 @@ h1.project-title {
   display: inline-block;
 }
 
-/* line 11, ../scss/module/_modal.scss */
+/* line 11, ../scss/modules/_modal.scss */
 #new-node-thumb {
   display: inline-block;
   margin-right: .5em;
 }
 
-/* line 15, ../scss/module/_modal.scss */
+/* line 15, ../scss/modules/_modal.scss */
 #new-node-form {
   display: inline-block;
 }
 
-/* line 26, ../scss/module/_modal.scss */
+/* line 26, ../scss/modules/_modal.scss */
 input[type=text],
 input[type=url],
 input[type=tel],
@@ -532,17 +532,17 @@ input[type=email] {
   font-weight: 300;
 }
 
-/* line 37, ../scss/module/_modal.scss */
+/* line 37, ../scss/modules/_modal.scss */
 #new-node-form-buttons {
   margin-top: .5em;
 }
 
-/* line 40, ../scss/module/_modal.scss */
+/* line 40, ../scss/modules/_modal.scss */
 #new-node-more {
   display: inline-block;
 }
 
-/* line 1, ../scss/module/_notification.scss */
+/* line 1, ../scss/modules/_notification.scss */
 .notification {
   background: #AE2F2C;
   -webkit-border-radius: 1em;
@@ -564,12 +564,12 @@ input[type=email] {
   box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
 }
 
-/* line 21, ../scss/module/_notification.scss */
+/* line 21, ../scss/modules/_notification.scss */
 ul.dropdown li.notifications {
   padding: 0 1.5em;
 }
 
-/* line 24, ../scss/module/_notification.scss */
+/* line 24, ../scss/modules/_notification.scss */
 .notifications-title {
   font-size: 0.7em;
   font-weight: 600;
@@ -577,19 +577,19 @@ ul.dropdown li.notifications {
   text-transform: uppercase;
 }
 
-/* line 30, ../scss/module/_notification.scss */
+/* line 30, ../scss/modules/_notification.scss */
 .notification-message {
   font-size: 0.8em;
   margin-bottom: 0.5em;
 }
 
-/* line 34, ../scss/module/_notification.scss */
+/* line 34, ../scss/modules/_notification.scss */
 ul.dropdown li .notification-link a {
   padding: 0;
   font-size: 0.8em;
 }
 
-/* line 38, ../scss/module/_notification.scss */
+/* line 38, ../scss/modules/_notification.scss */
 ul.dropdown li .notification-link a:after {
   content: " »";
 }
