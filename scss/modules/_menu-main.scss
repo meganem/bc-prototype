@@ -1,0 +1,37 @@
+/* --------------- NAVIGATION --------------- */
+
+/* --------------- Main menu --------------- */
+#main-menu {
+    display: inline-block;
+    margin-top: 0.25em;
+    float:right;
+}
+ul.menu {
+    margin:0;
+    padding:0;
+}
+.menu li {
+    margin-right: 0.5em;
+    padding-right: 0.5em;
+    display: inline-block;
+    list-style-type: none;
+    border-right: 1px solid #fff;
+    line-height: 1em;
+}
+.menu li:last-child {
+    border-right:none;
+    margin-right:0;
+    padding-right: 0;
+}
+
+/* --------------- Main menu - logged in --------------- */
+.logged-in #main-menu ul#general-links.menu  {
+    display: inline-block;  
+    margin-right: 0.5em;
+    position: relative;
+    top: -5px;
+    height:35px;
+}
+.logged-in #main-menu .menu li {
+    border-right:0;
+}

@@ -1,0 +1,63 @@
+/* --------------- Modals and Panels --------------- */
+.modal, .panel {
+    background:#ffffff;
+    border:1px solid #121212;
+    padding: 0.7em 1em;
+    display: block;
+    position:absolute;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    left: 50%;
+    top: 100px;
+}
+.modal {
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+}
+.panel {
+    border-bottom: 0;
+    border-top: 0;
+    height: 100%;
+    left: auto;
+    right: 0;
+    top: 0;
+    width: 380px;
+    z-index: 20;
+}
+
+/* --------------- Modal arrows --------------- */
+.modal:before, .modal:after {
+    content: " ";
+    height: 0;
+    position: absolute;
+    width: 0;
+    border: 15px solid transparent;
+}
+.modal:before {
+    z-index: 2;
+}
+.modal.is-long:before {
+    border-right-color: #FFFFFF;
+    left: -28px;
+    margin-top: 160px;
+}
+.modal:after {
+    z-index: 1;
+}
+.modal.is-long:after {
+    border-right-color: #333333;
+    left: -30px;
+    margin-top: 160px;
+}
+.modal.is-short:before {
+    border-top-color: #FFFFFF;
+    left: 95px;
+    margin-top: 170px;
+}
+.modal.is-short:after {
+    border-top-color: #333333;
+    left: 95px;
+    margin-top: 15px;
+}

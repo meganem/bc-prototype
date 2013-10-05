@@ -1,0 +1,125 @@
+/* --------------- New node form --------------- */
+.modal.is-short {
+    height: 185px;
+    width: 230px;
+}
+.modal.is-long {
+    width:260px;
+}
+#new-node-thumb {
+    display:inline-block;
+    margin-right: .5em;
+}
+#new-node-form {
+    display:inline-block;
+    width: 100%;
+}
+#new-node-cancel {
+    line-height: 17px;
+    position: absolute;
+    right: 17px;
+}
+#new-node-cancel img {
+    opacity: 0.5;
+}
+#new-node-cancel:hover img {
+    opacity: 1;
+}
+input[type=text],
+input[type=url],
+input[type=tel],
+input[type=number],
+input[type=color],
+input[type=email],
+textarea {
+    border: 1px solid #CCCCCC;
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    font-weight: 300;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 0.5em;
+}
+input.disabled {
+    opacity:0.3;
+}
+#new-node-form-buttons {
+    margin-top: .5em;
+    vertical-align: top;
+}
+#new-node-more {
+    display: inline-block;
+    float:right;
+}
+.dark-background {
+    background: #121212;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 60px;
+    padding: 0.5em;
+    text-align: center;
+    width: 60px;
+    color:#ffffff;
+    font-weight: 400;
+    font-size: 0.8em;
+    margin-right: 0.5em;
+    margin-bottom: 1em;
+    float:left;
+}
+.dark-background .icon-camera {
+    margin-top: 10px;
+}
+.dark-background:hover, .dark-background:focus {
+    background:#3F3F3F;
+    text-decoration: none;
+}
+.icon-sketch {
+    padding-top: 30px;
+    background-image: url("../img/icon-sketch-sm.png");
+    background-repeat: no-repeat;
+    background-position:top center;
+    margin-top: 6px;
+    padding-top: 14px;
+}
+.form-divider {
+    margin-bottom: .5em;
+}
+/* --------------- State change for new node form --------------- */
+.is-short #new-node-form-desc,
+.is-short #new-node-form-url,
+.is-short #new-node-form-date,
+.is-short #new-node-form-tags, 
+.is-short #new-node-delete {
+    display: none;
+}
+.is-long #new-node-more {
+    display:none;
+}
+.is-long #new-node-form-submit {
+    float:right;
+}
+
+/* --------------- Form validation with Parsley --------------- */
+.parsley-error {
+    background:#FFE4E4;
+}
+.parsley-success {
+    background: #E7FFE4;
+}
+.parsley-error-list {
+    font-size: 0.7em;
+    margin: -10px 0 1em 0.5em;
+    padding: 0;
+}
+.parsley-error-list li {
+    list-style: none;
+}

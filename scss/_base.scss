@@ -1,0 +1,155 @@
+/* --------------- GENERAL STYLES --------------- */
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size:16px;
+    background: #F5F5F5;
+    color: #121212;
+    line-height: 1.75em;
+}
+
+/* --------------- Headers --------------- */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+    margin:1em 0 .5em 0;
+}
+h1 {
+    font-size:3em;
+    line-height: 1.2em;
+}
+.front h1 {
+    display:none;
+}
+h2 {
+    font-size:2.25em;
+    line-height: 1.25em;
+}
+h3 {
+    font-size:1.5em;
+    line-height: 1.4em;
+}
+h4 {
+    font-size:1.25em;
+    line-height: 1.5em;
+}
+h5 {
+    font-size:1em;
+    line-height: 1.5em;
+}
+h6 {
+    font-size:0.9em;
+    line-height: 1.5em;
+}
+
+/* --------------- Images --------------- */
+img {
+    max-width: 100%;
+    height:auto;
+}
+
+/* --------------- Text --------------- */
+.lead {
+    font-weight: 300;
+    font-size:1.75em;
+    line-height: 1.25em;
+    margin-bottom: 0.5em;
+}
+
+/* --------------- Lists --------------- */
+ul li {
+    list-style-type: square;
+}
+
+/* --------------- Links --------------- */
+a {
+    text-decoration: none;
+    color: #B38C14;
+    font-weight: 600;
+}
+a:hover, a:focus {
+    text-decoration: underline;
+    position: relative;
+}
+
+/* --------------- Tooltips on links --------------- */
+a[data-title]:hover:after {
+    content: attr(data-title);
+    color: #000000;
+    background:#ffffff;
+    font-size: 0.7em;
+    left: -25px;
+    padding: 0.2em 0.5em;
+    position: absolute;
+    top: 250%;
+    white-space: nowrap;
+    z-index: 20px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0px 0px 4px #222;
+    -webkit-box-shadow: 0px 0px 4px #222;
+    box-shadow: 0px 0px 4px #222;
+}
+
+/* --------------- Logo and Site Title --------------- */
+.logo, .site-title {
+    display: inline-block;
+}
+.logo {
+    margin-right: 0.5em;
+    vertical-align: super;
+}
+a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
+    text-decoration:none;
+}
+.site-title {
+    color: #FFFFFF;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+/* --------------- Display and positioning helper classes --------------- */
+.hidden {
+    display:none;
+}
+.row {
+    clear:both;
+}
+.align-center {
+    text-align: center;
+}
+.grid-4 {
+    width:30%;
+    display: inline-block;
+    margin-right: 1em;
+    width: 30%;
+    vertical-align: top;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+}
+.grid-4:last-child {
+    margin-right:0;
+}
+
+/* --------------- HEADER --------------- */
+
+#header {
+
+}
+
+/* --------------- CONTENT --------------- */
+
+#content {
+
+}
+
+/* --------------- FOOTER --------------- */
+
+#footer {
+    font-size: 0.8em;
+}
+#footer p {
+    margin:0;
+}

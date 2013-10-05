@@ -1,0 +1,12 @@
+/* --------------- Containers --------------- */
+.border-top {
+    border-top: 1px solid #3F3F3F;
+}
+.container {
+    padding:16px 32px;
+    margin-left: auto;
+    margin-right:auto;
+}
+.container.constrained {
+    max-width: 1200px;
+}

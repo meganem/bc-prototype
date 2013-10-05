@@ -1,5 +1,6 @@
-/* Variables */
-/* line 1, ../scss/_base.scss */
+/* --------------- Variables --------------- */
+/* --------------- GENERAL STYLES --------------- */
+/* line 3, ../scss/_base.scss */
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
@@ -8,146 +9,200 @@ body {
   line-height: 1.75em;
 }
 
-/* line 9, ../scss/_base.scss */
+/* --------------- Headers --------------- */
+/* line 13, ../scss/_base.scss */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
   margin: 1em 0 .5em 0;
 }
 
-/* line 13, ../scss/_base.scss */
+/* line 17, ../scss/_base.scss */
 h1 {
   font-size: 3em;
   line-height: 1.2em;
 }
 
-/* line 17, ../scss/_base.scss */
+/* line 21, ../scss/_base.scss */
+.front h1 {
+  display: none;
+}
+
+/* line 24, ../scss/_base.scss */
 h2 {
   font-size: 2.25em;
   line-height: 1.25em;
 }
 
-/* line 21, ../scss/_base.scss */
+/* line 28, ../scss/_base.scss */
 h3 {
   font-size: 1.5em;
   line-height: 1.4em;
 }
 
-/* line 25, ../scss/_base.scss */
+/* line 32, ../scss/_base.scss */
 h4 {
   font-size: 1.25em;
   line-height: 1.5em;
 }
 
-/* line 29, ../scss/_base.scss */
+/* line 36, ../scss/_base.scss */
 h5 {
   font-size: 1em;
   line-height: 1.5em;
 }
 
-/* line 33, ../scss/_base.scss */
+/* line 40, ../scss/_base.scss */
 h6 {
   font-size: 0.9em;
   line-height: 1.5em;
 }
 
-/* line 38, ../scss/_base.scss */
+/* --------------- Images --------------- */
+/* line 46, ../scss/_base.scss */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --------------- Text --------------- */
+/* line 52, ../scss/_base.scss */
 .lead {
   font-weight: 300;
   font-size: 1.75em;
   line-height: 1.25em;
+  margin-bottom: 0.5em;
 }
 
-/* line 44, ../scss/_base.scss */
+/* --------------- Lists --------------- */
+/* line 60, ../scss/_base.scss */
+ul li {
+  list-style-type: square;
+}
+
+/* --------------- Links --------------- */
+/* line 65, ../scss/_base.scss */
 a {
   text-decoration: none;
   color: #B38C14;
   font-weight: 600;
 }
 
-/* line 50, ../scss/_base.scss */
+/* line 70, ../scss/_base.scss */
+a:hover, a:focus {
+  text-decoration: underline;
+  position: relative;
+}
+
+/* --------------- Tooltips on links --------------- */
+/* line 76, ../scss/_base.scss */
+a[data-title]:hover:after {
+  content: attr(data-title);
+  color: #000000;
+  background: #ffffff;
+  font-size: 0.7em;
+  left: -25px;
+  padding: 0.2em 0.5em;
+  position: absolute;
+  top: 250%;
+  white-space: nowrap;
+  z-index: 20px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: 0px 0px 4px #222;
+  -webkit-box-shadow: 0px 0px 4px #222;
+  box-shadow: 0px 0px 4px #222;
+}
+
+/* --------------- Logo and Site Title --------------- */
+/* line 96, ../scss/_base.scss */
 .logo, .site-title {
   display: inline-block;
 }
 
-/* line 53, ../scss/_base.scss */
+/* line 99, ../scss/_base.scss */
 .logo {
   margin-right: 0.5em;
   vertical-align: super;
 }
 
-/* line 60, ../scss/_base.scss */
+/* line 103, ../scss/_base.scss */
+a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
+  text-decoration: none;
+}
+
+/* line 106, ../scss/_base.scss */
 .site-title {
   color: #FFFFFF;
   font-size: 1.5em;
   font-weight: 600;
 }
 
-/* line 1, ../scss/_states.scss */
-a:after {
-  content: " »";
+/* --------------- Display and positioning helper classes --------------- */
+/* line 113, ../scss/_base.scss */
+.hidden {
+  display: none;
 }
 
-/* line 4, ../scss/_states.scss */
-a:hover, a:focus {
-  text-decoration: underline;
+/* line 116, ../scss/_base.scss */
+.row {
+  clear: both;
 }
 
-/* line 8, ../scss/_states.scss */
-a.button:after {
-  content: none;
+/* line 119, ../scss/_base.scss */
+.align-center {
+  text-align: center;
 }
 
-/* line 11, ../scss/_states.scss */
-.button:hover, .button:focus {
-  background: #262626;
-  text-decoration: none;
+/* line 122, ../scss/_base.scss */
+.grid-4 {
+  width: 30%;
+  display: inline-block;
+  margin-right: 1em;
+  width: 30%;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-/* line 16, ../scss/_states.scss */
-a.logo-link:after {
-  content: none;
+/* line 132, ../scss/_base.scss */
+.grid-4:last-child {
+  margin-right: 0;
 }
 
-/* line 19, ../scss/_states.scss */
-a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
-  text-decoration: none;
+/* --------------- HEADER --------------- */
+/* --------------- CONTENT --------------- */
+/* --------------- FOOTER --------------- */
+/* line 150, ../scss/_base.scss */
+#footer {
+  font-size: 0.8em;
 }
 
-/* line 23, ../scss/_states.scss */
-.menu a:after {
-  content: none;
+/* line 153, ../scss/_base.scss */
+#footer p {
+  margin: 0;
 }
 
-/* line 1, ../scss/layouts/_containers.scss */
+/* --------------- Containers --------------- */
+/* line 2, ../scss/layouts/_containers.scss */
+.border-top {
+  border-top: 1px solid #3F3F3F;
+}
+
+/* line 5, ../scss/layouts/_containers.scss */
 .container {
-  max-width: 1200px;
   padding: 16px 32px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 8, ../scss/layouts/_containers.scss */
-#main-menu {
-  display: inline-block;
-  margin-left: 1em;
+/* line 10, ../scss/layouts/_containers.scss */
+.container.constrained {
+  max-width: 1200px;
 }
 
-/* line 12, ../scss/layouts/_containers.scss */
-.logged-in #main-menu {
-  float: right;
-}
-
-/* line 32, ../scss/layouts/_containers.scss */
-#footer {
-  font-size: 0.8em;
-}
-
-/* line 35, ../scss/layouts/_containers.scss */
-#footer p {
-  margin: 0;
-}
-
-/* ----- DARK ------ */
+/* --------------- DARK --------------- */
 /* line 3, ../scss/_themes.scss */
 .dark {
   background: #121212;
@@ -156,18 +211,21 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   letter-spacing: 0.02em;
 }
 
+/* --------------- Links - dark --------------- */
 /* line 11, ../scss/_themes.scss */
 .dark a {
   color: #E5C04E;
   font-weight: 300;
 }
 
-/* line 15, ../scss/_themes.scss */
+/* --------------- Buttons - dark --------------- */
+/* line 17, ../scss/_themes.scss */
 .dark .button {
   color: #ffffff;
 }
 
-/* line 1, ../scss/modules/_buttons.scss */
+/* --------------- Buttons --------------- */
+/* line 2, ../scss/modules/_buttons.scss */
 .button {
   background: #3F3F3F;
   -webkit-border-radius: 0.5em;
@@ -182,113 +240,162 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   border: 0;
 }
 
-/* line 15, ../scss/modules/_buttons.scss */
+/* line 16, ../scss/modules/_buttons.scss */
+.button:hover, .button:focus {
+  background: #262626;
+  text-decoration: none;
+}
+
+/* line 20, ../scss/modules/_buttons.scss */
 .button.red {
   background: #AE2F2C;
 }
 
-/* line 18, ../scss/modules/_buttons.scss */
+/* line 23, ../scss/modules/_buttons.scss */
 .button.red:hover, .button.red:focus {
   background: #951613;
 }
 
-/* line 21, ../scss/modules/_buttons.scss */
+/* line 26, ../scss/modules/_buttons.scss */
 .button.purple {
   background: #783D7A;
 }
 
-/* line 24, ../scss/modules/_buttons.scss */
+/* line 29, ../scss/modules/_buttons.scss */
 .button.purple:hover, .button.purple:focus {
   background: #5F2461;
 }
 
-/* line 27, ../scss/modules/_buttons.scss */
+/* line 32, ../scss/modules/_buttons.scss */
 .button.green {
   background: #4B6A18;
 }
 
-/* line 30, ../scss/modules/_buttons.scss */
+/* line 35, ../scss/modules/_buttons.scss */
 .button.green:hover, .button.green:focus {
   background: #325100;
 }
 
-/* line 33, ../scss/modules/_buttons.scss */
+/* line 38, ../scss/modules/_buttons.scss */
 .button.blue {
   background: #086989;
 }
 
-/* line 36, ../scss/modules/_buttons.scss */
+/* line 41, ../scss/modules/_buttons.scss */
 .button.blue:hover, .button.blue:focus {
   background: #005070;
 }
 
-/* Process map styles */
-/* line 2, ../scss/modules/_map.scss */
-.Idea:hover, .Draft:hover, .Inspiration:hover, .Final:hover, .Sketch:hover {
-  fill: #000000;
+/* line 44, ../scss/modules/_buttons.scss */
+.button.more-link, .button.more-link:hover {
+  background-image: url("../img/icon-arrow-right.png");
+  background-position: 87% center;
+  background-repeat: no-repeat;
+  padding-right: 30px;
 }
 
-/* line 3, ../scss/modules/_map.scss */
-.Idea {
-  fill: #C69722;
+/* --------------- NAVIGATION --------------- */
+/* --------------- Main menu --------------- */
+/* line 4, ../scss/modules/_menu-main.scss */
+#main-menu {
+  display: inline-block;
+  margin-top: 0.25em;
+  float: right;
 }
 
-/* line 4, ../scss/modules/_map.scss */
-.Draft {
-  fill: #628C31;
+/* line 9, ../scss/modules/_menu-main.scss */
+ul.menu {
+  margin: 0;
+  padding: 0;
 }
 
-/* line 5, ../scss/modules/_map.scss */
-.Inspiration {
-  fill: #874C81;
+/* line 13, ../scss/modules/_menu-main.scss */
+.menu li {
+  margin-right: 0.5em;
+  padding-right: 0.5em;
+  display: inline-block;
+  list-style-type: none;
+  border-right: 1px solid #fff;
+  line-height: 1em;
 }
 
-/* line 6, ../scss/modules/_map.scss */
-.Final {
-  fill: #352C2A;
+/* line 21, ../scss/modules/_menu-main.scss */
+.menu li:last-child {
+  border-right: none;
+  margin-right: 0;
+  padding-right: 0;
 }
 
-/* line 7, ../scss/modules/_map.scss */
-.Sketch {
-  fill: #2D83A5;
+/* --------------- Main menu - logged in --------------- */
+/* line 28, ../scss/modules/_menu-main.scss */
+.logged-in #main-menu ul#general-links.menu {
+  display: inline-block;
+  margin-right: 0.5em;
+  position: relative;
+  top: -5px;
+  height: 35px;
 }
 
-/* line 8, ../scss/modules/_map.scss */
-.link {
-  stroke: #352C2A;
-  fill: none;
-  stroke-width: 2px;
+/* line 35, ../scss/modules/_menu-main.scss */
+.logged-in #main-menu .menu li {
+  border-right: 0;
 }
 
-/* line 9, ../scss/modules/_map.scss */
-.node text {
-  pointer-events: none;
-  font: 10px sans-serif;
-  fill: #FFF;
+/* --------------- LOGGED IN USER MENU --------------- */
+/* --------------- Notifications --------------- */
+/* line 4, ../scss/modules/_notification.scss */
+.notification {
+  background: #AE2F2C;
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+  border-radius: 1em;
+  color: #FFFFFF;
+  font-size: 0.6em;
+  height: 1em;
+  line-height: 1em;
+  margin: 0;
+  padding: 3px;
+  position: absolute;
+  right: -7px;
+  text-align: center;
+  top: -7px;
+  width: 1em;
+  -webkit-box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
 }
 
-/* line 10, ../scss/modules/_map.scss */
-svg {
-  border: 1px solid black;
+/* line 24, ../scss/modules/_notification.scss */
+ul.dropdown li.notifications {
+  padding: 0 1.5em;
 }
 
-/* line 11, ../scss/modules/_map.scss */
-#info {
-  width: 200px;
-  display: block;
-  background-color: white;
-  border: 1px solid black;
-  padding: 20px;
+/* line 27, ../scss/modules/_notification.scss */
+.notifications-title {
+  font-size: 0.7em;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
 }
 
-/* line 12, ../scss/modules/_map.scss */
-.node-title {
-  display: block;
-  font-size: 1.1em;
-  font-weight: bold;
+/* line 33, ../scss/modules/_notification.scss */
+.notification-message {
+  font-size: 0.8em;
+  margin-bottom: 0.5em;
 }
 
-/* ----- Click nav and Dropdown menu ----- */
+/* line 37, ../scss/modules/_notification.scss */
+ul.dropdown li .notification-link a {
+  padding: 0;
+  font-size: 0.8em;
+}
+
+/* line 41, ../scss/modules/_notification.scss */
+ul.dropdown li .notification-link a:after {
+  content: " »";
+}
+
+/* --------------- Click nav and Dropdown menu --------------- */
 /* line 3, ../scss/modules/_menu-dropdown.scss */
 ul.dropdown {
   color: #121212;
@@ -340,9 +447,13 @@ ul.dropdown li.separator {
   padding-top: 0.5em;
 }
 
-/* line 41, ../scss/modules/_menu-dropdown.scss */
+/* line 40, ../scss/modules/_menu-dropdown.scss */
 .click-nav {
   display: inline-block;
+}
+
+/* line 41, ../scss/modules/_menu-dropdown.scss */
+.click-nav-2 {
   margin-right: 0.5em;
 }
 
@@ -351,6 +462,7 @@ ul.dropdown li.separator {
   position: relative;
   margin: 0;
   padding: 0;
+  z-index: 10;
 }
 
 /* line 43, ../scss/modules/_menu-dropdown.scss */
@@ -431,56 +543,21 @@ a.clicker:hover, a.clicker:focus, a.clicker:active {
   display: block;
 }
 
-/* line 1, ../scss/modules/_menu-main.scss */
-ul.menu {
-  margin: 0;
-  padding: 0;
-}
-
-/* line 5, ../scss/modules/_menu-main.scss */
-.logged-in #main-menu ul#general-links.menu {
-  display: inline-block;
-  margin-right: 0.5em;
-  position: relative;
-  top: -5px;
-  height: 35px;
-}
-
-/* line 12, ../scss/modules/_menu-main.scss */
-.menu li {
-  margin-right: 0.5em;
-  padding-right: 0.5em;
-  display: inline-block;
-  list-style-type: none;
-  border-right: 1px solid #fff;
-  line-height: 1em;
-}
-
-/* line 20, ../scss/modules/_menu-main.scss */
-.logged-in #main-menu .menu li {
-  border-right: 0;
-}
-
-/* line 23, ../scss/modules/_menu-main.scss */
-.menu li:last-child {
-  border-right: none;
-  margin-right: 0;
-  padding-right: 0;
-}
-
-/* line 1, ../scss/modules/_menu-project.scss */
+/* --------------- PROJECT PAGE --------------- */
+/* --------------- Project header --------------- */
+/* line 4, ../scss/modules/_menu-project.scss */
 #project-header {
   border-bottom: 1px solid #121212;
 }
 
-/* line 4, ../scss/modules/_menu-project.scss */
+/* line 7, ../scss/modules/_menu-project.scss */
 .project-thumb {
   display: inline-block;
   margin-right: 0.5em;
   vertical-align: super;
 }
 
-/* line 9, ../scss/modules/_menu-project.scss */
+/* line 12, ../scss/modules/_menu-project.scss */
 h1.project-title {
   font-size: 1.5em;
   font-weight: 600;
@@ -488,108 +565,538 @@ h1.project-title {
   display: inline-block;
 }
 
-/* line 15, ../scss/modules/_menu-project.scss */
+/* --------------- Project menu (modes) --------------- */
+/* line 20, ../scss/modules/_menu-project.scss */
 #project-menu {
   display: inline-block;
   float: right;
 }
 
-/* ----- New node modal ----- */
-/* line 2, ../scss/modules/_modal.scss */
-#new-node {
+/* line 24, ../scss/modules/_menu-project.scss */
+#project-menu img {
+  display: block;
+}
+
+/* line 27, ../scss/modules/_menu-project.scss */
+#project-menu a {
+  opacity: 0.6;
+}
+
+/* line 30, ../scss/modules/_menu-project.scss */
+#project-menu a:hover, #project-menu a:focus, #project-menu a.active {
+  opacity: 1;
+}
+
+/* line 33, ../scss/modules/_menu-project.scss */
+#project-menu .menu li {
+  border: 0;
+}
+
+/* --------------- Project actions menu (dropdown) --------------- */
+/* line 38, ../scss/modules/_menu-project.scss */
+#project-actions-menu img {
+  margin-right: 0.25em;
+}
+
+/* --------------- Project map styles --------------- */
+/* line 2, ../scss/modules/_map.scss */
+.Idea:hover, .Draft:hover, .Inspiration:hover, .Final:hover, .Sketch:hover {
+  stroke: #000000;
+}
+
+/* line 3, ../scss/modules/_map.scss */
+.Idea {
+  fill: #C69722;
+}
+
+/* line 4, ../scss/modules/_map.scss */
+.Draft {
+  fill: #628C31;
+}
+
+/* line 5, ../scss/modules/_map.scss */
+.Inspiration {
+  fill: #874C81;
+}
+
+/* line 6, ../scss/modules/_map.scss */
+.Final {
+  fill: #352C2A;
+}
+
+/* line 7, ../scss/modules/_map.scss */
+.Sketch {
+  fill: #2D83A5;
+}
+
+/* line 8, ../scss/modules/_map.scss */
+.link {
+  stroke: #352C2A;
+  fill: none;
+  stroke-width: 2px;
+}
+
+/* line 9, ../scss/modules/_map.scss */
+.node text {
+  pointer-events: none;
+  font: 10px sans-serif;
+  fill: #FFF;
+}
+
+/* --------------- SVGs --------------- */
+/* line 12, ../scss/modules/_map.scss */
+#map, #background {
+  width: 100%;
+  height: 500px;
+}
+
+/* line 13, ../scss/modules/_map.scss */
+#map, #background, #betweenLayer {
+  top: 0;
+}
+
+/* line 14, ../scss/modules/_map.scss */
+#background {
+  position: absolute;
+}
+
+/* line 15, ../scss/modules/_map.scss */
+#map, #betweenLayer {
+  position: relative;
+}
+
+/* --------------- Display Parent --------------- */
+/* line 18, ../scss/modules/_map.scss */
+#bloomViz {
+  position: relative;
+  overflow: hidden;
+}
+
+/* --------------- Zoom level 2 --------------- */
+/* line 24, ../scss/modules/_map.scss */
+.zoom2 {
+  background-color: #000000;
+  border: 2px solid black;
+  display: block;
+  height: 70px;
+  opacity: 1;
+  pointer-events: auto;
+  position: absolute;
+  width: 70px;
+}
+
+/* line 34, ../scss/modules/_map.scss */
+.zoom2 img {
+  height: 100%;
+  opacity: 0;
+  width: 100%;
+}
+
+/* line 39, ../scss/modules/_map.scss */
+.zoom2 .text {
+  color: #FFFFFF;
+  font-size: 0.6em;
+  line-height: 1.3em;
+  padding: 0 5%;
+  position: relative;
+  text-align: center;
+  width: 90%;
+  bottom: -10%;
+}
+
+/* line 49, ../scss/modules/_map.scss */
+.zoom2 .text.below {
+  color: #000000;
+  bottom: -0.5em;
+}
+
+/* --------------- Zoom controls --------------- */
+/* line 2, ../scss/modules/_zoom-controls.scss */
+#zoom-controls {
+  position: absolute;
+  top: 5px;
+  right: 5px;
   background: #ffffff;
   border: 1px solid #121212;
+  display: inline-block;
+  padding: 0.5em;
+  z-index: 1;
+}
+
+/* line 12, ../scss/modules/_zoom-controls.scss */
+#zoom-label {
+  font-size: 0.8em;
+  line-height: 1em;
+}
+
+/* line 16, ../scss/modules/_zoom-controls.scss */
+.zoom-control {
+  display: inline-block;
+  background: #121212;
+  border: none;
+  font-size: 0;
+  height: 15px;
+  width: 15px;
+  margin-right: 2px;
+}
+
+/* line 25, ../scss/modules/_zoom-controls.scss */
+.zoom-control:hover {
+  background: #3F3F3F;
+}
+
+/* line 28, ../scss/modules/_zoom-controls.scss */
+#zoom-1 {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* line 33, ../scss/modules/_zoom-controls.scss */
+#zoom-2 {
+  height: 20px;
+  width: 20px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* line 40, ../scss/modules/_zoom-controls.scss */
+#zoom-3 {
+  height: 27px;
+  width: 27px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* --------------- For trimming overflow text --------------- */
+/* line 2, ../scss/modules/_ellipsis.scss */
+.ellipsis:before, .ellipsis:after, .ellipsis > * {
+  opacity: 1;
+}
+
+/* line 5, ../scss/modules/_ellipsis.scss */
+.ellipsis {
+  overflow: hidden;
+  height: 3.9em;
+}
+
+/* line 9, ../scss/modules/_ellipsis.scss */
+.ellipsis:before {
+  content: "";
+  float: left;
+  width: 5px;
+  height: 3.9em;
+  background: #FFF;
+}
+
+/* line 16, ../scss/modules/_ellipsis.scss */
+.ellipsis > *:first-child {
+  float: right;
+  width: 100%;
+  margin-left: -5px;
+  background: #FFF;
+}
+
+/* line 22, ../scss/modules/_ellipsis.scss */
+.ellipsis:after {
+  content: " ...";
+  float: right;
+  position: relative;
+  top: -1.3em;
+  left: 100%;
+  width: 30px;
+  margin-left: -30px;
+  padding-right: 5px;
+  background: #FFF;
+}
+
+/* --------------- Modals and Panels --------------- */
+/* line 2, ../scss/modules/_modal.scss */
+.modal, .panel {
+  background: #ffffff;
+  border: 1px solid #121212;
+  padding: 0.7em 1em;
+  display: block;
+  position: absolute;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  left: 50%;
+  top: 100px;
+}
+
+/* line 14, ../scss/modules/_modal.scss */
+.modal {
   -webkit-border-radius: .5em;
   -moz-border-radius: .5em;
   border-radius: .5em;
-  padding: 0.5em 1em;
-  display: inline-block;
 }
 
-/* line 11, ../scss/modules/_modal.scss */
+/* line 19, ../scss/modules/_modal.scss */
+.panel {
+  border-bottom: 0;
+  border-top: 0;
+  height: 100%;
+  left: auto;
+  right: 0;
+  top: 0;
+  width: 380px;
+  z-index: 20;
+}
+
+/* --------------- Modal arrows --------------- */
+/* line 31, ../scss/modules/_modal.scss */
+.modal:before, .modal:after {
+  content: " ";
+  height: 0;
+  position: absolute;
+  width: 0;
+  border: 15px solid transparent;
+}
+
+/* line 38, ../scss/modules/_modal.scss */
+.modal:before {
+  z-index: 2;
+}
+
+/* line 41, ../scss/modules/_modal.scss */
+.modal.is-long:before {
+  border-right-color: #FFFFFF;
+  left: -28px;
+  margin-top: 160px;
+}
+
+/* line 46, ../scss/modules/_modal.scss */
+.modal:after {
+  z-index: 1;
+}
+
+/* line 49, ../scss/modules/_modal.scss */
+.modal.is-long:after {
+  border-right-color: #333333;
+  left: -30px;
+  margin-top: 160px;
+}
+
+/* line 54, ../scss/modules/_modal.scss */
+.modal.is-short:before {
+  border-top-color: #FFFFFF;
+  left: 95px;
+  margin-top: 170px;
+}
+
+/* line 59, ../scss/modules/_modal.scss */
+.modal.is-short:after {
+  border-top-color: #333333;
+  left: 95px;
+  margin-top: 15px;
+}
+
+/* --------------- New node form --------------- */
+/* line 2, ../scss/modules/_new-node-form.scss */
+.modal.is-short {
+  height: 185px;
+  width: 230px;
+}
+
+/* line 6, ../scss/modules/_new-node-form.scss */
+.modal.is-long {
+  width: 260px;
+}
+
+/* line 9, ../scss/modules/_new-node-form.scss */
 #new-node-thumb {
   display: inline-block;
   margin-right: .5em;
 }
 
-/* line 15, ../scss/modules/_modal.scss */
+/* line 13, ../scss/modules/_new-node-form.scss */
 #new-node-form {
   display: inline-block;
+  width: 100%;
 }
 
-/* line 26, ../scss/modules/_modal.scss */
+/* line 17, ../scss/modules/_new-node-form.scss */
+#new-node-cancel {
+  line-height: 17px;
+  position: absolute;
+  right: 17px;
+}
+
+/* line 22, ../scss/modules/_new-node-form.scss */
+#new-node-cancel img {
+  opacity: 0.5;
+}
+
+/* line 25, ../scss/modules/_new-node-form.scss */
+#new-node-cancel:hover img {
+  opacity: 1;
+}
+
+/* line 34, ../scss/modules/_new-node-form.scss */
 input[type=text],
 input[type=url],
 input[type=tel],
 input[type=number],
 input[type=color],
-input[type=email] {
+input[type=email],
+textarea {
   border: 1px solid #CCCCCC;
   -webkit-border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   border-radius: 0.5em;
   padding: 0.5em;
   font-weight: 300;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 0.5em;
 }
 
-/* line 37, ../scss/modules/_modal.scss */
+/* line 47, ../scss/modules/_new-node-form.scss */
+input.disabled {
+  opacity: 0.3;
+}
+
+/* line 50, ../scss/modules/_new-node-form.scss */
 #new-node-form-buttons {
   margin-top: .5em;
+  vertical-align: top;
 }
 
-/* line 40, ../scss/modules/_modal.scss */
+/* line 54, ../scss/modules/_new-node-form.scss */
 #new-node-more {
   display: inline-block;
+  float: right;
 }
 
-/* line 1, ../scss/modules/_notification.scss */
-.notification {
-  background: #AE2F2C;
-  -webkit-border-radius: 1em;
-  -moz-border-radius: 1em;
-  border-radius: 1em;
-  color: #FFFFFF;
-  font-size: 0.6em;
-  height: 1em;
-  line-height: 1em;
-  margin: 0;
-  padding: 3px;
-  position: absolute;
-  right: -7px;
+/* line 58, ../scss/modules/_new-node-form.scss */
+.dark-background {
+  background: #121212;
+  -webkit-border-radius: .5em;
+  -moz-border-radius: .5em;
+  border-radius: .5em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 60px;
+  padding: 0.5em;
   text-align: center;
-  top: -7px;
-  width: 1em;
-  -webkit-box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
-  -moz-box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
-  box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
+  width: 60px;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 0.8em;
+  margin-right: 0.5em;
+  margin-bottom: 1em;
+  float: left;
 }
 
-/* line 21, ../scss/modules/_notification.scss */
-ul.dropdown li.notifications {
-  padding: 0 1.5em;
+/* line 78, ../scss/modules/_new-node-form.scss */
+.dark-background .icon-camera {
+  margin-top: 10px;
 }
 
-/* line 24, ../scss/modules/_notification.scss */
-.notifications-title {
+/* line 81, ../scss/modules/_new-node-form.scss */
+.dark-background:hover, .dark-background:focus {
+  background: #3F3F3F;
+  text-decoration: none;
+}
+
+/* line 85, ../scss/modules/_new-node-form.scss */
+.icon-sketch {
+  padding-top: 30px;
+  background-image: url("../img/icon-sketch-sm.png");
+  background-repeat: no-repeat;
+  background-position: top center;
+  margin-top: 6px;
+  padding-top: 14px;
+}
+
+/* line 93, ../scss/modules/_new-node-form.scss */
+.form-divider {
+  margin-bottom: .5em;
+}
+
+/* --------------- State change for new node form --------------- */
+/* line 101, ../scss/modules/_new-node-form.scss */
+.is-short #new-node-form-desc,
+.is-short #new-node-form-url,
+.is-short #new-node-form-date,
+.is-short #new-node-form-tags,
+.is-short #new-node-delete {
+  display: none;
+}
+
+/* line 104, ../scss/modules/_new-node-form.scss */
+.is-long #new-node-more {
+  display: none;
+}
+
+/* line 107, ../scss/modules/_new-node-form.scss */
+.is-long #new-node-form-submit {
+  float: right;
+}
+
+/* --------------- Form validation with Parsley --------------- */
+/* line 112, ../scss/modules/_new-node-form.scss */
+.parsley-error {
+  background: #FFE4E4;
+}
+
+/* line 115, ../scss/modules/_new-node-form.scss */
+.parsley-success {
+  background: #E7FFE4;
+}
+
+/* line 118, ../scss/modules/_new-node-form.scss */
+.parsley-error-list {
   font-size: 0.7em;
-  font-weight: 600;
-  margin-bottom: 0.5em;
-  text-transform: uppercase;
-}
-
-/* line 30, ../scss/modules/_notification.scss */
-.notification-message {
-  font-size: 0.8em;
-  margin-bottom: 0.5em;
-}
-
-/* line 34, ../scss/modules/_notification.scss */
-ul.dropdown li .notification-link a {
+  margin: -10px 0 1em 0.5em;
   padding: 0;
-  font-size: 0.8em;
 }
 
-/* line 38, ../scss/modules/_notification.scss */
-ul.dropdown li .notification-link a:after {
-  content: " »";
+/* line 123, ../scss/modules/_new-node-form.scss */
+.parsley-error-list li {
+  list-style: none;
+}
+
+/* --------------- Node info modal --------------- */
+/* line 2, ../scss/modules/_node-info.scss */
+.node-info {
+  width: 190px;
+}
+
+/* line 5, ../scss/modules/_node-info.scss */
+#node-info-title {
+  font-weight: 600;
+  margin: 0.75em 0;
+  line-height: 1em;
+}
+
+/* line 10, ../scss/modules/_node-info.scss */
+.node-info-type {
+  margin-right: 5px;
+}
+
+/* line 13, ../scss/modules/_node-info.scss */
+#node-info-desc {
+  font-size: 0.8em;
+  line-height: 1.3em;
+  margin: 1em 0;
+}
+
+/* line 18, ../scss/modules/_node-info.scss */
+#node-info-edit {
+  padding: 0.3em 1em 0.5em 1em;
+  float: left;
+}
+
+/* line 22, ../scss/modules/_node-info.scss */
+#node-info-more {
+  padding: 0.3em 21px 0.5em 1em;
+  float: right;
 }
