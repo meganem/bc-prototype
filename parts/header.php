@@ -12,7 +12,7 @@
 
         <link rel="stylesheet" href="<?php print $pathPrefix; ?>css/normalize.min.css">
         <link rel="stylesheet" href="<?php print $pathPrefix; ?>css/main.css">
-        <link rel="stylesheet" href="<?php print $pathPrefix; ?>css/bloomcase.css">
+        <link rel="stylesheet" href="<?php print $pathPrefix; ?>css/master.css">
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,400italic,300italic,600italic,700italic' rel='stylesheet' type='text/css'>
 
