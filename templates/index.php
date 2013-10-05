@@ -20,14 +20,14 @@ $footerInclude = $pathPrefix . "parts/footer.php";
 include $headerInclude; 
 ?>
         
-    <div class="light" id="templates">
+    <div class="light" id="templates" style="min-height:500px;">
         <?php 
         //Comment/uncomment lines to include templates for testing:
 
         //include "node-info-side-panel.php"; 
         //include "zoom3-cards.php"; 
         include "new-node-form.php"; 
-        
+
         ?>
     </div>
 
