@@ -519,12 +519,12 @@ function endMove(d,i) {
     var circBCTitleRect = nodeOpts.append("rect")
     .attr("class", "options optionsBC optionsInfo")
     .attr("id", function(p) {return "optNameRect" + p})
-    .attr("x", function(p,q) {return q > 1 ? -120 : -15})
-    .attr("y", -15)
-    .attr("width", 135)
-    .attr("height", 30)
-    .attr("rx", 15)
-    .attr("ry", 15)
+    .attr("x", function(p,q) {return q > 1 ? -100 : -10})
+    .attr("y", -10)
+    .attr("width", 115)
+    .attr("height", 20)
+    .attr("rx", 5)
+//    .attr("ry", 15)
     .style("fill", "white")
     .style("stroke", "black")
     .style("stroke-width", "2px")
@@ -533,8 +533,9 @@ function endMove(d,i) {
     var circBCTitleText = nodeOpts.append("text")
     .attr("class", "options optionsBC optionsInfo")
     .attr("id", function(p) {return "optNameText" + p})
-    .attr("x", function(p,q) {return q > 1 ? -105 : 20})
-    .attr("y", 5)
+    .attr("x", function(p,q) {return q > 1 ? -95 : 20})
+    .attr("y", 4)
+    .style("font-size", "14px")
     .text(function(p,q) {return p})
     .style("display", "none");
 
@@ -554,7 +555,7 @@ function endMove(d,i) {
     .on("mouseover", function(p) {d3.selectAll(".optionsInfo").style("display","none");d3.select("#optNameRect" + p).style("display","block");d3.select("#optNameText" + p).style("display","block");})
     .on("mouseout", function() {d3.selectAll(".optionsInfo").style("display","none")})
     .attr("d", function(p) {
-	return shapeMeasures[p]["pathd"]
+	return shapeMeasures[p]["smalld"]
     })
     .attr("transform", function(p) { 
 	return "translate(" + (-1*(shapeMeasures[p]["myWidth"]/2)) + "," + (-1*(shapeMeasures[p]["myHeight"]/2)) + ")scale(1)"; 
@@ -563,7 +564,7 @@ function endMove(d,i) {
 
     d3.select("#newNode")
     .style("fill", shapeMeasures[currentNewNode]["color"])
-    .attr("d", shapeMeasures[currentNewNode]["pathd"])
+    .attr("d", shapeMeasures[currentNewNode]["smalld"])
     .on("click", function() {createNewNode(currentNewNode,0)})
     .style("cursor", "pointer")
 
@@ -589,7 +590,7 @@ function selectNewNode(d,i) {
     
     d3.select("#opt"+d)
     .attr("id", "opt" + currentNewNode)
-    .attr("d", shapeMeasures[currentNewNode]["pathd"])
+    .attr("d", shapeMeasures[currentNewNode]["smalld"])
     .style("fill", shapeMeasures[currentNewNode]["color"]);
 
     d3.select("#optNameRect" + d).attr("id", "optNameRect" + currentNewNode);
@@ -599,7 +600,7 @@ function selectNewNode(d,i) {
     currentNewNode = d;
     d3.select("#newNode")
     .on("click", function() {createNewNode(d,0)})
-    .attr("d", shapeMeasures[d]["pathd"])
+    .attr("d", shapeMeasures[d]["smalld"])
     .style("fill", shapeMeasures[d]["color"]);
 
     d3.select("#newNodeTitle").text(d);
