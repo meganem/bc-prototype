@@ -111,6 +111,7 @@ function drawBC(nodeData,linkData) {
     d3.selectAll("path.connections").remove();
     d3.selectAll("g.sec").remove();
     d3.selectAll("#inserted").remove();
+    d3.selectAll(".uiPath").remove();
     
     vGridData = [];
     hGridData = [];
@@ -145,12 +146,52 @@ function drawBC(nodeData,linkData) {
     .style("stroke-width", 2)
     .style("fill", "none")
     .attr("d", function(d) {return curvyLine([d.source.column * columnSize, (d.source.row * rowSize)],[d.target.column * columnSize, (d.target.row * rowSize)]) })
-    .style("opacity", 0);
+    .style("opacity", 0)
+    ;
     
     d3.selectAll("path.connections")
     .transition()
     .duration(1000)
     .style("opacity", 1);
+
+    var uiPathG = d3.select("#bloomG").selectAll("g.uiPath").data(linkData).enter().append("g")
+    .attr("class", "uiPath")
+    .on("mouseover", pathOver)
+    .on("mouseout", pathOut);
+    
+    uiPathG
+    .append("path")
+    .style("stroke", "orange")
+    .style("stroke-linecap", "round")
+    .attr("class", "uiPath")
+    .style("stroke-width", 8)
+    .style("fill", "none")
+    .attr("d", function(d) {return curvyLine([d.source.column * columnSize, (d.source.row * rowSize)],[d.target.column * columnSize, (d.target.row * rowSize)]) })
+    .style("opacity", 0)
+    ;
+    
+    uiPathG
+    .append("circle")
+    .attr("class", "uiPath")
+    .attr("r", 8)
+    .attr("cx", function(d) {return ((d.target.column * columnSize) + (d.source.column * columnSize)) / 2})
+    .attr("cy", function(d) {return ((d.target.row * rowSize) + (d.source.row * rowSize)) / 2})
+    .style("fill", "white")
+    .style("stroke", "black")
+    .style("stroke-width", "1px")
+    .style("cursor", "pointer")
+    .on("mouseover", function() {d3.select(this).style("fill", "cyan")})
+    .on("mouseout", function() {d3.select(this).style("fill", "white")})
+    .on("click", deleteLink)
+
+    uiPathG
+    .append("text")
+    .attr("class", "uiPath")
+    .attr("x", function(d) {return (((d.target.column * columnSize) + (d.source.column * columnSize)) / 2) - 4})
+    .attr("y", function(d) {return (((d.target.row * rowSize) + (d.source.row * rowSize)) / 2) + 4})
+    .text("x")
+    .style("pointer-events", "none");
+
     
     var secG = d3.select("#bloomG").selectAll("g.sec").data(nodeData).enter().append("g")
     .style("display", function(d) {return d.isMeta ? "none" : "block"})
@@ -678,6 +719,80 @@ function nodeDetailsDialog(targetNode) {
     var nodeXY = translateAtt.split("(")[1].split(")")[0].split(",");
     d3.select("#new-node").style("display", "block").style("left", ((parseInt(nodeXY[0]) - 75) + bloomZoom.translate()[0]) + "px").style("top", ((parseInt(nodeXY[1]) - 40) + bloomZoom.translate()[1]) + "px")
 
+}
+
+function pathOver(d,i) {
+    this.parentNode.appendChild(this);
+    d3.select(this).select("circle.uiPath").style("display", "block")
+    d3.select(this).select("text.uiPath").style("display", "block")
+    d3.select(this).select("path.uiPath").style("opacity", .5)
+}
+
+function pathOut(d,i) {
+    d3.selectAll("circle.uiPath").style("display", "none")
+    d3.selectAll("text.uiPath").style("display", "none")
+    d3.select(this).select("path.uiPath").style("opacity", 0)
+}
+
+function deleteLink(d,i) {
+//    console.log(d.source.evolvedFromArray)
+//    console.log(d.target)
+    var linkSet = testLayout.links();
+    var sourceLinks = 0;
+    var nodeSet = testLayout.nodes();
+    var actualNode = d;
+    var actualNodeID = d.target.nid.replace("meta","");
+    
+    for (x in nodeSet) {
+	if (nodeSet[x].nid == actualNodeID) {
+	    actualNode = nodeSet[x];
+	}
+    }
+    for (x in linkSet) {
+	if (linkSet[x].source === d.source) {
+	    sourceLinks++;
+	}
+    }
+    
+    if (sourceLinks > 1) {
+	updatedEvolvedFromSimple(d.source.nid, actualNode);
+    }
+    
+    else {
+	updatedEvolvedFromComplex(d.source.nid, actualNode, actualNodeID);
+    }
+
+    var newNodeArray = testLayout.nodes().filter(function(el) {return el.isMeta ? null : this});
+    freshLayout = new d3_layout_bloomcase();
+    freshLayout.nodes(newNodeArray);
+    drawBC(freshLayout.nodes(),freshLayout.links())
+}
+
+function updatedEvolvedFromComplex(incSourceID, incTarget, incTargetID) {
+    var nodeSet = testLayout.nodes();
+    
+    console.log(incTargetID)
+    console.log(incSourceID)
+    for (x in nodeSet) {
+	if (nodeSet[x].evolvedFromArray.indexOf(incTarget) > -1) {
+	    nodeSet[x].evolvedFrom = nodeSet[x].evolvedFrom + ","+incSourceID;
+	    console.log(nodeSet[x].evolvedFrom);
+	}
+    }
+    updatedEvolvedFromSimple(incSourceID, incTarget);
+}
+
+
+function updatedEvolvedFromSimple(nodeID, incNode) {
+    var oldEF = incNode.evolvedFrom.split(",");
+    var newEF = [];
+    var newNodeID = nodeID.replace("meta","")
+    for (x in oldEF) {
+	if(oldEF[x] != nodeID) {
+	    newEF.push(oldEF[x]);
+	}
+    }
+    incNode.evolvedFrom = newEF.join();
 }
 
 function hideModal() {
