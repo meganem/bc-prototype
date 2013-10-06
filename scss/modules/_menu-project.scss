@@ -38,3 +38,24 @@ h1.project-title {
 #project-actions-menu img {
     margin-right: 0.25em;
 }
+
+/* --------------- Edit presentation menu (dropdown) --------------- */
+#edit-presentation-header {
+    display:inline-block;
+    float:right;
+}
+#edit-presentation-menu-title, #edit-presentation-done {
+    display:inline-block;
+}
+#edit-presentation-menu-title {
+    margin-right: 1em;
+    font-weight:600;
+}
+#edit-presentation-header a.clicker {
+    opacity:0.6;
+    border:none;
+}
+#edit-presentation-header a.clicker:hover, #edit-presentation-header a.clicker:focus, #edit-presentation-header a.clicker:active {
+    opacity:1;
+    border:none;
+}

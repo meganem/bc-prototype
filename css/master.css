@@ -234,7 +234,7 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   color: #FFFFFF;
   display: inline-block;
   line-height: 1.2em;
-  padding: 0.7em 2em;
+  padding: 0.5em 1.5em;
   font-size: 0.8em;
   font-weight: 500;
   border: 0;
@@ -596,6 +596,36 @@ h1.project-title {
 /* line 38, ../scss/modules/_menu-project.scss */
 #project-actions-menu img {
   margin-right: 0.25em;
+}
+
+/* --------------- Edit presentation menu (dropdown) --------------- */
+/* line 43, ../scss/modules/_menu-project.scss */
+#edit-presentation-header {
+  display: inline-block;
+  float: right;
+}
+
+/* line 47, ../scss/modules/_menu-project.scss */
+#edit-presentation-menu-title, #edit-presentation-done {
+  display: inline-block;
+}
+
+/* line 50, ../scss/modules/_menu-project.scss */
+#edit-presentation-menu-title {
+  margin-right: 1em;
+  font-weight: 600;
+}
+
+/* line 54, ../scss/modules/_menu-project.scss */
+#edit-presentation-header a.clicker {
+  opacity: 0.6;
+  border: none;
+}
+
+/* line 58, ../scss/modules/_menu-project.scss */
+#edit-presentation-header a.clicker:hover, #edit-presentation-header a.clicker:focus, #edit-presentation-header a.clicker:active {
+  opacity: 1;
+  border: none;
 }
 
 /* --------------- Project map styles --------------- */
