@@ -1,5 +1,6 @@
 <!-- New node form -->
 <div id="new-node" class="modal is-short">
+     <div class="modal-arrow"></div>
     <div id="new-node-cancel">
         <a class="" href="#">
             <img class="icon-cancel" src="<?php print $pathPrefix; ?>img/icon-cancel.png" alt="Cancel" width="17" height="17" />

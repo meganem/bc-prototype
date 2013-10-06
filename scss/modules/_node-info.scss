@@ -2,7 +2,7 @@
 .node-info {
     width: 190px;
 }
-#node-info-title {
+.node-info-title {
     font-weight: 600;
     margin: 0.75em 0;
     line-height: 1em;
@@ -10,16 +10,16 @@
 .node-info-type {
     margin-right: 5px;
 }
-#node-info-desc {
+.node-info-desc {
     font-size: 0.8em;
     line-height: 1.3em;
     margin: 1em 0;
 }
-#node-info-edit {
+.node-info-edit {
     padding: 0.3em 1em 0.5em 1em;
     float:left;
 }
-#node-info-more {
+.node-info-more {
     padding: 0.3em 21px 0.5em 1em;
     float: right;
 }

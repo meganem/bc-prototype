@@ -28,36 +28,47 @@
 }
 
 /* --------------- Modal arrows --------------- */
-.modal:before, .modal:after {
+.modal-arrow {
+    height:0px;
+}
+.modal-arrow:before, .modal-arrow:after {
     content: " ";
     height: 0;
     position: absolute;
     width: 0;
     border: 15px solid transparent;
 }
-.modal:before {
+.modal-arrow:before {
     z-index: 2;
+    border-top-color: #FFFFFF;
+    left: 75px;
+    margin-top: 35px;
 }
-.modal.is-long:before {
+.modal-arrow:after {
+    z-index: 1;
+    border-top-color: #333333;
+    left: 75px;
+    margin-top: 37px;
+}
+/* --------------- Arrows for new node form states --------------- */
+.is-short .modal-arrow:before {
+    left: 95px;
+    margin-top:170px;
+} 
+.is-short .modal-arrow:after {
+    left: 95px;
+    margin-top:172px;
+}
+.is-long .modal-arrow:before {
+    border-top-color: transparent;
     border-right-color: #FFFFFF;
     left: -28px;
     margin-top: 160px;
 }
-.modal:after {
-    z-index: 1;
-}
-.modal.is-long:after {
+.is-long .modal-arrow:after {
+    border-top-color: transparent;
     border-right-color: #333333;
     left: -30px;
     margin-top: 160px;
 }
-.modal.is-short:before {
-    border-top-color: #FFFFFF;
-    left: 95px;
-    margin-top: 170px;
-}
-.modal.is-short:after {
-    border-top-color: #333333;
-    left: 95px;
-    margin-top: 15px;
-}
+

@@ -848,7 +848,12 @@ h1.project-title {
 
 /* --------------- Modal arrows --------------- */
 /* line 31, ../scss/modules/_modal.scss */
-.modal:before, .modal:after {
+.modal-arrow {
+  height: 0px;
+}
+
+/* line 34, ../scss/modules/_modal.scss */
+.modal-arrow:before, .modal-arrow:after {
   content: " ";
   height: 0;
   position: absolute;
@@ -856,42 +861,49 @@ h1.project-title {
   border: 15px solid transparent;
 }
 
-/* line 38, ../scss/modules/_modal.scss */
-.modal:before {
+/* line 41, ../scss/modules/_modal.scss */
+.modal-arrow:before {
   z-index: 2;
+  border-top-color: #FFFFFF;
+  left: 75px;
+  margin-top: 35px;
 }
 
-/* line 41, ../scss/modules/_modal.scss */
-.modal.is-long:before {
+/* line 47, ../scss/modules/_modal.scss */
+.modal-arrow:after {
+  z-index: 1;
+  border-top-color: #333333;
+  left: 75px;
+  margin-top: 37px;
+}
+
+/* --------------- Arrows for new node form states --------------- */
+/* line 54, ../scss/modules/_modal.scss */
+.is-short .modal-arrow:before {
+  left: 95px;
+  margin-top: 170px;
+}
+
+/* line 58, ../scss/modules/_modal.scss */
+.is-short .modal-arrow:after {
+  left: 95px;
+  margin-top: 172px;
+}
+
+/* line 62, ../scss/modules/_modal.scss */
+.is-long .modal-arrow:before {
+  border-top-color: transparent;
   border-right-color: #FFFFFF;
   left: -28px;
   margin-top: 160px;
 }
 
-/* line 46, ../scss/modules/_modal.scss */
-.modal:after {
-  z-index: 1;
-}
-
-/* line 49, ../scss/modules/_modal.scss */
-.modal.is-long:after {
+/* line 68, ../scss/modules/_modal.scss */
+.is-long .modal-arrow:after {
+  border-top-color: transparent;
   border-right-color: #333333;
   left: -30px;
   margin-top: 160px;
-}
-
-/* line 54, ../scss/modules/_modal.scss */
-.modal.is-short:before {
-  border-top-color: #FFFFFF;
-  left: 95px;
-  margin-top: 170px;
-}
-
-/* line 59, ../scss/modules/_modal.scss */
-.modal.is-short:after {
-  border-top-color: #333333;
-  left: 95px;
-  margin-top: 15px;
 }
 
 /* --------------- New node form --------------- */
@@ -1071,7 +1083,7 @@ input.disabled {
 }
 
 /* line 5, ../scss/modules/_node-info.scss */
-#node-info-title {
+.node-info-title {
   font-weight: 600;
   margin: 0.75em 0;
   line-height: 1em;
@@ -1083,20 +1095,20 @@ input.disabled {
 }
 
 /* line 13, ../scss/modules/_node-info.scss */
-#node-info-desc {
+.node-info-desc {
   font-size: 0.8em;
   line-height: 1.3em;
   margin: 1em 0;
 }
 
 /* line 18, ../scss/modules/_node-info.scss */
-#node-info-edit {
+.node-info-edit {
   padding: 0.3em 1em 0.5em 1em;
   float: left;
 }
 
 /* line 22, ../scss/modules/_node-info.scss */
-#node-info-more {
+.node-info-more {
   padding: 0.3em 21px 0.5em 1em;
   float: right;
 }
