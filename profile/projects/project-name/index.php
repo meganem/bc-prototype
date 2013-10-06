@@ -84,8 +84,9 @@ include $headerInclude;
                 <div class="light" id="aboveLayer">
                 </div>
 
-                <!-- Modal popup for new node form -->
-                <div id="new-node" class="modal is-short">
+                <!-- New node form -->
+                <div id="new-node" class="modal is-short hidden">
+                     <div class="modal-arrow"></div>
                     <div id="new-node-cancel">
                         <a class="" href="#">
                             <img class="icon-cancel" src="<?php print $pathPrefix; ?>img/icon-cancel.png" alt="Cancel" width="17" height="17" />
@@ -101,9 +102,9 @@ include $headerInclude;
                             </a>
                         </div>
                         
-                        <input id="new-node-form-title" name="node-title" type="text" placeholder="Name it" data-trigger="change" data-required="true">
-                        <textarea id="new-node-form-desc" rows="5" name="node-desc" placeholder="Describe it" data-trigger="keyup" data-notblank="true"></textarea>
-                        <input id="new-node-form-url" name="node-url" type="text" placeholder="http://"  data-trigger="keyup" data-type="url">
+                        <input id="new-node-form-title" name="node-title" type="text" placeholder="Name it" data-trigger="change focusout keyup" data-required="true" data-validation-minlength="0">
+                        <textarea id="new-node-form-desc" rows="5" name="node-desc" placeholder="Describe it" data-trigger="keyup" data-notblank="true" data-validation-minlength="1"></textarea>
+                        <input id="new-node-form-url" name="node-url" type="text" placeholder="http://"  data-trigger="keyup" data-type="url" data-validation-minlength="4">
                         <input id="new-node-form-date" name="node-date" type="text" placeholder="
                         <?php 
                             date_default_timezone_set('America/Los_Angeles');
@@ -113,40 +114,12 @@ include $headerInclude;
                         <input id="new-node-form-tags" name="node-tags" type="text" placeholder="Tag it, comma separated" data-trigger="keyup" data-notblank="true">
                         <div id="new-node-form-buttons">
                             <input id="new-node-delete" class="button red" type="button" value="delete">
-                            <input id="new-node-form-submit" class="button green" type="submit" value="done">
+                            <input id="new-node-form-submit" class="button green disabled" type="submit" value="done">
                             <input id="new-node-more" class="button purple more-link" type="button" value="more">
                         </div>
                     </form>
                 </div>
-
-                <!-- Example div for zoom level 3: cards are the same as the node-info popup -->
-                <div id="node-popup" class="modal node-info hidden">
-                    <div id="node-info-image">
-                        <img class="" src="<?php print $pathPrefix; ?>img/node-thumb-popup.png" alt="" width="156" height="94" />
-                    </div>
-                    <div id="node-info-title"><img class="node-info-type" src="<?php print $pathPrefix; ?>img/icon-idea-sm.png" alt="" width="20" height="20" /> A big idea that took some thought</div>
-                    <div id="node-info-desc" class="ellipsis">
-                        <div>My big idea is to create a website to showcase funny cats. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas faucibus mollis interdum. Donec id elit non mi porta gravida at eget metus.</div>
-                    </div>
-                    <div id="node-info-buttons">
-                        <a id="node-info-edit" class="button blue" href="#">edit</a>
-                        <a id="node-info-more" class="button purple more-link" href="#">more</a>
-                    </div>
-                </div>
-
-                <!-- Example side panel when you have a node selected and then click "more" -->
-                <div id="morePanel" class="panel hidden">
-                    <div id="node-info-image">
-                        <img class="" src="<?php print $pathPrefix; ?>img/node-big.png" alt="" width="347" height="" />
-                    </div>
-                    <div id="node-info-title"><img class="node-info-type" src="<?php print $pathPrefix; ?>img/icon-idea-sm.png" alt="" width="20" height="20" /> A big idea that took some thought</div>
-                    <div id="node-info-desc" class="">
-                        <div>My big idea is to create a website to showcase funny cats. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas faucibus mollis interdum. Donec id elit non mi porta gravida at eget metus.</div>
-                    </div>
-                    <div id="node-info-buttons">
-                        <a id="node-info-edit" class="button blue" href="#">edit</a>
-                    </div>
-                </div>
+                
 
             </div> <!-- End bloomViz -->
 
