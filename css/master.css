@@ -606,23 +606,28 @@ h1.project-title {
 }
 
 /* line 47, ../scss/modules/_menu-project.scss */
+#edit-presentation-header ul.dropdown {
+  width: 180px;
+}
+
+/* line 50, ../scss/modules/_menu-project.scss */
 #edit-presentation-menu-title, #edit-presentation-done {
   display: inline-block;
 }
 
-/* line 50, ../scss/modules/_menu-project.scss */
+/* line 53, ../scss/modules/_menu-project.scss */
 #edit-presentation-menu-title {
   margin-right: 1em;
   font-weight: 600;
 }
 
-/* line 54, ../scss/modules/_menu-project.scss */
+/* line 57, ../scss/modules/_menu-project.scss */
 #edit-presentation-header a.clicker {
   opacity: 0.6;
   border: none;
 }
 
-/* line 58, ../scss/modules/_menu-project.scss */
+/* line 61, ../scss/modules/_menu-project.scss */
 #edit-presentation-header a.clicker:hover, #edit-presentation-header a.clicker:focus, #edit-presentation-header a.clicker:active {
   opacity: 1;
   border: none;

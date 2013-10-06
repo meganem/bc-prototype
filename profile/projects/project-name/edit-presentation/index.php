@@ -47,7 +47,6 @@ include $headerInclude;
                     <h1 class="project-title">My Project</h1>
 
                     <div id="edit-presentation-header">
-
                         <div class="click-nav click-nav-3">
                             <ul class="no-js">
                                 <li>
@@ -61,12 +60,11 @@ include $headerInclude;
                                 </li>
                            </ul>
                         </div> <!-- End click-nav -->
-
                         <div id="edit-presentation-menu-title">Edit Presentation</div>
                         <div id="edit-presentation-done">
                             <a href="#" class="button blue">Done</a>
                         </div>
-                    </div> <!-- End edit-presentation-menu -->
+                    </div> <!-- End edit-presentation-header -->
 
                     
                 </div> <!-- End container -->
