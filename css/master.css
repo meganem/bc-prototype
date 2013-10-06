@@ -1111,6 +1111,44 @@ input.disabled {
   list-style: none;
 }
 
+/* --------------- Edit presentation reorder panel --------------- */
+/* line 2, ../scss/modules/_edit-presentation-reorder-panel.scss */
+#edit-presentation-reorder h2 {
+  font-size: 1.5em;
+  margin: 0 0 0.5em;
+}
+
+/* line 6, ../scss/modules/_edit-presentation-reorder-panel.scss */
+#edit-presentation-reorder-done {
+  bottom: 15px;
+  position: absolute;
+}
+
+/* line 10, ../scss/modules/_edit-presentation-reorder-panel.scss */
+.reorder-node {
+  border: 1px solid #e9e9e9;
+  padding: 0.5em 1em;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  border-radius: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* line 16, ../scss/modules/_edit-presentation-reorder-panel.scss */
+.reorder-node-title {
+  display: inline-block;
+  max-width: 90%;
+}
+
+/* line 20, ../scss/modules/_edit-presentation-reorder-panel.scss */
+.icon-reorder {
+  display: inline-block;
+  float: right;
+  opacity: 0.6;
+}
+
 /* --------------- Node info modal --------------- */
 /* line 2, ../scss/modules/_node-info.scss */
 .node-info {

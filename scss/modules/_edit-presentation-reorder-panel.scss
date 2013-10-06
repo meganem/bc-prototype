@@ -1,0 +1,24 @@
+/* --------------- Edit presentation reorder panel --------------- */
+#edit-presentation-reorder h2 {
+	font-size: 1.5em;
+    margin: 0 0 0.5em;
+}
+#edit-presentation-reorder-done {
+	bottom: 15px;
+    position: absolute;
+}
+.reorder-node {
+	border:1px solid $gray-light;
+	padding: 0.5em 1em;
+	@include border-radius(0.5em);
+	margin-bottom: 0.5em;
+}
+.reorder-node-title {
+	display:inline-block;
+	max-width: 90%;
+}
+.icon-reorder {
+	display:inline-block;
+	float:right;
+	opacity:0.6;
+}
