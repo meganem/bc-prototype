@@ -26,21 +26,15 @@
     background: $gray;
 }
 #zoom-1 {
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
+    @include border-radius(3px);
 }
 #zoom-2 {
     height: 20px;
     width: 20px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
+    @include border-radius(4px);
 }
 #zoom-3 {
     height: 27px;
     width: 27px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    @include border-radius(5px);
 }

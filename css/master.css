@@ -239,6 +239,8 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   background: #3f3f3f;
   -webkit-border-radius: 0.5em;
   -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
   border-radius: 0.5em;
   color: white;
   display: inline-block;
@@ -249,53 +251,53 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   border: 0;
 }
 
-/* line 16, ../scss/modules/_buttons.scss */
+/* line 14, ../scss/modules/_buttons.scss */
 .button:hover, .button:focus {
   background: #2c2c2c;
   text-decoration: none;
 }
 
-/* line 20, ../scss/modules/_buttons.scss */
+/* line 18, ../scss/modules/_buttons.scss */
 .button.red {
   background: #ae2f2c;
 }
 
-/* line 23, ../scss/modules/_buttons.scss */
+/* line 21, ../scss/modules/_buttons.scss */
 .button.red:hover, .button.red:focus {
   background: #79201e;
 }
 
-/* line 26, ../scss/modules/_buttons.scss */
+/* line 24, ../scss/modules/_buttons.scss */
 .button.purple {
   background: #783d7a;
 }
 
-/* line 29, ../scss/modules/_buttons.scss */
+/* line 27, ../scss/modules/_buttons.scss */
 .button.purple:hover, .button.purple:focus {
   background: #542a55;
 }
 
-/* line 32, ../scss/modules/_buttons.scss */
+/* line 30, ../scss/modules/_buttons.scss */
 .button.green {
   background: #4b6a18;
 }
 
-/* line 35, ../scss/modules/_buttons.scss */
+/* line 33, ../scss/modules/_buttons.scss */
 .button.green:hover, .button.green:focus {
   background: #344a10;
 }
 
-/* line 38, ../scss/modules/_buttons.scss */
+/* line 36, ../scss/modules/_buttons.scss */
 .button.blue {
   background: #086989;
 }
 
-/* line 41, ../scss/modules/_buttons.scss */
+/* line 39, ../scss/modules/_buttons.scss */
 .button.blue:hover, .button.blue:focus {
   background: #05495f;
 }
 
-/* line 44, ../scss/modules/_buttons.scss */
+/* line 42, ../scss/modules/_buttons.scss */
 .button.more-link, .button.more-link:hover {
   background-image: url("../img/icon-arrow-right.png");
   background-position: 87% center;
@@ -357,6 +359,8 @@ ul.menu {
   background: #ae2f2c;
   -webkit-border-radius: 1em;
   -moz-border-radius: 1em;
+  -ms-border-radius: 1em;
+  -o-border-radius: 1em;
   border-radius: 1em;
   color: white;
   font-size: 0.6em;
@@ -374,12 +378,12 @@ ul.menu {
   box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
 }
 
-/* line 24, ../scss/modules/_notification.scss */
+/* line 22, ../scss/modules/_notification.scss */
 ul.dropdown li.notifications {
   padding: 0 1.5em;
 }
 
-/* line 27, ../scss/modules/_notification.scss */
+/* line 25, ../scss/modules/_notification.scss */
 .notifications-title {
   font-size: 0.7em;
   font-weight: 600;
@@ -387,19 +391,19 @@ ul.dropdown li.notifications {
   text-transform: uppercase;
 }
 
-/* line 33, ../scss/modules/_notification.scss */
+/* line 31, ../scss/modules/_notification.scss */
 .notification-message {
   font-size: 0.8em;
   margin-bottom: 0.5em;
 }
 
-/* line 37, ../scss/modules/_notification.scss */
+/* line 35, ../scss/modules/_notification.scss */
 ul.dropdown li .notification-link a {
   padding: 0;
   font-size: 0.8em;
 }
 
-/* line 41, ../scss/modules/_notification.scss */
+/* line 39, ../scss/modules/_notification.scss */
 ul.dropdown li .notification-link a:after {
   content: " »";
 }
@@ -793,24 +797,30 @@ h1.project-title {
 #zoom-1 {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
   border-radius: 3px;
 }
 
-/* line 33, ../scss/modules/_zoom-controls.scss */
+/* line 31, ../scss/modules/_zoom-controls.scss */
 #zoom-2 {
   height: 20px;
   width: 20px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
   border-radius: 4px;
 }
 
-/* line 40, ../scss/modules/_zoom-controls.scss */
+/* line 36, ../scss/modules/_zoom-controls.scss */
 #zoom-3 {
   height: 27px;
   width: 27px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
   border-radius: 5px;
 }
 
@@ -871,14 +881,16 @@ h1.project-title {
   top: 100px;
 }
 
-/* line 14, ../scss/modules/_modal.scss */
+/* line 12, ../scss/modules/_modal.scss */
 .modal {
-  -webkit-border-radius: .5em;
-  -moz-border-radius: .5em;
-  border-radius: .5em;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  border-radius: 0.5em;
 }
 
-/* line 19, ../scss/modules/_modal.scss */
+/* line 15, ../scss/modules/_modal.scss */
 .panel {
   border-bottom: 0;
   border-top: 0;
@@ -891,12 +903,12 @@ h1.project-title {
 }
 
 /* --------------- Modal arrows --------------- */
-/* line 31, ../scss/modules/_modal.scss */
+/* line 27, ../scss/modules/_modal.scss */
 .modal-arrow {
   height: 0px;
 }
 
-/* line 34, ../scss/modules/_modal.scss */
+/* line 30, ../scss/modules/_modal.scss */
 .modal-arrow:before, .modal-arrow:after {
   content: " ";
   height: 0;
@@ -905,7 +917,7 @@ h1.project-title {
   border: 15px solid transparent;
 }
 
-/* line 41, ../scss/modules/_modal.scss */
+/* line 37, ../scss/modules/_modal.scss */
 .modal-arrow:before {
   z-index: 2;
   border-top-color: white;
@@ -913,7 +925,7 @@ h1.project-title {
   margin-top: 35px;
 }
 
-/* line 47, ../scss/modules/_modal.scss */
+/* line 43, ../scss/modules/_modal.scss */
 .modal-arrow:after {
   z-index: 1;
   border-top-color: #3f3f3f;
@@ -922,19 +934,19 @@ h1.project-title {
 }
 
 /* --------------- Arrows for new node form states --------------- */
-/* line 54, ../scss/modules/_modal.scss */
+/* line 50, ../scss/modules/_modal.scss */
 .is-short .modal-arrow:before {
   left: 95px;
   margin-top: 170px;
 }
 
-/* line 58, ../scss/modules/_modal.scss */
+/* line 54, ../scss/modules/_modal.scss */
 .is-short .modal-arrow:after {
   left: 95px;
   margin-top: 172px;
 }
 
-/* line 62, ../scss/modules/_modal.scss */
+/* line 58, ../scss/modules/_modal.scss */
 .is-long .modal-arrow:before {
   border-top-color: transparent;
   border-right-color: white;
@@ -942,7 +954,7 @@ h1.project-title {
   margin-top: 160px;
 }
 
-/* line 68, ../scss/modules/_modal.scss */
+/* line 64, ../scss/modules/_modal.scss */
 .is-long .modal-arrow:after {
   border-top-color: transparent;
   border-right-color: #3f3f3f;
@@ -1002,6 +1014,8 @@ textarea {
   border: 1px solid #e9e9e9;
   -webkit-border-radius: 0.5em;
   -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
   border-radius: 0.5em;
   padding: 0.5em;
   font-weight: 300;
@@ -1012,29 +1026,31 @@ textarea {
   margin-bottom: 0.5em;
 }
 
-/* line 47, ../scss/modules/_new-node-form.scss */
+/* line 43, ../scss/modules/_new-node-form.scss */
 input.disabled {
   opacity: 0.3;
 }
 
-/* line 50, ../scss/modules/_new-node-form.scss */
+/* line 46, ../scss/modules/_new-node-form.scss */
 #new-node-form-buttons {
   margin-top: .5em;
   vertical-align: top;
 }
 
-/* line 54, ../scss/modules/_new-node-form.scss */
+/* line 50, ../scss/modules/_new-node-form.scss */
 #new-node-more {
   display: inline-block;
   float: right;
 }
 
-/* line 58, ../scss/modules/_new-node-form.scss */
+/* line 54, ../scss/modules/_new-node-form.scss */
 .dark-background {
   background: #121212;
-  -webkit-border-radius: .5em;
-  -moz-border-radius: .5em;
-  border-radius: .5em;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  border-radius: 0.5em;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -1051,18 +1067,18 @@ input.disabled {
   float: left;
 }
 
-/* line 78, ../scss/modules/_new-node-form.scss */
+/* line 70, ../scss/modules/_new-node-form.scss */
 .dark-background .icon-camera {
   margin-top: 10px;
 }
 
-/* line 81, ../scss/modules/_new-node-form.scss */
+/* line 73, ../scss/modules/_new-node-form.scss */
 .dark-background:hover, .dark-background:focus {
   background: #3f3f3f;
   text-decoration: none;
 }
 
-/* line 85, ../scss/modules/_new-node-form.scss */
+/* line 77, ../scss/modules/_new-node-form.scss */
 .icon-sketch {
   padding-top: 30px;
   background-image: url("../img/icon-sketch-sm.png");
@@ -1072,13 +1088,13 @@ input.disabled {
   padding-top: 14px;
 }
 
-/* line 93, ../scss/modules/_new-node-form.scss */
+/* line 85, ../scss/modules/_new-node-form.scss */
 .form-divider {
   margin-bottom: .5em;
 }
 
 /* --------------- State change for new node form --------------- */
-/* line 101, ../scss/modules/_new-node-form.scss */
+/* line 93, ../scss/modules/_new-node-form.scss */
 .is-short #new-node-form-desc,
 .is-short #new-node-form-url,
 .is-short #new-node-form-date,
@@ -1087,35 +1103,35 @@ input.disabled {
   display: none;
 }
 
-/* line 104, ../scss/modules/_new-node-form.scss */
+/* line 96, ../scss/modules/_new-node-form.scss */
 .is-long #new-node-more {
   display: none;
 }
 
-/* line 107, ../scss/modules/_new-node-form.scss */
+/* line 99, ../scss/modules/_new-node-form.scss */
 .is-long #new-node-form-submit {
   float: right;
 }
 
 /* --------------- Form validation with Parsley --------------- */
-/* line 112, ../scss/modules/_new-node-form.scss */
+/* line 104, ../scss/modules/_new-node-form.scss */
 .parsley-error {
   background: #ffe4e4;
 }
 
-/* line 115, ../scss/modules/_new-node-form.scss */
+/* line 107, ../scss/modules/_new-node-form.scss */
 .parsley-success {
   background: #e7ffe4;
 }
 
-/* line 118, ../scss/modules/_new-node-form.scss */
+/* line 110, ../scss/modules/_new-node-form.scss */
 .parsley-error-list {
   font-size: 0.7em;
   margin: -10px 0 1em 0.5em;
   padding: 0;
 }
 
-/* line 123, ../scss/modules/_new-node-form.scss */
+/* line 115, ../scss/modules/_new-node-form.scss */
 .parsley-error-list li {
   list-style: none;
 }
