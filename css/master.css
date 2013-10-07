@@ -1,4 +1,3 @@
-/* --------------- Variables --------------- */
 /* --------------- GENERAL STYLES --------------- */
 /* line 3, ../scss/_base.scss */
 body {
@@ -110,29 +109,29 @@ a[data-title]:hover:after {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
-  -moz-box-shadow: 0px 0px 4px #222;
-  -webkit-box-shadow: 0px 0px 4px #222;
-  box-shadow: 0px 0px 4px #222;
+  -webkit-box-shadow: 0px 0px 4px #222222;
+  -moz-box-shadow: 0px 0px 4px #222222;
+  box-shadow: 0px 0px 4px #222222;
 }
 
 /* --------------- Logo and Site Title --------------- */
-/* line 93, ../scss/_base.scss */
+/* line 91, ../scss/_base.scss */
 .logo, .site-title {
   display: inline-block;
 }
 
-/* line 96, ../scss/_base.scss */
+/* line 94, ../scss/_base.scss */
 .logo {
   margin-right: 0.5em;
   vertical-align: super;
 }
 
-/* line 100, ../scss/_base.scss */
+/* line 98, ../scss/_base.scss */
 a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   text-decoration: none;
 }
 
-/* line 103, ../scss/_base.scss */
+/* line 101, ../scss/_base.scss */
 .site-title {
   color: white;
   font-size: 1.5em;
@@ -140,22 +139,22 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 }
 
 /* --------------- Display and positioning helper classes --------------- */
-/* line 110, ../scss/_base.scss */
+/* line 108, ../scss/_base.scss */
 .hidden {
   display: none;
 }
 
-/* line 113, ../scss/_base.scss */
+/* line 111, ../scss/_base.scss */
 .row {
   clear: both;
 }
 
-/* line 116, ../scss/_base.scss */
+/* line 114, ../scss/_base.scss */
 .align-center {
   text-align: center;
 }
 
-/* line 119, ../scss/_base.scss */
+/* line 117, ../scss/_base.scss */
 .grid-4 {
   width: 30%;
   display: inline-block;
@@ -167,12 +166,12 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   box-sizing: border-box;
 }
 
-/* line 127, ../scss/_base.scss */
+/* line 125, ../scss/_base.scss */
 .grid-4:last-child {
   margin-right: 0;
 }
 
-/* line 130, ../scss/_base.scss */
+/* line 128, ../scss/_base.scss */
 .divider {
   clear: both;
   border-top: 1px solid #e9e9e9;
@@ -183,12 +182,12 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 /* --------------- HEADER --------------- */
 /* --------------- CONTENT --------------- */
 /* --------------- FOOTER --------------- */
-/* line 151, ../scss/_base.scss */
+/* line 149, ../scss/_base.scss */
 #footer {
   font-size: 0.8em;
 }
 
-/* line 154, ../scss/_base.scss */
+/* line 152, ../scss/_base.scss */
 #footer p {
   margin: 0;
 }
@@ -378,12 +377,12 @@ ul.menu {
   box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
 }
 
-/* line 22, ../scss/modules/_notification.scss */
+/* line 20, ../scss/modules/_notification.scss */
 ul.dropdown li.notifications {
   padding: 0 1.5em;
 }
 
-/* line 25, ../scss/modules/_notification.scss */
+/* line 23, ../scss/modules/_notification.scss */
 .notifications-title {
   font-size: 0.7em;
   font-weight: 600;
@@ -391,19 +390,19 @@ ul.dropdown li.notifications {
   text-transform: uppercase;
 }
 
-/* line 31, ../scss/modules/_notification.scss */
+/* line 29, ../scss/modules/_notification.scss */
 .notification-message {
   font-size: 0.8em;
   margin-bottom: 0.5em;
 }
 
-/* line 35, ../scss/modules/_notification.scss */
+/* line 33, ../scss/modules/_notification.scss */
 ul.dropdown li .notification-link a {
   padding: 0;
   font-size: 0.8em;
 }
 
-/* line 39, ../scss/modules/_notification.scss */
+/* line 37, ../scss/modules/_notification.scss */
 ul.dropdown li .notification-link a:after {
   content: " »";
 }
@@ -420,7 +419,7 @@ ul.dropdown {
   box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.5);
 }
 
-/* line 12, ../scss/modules/_menu-dropdown.scss */
+/* line 10, ../scss/modules/_menu-dropdown.scss */
 ul.dropdown li {
   display: block;
   padding: 0em 0.5em;
@@ -428,17 +427,17 @@ ul.dropdown li {
   margin-right: 0;
 }
 
-/* line 18, ../scss/modules/_menu-dropdown.scss */
+/* line 16, ../scss/modules/_menu-dropdown.scss */
 ul.dropdown li:first-child {
   padding-top: 1em;
 }
 
-/* line 21, ../scss/modules/_menu-dropdown.scss */
+/* line 19, ../scss/modules/_menu-dropdown.scss */
 ul.dropdown li:last-child {
   padding-bottom: 1em;
 }
 
-/* line 24, ../scss/modules/_menu-dropdown.scss */
+/* line 22, ../scss/modules/_menu-dropdown.scss */
 ul.dropdown li a {
   color: #b38c14;
   display: block;
@@ -447,30 +446,30 @@ ul.dropdown li a {
   padding: 0.25em 1em;
 }
 
-/* line 31, ../scss/modules/_menu-dropdown.scss */
+/* line 29, ../scss/modules/_menu-dropdown.scss */
 ul.dropdown li a:hover, ul.dropdown li a:focus, ul.dropdown li a:active {
   text-decoration: none;
   color: #121212;
 }
 
-/* line 35, ../scss/modules/_menu-dropdown.scss */
+/* line 33, ../scss/modules/_menu-dropdown.scss */
 ul.dropdown li.separator {
   border-bottom: 1px solid #3f3f3f;
   margin-bottom: 0.5em;
   padding-top: 0.5em;
 }
 
-/* line 40, ../scss/modules/_menu-dropdown.scss */
+/* line 38, ../scss/modules/_menu-dropdown.scss */
 .click-nav {
   display: inline-block;
 }
 
-/* line 43, ../scss/modules/_menu-dropdown.scss */
+/* line 41, ../scss/modules/_menu-dropdown.scss */
 .click-nav-2 {
   margin-right: 0.5em;
 }
 
-/* line 46, ../scss/modules/_menu-dropdown.scss */
+/* line 44, ../scss/modules/_menu-dropdown.scss */
 .click-nav ul {
   position: relative;
   margin: 0;
@@ -478,38 +477,38 @@ ul.dropdown li.separator {
   z-index: 21;
 }
 
-/* line 52, ../scss/modules/_menu-dropdown.scss */
+/* line 50, ../scss/modules/_menu-dropdown.scss */
 .click-nav ul li {
   position: relative;
   list-style: none;
   cursor: pointer;
 }
 
-/* line 57, ../scss/modules/_menu-dropdown.scss */
+/* line 55, ../scss/modules/_menu-dropdown.scss */
 .click-nav ul li ul {
   position: absolute;
   left: 0;
   right: 0;
 }
 
-/* line 62, ../scss/modules/_menu-dropdown.scss */
+/* line 60, ../scss/modules/_menu-dropdown.scss */
 .click-nav.click-nav-1 ul li ul {
   position: absolute;
   left: auto;
   right: 0;
 }
 
-/* line 67, ../scss/modules/_menu-dropdown.scss */
+/* line 65, ../scss/modules/_menu-dropdown.scss */
 .click-nav ul .clicker {
   position: relative;
 }
 
-/* line 70, ../scss/modules/_menu-dropdown.scss */
+/* line 68, ../scss/modules/_menu-dropdown.scss */
 .click-nav ul li a {
   display: block;
 }
 
-/* line 73, ../scss/modules/_menu-dropdown.scss */
+/* line 71, ../scss/modules/_menu-dropdown.scss */
 a.clicker {
   color: #121212;
   height: 35px;
@@ -517,28 +516,28 @@ a.clicker {
   border: 1px solid whitesmoke;
 }
 
-/* line 79, ../scss/modules/_menu-dropdown.scss */
+/* line 77, ../scss/modules/_menu-dropdown.scss */
 a.clicker:hover, a.clicker:focus, a.clicker:active {
   text-decoration: none;
   border: 1px solid #121212;
 }
 
-/* line 83, ../scss/modules/_menu-dropdown.scss */
+/* line 81, ../scss/modules/_menu-dropdown.scss */
 .click-nav-1 a.clicker {
   border: 1px solid #121212;
 }
 
-/* line 86, ../scss/modules/_menu-dropdown.scss */
+/* line 84, ../scss/modules/_menu-dropdown.scss */
 .click-nav-1 a.clicker:hover, .click-nav-1 a.clicker:focus, .click-nav-1 a.clicker:active {
   border: 1px solid #e5c04e;
 }
 
-/* line 89, ../scss/modules/_menu-dropdown.scss */
+/* line 87, ../scss/modules/_menu-dropdown.scss */
 .clicker:after {
   content: none;
 }
 
-/* line 92, ../scss/modules/_menu-dropdown.scss */
+/* line 90, ../scss/modules/_menu-dropdown.scss */
 .clicker img {
   height: 35px;
   vertical-align: bottom;
@@ -546,12 +545,12 @@ a.clicker:hover, a.clicker:focus, a.clicker:active {
 }
 
 /* Fallbacks */
-/* line 98, ../scss/modules/_menu-dropdown.scss */
+/* line 96, ../scss/modules/_menu-dropdown.scss */
 .click-nav .no-js ul {
   display: none;
 }
 
-/* line 101, ../scss/modules/_menu-dropdown.scss */
+/* line 99, ../scss/modules/_menu-dropdown.scss */
 .click-nav .no-js:hover ul {
   display: block;
 }
