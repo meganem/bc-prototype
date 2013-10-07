@@ -4,7 +4,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
-  background: #F5F5F5;
+  background: whitesmoke;
   color: #121212;
   line-height: 1.75em;
 }
@@ -61,11 +61,10 @@ h6 {
 /* line 46, ../scss/_base.scss */
 img {
   max-width: 100%;
-  height: auto;
 }
 
 /* --------------- Text --------------- */
-/* line 52, ../scss/_base.scss */
+/* line 51, ../scss/_base.scss */
 .lead {
   font-weight: 300;
   font-size: 1.75em;
@@ -74,31 +73,31 @@ img {
 }
 
 /* --------------- Lists --------------- */
-/* line 60, ../scss/_base.scss */
+/* line 59, ../scss/_base.scss */
 ul li {
   list-style-type: square;
 }
 
 /* --------------- Links --------------- */
-/* line 65, ../scss/_base.scss */
+/* line 64, ../scss/_base.scss */
 a {
   text-decoration: none;
-  color: #B38C14;
+  color: #b38c14;
   font-weight: 600;
 }
 
-/* line 70, ../scss/_base.scss */
+/* line 69, ../scss/_base.scss */
 a:hover, a:focus {
   text-decoration: underline;
   position: relative;
 }
 
 /* --------------- Tooltips on links --------------- */
-/* line 76, ../scss/_base.scss */
+/* line 75, ../scss/_base.scss */
 a[data-title]:hover:after {
   content: attr(data-title);
-  color: #000000;
-  background: #ffffff;
+  color: #121212;
+  background: white;
   font-size: 0.7em;
   left: -25px;
   padding: 0.2em 0.5em;
@@ -115,46 +114,46 @@ a[data-title]:hover:after {
 }
 
 /* --------------- Logo and Site Title --------------- */
-/* line 96, ../scss/_base.scss */
+/* line 95, ../scss/_base.scss */
 .logo, .site-title {
   display: inline-block;
 }
 
-/* line 99, ../scss/_base.scss */
+/* line 98, ../scss/_base.scss */
 .logo {
   margin-right: 0.5em;
   vertical-align: super;
 }
 
-/* line 103, ../scss/_base.scss */
+/* line 102, ../scss/_base.scss */
 a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   text-decoration: none;
 }
 
-/* line 106, ../scss/_base.scss */
+/* line 105, ../scss/_base.scss */
 .site-title {
-  color: #FFFFFF;
+  color: white;
   font-size: 1.5em;
   font-weight: 600;
 }
 
 /* --------------- Display and positioning helper classes --------------- */
-/* line 113, ../scss/_base.scss */
+/* line 112, ../scss/_base.scss */
 .hidden {
   display: none;
 }
 
-/* line 116, ../scss/_base.scss */
+/* line 115, ../scss/_base.scss */
 .row {
   clear: both;
 }
 
-/* line 119, ../scss/_base.scss */
+/* line 118, ../scss/_base.scss */
 .align-center {
   text-align: center;
 }
 
-/* line 122, ../scss/_base.scss */
+/* line 121, ../scss/_base.scss */
 .grid-4 {
   width: 30%;
   display: inline-block;
@@ -166,20 +165,28 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   box-sizing: border-box;
 }
 
-/* line 132, ../scss/_base.scss */
+/* line 131, ../scss/_base.scss */
 .grid-4:last-child {
   margin-right: 0;
+}
+
+/* line 134, ../scss/_base.scss */
+.divider {
+  clear: both;
+  border-top: 1px solid #e9e9e9;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
 }
 
 /* --------------- HEADER --------------- */
 /* --------------- CONTENT --------------- */
 /* --------------- FOOTER --------------- */
-/* line 150, ../scss/_base.scss */
+/* line 155, ../scss/_base.scss */
 #footer {
   font-size: 0.8em;
 }
 
-/* line 153, ../scss/_base.scss */
+/* line 158, ../scss/_base.scss */
 #footer p {
   margin: 0;
 }
@@ -187,7 +194,7 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 /* --------------- Containers --------------- */
 /* line 2, ../scss/layouts/_containers.scss */
 .border-top {
-  border-top: 1px solid #3F3F3F;
+  border-top: 1px solid #3f3f3f;
 }
 
 /* line 5, ../scss/layouts/_containers.scss */
@@ -206,7 +213,7 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 /* line 3, ../scss/_themes.scss */
 .dark {
   background: #121212;
-  color: #E9E9E9;
+  color: #e9e9e9;
   font-weight: 300;
   letter-spacing: 0.02em;
 }
@@ -214,24 +221,24 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 /* --------------- Links - dark --------------- */
 /* line 11, ../scss/_themes.scss */
 .dark a {
-  color: #E5C04E;
+  color: #e5c04e;
   font-weight: 300;
 }
 
 /* --------------- Buttons - dark --------------- */
 /* line 17, ../scss/_themes.scss */
 .dark .button {
-  color: #ffffff;
+  color: white;
 }
 
 /* --------------- Buttons --------------- */
 /* line 2, ../scss/modules/_buttons.scss */
 .button {
-  background: #3F3F3F;
+  background: #3f3f3f;
   -webkit-border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   border-radius: 0.5em;
-  color: #FFFFFF;
+  color: white;
   display: inline-block;
   line-height: 1.2em;
   padding: 0.5em 1.5em;
@@ -242,38 +249,38 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 
 /* line 16, ../scss/modules/_buttons.scss */
 .button:hover, .button:focus {
-  background: #262626;
+  background: #2c2c2c;
   text-decoration: none;
 }
 
 /* line 20, ../scss/modules/_buttons.scss */
 .button.red {
-  background: #AE2F2C;
+  background: #ae2f2c;
 }
 
 /* line 23, ../scss/modules/_buttons.scss */
 .button.red:hover, .button.red:focus {
-  background: #951613;
+  background: #79201e;
 }
 
 /* line 26, ../scss/modules/_buttons.scss */
 .button.purple {
-  background: #783D7A;
+  background: #783d7a;
 }
 
 /* line 29, ../scss/modules/_buttons.scss */
 .button.purple:hover, .button.purple:focus {
-  background: #5F2461;
+  background: #542a55;
 }
 
 /* line 32, ../scss/modules/_buttons.scss */
 .button.green {
-  background: #4B6A18;
+  background: #4b6a18;
 }
 
 /* line 35, ../scss/modules/_buttons.scss */
 .button.green:hover, .button.green:focus {
-  background: #325100;
+  background: #344a10;
 }
 
 /* line 38, ../scss/modules/_buttons.scss */
@@ -283,7 +290,7 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 
 /* line 41, ../scss/modules/_buttons.scss */
 .button.blue:hover, .button.blue:focus {
-  background: #005070;
+  background: #05495f;
 }
 
 /* line 44, ../scss/modules/_buttons.scss */
@@ -315,7 +322,7 @@ ul.menu {
   padding-right: 0.5em;
   display: inline-block;
   list-style-type: none;
-  border-right: 1px solid #fff;
+  border-right: 1px solid white;
   line-height: 1em;
 }
 
@@ -345,11 +352,11 @@ ul.menu {
 /* --------------- Notifications --------------- */
 /* line 4, ../scss/modules/_notification.scss */
 .notification {
-  background: #AE2F2C;
+  background: #ae2f2c;
   -webkit-border-radius: 1em;
   -moz-border-radius: 1em;
   border-radius: 1em;
-  color: #FFFFFF;
+  color: white;
   font-size: 0.6em;
   height: 1em;
   line-height: 1em;
@@ -399,9 +406,9 @@ ul.dropdown li .notification-link a:after {
 /* line 3, ../scss/modules/_menu-dropdown.scss */
 ul.dropdown {
   color: #121212;
-  background: #ffffff;
+  background: white;
   width: 215px;
-  border: 1px solid #3F3F3F;
+  border: 1px solid #3f3f3f;
   -webkit-box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.5);
   -moz-box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.5);
   box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.5);
@@ -427,7 +434,7 @@ ul.dropdown li:last-child {
 
 /* line 24, ../scss/modules/_menu-dropdown.scss */
 ul.dropdown li a {
-  color: #B38C14;
+  color: #b38c14;
   display: block;
   font-size: 0.9em;
   font-weight: 400;
@@ -442,7 +449,7 @@ ul.dropdown li a:hover, ul.dropdown li a:focus, ul.dropdown li a:active {
 
 /* line 35, ../scss/modules/_menu-dropdown.scss */
 ul.dropdown li.separator {
-  border-bottom: 1px solid #3F3F3F;
+  border-bottom: 1px solid #3f3f3f;
   margin-bottom: 0.5em;
   padding-top: 0.5em;
 }
@@ -452,12 +459,12 @@ ul.dropdown li.separator {
   display: inline-block;
 }
 
-/* line 41, ../scss/modules/_menu-dropdown.scss */
+/* line 43, ../scss/modules/_menu-dropdown.scss */
 .click-nav-2 {
   margin-right: 0.5em;
 }
 
-/* line 42, ../scss/modules/_menu-dropdown.scss */
+/* line 46, ../scss/modules/_menu-dropdown.scss */
 .click-nav ul {
   position: relative;
   margin: 0;
@@ -465,67 +472,67 @@ ul.dropdown li.separator {
   z-index: 21;
 }
 
-/* line 43, ../scss/modules/_menu-dropdown.scss */
+/* line 52, ../scss/modules/_menu-dropdown.scss */
 .click-nav ul li {
   position: relative;
   list-style: none;
   cursor: pointer;
 }
 
-/* line 44, ../scss/modules/_menu-dropdown.scss */
+/* line 57, ../scss/modules/_menu-dropdown.scss */
 .click-nav ul li ul {
   position: absolute;
   left: 0;
   right: 0;
 }
 
-/* line 45, ../scss/modules/_menu-dropdown.scss */
+/* line 62, ../scss/modules/_menu-dropdown.scss */
 .click-nav.click-nav-1 ul li ul {
   position: absolute;
   left: auto;
   right: 0;
 }
 
-/* line 46, ../scss/modules/_menu-dropdown.scss */
+/* line 67, ../scss/modules/_menu-dropdown.scss */
 .click-nav ul .clicker {
   position: relative;
 }
 
-/* line 47, ../scss/modules/_menu-dropdown.scss */
+/* line 70, ../scss/modules/_menu-dropdown.scss */
 .click-nav ul li a {
   display: block;
 }
 
-/* line 48, ../scss/modules/_menu-dropdown.scss */
+/* line 73, ../scss/modules/_menu-dropdown.scss */
 a.clicker {
   color: #121212;
   height: 35px;
   width: 35px;
-  border: 1px solid #F5F5F5;
+  border: 1px solid whitesmoke;
 }
 
-/* line 49, ../scss/modules/_menu-dropdown.scss */
+/* line 79, ../scss/modules/_menu-dropdown.scss */
 a.clicker:hover, a.clicker:focus, a.clicker:active {
   text-decoration: none;
   border: 1px solid #121212;
 }
 
-/* line 50, ../scss/modules/_menu-dropdown.scss */
+/* line 83, ../scss/modules/_menu-dropdown.scss */
 .click-nav-1 a.clicker {
   border: 1px solid #121212;
 }
 
-/* line 51, ../scss/modules/_menu-dropdown.scss */
+/* line 86, ../scss/modules/_menu-dropdown.scss */
 .click-nav-1 a.clicker:hover, .click-nav-1 a.clicker:focus, .click-nav-1 a.clicker:active {
-  border: 1px solid #E5C04E;
+  border: 1px solid #e5c04e;
 }
 
-/* line 52, ../scss/modules/_menu-dropdown.scss */
+/* line 89, ../scss/modules/_menu-dropdown.scss */
 .clicker:after {
   content: none;
 }
 
-/* line 53, ../scss/modules/_menu-dropdown.scss */
+/* line 92, ../scss/modules/_menu-dropdown.scss */
 .clicker img {
   height: 35px;
   vertical-align: bottom;
@@ -533,12 +540,12 @@ a.clicker:hover, a.clicker:focus, a.clicker:active {
 }
 
 /* Fallbacks */
-/* line 55, ../scss/modules/_menu-dropdown.scss */
+/* line 98, ../scss/modules/_menu-dropdown.scss */
 .click-nav .no-js ul {
   display: none;
 }
 
-/* line 56, ../scss/modules/_menu-dropdown.scss */
+/* line 101, ../scss/modules/_menu-dropdown.scss */
 .click-nav .no-js:hover ul {
   display: block;
 }
@@ -636,37 +643,37 @@ h1.project-title {
 /* --------------- Project map styles --------------- */
 /* line 2, ../scss/modules/_map.scss */
 .Idea:hover, .Draft:hover, .Inspiration:hover, .Final:hover, .Sketch:hover {
-  stroke: #000000;
+  stroke: #121212;
 }
 
 /* line 3, ../scss/modules/_map.scss */
 .Idea {
-  fill: #C69722;
+  fill: #b38c14;
 }
 
 /* line 4, ../scss/modules/_map.scss */
 .Draft {
-  fill: #628C31;
+  fill: #086989;
 }
 
 /* line 5, ../scss/modules/_map.scss */
 .Inspiration {
-  fill: #874C81;
+  fill: #783d7a;
 }
 
 /* line 6, ../scss/modules/_map.scss */
 .Final {
-  fill: #352C2A;
+  fill: #121212;
 }
 
 /* line 7, ../scss/modules/_map.scss */
 .Sketch {
-  fill: #2D83A5;
+  fill: #4b6a18;
 }
 
 /* line 8, ../scss/modules/_map.scss */
 .link {
-  stroke: #352C2A;
+  stroke: #121212;
   fill: none;
   stroke-width: 2px;
 }
@@ -675,7 +682,7 @@ h1.project-title {
 .node text {
   pointer-events: none;
   font: 10px sans-serif;
-  fill: #FFF;
+  fill: white;
 }
 
 /* --------------- SVGs --------------- */
@@ -710,8 +717,8 @@ h1.project-title {
 /* --------------- Zoom level 2 --------------- */
 /* line 24, ../scss/modules/_map.scss */
 .zoom2 {
-  background-color: #000000;
-  border: 2px solid black;
+  background-color: #121212;
+  border: 2px solid #121212;
   display: block;
   height: 70px;
   opacity: 1;
@@ -729,7 +736,7 @@ h1.project-title {
 
 /* line 39, ../scss/modules/_map.scss */
 .zoom2 .text {
-  color: #FFFFFF;
+  color: white;
   font-size: 0.6em;
   line-height: 1.3em;
   padding: 0 5%;
@@ -741,7 +748,7 @@ h1.project-title {
 
 /* line 49, ../scss/modules/_map.scss */
 .zoom2 .text.below {
-  color: #000000;
+  color: #121212;
   bottom: -0.5em;
 }
 
@@ -751,7 +758,7 @@ h1.project-title {
   position: absolute;
   top: 5px;
   right: 5px;
-  background: #ffffff;
+  background: white;
   border: 1px solid #121212;
   display: inline-block;
   padding: 0.5em;
@@ -777,7 +784,7 @@ h1.project-title {
 
 /* line 25, ../scss/modules/_zoom-controls.scss */
 .zoom-control:hover {
-  background: #3F3F3F;
+  background: #3f3f3f;
 }
 
 /* line 28, ../scss/modules/_zoom-controls.scss */
@@ -823,7 +830,7 @@ h1.project-title {
   float: left;
   width: 5px;
   height: 3.9em;
-  background: #FFF;
+  background: white;
 }
 
 /* line 16, ../scss/modules/_ellipsis.scss */
@@ -831,7 +838,7 @@ h1.project-title {
   float: right;
   width: 100%;
   margin-left: -5px;
-  background: #FFF;
+  background: white;
 }
 
 /* line 22, ../scss/modules/_ellipsis.scss */
@@ -844,13 +851,13 @@ h1.project-title {
   width: 30px;
   margin-left: -30px;
   padding-right: 5px;
-  background: #FFF;
+  background: white;
 }
 
 /* --------------- Modals and Panels --------------- */
 /* line 2, ../scss/modules/_modal.scss */
 .modal, .panel {
-  background: #ffffff;
+  background: white;
   border: 1px solid #121212;
   padding: 0.7em 1em;
   display: block;
@@ -899,7 +906,7 @@ h1.project-title {
 /* line 41, ../scss/modules/_modal.scss */
 .modal-arrow:before {
   z-index: 2;
-  border-top-color: #FFFFFF;
+  border-top-color: white;
   left: 75px;
   margin-top: 35px;
 }
@@ -907,7 +914,7 @@ h1.project-title {
 /* line 47, ../scss/modules/_modal.scss */
 .modal-arrow:after {
   z-index: 1;
-  border-top-color: #333333;
+  border-top-color: #3f3f3f;
   left: 75px;
   margin-top: 37px;
 }
@@ -928,7 +935,7 @@ h1.project-title {
 /* line 62, ../scss/modules/_modal.scss */
 .is-long .modal-arrow:before {
   border-top-color: transparent;
-  border-right-color: #FFFFFF;
+  border-right-color: white;
   left: -28px;
   margin-top: 160px;
 }
@@ -936,7 +943,7 @@ h1.project-title {
 /* line 68, ../scss/modules/_modal.scss */
 .is-long .modal-arrow:after {
   border-top-color: transparent;
-  border-right-color: #333333;
+  border-right-color: #3f3f3f;
   left: -30px;
   margin-top: 160px;
 }
@@ -990,7 +997,7 @@ input[type=number],
 input[type=color],
 input[type=email],
 textarea {
-  border: 1px solid #CCCCCC;
+  border: 1px solid #e9e9e9;
   -webkit-border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   border-radius: 0.5em;
@@ -1034,7 +1041,7 @@ input.disabled {
   padding: 0.5em;
   text-align: center;
   width: 60px;
-  color: #ffffff;
+  color: white;
   font-weight: 400;
   font-size: 0.8em;
   margin-right: 0.5em;
@@ -1049,7 +1056,7 @@ input.disabled {
 
 /* line 81, ../scss/modules/_new-node-form.scss */
 .dark-background:hover, .dark-background:focus {
-  background: #3F3F3F;
+  background: #3f3f3f;
   text-decoration: none;
 }
 
@@ -1091,12 +1098,12 @@ input.disabled {
 /* --------------- Form validation with Parsley --------------- */
 /* line 112, ../scss/modules/_new-node-form.scss */
 .parsley-error {
-  background: #FFE4E4;
+  background: #ffe4e4;
 }
 
 /* line 115, ../scss/modules/_new-node-form.scss */
 .parsley-success {
-  background: #E7FFE4;
+  background: #e7ffe4;
 }
 
 /* line 118, ../scss/modules/_new-node-form.scss */
@@ -1147,6 +1154,40 @@ input.disabled {
   display: inline-block;
   float: right;
   opacity: 0.2;
+}
+
+/* -- Edit presentation node panel -- */
+/* line 2, ../scss/modules/_edit-presentation-node.scss */
+#edit-presentation-node-form {
+  font-size: 1em;
+  line-height: 1.2em;
+}
+
+/* line 6, ../scss/modules/_edit-presentation-node.scss */
+#edit-presentation-node-form-order {
+  width: 3em;
+}
+
+/* line 9, ../scss/modules/_edit-presentation-node.scss */
+.edit-presentation-node-form-template-option {
+  width: 20%;
+  margin-right: 2%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  font-size: 0.8em;
+  margin-top: 0.5em;
+}
+
+/* line 18, ../scss/modules/_edit-presentation-node.scss */
+.edit-presentation-node-form-template-option input {
+  display: block;
+  width: 100%;
+}
+
+/* line 22, ../scss/modules/_edit-presentation-node.scss */
+.form-row {
+  margin-bottom: 1em;
 }
 
 /* --------------- Node info modal --------------- */

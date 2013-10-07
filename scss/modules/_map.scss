@@ -1,12 +1,12 @@
 /* --------------- Project map styles --------------- */
-.Idea:hover, .Draft:hover, .Inspiration:hover, .Final:hover, .Sketch:hover {stroke:#000000;}
-.Idea {fill:#C69722;}
-.Draft {fill:#628C31;}
-.Inspiration {fill:#874C81;}
-.Final {fill:#352C2A;}
-.Sketch {fill:#2D83A5;}
-.link {stroke:#352C2A; fill:none; stroke-width:2px;}
-.node text { pointer-events: none; font: 10px sans-serif; fill:#FFF; }
+.Idea:hover, .Draft:hover, .Inspiration:hover, .Final:hover, .Sketch:hover {stroke: $black;}
+.Idea {fill: $gold;}
+.Draft {fill: $blue;}
+.Inspiration {fill: $purple;}
+.Final {fill: $black;}
+.Sketch {fill: $green;}
+.link {stroke: $black; fill:none; stroke-width:2px;}
+.node text { pointer-events: none; font: 10px sans-serif; fill: $white; }
 
 /* --------------- SVGs --------------- */
 #map, #background {width:100%; height:500px;}
@@ -22,8 +22,8 @@
 
 /* --------------- Zoom level 2 --------------- */
 .zoom2 {
-    background-color: #000000;
-    border: 2px solid black;
+    background-color: $black;
+    border: 2px solid $black;
     display: block;
     height: 70px;
     opacity: 1;
@@ -37,7 +37,7 @@
     width: 100%;
 }
 .zoom2 .text {
-    color: #FFFFFF;
+    color: $white;
     font-size: 0.6em;
     line-height: 1.3em;
     padding: 0 5%;
@@ -47,6 +47,6 @@
     bottom:-10%;
 }
 .zoom2 .text.below {
-    color:#000000;
+    color: $black;
     bottom: -0.5em;
 }

@@ -1,10 +1,10 @@
 /* --------------- Buttons --------------- */
 .button {
-    background: #3F3F3F;
+    background: $gray;
     -webkit-border-radius: 0.5em;
     -moz-border-radius: 0.5em;
     border-radius: 0.5em;
-    color: #FFFFFF;
+    color: $white;
     display: inline-block;
     line-height: 1.2em;
     padding: 0.5em 1.5em;
@@ -14,32 +14,32 @@
 }
 
 .button:hover, .button:focus {
-    background:#262626;
+    background: shade($gray, 30%);
     text-decoration: none;
 }
 .button.red {
-    background: #AE2F2C;
+    background: $red;
 }
 .button.red:hover, .button.red:focus {
-    background:#951613;
+    background: shade($red, 30%);
 }
 .button.purple {
-    background: #783D7A;
+    background: $purple;
 }
 .button.purple:hover, .button.purple:focus {
-    background:#5F2461;
+    background: shade($purple, 30%);
 }
 .button.green {
-    background: #4B6A18;
+    background: $green;
 }
 .button.green:hover, .button.green:focus {
-    background:#325100;
+    background: shade($green, 30%);
 }
 .button.blue {
-    background: #086989;
+    background: $blue;
 }
 .button.blue:hover, .button.blue:focus {
-    background:#005070;
+    background: shade($blue, 30%);
 }
 .button.more-link, .button.more-link:hover {
     background-image: url("../img/icon-arrow-right.png");

@@ -3,8 +3,8 @@
 body {
     font-family: "Open Sans", sans-serif;
     font-size:16px;
-    background: #F5F5F5;
-    color: #121212;
+    background: $beige;
+    color: $black;
     line-height: 1.75em;
 }
 
@@ -45,7 +45,6 @@ h6 {
 /* --------------- Images --------------- */
 img {
     max-width: 100%;
-    height:auto;
 }
 
 /* --------------- Text --------------- */
@@ -64,7 +63,7 @@ ul li {
 /* --------------- Links --------------- */
 a {
     text-decoration: none;
-    color: #B38C14;
+    color: $gold;
     font-weight: 600;
 }
 a:hover, a:focus {
@@ -75,8 +74,8 @@ a:hover, a:focus {
 /* --------------- Tooltips on links --------------- */
 a[data-title]:hover:after {
     content: attr(data-title);
-    color: #000000;
-    background:#ffffff;
+    color: $black;
+    background: $white;
     font-size: 0.7em;
     left: -25px;
     padding: 0.2em 0.5em;
@@ -104,7 +103,7 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
     text-decoration:none;
 }
 .site-title {
-    color: #FFFFFF;
+    color: $white;
     font-size: 1.5em;
     font-weight: 600;
 }
@@ -131,6 +130,12 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 }
 .grid-4:last-child {
     margin-right:0;
+}
+.divider {
+    clear:both;
+    border-top: 1px solid $gray-light;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
 }
 
 /* --------------- HEADER --------------- */

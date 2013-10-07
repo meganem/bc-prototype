@@ -3,8 +3,8 @@
     position:absolute;
     top: 5px;
     right: 5px;
-    background:#ffffff;
-    border: 1px solid #121212;
+    background: $white;
+    border: 1px solid $black;
     display: inline-block;
     padding:0.5em;
     z-index: 1;
@@ -15,7 +15,7 @@
 }
 .zoom-control {
     display:inline-block;
-    background: #121212;
+    background: $black;
     border: none;
     font-size: 0;
     height: 15px;
@@ -23,7 +23,7 @@
     margin-right: 2px;
 }
 .zoom-control:hover {
-    background:#3F3F3F;
+    background: $gray;
 }
 #zoom-1 {
     -webkit-border-radius: 3px;

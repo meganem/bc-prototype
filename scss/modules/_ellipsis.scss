@@ -11,13 +11,13 @@
     float: left;
     width: 5px; 
     height: 3.9em; 
-    background: #FFF; 
+    background: $white; 
 }
 .ellipsis > *:first-child {
     float: right;
     width: 100%; 
     margin-left: -5px;
-    background: #FFF; 
+    background: $white; 
 }
 .ellipsis:after {
     content: " ...";
@@ -28,5 +28,5 @@
     width: 30px; 
     margin-left: -30px;
     padding-right: 5px;
-    background: #FFF; 
+    background: $white; 
 }

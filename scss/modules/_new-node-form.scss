@@ -32,7 +32,7 @@ input[type=number],
 input[type=color],
 input[type=email],
 textarea {
-    border: 1px solid #CCCCCC;
+    border: 1px solid $gray-light;
     -webkit-border-radius: 0.5em;
     -moz-border-radius: 0.5em;
     border-radius: 0.5em;
@@ -56,7 +56,7 @@ input.disabled {
     float:right;
 }
 .dark-background {
-    background: #121212;
+    background: $black;
     -webkit-border-radius: .5em;
     -moz-border-radius: .5em;
     border-radius: .5em;
@@ -68,7 +68,7 @@ input.disabled {
     padding: 0.5em;
     text-align: center;
     width: 60px;
-    color:#ffffff;
+    color: $white;
     font-weight: 400;
     font-size: 0.8em;
     margin-right: 0.5em;
@@ -79,7 +79,7 @@ input.disabled {
     margin-top: 10px;
 }
 .dark-background:hover, .dark-background:focus {
-    background:#3F3F3F;
+    background: $gray;
     text-decoration: none;
 }
 .icon-sketch {
@@ -110,10 +110,10 @@ input.disabled {
 
 /* --------------- Form validation with Parsley --------------- */
 .parsley-error {
-    background:#FFE4E4;
+    background: $red-highlight;
 }
 .parsley-success {
-    background: #E7FFE4;
+    background: $green-highlight;
 }
 .parsley-error-list {
     font-size: 0.7em;
