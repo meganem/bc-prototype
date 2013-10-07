@@ -27,7 +27,8 @@ include $headerInclude;
         //include "node-info-side-panel.php"; 
         //include "zoom3-cards.php"; 
         //include "new-node-form.php";
-        include "edit-presentation-reorder-panel.php"; 
+        //include "edit-presentation-reorder-panel.php"; 
+        include "edit-presentation-side-panel.php"; 
 
         ?>
     </div>

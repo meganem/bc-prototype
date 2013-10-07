@@ -1,0 +1,24 @@
+/* -- Edit presentation node panel -- */
+#edit-presentation-node-form {
+	font-size:1em;
+	line-height:1.2em;
+}
+#edit-presentation-node-form-order {
+	width: 3em;
+}
+.edit-presentation-node-form-template-option {
+	width:20%;
+	margin-right: 2%;
+	display:inline-block;
+	vertical-align:top;
+	text-align:center;
+	font-size:0.8em;
+	margin-top: 0.5em;
+}
+.edit-presentation-node-form-template-option input {
+	display:block;
+	width:100%;
+}
+.form-row {
+	margin-bottom:1em;
+}
