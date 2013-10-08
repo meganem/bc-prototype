@@ -278,17 +278,18 @@ function drawBC(nodeData,linkData) {
     .transition()
     .duration(1000)
     .style("opacity", 1);
-    /*
+    
+    
     secG.append("text")
                 .attr("dx", -1)
                 .attr("dy", ".35em")
                 .attr("alignment-baseline", "center")
                 .attr("text-anchor", "middle")
                 .style("fill", "white")
-                .text(function(d) { return "" + (d.laneTotal)})
+                .text(function(d) { return "" + (d.nid)})
 		.style("pointer-events", "none");
-		*/
-//    redrawBC(0);
+
+
     panToCenter(0)
 }
 
@@ -513,10 +514,10 @@ function endMove(d,i) {
 	    d3.select("#genNode").remove();
 	    d3.select("#genLine").remove();
 	    d3.select("#map").on("mousemove", null)
-	    var newNodeArray = testLayout.nodes().filter(function(el) {return el.isMeta ? null : this});
-	    freshLayout = new d3_layout_bloomcase();
-	    freshLayout.nodes(newNodeArray);
-	    drawBC(freshLayout.nodes(),freshLayout.links())
+    var newNodeArray = testLayout.nodes().filter(function(el) {return el.isMeta ? null : this});
+    testLayout = new d3_layout_bloomcase();
+    testLayout.nodes(newNodeArray);
+    drawBC(testLayout.nodes(),testLayout.links())
 	    return;
 	}
     }
@@ -735,58 +736,107 @@ function pathOut(d,i) {
 }
 
 function deleteLink(d,i) {
-//    console.log(d.source.evolvedFromArray)
-//    console.log(d.target)
+
     var linkSet = testLayout.links();
-    var sourceLinks = 0;
+    var sourceNodeSourceLinks = 0;
+    var sourceNodeTargetLinks = 0;
+    var targetNodeSourceLinks = 0;
+    var targetNodeTargetLinks = 0;
     var nodeSet = testLayout.nodes();
-    var actualNode = d;
-    var actualNodeID = d.target.nid.replace("meta","");
+    var sourceNode = d.source;
+    var targetNode = d.target;
+    var sourceNodeID = d.source.nid.replace("meta","");
+    var targetNodeID = d.target.nid.replace("meta","");
+    var sourceNodeEvolvedSize = 0;
+    var targetNodeEvolvedSize = 0;
     
+    console.log(d.source.laneTotal)
+    console.log(d.target.laneTotal)
     for (x in nodeSet) {
-	if (nodeSet[x].nid == actualNodeID) {
-	    actualNode = nodeSet[x];
+	if (nodeSet[x].nid == sourceNodeID) {
+	    sourceNode = nodeSet[x];
+	}
+	if (nodeSet[x].nid == targetNodeID) {
+	    targetNode = nodeSet[x];
 	}
     }
-    for (x in linkSet) {
-	if (linkSet[x].source === d.source) {
-	    sourceLinks++;
-	}
+        
+        for (x in linkSet) {
+	    if(linkSet[x].source.nid == sourceNodeID) {
+		sourceNodeSourceLinks++;
+	    }
+	    if(linkSet[x].target.nid == sourceNodeID) {
+		sourceNodeTargetLinks++;
+	    }
+	    if(linkSet[x].source.nid == targetNodeID) {
+		targetNodeSourceLinks++;
+	    }
+	    if(linkSet[x].target.nid == targetNodeID) {
+		targetNodeTargetLinks++;
+	    }
     }
-    
-    if (sourceLinks > 1) {
-	updatedEvolvedFromSimple(d.source.nid, actualNode);
+    console.log(d)
+    console.log("Source")
+    console.log(sourceNodeID)
+    console.log(sourceNodeSourceLinks)
+    console.log(sourceNodeTargetLinks)
+    console.log("Target")
+    console.log(targetNodeID)
+    console.log(targetNodeSourceLinks)
+    console.log(targetNodeTargetLinks)
+
+    if (d.source.laneTotal == d.target.laneTotal) {
+	updatedEvolvedFromSimple(sourceNodeID, targetNode);
     }
-    
-    else {
-	updatedEvolvedFromComplex(d.source.nid, actualNode, actualNodeID);
+    else if (d.source.laneTotal < d.target.laneTotal) {
+	console.log("source on substream");
+	updatedEvolvedForward(sourceNodeID, targetNode, targetNodeID);
+    }
+    else if (d.source.laneTotal > d.target.laneTotal) {
+	console.log("target on substream");
+	updatedEvolvedBackward(sourceNodeID, targetNode, targetNodeID);
     }
 
     var newNodeArray = testLayout.nodes().filter(function(el) {return el.isMeta ? null : this});
-    freshLayout = new d3_layout_bloomcase();
-    freshLayout.nodes(newNodeArray);
-    drawBC(freshLayout.nodes(),freshLayout.links())
+    testLayout = new d3_layout_bloomcase();
+    testLayout.nodes(newNodeArray);
+    drawBC(testLayout.nodes(),testLayout.links())
 }
 
-function updatedEvolvedFromComplex(incSourceID, incTarget, incTargetID) {
+function updatedEvolvedForward(incSourceID, incTarget, incTargetID) {
     var nodeSet = testLayout.nodes();
-    
-    console.log(incTargetID)
-    console.log(incSourceID)
     for (x in nodeSet) {
-	if (nodeSet[x].evolvedFromArray.indexOf(incTarget) > -1) {
+	if (nodeSet[x].evolvedFrom) {
+	var oldEF = nodeSet[x].evolvedFrom.split(",");
+	console.log(incTargetID)
+	if (oldEF.indexOf(incTargetID) > -1) {
 	    nodeSet[x].evolvedFrom = nodeSet[x].evolvedFrom + ","+incSourceID;
-	    console.log(nodeSet[x].evolvedFrom);
+	}
 	}
     }
     updatedEvolvedFromSimple(incSourceID, incTarget);
 }
 
+function updatedEvolvedBackward(incSourceID, incTarget, incTargetID) {
+    var newEF = []
+    var nodeSet = testLayout.nodes();
+    for (x in nodeSet) {
+	if (nodeSet[x].nid == incSourceID) {
+	    if (!nodeSet.evolvedFrom) {
+		console.log("error")
+		return;
+	    }
+	    else {
+		incTarget.evolvedFrom = nodeSet[x].evolvedFrom;
+	    }
+	}
+    }
+//    updatedEvolvedFromSimple(incSourceID, incTarget);
+}
 
 function updatedEvolvedFromSimple(nodeID, incNode) {
     var oldEF = incNode.evolvedFrom.split(",");
     var newEF = [];
-    var newNodeID = nodeID.replace("meta","")
     for (x in oldEF) {
 	if(oldEF[x] != nodeID) {
 	    newEF.push(oldEF[x]);
