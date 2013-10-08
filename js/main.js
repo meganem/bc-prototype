@@ -89,4 +89,19 @@ $( '#new-node-form' ).parsley( 'addListener', {
         console.log("field success!");
     }
 } );
-var isValid = $( '#new-node-form' ).parsley( 'isValid' );
+
+
+// HACK SOLUTION: Timer runs isValid, and handles the disabled/enabled button
+if ($('#new-node-form').length) {
+    //var myVar=setInterval(function(){myTimer()},2000);
+
+    function myTimer() {
+        var isValid = $( '#new-node-form' ).parsley( 'isValid' );
+        if (isValid == true) {
+            console.log("form is valid!");
+        } else {
+            console.log ("form is NOT valid.");
+        }
+    }
+}
+
