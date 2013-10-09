@@ -57,6 +57,7 @@ function drawBloomcase() {
     .on("mousewheel.zoom", null)
     .on("DOMMouseScroll.zoom",null);
     
+    d3.select("#map").append("g").attr("id", "mgBloomG");    
     d3.select("#map").append("g").attr("id", "bloomG");    
     d3.select("#background").append("g").attr("id", "bgBloomG");    
 
@@ -154,7 +155,7 @@ function drawBC(nodeData,linkData) {
     .duration(1000)
     .style("opacity", 1);
 
-    var uiPathG = d3.select("#bloomG").selectAll("g.uiPath").data(linkData).enter().append("g")
+    var uiPathG = d3.select("#mgBloomG").selectAll("g.uiPath").data(linkData).enter().append("g")
     .attr("class", "uiPath")
     .on("mouseover", pathOver)
     .on("mouseout", pathOut);
@@ -210,26 +211,6 @@ function drawBC(nodeData,linkData) {
     .style("pointer-events", "none")
     ;
     
-    var secDiv = d3.select("#aboveLayer").selectAll("div.sec").data(nodeData).enter().append("div")
-    .style("display", function(d) {return d.isMeta ? "none" : "block"})
-    .attr("id", "card")
-    .attr("class", "sec modal node-info")
-    .style("position", "absolute")
-    .style("left", "30px")
-    .style("top", "200px")
-    .style("opacity", 0)
-    .style("pointer-events", "none");
-    
-    secDiv.append("div").attr("id", "node-info-image")
-    .each(function(d,i) {
-	if(d.imgUrl) {
-    if (d.imgUrl.length > 2) {
-    d3.select(this)
-    .append("img").attr("src", "../../../img/example/zoom3/" + d.imgUrl)
-    }
-    }
-    });
-    
     zoom2Div.each(function(d,i) {
     if(d.imgUrl) {
     if (d.imgUrl.length > 2) {
@@ -249,21 +230,37 @@ function drawBC(nodeData,linkData) {
 
     });
     
+    var secDiv = d3.select("#aboveLayer").selectAll("div.sec").data(nodeData).enter().append("div")
+    .style("display", function(d) {return d.isMeta ? "none" : "block"})
+    .attr("class", "sec modal node-info")
+    .style("position", "absolute")
+    .style("left", "30px")
+    .style("top", "200px")
+    .style("opacity", 0)
+    .style("pointer-events", "none");
     
-    secDiv.append("div").attr("id", "node-info-type").attr("class", function(d) {return d.kind.toLowerCase()})
-    secDiv.append("div").attr("id", "node-info-title").html(function(d) {return "<img class='node-info-type' src='../../../img/icon-"+d.kind.toLowerCase() +"-sm.png' />" + d.title})
-    secDiv.append("div").attr("id", "node-info-desc").html(function(d) {return d.summary})
-    var secButtonDiv = secDiv.append("div").attr("id", "node-info-buttons")
+    secDiv.append("div")
+    .attr("class", "node-info-image")
+    .each(function(d,i) {
+	if(d.imgUrl) {
+    if (d.imgUrl.length > 2) {
+    d3.select(this)
+    .append("img").attr("src", "../../../img/example/zoom3/" + d.imgUrl)
+    }
+    }
+    });
+    
+    secDiv.append("div").attr("class", "node-info-title").html(function(d) {return "<img class='node-info-type' src='../../../img/icon-"+d.kind.toLowerCase() +"-sm.png' />" + d.title})
+    secDiv.append("div").attr("class", "node-info-desc ellipsis").html(function(d) {return d.summary})
+    var secButtonDiv = secDiv.append("div").attr("class", "node-info-buttons")
     
     secButtonDiv.append("a")
-    .attr("id", "node-info-edit")
-    .attr("class", "button blue")
+    .attr("class", "node-info-edit button blue")
     .attr("href", "#")
     .html("edit")
 
     secButtonDiv.append("a")
-    .attr("id", "node-info-more")
-    .attr("class", "button purple")
+    .attr("class", "node-info-more button purple")
     .attr("href", "#")
     .on("click", function(d) {	panToCenter(1000, d.column, d.row);populateMorePanel(d);d3.select("#morePanel").classed("hidden", false)})
     .html("more")
@@ -286,7 +283,7 @@ function drawBC(nodeData,linkData) {
                 .attr("alignment-baseline", "center")
                 .attr("text-anchor", "middle")
                 .style("fill", "white")
-                .text(function(d) { return "" + (d.nid)})
+                .text(function(d) { return "" + (d.laneTotal)})
 		.style("pointer-events", "none");
 
 
@@ -295,6 +292,7 @@ function drawBC(nodeData,linkData) {
 
 function panToCenter(transitionDuration, centerColumn,centerRow) {
     var svgCenter = (parseInt(d3.select("#map").style("width")) / 2);
+    var svgMiddle = (parseInt(d3.select("#map").style("height")) / 2);
     var newCenter = centerColumn || d3.max(testLayout.nodes(), function(d) {return d.column}) / 2;
     var newMiddle = centerRow + 0 || -1;
 //    var newMiddle = 0;
@@ -302,12 +300,13 @@ function panToCenter(transitionDuration, centerColumn,centerRow) {
     var newZoomY = (parseInt(d3.select("#map").style("height")) / 2) - (rowSize * newMiddle);
 //    var newZoomY = bloomZoom.translate()[1];
 
-    d3.select("#node-popup").style("left", (svgCenter - 95) + "px")
+    d3.select("#node-popup").style("left", (svgCenter - 95) + "px").style("bottom", (svgMiddle + 95) + "px")
 
     bloomZoom.translate([newZoomX,newZoomY])
 
     d3.select("#bloomG").transition().duration(transitionDuration).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
     d3.select("#bgBloomG").transition().duration(transitionDuration).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
+    d3.select("#mgBloomG").transition().duration(transitionDuration).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
 
     d3.selectAll("div.zoom2").transition().duration(transitionDuration)
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 40) + "px")})
@@ -322,6 +321,7 @@ function panToCenter(transitionDuration, centerColumn,centerRow) {
 function panBC() {
     d3.select("#bloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
     d3.select("#bgBloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
+    d3.select("#mgBloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
     
     d3.selectAll("div.zoom2")
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 40) + "px")})
@@ -335,6 +335,7 @@ function panBC() {
 function redrawBC(transitionSpeed) {
     d3.select("#bloomG").transition().duration(transitionSpeed).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
     d3.select("#bgBloomG").transition().duration(transitionSpeed).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
+    d3.select("#mgBloomG").transition().duration(transitionSpeed).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
 
     d3.selectAll("g.sec").transition().duration(transitionSpeed).attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ ((d.row * rowSize)) +")"})
 
@@ -359,6 +360,18 @@ function redrawBC(transitionSpeed) {
     .transition().duration(transitionSpeed)
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 105) + "px")})
     .style("top", function(d) {return "" + ((-115 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+
+    d3.selectAll("path.uiPath")
+    .attr("d", function(d) {return curvyLine([d.source.column * columnSize, (d.source.row * rowSize)],[d.target.column * columnSize, (d.target.row * rowSize)]) });
+    
+    d3.selectAll("circle.uiPath")
+    .attr("cx", function(d) {return ((d.target.column * columnSize) + (d.source.column * columnSize)) / 2})
+    .attr("cy", function(d) {return ((d.target.row * rowSize) + (d.source.row * rowSize)) / 2});
+
+    d3.selectAll("text.uiPath")
+    .attr("x", function(d) {return (((d.target.column * columnSize) + (d.source.column * columnSize)) / 2) - 4})
+    .attr("y", function(d) {return (((d.target.row * rowSize) + (d.source.row * rowSize)) / 2) + 4});
+
 }
 
 function setZoomLevel(zl) {
@@ -469,15 +482,15 @@ function startMove(d,i) {
 }
 
 function populatePopup(incNode) {
-    d3.select("#node-popup > #node-info-image > img").style("display", incNode.imgUrl.length > 2 ? "block" : "none").attr("src", "../../../img/example/zoom3/" + incNode.imgUrl)
-    d3.select("#node-popup > #node-info-title").html(function(d) {return "<img class='node-info-type' src='../../../img/icon-"+incNode.kind.toLowerCase() +"-sm.png' />" + incNode.title})
-    d3.select("#node-popup > #node-info-desc").html(function(d) {return incNode.summary})
+    d3.select("#node-popup > .node-info-image > img").style("display", incNode.imgUrl.length > 2 ? "block" : "none").attr("src", "../../../img/example/zoom3/" + incNode.imgUrl)
+    d3.select("#node-popup > .node-info-title").html(function(d) {return "<img class='node-info-type' src='../../../img/icon-"+incNode.kind.toLowerCase() +"-sm.png' />" + incNode.title})
+    d3.select("#node-popup > .node-info-desc").html(function(d) {return incNode.summary})
 }
 
 function populateMorePanel(incNode) {
-    d3.select("#morePanel > #node-info-image > img").style("display", incNode.imgUrl.length > 2 ? "block" : "none").attr("src", "../../../img/example/zoom3/" + incNode.imgUrl)
-    d3.select("#morePanel > #node-info-title").html(function(d) {return "<img class='node-info-type' src='../../../img/icon-"+incNode.kind.toLowerCase() +"-sm.png' />" + incNode.title})
-    d3.select("#morePanel > #node-info-desc").html(function(d) {return incNode.summary})    
+    d3.select("#morePanel > .node-info-image > img").style("display", incNode.imgUrl.length > 2 ? "block" : "none").attr("src", "../../../img/example/zoom3/" + incNode.imgUrl)
+    d3.select("#morePanel > .node-info-title").html(function(d) {return "<img class='node-info-type' src='../../../img/icon-"+incNode.kind.toLowerCase() +"-sm.png' />" + incNode.title})
+    d3.select("#morePanel > .node-info-desc").html(function(d) {return incNode.summary})    
 }
 
 function endMove(d,i) {
@@ -487,7 +500,7 @@ function endMove(d,i) {
 	hideModal();
 	
 	if(!d3.select("#zoom-3").classed("active")) {
-	    d3.select("#node-popup #node-info-more").on("click", function() {d3.select("#morePanel").classed("hidden", false)})
+	    d3.select("#node-popup .node-info-more").on("click", function() {d3.select("#morePanel").classed("hidden", false)})
 	    d3.select("#node-popup").classed("hidden", false);
 	    populatePopup(updatingNode);
 	    populateMorePanel(updatingNode)
@@ -822,7 +835,8 @@ function updatedEvolvedBackward(incSourceID, incTarget, incTargetID) {
     var nodeSet = testLayout.nodes();
     for (x in nodeSet) {
 	if (nodeSet[x].nid == incSourceID) {
-	    if (!nodeSet.evolvedFrom) {
+	    console.log(nodeSet[x])
+	    if (!nodeSet[x].evolvedFrom) {
 		console.log("error")
 		return;
 	    }
