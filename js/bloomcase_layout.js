@@ -93,8 +93,8 @@ d3_layout_bloomcase = function() {
                 if (incNodes[incNode].evolvedFrom) {
                     var linkArray = incNodes[incNode].evolvedFrom.split(",").sort();
                     for (l in linkArray) {
-                        var linkObject1 = {target: {}, source: {}}
-                        var linkObject2 = {target: {}, source: {}}
+                        var linkObject1 = {id: 0, target: {}, source: {}}
+                        var linkObject2 = {id: 0, target: {}, source: {}}
                         var metaNodeObject = {};
                         var alreadyExists = false;
                         if(linkArray[l]) {
@@ -126,8 +126,10 @@ d3_layout_bloomcase = function() {
                         }
                         linkObject1.source = blNodeHash[linkArray[l]];
                         linkObject1.target = metaNodeObject;
+			linkObject1.id = metaNodeObject.nid + blNodeHash[linkArray[l]].nid;
                         linkObject2.source = metaNodeObject;
                         linkObject2.target = blNodeHash[incNodes[incNode].nid];
+			linkObject2.id = metaNodeObject.nid + blNodeHash[incNodes[incNode].nid].nid;
 			blNodeHash[incNodes[incNode].nid].sourceCount++;
 			blNodeHash[linkArray[l]].targetCount++;
 			metaNodeObject.sourceCount++;

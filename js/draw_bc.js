@@ -141,7 +141,8 @@ function drawBC(nodeData,linkData) {
     .style("stroke", "lightgray")
     .style("stroke-width", "1px")
 
-    d3.select("#bgBloomG").selectAll("path.connections").data(linkData).enter().append("path")
+    d3.select("#bgBloomG")
+    .selectAll("path.connections").data(linkData).enter().append("path")
     .style("stroke", "black")
     .attr("class", "connections")
     .style("stroke-width", 2)
@@ -184,6 +185,8 @@ function drawBC(nodeData,linkData) {
     .on("mouseover", function() {d3.select(this).style("fill", "cyan")})
     .on("mouseout", function() {d3.select(this).style("fill", "white")})
     .on("click", deleteLink)
+    .style("display", "none")
+
 
     uiPathG
     .append("text")
@@ -191,18 +194,19 @@ function drawBC(nodeData,linkData) {
     .attr("x", function(d) {return (((d.target.column * columnSize) + (d.source.column * columnSize)) / 2) - 4})
     .attr("y", function(d) {return (((d.target.row * rowSize) + (d.source.row * rowSize)) / 2) + 4})
     .text("x")
-    .style("pointer-events", "none");
+    .style("pointer-events", "none")
+    .style("display", "none");
 
     
     var secG = d3.select("#bloomG").selectAll("g.sec").data(nodeData).enter().append("g")
-    .style("display", function(d) {return d.isMeta ? "none" : "block"})
+//    .style("display", function(d) {return d.isMeta ? "none" : "block"})
+    .style("display", function(d) {return d.isMeta ? "block" : "block"})
     .attr("class", "sec")
     .attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ ((d.row * rowSize)) +")"})
     .on("mousedown", startMove)
     .on("mouseup", endMove);
 
     var zoom2Div = d3.select("#betweenLayer").selectAll("div.zoom2").data(nodeData).enter().append("div")
-    .style("display", function(d) {return d.isMeta ? "none" : "block"})
     .attr("class", "zoom2")
     .style("position", "absolute")
     .style("left", "30px")
@@ -283,9 +287,8 @@ function drawBC(nodeData,linkData) {
                 .attr("alignment-baseline", "center")
                 .attr("text-anchor", "middle")
                 .style("fill", "white")
-                .text(function(d) { return "" + (d.laneTotal)})
+                .text(function(d) { return "" + (d.column)})
 		.style("pointer-events", "none");
-
 
     panToCenter(0)
 }
@@ -300,7 +303,7 @@ function panToCenter(transitionDuration, centerColumn,centerRow) {
     var newZoomY = (parseInt(d3.select("#map").style("height")) / 2) - (rowSize * newMiddle);
 //    var newZoomY = bloomZoom.translate()[1];
 
-    d3.select("#node-popup").style("left", (svgCenter - 95) + "px").style("bottom", (svgMiddle + 95) + "px")
+    d3.select("#node-popup").style("left", (svgCenter - 93) + "px").style("bottom", (svgMiddle + 25) + "px")
 
     bloomZoom.translate([newZoomX,newZoomY])
 
@@ -528,9 +531,9 @@ function endMove(d,i) {
 	    d3.select("#genLine").remove();
 	    d3.select("#map").on("mousemove", null)
     var newNodeArray = testLayout.nodes().filter(function(el) {return el.isMeta ? null : this});
-    testLayout = new d3_layout_bloomcase();
-    testLayout.nodes(newNodeArray);
-    drawBC(testLayout.nodes(),testLayout.links())
+    var freshLayout = new d3_layout_bloomcase();
+    freshLayout.nodes(newNodeArray);
+    updatedBloomCase(freshLayout.nodes(),freshLayout.links())
 	    return;
 	}
     }
@@ -655,7 +658,7 @@ function selectNewNode(d,i) {
     currentNewNode = d;
     d3.select("#newNode")
     .on("click", function() {createNewNode(d,0)})
-    .attr("d", shapeMeasures[d]["smalld"])
+    .attr("d", shapeMeasures[d]["pathd"])
     .style("fill", shapeMeasures[d]["color"]);
 
     d3.select("#newNodeTitle").text(d);
@@ -663,6 +666,7 @@ function selectNewNode(d,i) {
 }
 
 function createNewNode(d,i) {
+    d3.select("#newNodeTitle").remove();
     var evolvedVal = "";
     var newNodeID = "100" + testLayout.nodes().length;
     var newSource = {};
@@ -740,12 +744,19 @@ function pathOver(d,i) {
     d3.select(this).select("circle.uiPath").style("display", "block")
     d3.select(this).select("text.uiPath").style("display", "block")
     d3.select(this).select("path.uiPath").style("opacity", .5)
+    
+    if (d.source.isMeta) {
+	d3.selectAll("path.uiPath").filter(function(el) {return el.target == d.source ? this : null}).style("opacity", .5)
+    }
+    if (d.target.isMeta) {
+	d3.selectAll("path.uiPath").filter(function(el) {return el.source == d.target ? this : null}).style("opacity", .5)	
+    }
 }
 
 function pathOut(d,i) {
     d3.selectAll("circle.uiPath").style("display", "none")
     d3.selectAll("text.uiPath").style("display", "none")
-    d3.select(this).select("path.uiPath").style("opacity", 0)
+    d3.selectAll("path.uiPath").style("opacity", 0)
 }
 
 function deleteLink(d,i) {
@@ -811,9 +822,9 @@ function deleteLink(d,i) {
     }
 
     var newNodeArray = testLayout.nodes().filter(function(el) {return el.isMeta ? null : this});
-    testLayout = new d3_layout_bloomcase();
-    testLayout.nodes(newNodeArray);
-    drawBC(testLayout.nodes(),testLayout.links())
+    var freshLayout = new d3_layout_bloomcase();
+    freshLayout.nodes(newNodeArray);
+    updatedBloomCase(freshLayout.nodes(),freshLayout.links())
 }
 
 function updatedEvolvedForward(incSourceID, incTarget, incTargetID) {
@@ -878,4 +889,121 @@ function moveGenNode(d,i) {
     d3.select("#genLine")
     .attr("d", function(d) {return curvyLine([x1GenLine, y1GenLine],[(curMouse[0] - bloomZoom.translate()[0]), (curMouse[1] - bloomZoom.translate()[1])])});
         
+}
+
+function updatedBloomCase(newBCNodes, newBCLinks) {
+    var oldLinks = testLayout.links();
+    var oldNodes = testLayout.nodes();    
+    
+    console.log("old nodes and links")
+    console.log(oldNodes.length)
+    console.log(newBCNodes.length)
+    console.log(oldLinks.length)
+    console.log(newBCLinks.length)
+    
+    //first cut out the nodes that are no longer there
+    var n = oldNodes.length - 1;
+    while (n >= 0) {
+	var foundNode = false;
+	for (y in newBCNodes) {
+	    if (newBCNodes[y].nid == oldNodes[n].nid) {
+		foundNode = true;
+	    }
+	}
+	if(foundNode == false) {
+	    console.log("not found")
+	    d3.selectAll("g.sec").filter(function(el) {return el.nid == oldNodes[n].nid}).remove();
+	    oldNodes.splice(n,1);
+	}
+	n--;
+    }
+
+//Add new nodes
+	console.log("Length: " + newBCNodes.length)
+    for (x in newBCNodes) {
+	var foundNode = false;
+	for (y in oldNodes) {
+	    if (newBCNodes[x].nid == oldNodes[y].nid) {
+		newBCNodes[x] = oldNodes[y];
+		foundNode = true;
+		console.log("found")
+		break;
+	    }
+	}
+	if (foundNode == false) {
+	    oldNodes.push(newBCNodes[x]);
+///////////////
+
+    console.log(newBCNodes[x])
+
+    d3.select("#bloomG").append("g")
+    .data([newBCNodes[x]])
+//    .style("display", function(d) {return d.isMeta ? "none" : "block"})
+    .style("display", function(d) {return d.isMeta ? "block" : "block"})
+    .attr("class", "sec")
+    .attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ ((d.row * rowSize)) +")"})
+    .on("mousedown", startMove)
+    .on("mouseup", endMove)
+    .append("path")
+    .attr("class", function(d){ return "nodeSymbol " + d.kind; })
+    .attr("d", function(d,i) {return shapeMeasures[d.kind]["pathd"]})
+    .attr("transform", function(d) { 
+	return "translate(" + (-1*(shapeMeasures[d.kind]["myWidth"]/2)) + "," + (-1*(shapeMeasures[d.kind]["myHeight"]/2)) + ")"; 
+    })
+    .style("opacity", 0)
+    .transition()
+    .duration(1000)
+    .style("opacity", 1);
+
+	}
+    }
+
+    //cut out the old links that are no longer there
+    var n = oldLinks.length - 1;
+    while (n >= 0) {
+	var foundLink = false;
+	for (y in newBCLinks) {
+	    if (newBCLinks[y].id == oldLinks[n].id) {
+		oldLinks[n] = newBCLinks[y];
+		foundLink = true;
+		break;
+	    }
+	}
+	if(foundLink == false) {	    
+	    d3.selectAll("g.uiPath").filter(function(el) {return el.id == oldLinks[n].id}).remove();
+	    d3.selectAll("path.connections").filter(function(el) {return el.id == oldLinks[n].id}).remove();
+	    oldLinks.splice(n);
+	}
+	n--;
+    }
+
+    //Add new links
+    for (x in newBCLinks) {
+	var foundLink = false;
+	var newLink = {};
+	for (y in oldLinks) {
+	    if (newBCLinks[x].id == oldLinks[y].id) {
+		oldLinks[y] = newBCLinks[x];
+		foundLink = true;
+		break;
+	    }
+	}
+	if (foundLink == false) {
+	    oldLinks.push(newBCLinks[x]);
+	    console.log(newBCLinks[x])
+    d3.selectAll("#bloomG").append("path").data([newBCLinks[x]])
+    .style("stroke", "black")
+    .attr("class", "connections")
+    .style("stroke-width", 2)
+    .style("fill", "none")
+    .attr("d", function(d) {return curvyLine([d.source.column * columnSize, (d.source.row * rowSize)],[d.target.column * columnSize, (d.target.row * rowSize)]) })
+    .style("opacity", 0)
+    ;
+
+	}
+    }
+    
+//    drawBC(testLayout.nodes(),testLayout.links());
+    redrawBC(500);
+
 }
