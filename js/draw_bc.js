@@ -325,7 +325,7 @@ function panToCenter(transitionDuration, centerColumn,centerRow) {
 //    var newZoomY = bloomZoom.translate()[1];
 
     d3.select("#node-popup").style("left", (svgCenter - 93) + "px").style("bottom", (svgMiddle + 25) + "px")
-    d3.select("#new-node").style("left", (svgCenter - 106) + "px").style("bottom", (svgMiddle + 25) + "px").attr("class", "modal is-short");
+    d3.select("#new-node").style("left", (svgCenter - 106) + "px").style("bottom", (svgMiddle + 25) + "px").attr("class", "modal is-short hidden");
 
     bloomZoom.translate([newZoomX,newZoomY])
 
