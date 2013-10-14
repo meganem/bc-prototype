@@ -115,7 +115,7 @@ include $headerInclude;
         <div id="new-node-form-buttons">
             <input id="new-node-delete" class="button red" type="button" value="delete">
             <input id="new-node-form-submit" class="button green disabled" type="submit" value="done">
-            <input id="new-node-more" class="button purple more-link" type="button" value="more">
+            <input id="new-node-more" class="button purple more-link" onclick="newNodeFormExpand();" type="button" value="more">
         </div>
     </form>
 </div>

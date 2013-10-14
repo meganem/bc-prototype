@@ -8,6 +8,8 @@
     secDivPE = "auto";
     clickNotDrag = true;
     clicked = true;
+    toolboxOffset = 20;
+    toolboxHidden = true;
     
     updatingNode = {};
     forBack = 0;
@@ -41,6 +43,11 @@ function resizePanels() {
 
     d3.selectAll("#background").style("width", width + "px").style("height", svgHeight + "px")
     d3.selectAll("#map").style("width", width + "px").style("height", svgHeight + "px")
+    d3.select("#toolboxG").style("width", width + "px").attr("transform", "translate(0," + (svgHeight - toolboxOffset) + ")");
+    d3.select("#toolboxBG")
+    .attr("width", width)
+    .attr("height", 200);
+    
 }
 
 function drawBloomcase() {
@@ -59,6 +66,7 @@ function drawBloomcase() {
     
     d3.select("#map").append("g").attr("id", "mgBloomG");    
     d3.select("#map").append("g").attr("id", "bloomG");    
+    d3.select("#map").append("g").attr("id", "toolboxG");
     d3.select("#background").append("g").attr("id", "bgBloomG");    
 
     drawBC(testLayout.nodes(),testLayout.links());
@@ -108,7 +116,7 @@ function drawBloomcase() {
     }
     
 function drawBC(nodeData,linkData) {
-    d3.select("#new-node").style("display", "none");
+    d3.select("#new-node").classed("hidden", true).attr("class", "modal is-short");
     d3.selectAll("path.connections").remove();
     d3.selectAll("g.sec").remove();
     d3.selectAll("#inserted").remove();
@@ -123,6 +131,17 @@ function drawBC(nodeData,linkData) {
 	x++;
     }
     
+    //Toolbox
+    d3.select("#toolboxG")
+    .append("rect")
+    .attr("id", "toolboxBG")
+    .style("fill", "lightgray")
+    .style("stroke", "gray")
+    .style("stroke-width", "2px")
+    .style("cursor", "pointer")
+    .on("click", hideToolbox);
+    
+    //Background Grid
     d3.select("#bgBloomG").selectAll("line.hGrid").data(vGridData).enter().append("line")
     .attr("x1", -10000)
     .attr("x2", 10000)
@@ -198,9 +217,11 @@ function drawBC(nodeData,linkData) {
     .style("display", "none");
 
     
-    var secG = d3.select("#bloomG").selectAll("g.sec").data(nodeData).enter().append("g")
+    var secG = d3.select("#bloomG")
+    .selectAll("g.sec").data(nodeData).enter().append("g")
 //    .style("display", function(d) {return d.isMeta ? "none" : "block"})
     .style("display", function(d) {return d.isMeta ? "block" : "block"})
+    .attr("id", function(d) {return "node" + d.nid})
     .attr("class", "sec")
     .attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ ((d.row * rowSize)) +")"})
     .on("mousedown", startMove)
@@ -304,6 +325,7 @@ function panToCenter(transitionDuration, centerColumn,centerRow) {
 //    var newZoomY = bloomZoom.translate()[1];
 
     d3.select("#node-popup").style("left", (svgCenter - 93) + "px").style("bottom", (svgMiddle + 25) + "px")
+    d3.select("#new-node").style("left", (svgCenter - 106) + "px").style("bottom", (svgMiddle + 25) + "px").attr("class", "modal is-short");
 
     bloomZoom.translate([newZoomX,newZoomY])
 
@@ -340,7 +362,7 @@ function redrawBC(transitionSpeed) {
     d3.select("#bgBloomG").transition().duration(transitionSpeed).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
     d3.select("#mgBloomG").transition().duration(transitionSpeed).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
 
-    d3.selectAll("g.sec").transition().duration(transitionSpeed).attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ ((d.row * rowSize)) +")"})
+    d3.selectAll("#bloomG > g.sec").transition().duration(transitionSpeed).attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ ((d.row * rowSize)) +")"})
 
     d3.selectAll("path.connections").transition().duration(transitionSpeed).attr("d", function(d) {return curvyLine([d.source.column * columnSize, (d.source.row * rowSize)],[d.target.column * columnSize, (d.target.row * rowSize)]) });
     
@@ -622,7 +644,7 @@ function endMove(d,i) {
 
     d3.select("#newNode")
     .style("fill", shapeMeasures[currentNewNode]["color"])
-    .attr("d", shapeMeasures[currentNewNode]["smalld"])
+    .attr("d", shapeMeasures[currentNewNode]["pathd"])
     .on("click", function() {createNewNode(currentNewNode,0)})
     .style("cursor", "pointer")
 
@@ -730,12 +752,15 @@ function createNewNode(d,i) {
 //    testLayout.nodes(newNodeArray);
     redrawBC(500);
     var runLater = setTimeout(function() {nodeDetailsDialog(createdNode)}, 1000)
+    console.log(newNode)
+    panToCenter(1000, newNode.column,newNode.row);
+
 }
 
 function nodeDetailsDialog(targetNode) {
-    var translateAtt = targetNode.attr("transform");
-    var nodeXY = translateAtt.split("(")[1].split(")")[0].split(",");
-    d3.select("#new-node").style("display", "block").style("left", ((parseInt(nodeXY[0]) - 75) + bloomZoom.translate()[0]) + "px").style("top", ((parseInt(nodeXY[1]) - 40) + bloomZoom.translate()[1]) + "px")
+    var nodeXY = d3.transform(targetNode.attr("transform"));
+    d3.select("#new-node").classed("hidden", false).attr("class", "modal is-short");
+//    d3.select("#new-node").classed("hidden", false).style("left", ((parseInt(nodeXY.translate[0]) - 75) + bloomZoom.translate()[0]) + "px").style("top", ((parseInt(nodeXY.translate[1]) - 40) + bloomZoom.translate()[1]) + "px")
 
 }
 
@@ -828,7 +853,7 @@ function deleteLink(d,i) {
 }
 
 function updatedEvolvedForward(incSourceID, incTarget, incTargetID) {
-    var nodeSet = testLayout.nodes();
+/*    var nodeSet = testLayout.nodes();
     for (x in nodeSet) {
 	if (nodeSet[x].evolvedFrom) {
 	var oldEF = nodeSet[x].evolvedFrom.split(",");
@@ -838,11 +863,19 @@ function updatedEvolvedForward(incSourceID, incTarget, incTargetID) {
 	}
 	}
     }
+    */
+
+    d3.select("#node" + incSourceID).attr("transform", "translate(20,20)").each(function() {document.getElementById("toolboxG").appendChild(this);})
+    console.log("forward")
     updatedEvolvedFromSimple(incSourceID, incTarget);
 }
 
 function updatedEvolvedBackward(incSourceID, incTarget, incTargetID) {
-    var newEF = []
+    console.log("backward")
+    d3.select("#node" + incTargetID).attr("transform", "translate(20,20)").each(function() {document.getElementById("toolboxG").appendChild(this);})
+    updatedEvolvedFromSimple(incSourceID, incTarget);
+
+/*    var newEF = []
     var nodeSet = testLayout.nodes();
     for (x in nodeSet) {
 	if (nodeSet[x].nid == incSourceID) {
@@ -856,6 +889,7 @@ function updatedEvolvedBackward(incSourceID, incTarget, incTargetID) {
 	    }
 	}
     }
+    */
 //    updatedEvolvedFromSimple(incSourceID, incTarget);
 }
 
@@ -873,7 +907,7 @@ function updatedEvolvedFromSimple(nodeID, incNode) {
 function hideModal() {
     d3.select("#morePanel").classed("hidden", true)
     d3.select("#node-popup").classed("hidden", true);
-    d3.select("#new-node").style("display", "none");
+    d3.select("#new-node").classed("hidden", true);
     d3.selectAll(".options").remove();
     d3.select("#genNode").remove();
     d3.select("#genLine").remove();
@@ -1007,3 +1041,36 @@ function updatedBloomCase(newBCNodes, newBCLinks) {
     redrawBC(500);
 
 }
+
+function newNodeFormExpand() {
+    var nnLeft = parseInt(d3.select("#new-node").style("left"));
+    var nnBottom = parseInt(d3.select("#new-node").style("bottom"));
+    d3.select("#new-node").style("left", (nnLeft + 125) + "px").style("bottom", (nnBottom - 260) + "px");
+}
+
+function hideToolbox() {
+    var currentToolboxY = d3.transform(d3.select("#toolboxG").attr("transform")).translate[1]
+    var newY = 0;
+    
+    if (toolboxHidden) {
+	toolboxOffset = 200;
+	toolboxHidden = false;
+	newY = currentToolboxY - 180;
+    }
+    else {
+	toolboxOffset = 20;
+	toolboxHidden = true;
+	newY = currentToolboxY + 180;
+    }
+    console.log("transform(0,"+ newY+")")
+    d3.select("#toolboxG")
+    .transition()
+    .duration(500)
+    .attr("transform", "translate(0,"+ newY+")");
+    
+}
+
+function moveNodeToToolbox() {
+    document.getElementById("toolboxG").appendChild(this);
+}
+
