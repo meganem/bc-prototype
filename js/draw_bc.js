@@ -50,10 +50,10 @@ function resizePanels() {
     
 }
 
-function drawBloomcase() {
+function drawBloomcase(fileName) {
     newNodes = {};
     testLayout = new d3_layout_bloomcase();
-    d3.json("../../../json/new8.json", function(data) {
+    d3.json("../../../json/"+fileName+".json", function(data) {
     newNodes = data;
     testLayout.nodes(newNodes.nodes);
     bloomZoom = d3.behavior.zoom()
@@ -219,8 +219,8 @@ function drawBC(nodeData,linkData) {
     
     var secG = d3.select("#bloomG")
     .selectAll("g.sec").data(nodeData).enter().append("g")
-//    .style("display", function(d) {return d.isMeta ? "none" : "block"})
-    .style("display", function(d) {return d.isMeta ? "block" : "block"})
+    .style("display", function(d) {return d.isMeta ? "none" : "block"})
+//    .style("display", function(d) {return d.isMeta ? "block" : "block"})
     .attr("id", function(d) {return "node" + d.nid})
     .attr("class", "sec")
     .attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ ((d.row * rowSize)) +")"})
@@ -972,8 +972,8 @@ function updatedBloomCase(newBCNodes, newBCLinks) {
 
     d3.select("#bloomG").append("g")
     .data([newBCNodes[x]])
-//    .style("display", function(d) {return d.isMeta ? "none" : "block"})
-    .style("display", function(d) {return d.isMeta ? "block" : "block"})
+    .style("display", function(d) {return d.isMeta ? "none" : "block"})
+//    .style("display", function(d) {return d.isMeta ? "block" : "block"})
     .attr("class", "sec")
     .attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ ((d.row * rowSize)) +")"})
     .on("mousedown", startMove)

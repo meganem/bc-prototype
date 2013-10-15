@@ -78,7 +78,7 @@ include $headerInclude;
 
                 <svg id="map">
         			<script type="text/javascript">
-        				drawBloomcase();
+        				drawBloomcase("new8");
         			</script>
                 </svg>
                 <div class="light" id="aboveLayer">
