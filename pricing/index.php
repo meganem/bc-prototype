@@ -1,5 +1,5 @@
 <?php 
-// HOW IT WORKS
+// PRICING
 $nestLevel = 1;
 
 // DETERMINE PATH PREFIX
@@ -20,11 +20,9 @@ include $headerInclude;
 ?>
 
 	        <div class="container constrained light">
-            	<h1>How it works</h1>
-            	<p class="lead">Show your creative process.</p>
-            	<p>A new tool for creatives of all kinds to document and showcase creative process.</p>
+            	<h1>Pricing</h1>
+            	<p class="lead">coming soon.</p>
             	
-                <p class="lead"><a href="<?php print $pathPrefix; ?>sign-up" class="button purple">Sign Up</a></p>
 	        </div>
 
             
