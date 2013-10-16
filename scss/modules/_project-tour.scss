@@ -1,0 +1,95 @@
+/* ----- Project Tour ----- */
+.project-tour {
+	width:300px;
+	z-index:100;
+	position:fixed;
+	line-height: 1.4em;
+}
+#project-tour-1 {
+	margin-left: -150px;
+    top: 40%;
+}
+
+#project-tour-2 {
+	left: 30px;
+    top: 140px;
+}
+#project-tour-2 .modal-arrow:before, #project-tour-3 .modal-arrow:before {
+	border-top-color:transparent;
+	border-bottom-color:white;
+	left:30px;
+	top:-63px;
+}
+#project-tour-2 .modal-arrow:after, #project-tour-3 .modal-arrow:after {
+	border-top-color:transparent;
+	border-bottom-color:$gray;
+	left:30px;
+	top:-67px;
+}
+
+#project-tour-3 {
+	left:auto;
+	right: 30px;
+    top: 140px;
+}
+#project-tour-3 .modal-arrow:before, #project-tour-3 .modal-arrow:after {
+	right:30px;
+	left:auto;
+}
+
+#project-tour-4 {
+	margin-left: -150px;
+    top: 20%;
+}
+#project-tour-4 .modal-arrow:before, #project-tour-5 .modal-arrow:before, #project-tour-6 .modal-arrow:before {
+	left:130px;
+	margin-top:9px;
+}
+#project-tour-4 .modal-arrow:after, #project-tour-5 .modal-arrow:after, #project-tour-6 .modal-arrow:after {
+	left:130px;
+	margin-top:11px;
+}
+
+#project-tour-5 {
+	margin-left: -150px;
+    top: 55%;
+}
+#project-tour-6 {
+	margin-left: -150px;
+    top: 75%;
+}
+
+ul.project-tour-status {
+	margin:0;
+	padding:0;
+	width:50%;
+	float:left;
+}
+ul.project-tour-status li {
+	list-style-type:none;
+	display:inline-block;
+	margin:0;
+	padding:0;
+}
+ul.project-tour-status a {
+	display:inline-block;
+	@include border-radius(8px);
+	width:12px;
+	height:12px;
+	background:white;
+	border:1px solid $gray;
+}
+ul.project-tour-status a.active, ul.project-tour-status a:hover, ul.project-tour-status a:focus {
+	background:$gray;
+}
+.close {
+    line-height: 11px;
+    position: absolute;
+    right: 11px;
+}
+.close img {
+    opacity: 0.5;
+}
+.close:hover img {
+    opacity: 1;
+}
