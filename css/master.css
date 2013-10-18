@@ -960,6 +960,56 @@ h1.project-title {
   margin-top: 160px;
 }
 
+/* ----- Alert ----- */
+/* line 2, ../scss/modules/_alert.scss */
+.alert {
+  width: 300px;
+  margin-left: -150px;
+  top: 150px;
+  padding: 0.5em 2em .5em 1em;
+  line-height: 1.3em;
+  font-size: 0.85em;
+}
+
+/* line 10, ../scss/modules/_alert.scss */
+.alert-success {
+  background: #e3ebd6;
+}
+/* line 12, ../scss/modules/_alert.scss */
+.alert-success a {
+  color: #4b6a18;
+}
+/* line 15, ../scss/modules/_alert.scss */
+.alert-success a:hover {
+  color: #121212;
+}
+
+/* line 20, ../scss/modules/_alert.scss */
+.alert-error {
+  background: #eed5d4;
+}
+/* line 22, ../scss/modules/_alert.scss */
+.alert-error a {
+  color: #ae2f2c;
+}
+/* line 25, ../scss/modules/_alert.scss */
+.alert-error a:hover {
+  color: #121212;
+}
+
+/* line 29, ../scss/modules/_alert.scss */
+.alert-info {
+  background: #d1ebf3;
+}
+/* line 31, ../scss/modules/_alert.scss */
+.alert-info a {
+  color: #086989;
+}
+/* line 34, ../scss/modules/_alert.scss */
+.alert-info a:hover {
+  color: #121212;
+}
+
 /* --------------- New node form --------------- */
 /* line 2, ../scss/modules/_new-node-form.scss */
 .modal.is-short {

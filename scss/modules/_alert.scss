@@ -1,0 +1,40 @@
+/* ----- Alert ----- */
+.alert {
+	width:300px;
+	margin-left:-150px;
+	top: 150px;
+	padding: 0.5em 2em .5em 1em;
+	line-height: 1.3em;
+	font-size: 0.85em;
+}
+.alert-success {
+	background: tint($green-light, 80%);
+	a {
+		color:$green;
+	}
+	a:hover {
+		color:$black;
+	}
+}
+
+.alert-error {
+	background: tint($red, 80%);
+	a {
+		color:$red;
+	}
+	a:hover {
+		color:$black;
+	}
+}
+.alert-info {
+	background: tint($blue-light, 80%);
+	a {
+		color:$blue;
+	}
+	a:hover {
+		color:$black;
+	}
+}
+a.alert-undo {
+
+}

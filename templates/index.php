@@ -29,7 +29,8 @@ include $headerInclude;
         //include "new-node-form.php";
         //include "edit-presentation-reorder-panel.php"; 
         //include "edit-presentation-side-panel.php"; 
-        include "project-tour.php";
+        //include "project-tour.php";
+        include "alert.php";
 
         ?>
     </div>
