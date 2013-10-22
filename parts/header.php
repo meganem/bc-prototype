@@ -52,6 +52,7 @@
                             		<div class="notification">2</div>
                                 </a>
                                 <ul id="user-actions-menu" class="menu dropdown">
+                                    <li><a href="<?php print $pathPrefix; ?>profile/projects"><img class="icon-projects" src="<?php print $pathPrefix; ?>img/icon-change-thumb.png" alt="" width="20" height="20" /> My projects</a></li>
                                     <li><a href="<?php print $pathPrefix; ?>profile"><img class="icon-profile" src="<?php print $pathPrefix; ?>img/icon-profile.png" alt="" width="20" height="20" /> My profile</a></li>
                                     <li><a href="<?php print $pathPrefix; ?>account"><img class="icon-account" src="<?php print $pathPrefix; ?>img/icon-account.png" alt="" width="20" height="20" /> My account</a></li>
                                     <li><a href="<?php print $pathPrefix; ?>log-out"><img class="icon-logout" src="<?php print $pathPrefix; ?>img/icon-logout.png" alt="" width="20" height="20" /> Log out</a></li>
