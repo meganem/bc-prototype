@@ -20,7 +20,7 @@ $footerInclude = $pathPrefix . "parts/footer.php";
 include $headerInclude; 
 ?>
 
-	        <div class="container light">
+	        <div class="container constrained light">
                     <h1>Tips</h1>
                     <p class="lead">Here are some tips for how to get started creating your first project.</p>
             </div>
