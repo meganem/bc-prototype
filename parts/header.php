@@ -33,6 +33,7 @@
                     <div id="main-menu" class="">
                     <?php if($loggedIn == false) { ?>
                         <ul class="menu">
+                            <li><a href="<?php print $pathPrefix; ?>how-it-works">How it Works</a></li>
                             <li><a href="<?php print $pathPrefix; ?>features">Features</a></li>
                             <li><a href="<?php print $pathPrefix; ?>pricing">Pricing</a></li>
                             <li><a href="<?php print $pathPrefix; ?>sign-up">Sign Up</a></li>
