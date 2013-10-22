@@ -1,7 +1,7 @@
 <?php 
 // HOMEPAGE
 $nestLevel = 0;
-$frontPage = true;
+$bodyclass = "front";
 
 // DETERMINE PATH PREFIX
 $pathLevel = "../";
