@@ -1,4 +1,4 @@
-<div id="project-tour-1" class="modal project-tour align-center">
+<div id="project-tour-1" class="modal modal-center project-tour align-center">
 	<p>Your project has been created!</p>
 	<a href="#" class="button green more-link">Take a tour</a>
 </div>
@@ -25,7 +25,7 @@
 	<a href="#" class="button more-link">Next</a>
 </div>
 
-<div id="project-tour-4" class="modal project-tour align-center">
+<div id="project-tour-4" class="modal modal-center project-tour align-center">
 	<p>To get started, add your first artifact to your project!</p>
 	<ul class="project-tour-status">
 		<li><a href="#"></a></li>
@@ -36,7 +36,7 @@
 	<div class="modal-arrow"></div>
 </div>
 
-<div id="project-tour-5" class="modal project-tour align-center">
+<div id="project-tour-5" class="modal modal-center project-tour align-center">
 	<div class="close">
         <a class="" href="#">
             <img class="icon-close" src="<?php print $pathPrefix; ?>img/icon-close-black.png" alt="close" width="11" height="11" />
@@ -49,7 +49,7 @@
 	<div class="modal-arrow"></div>
 </div>
 
-<div id="project-tour-6" class="modal project-tour align-center">
+<div id="project-tour-6" class="modal modal-center project-tour align-center">
 	<div class="close">
         <a class="" href="#">
             <img class="icon-close" src="<?php print $pathPrefix; ?>img/icon-close-black.png" alt="close" width="11" height="11" />
