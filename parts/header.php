@@ -18,10 +18,7 @@
 
         <script src="<?php print $pathPrefix; ?>js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
-    <body class="<?php 
-        if($frontPage == true) { print "front"; }
-        if($loggedIn == true) { print "logged-in"; } 
-        ?>">
+    <body class="<?php print $bodyclass; ?>">
 
         <div id="wrapper">
             <div id="header" class="dark">
