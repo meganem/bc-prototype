@@ -23,7 +23,7 @@ include $headerInclude;
 	        <div id="content" class="container">
 
                 <div class="light">
-                    <h1>Account</h1>
+                    <h1>My Account</h1>
                     <p class="lead">TBD</p>
                 </div>
 
