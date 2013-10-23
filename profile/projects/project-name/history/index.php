@@ -2,6 +2,7 @@
 // HISTORY
 $nestLevel = 4;
 $loggedIn = true;
+$bodyclass = "logged-in";
 
 // DETERMINE PATH PREFIX
 $pathLevel = "../";

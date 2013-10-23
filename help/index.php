@@ -1,7 +1,8 @@
 <?php 
 // HELP
 $nestLevel = 1;
-$loggedIn = false;
+$loggedIn = true;
+$bodyclass = "logged-in";
 
 // DETERMINE PATH PREFIX
 $pathLevel = "../";

@@ -2,6 +2,7 @@
 // PROJECT NAME
 $nestLevel = 3;
 $loggedIn = true;
+$bodyclass = "logged-in";
 
 // DETERMINE PATH PREFIX
 $pathLevel = "../";
@@ -121,7 +122,7 @@ include $headerInclude;
 </div>
 
 <!-- Example side panel when you have a node selected and then click "more" -->
-<div class="panel">
+<div class="panel hidden">
     <div id="node-info-image">
         <img class="" src="<?php print $pathPrefix; ?>img/node-big.png" alt="" width="347" height="" />
     </div>
