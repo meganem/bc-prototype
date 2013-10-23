@@ -3,6 +3,7 @@
 $nestLevel = 4;
 $loggedIn = true;
 $bodyclass = "logged-in";
+$projectMenuActive = "blog";
 
 // DETERMINE PATH PREFIX
 $pathLevel = "../";
