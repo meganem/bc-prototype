@@ -22,13 +22,13 @@
                        </ul>
                     </div> <!-- End click-nav -->
 
-                    <a href="#">Presentation Name</a> by <a href="#">Jessica</a>. Powered by 
+                    <a href="#">Project Name</a> by <a href="#">Jessica</a>. Powered by 
                     <a href="#" class="logo-link">
                         <div class="logo"><img src="<?php print $pathPrefix; ?>img/bc-logo-dark.png" width="37" height="43" alt="bloomcase logo" /></div>
                         <div class="site-title">bloomcase</div>
                     </a>
                     <div id="presentation-exit">
-                        <a href="#" class="button">exit</a>
+                        <a href="#" class="button">exit presentation</a>
                     </div>
                 </div>
             </div>
