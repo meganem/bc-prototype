@@ -1032,26 +1032,27 @@ h1.project-title {
 #new-node-form {
   display: inline-block;
   width: 100%;
+  position: relative;
 }
 
-/* line 17, ../scss/modules/_new-node-form.scss */
+/* line 18, ../scss/modules/_new-node-form.scss */
 #new-node-cancel {
   line-height: 17px;
   position: absolute;
   right: 17px;
 }
 
-/* line 22, ../scss/modules/_new-node-form.scss */
+/* line 23, ../scss/modules/_new-node-form.scss */
 #new-node-cancel img {
   opacity: 0.5;
 }
 
-/* line 25, ../scss/modules/_new-node-form.scss */
+/* line 26, ../scss/modules/_new-node-form.scss */
 #new-node-cancel:hover img {
   opacity: 1;
 }
 
-/* line 34, ../scss/modules/_new-node-form.scss */
+/* line 35, ../scss/modules/_new-node-form.scss */
 input[type=text],
 input[type=url],
 input[type=tel],
@@ -1074,24 +1075,24 @@ textarea {
   margin-bottom: 0.5em;
 }
 
-/* line 43, ../scss/modules/_new-node-form.scss */
+/* line 44, ../scss/modules/_new-node-form.scss */
 input.disabled {
   opacity: 0.3;
 }
 
-/* line 46, ../scss/modules/_new-node-form.scss */
+/* line 47, ../scss/modules/_new-node-form.scss */
 #new-node-form-buttons {
   margin-top: .5em;
   vertical-align: top;
 }
 
-/* line 50, ../scss/modules/_new-node-form.scss */
+/* line 51, ../scss/modules/_new-node-form.scss */
 #new-node-more {
   display: inline-block;
   float: right;
 }
 
-/* line 54, ../scss/modules/_new-node-form.scss */
+/* line 55, ../scss/modules/_new-node-form.scss */
 .dark-background {
   background: #121212;
   -webkit-border-radius: 0.5em;
@@ -1115,18 +1116,18 @@ input.disabled {
   float: left;
 }
 
-/* line 70, ../scss/modules/_new-node-form.scss */
+/* line 71, ../scss/modules/_new-node-form.scss */
 .dark-background .icon-camera {
   margin-top: 10px;
 }
 
-/* line 73, ../scss/modules/_new-node-form.scss */
+/* line 74, ../scss/modules/_new-node-form.scss */
 .dark-background:hover, .dark-background:focus {
   background: #3f3f3f;
   text-decoration: none;
 }
 
-/* line 77, ../scss/modules/_new-node-form.scss */
+/* line 78, ../scss/modules/_new-node-form.scss */
 .icon-sketch {
   padding-top: 30px;
   background-image: url("../img/icon-sketch-sm.png");
@@ -1136,13 +1137,13 @@ input.disabled {
   padding-top: 14px;
 }
 
-/* line 85, ../scss/modules/_new-node-form.scss */
+/* line 86, ../scss/modules/_new-node-form.scss */
 .form-divider {
   margin-bottom: .5em;
 }
 
 /* --------------- State change for new node form --------------- */
-/* line 93, ../scss/modules/_new-node-form.scss */
+/* line 94, ../scss/modules/_new-node-form.scss */
 .is-short #new-node-form-desc,
 .is-short #new-node-form-url,
 .is-short #new-node-form-date,
@@ -1151,35 +1152,49 @@ input.disabled {
   display: none;
 }
 
-/* line 96, ../scss/modules/_new-node-form.scss */
+/* line 97, ../scss/modules/_new-node-form.scss */
 .is-long #new-node-more {
   display: none;
 }
 
-/* line 99, ../scss/modules/_new-node-form.scss */
+/* line 100, ../scss/modules/_new-node-form.scss */
 .is-long #new-node-form-submit {
   float: right;
 }
 
 /* --------------- Form validation with Parsley --------------- */
-/* line 104, ../scss/modules/_new-node-form.scss */
+/* line 105, ../scss/modules/_new-node-form.scss */
 .parsley-error {
   background: #ffe4e4;
 }
 
-/* line 107, ../scss/modules/_new-node-form.scss */
+/* line 108, ../scss/modules/_new-node-form.scss */
 .parsley-success {
   background: #e7ffe4;
 }
 
-/* line 110, ../scss/modules/_new-node-form.scss */
+/* line 111, ../scss/modules/_new-node-form.scss */
 .parsley-error-list {
   font-size: 0.7em;
-  margin: -10px 0 1em 0.5em;
-  padding: 0;
+  margin: -3em 0 1em 0.5em;
+  padding: .25em 1em;
+  border: 1px solid #ae2f2c;
+  position: absolute;
+  background: #ffe4e4;
+  -webkit-border-radius: 0 0.5em 0.5em 0.5em;
+  -moz-border-radius: 0 0.5em 0.5em 0.5em;
+  -ms-border-radius: 0 0.5em 0.5em 0.5em;
+  -o-border-radius: 0 0.5em 0.5em 0.5em;
+  border-radius: 0 0.5em 0.5em 0.5em;
+  line-height: 1.2em;
+  left: 80%;
+  min-width: 100px;
+  -webkit-box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
 }
 
-/* line 115, ../scss/modules/_new-node-form.scss */
+/* line 124, ../scss/modules/_new-node-form.scss */
 .parsley-error-list li {
   list-style: none;
 }
