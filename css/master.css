@@ -103,7 +103,7 @@ a[data-title]:hover:after {
   position: absolute;
   top: 250%;
   white-space: nowrap;
-  z-index: 20px;
+  z-index: 20;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
