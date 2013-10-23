@@ -30,15 +30,8 @@ include $headerInclude;
                     <?php include $pathPrefix . "parts/project-actions-menu.php" ?>
                     
                     <h1 class="project-title">My Project</h1>
-                    <div id="project-menu" class="">
-                        <ul class="menu">
-                            <li><a href="#" data-title="Story Mode" class="active"><img class="icon-story-mode" src="<?php print $pathPrefix; ?>img/icon-story-mode.png" alt="Story Mode" width="30" height="30" /></a></li>
-                            <li><a href="#" data-title="Presentation Mode" ><img class="icon-presentation" src="<?php print $pathPrefix; ?>img/icon-presentation.png" alt="Presentation Mode" width="30" height="30" /></a></li>
-                            <li><a href="#" data-title="Blog Mode"><img class="icon-blog-mode" src="<?php print $pathPrefix; ?>img/icon-blog-mode.png" alt="Blog Mode" width="30" height="30" /></a></li>
-                            <!-- <li><a href="#"><img class="icon-group" src="<?php //print $pathPrefix; ?>img/icon-group.png" alt="" width="30" height="30" /> Group</a></li>
-                            <li><a href="#"><img class="icon-new" src="<?php //print $pathPrefix; ?>img/icon-new.png" alt="" width="30" height="30" /> New</a></li> -->
-                        </ul>
-                    </div>
+                    <?php include $pathPrefix . "parts/project-menu.php" ?>
+
                 </div> <!-- End container -->
             </div> <!-- End project-header -->
             
