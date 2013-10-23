@@ -104,6 +104,17 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
     font-weight: 600;
 }
 
+#footer .logo {
+    margin-right: 0.25em;
+}
+#footer .logo img {
+    height: auto;
+    width: 25px;
+}
+#footer .site-title {
+    font-size: 1.2em;
+}
+
 /* --------------- Display and positioning helper classes --------------- */
 .hidden {
     display:none;

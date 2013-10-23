@@ -1,10 +1,34 @@
             <div id="footer" class="presentation dark">
                 <div class="container">
-                    <div id="footer-menu" class="">
-                        <ul class="menu">
-                            <li><a href="<?php print $pathPrefix; ?>">TBD</a></li>
-                            
-                        </ul>
+
+                    <div class="click-nav click-nav-3">
+                        <ul class="no-js">
+                            <li>
+                                <a href="#" class="clicker">
+                                    <img src="<?php print $pathPrefix; ?>img/projectthumb-sm.png" width="25" height="25" alt="project thumbnail" />
+                                </a>
+                                <ul id="project-actions-menu" class="menu dropdown">
+                                    <li><a href="#"><img src="<?php print $pathPrefix; ?>img/icon-idea-sm.png" alt="" width="20" height="20" /></a></li>
+                                    <li><a href="#"><img src="<?php print $pathPrefix; ?>img/icon-sketch-sm.png" alt="" width="20" height="20" /></a></li>
+                                    <li><a href="#"><img src="<?php print $pathPrefix; ?>img/icon-draft-sm.png" alt="" width="20" height="20" /></a></li>
+                                    <li><a href="#"><img src="<?php print $pathPrefix; ?>img/icon-idea-sm.png" alt="" width="20" height="20" /></a></li>
+                                    <li><a href="#"><img src="<?php print $pathPrefix; ?>img/icon-sketch-sm.png" alt="" width="20" height="20" /></a></li>
+                                    <li><a href="#"><img src="<?php print $pathPrefix; ?>img/icon-draft-sm.png" alt="" width="20" height="20" /></a></li>
+                                    <li><a href="#"><img src="<?php print $pathPrefix; ?>img/icon-idea-sm.png" alt="" width="20" height="20" /></a></li>
+                                    <li><a href="#"><img src="<?php print $pathPrefix; ?>img/icon-sketch-sm.png" alt="" width="20" height="20" /></a></li>
+                                    <li><a href="#"><img src="<?php print $pathPrefix; ?>img/icon-draft-sm.png" alt="" width="20" height="20" /></a></li>
+                                </ul>
+                            </li>
+                       </ul>
+                    </div> <!-- End click-nav -->
+
+                    <a href="#">Presentation Name</a> by <a href="#">Jessica</a>. Powered by 
+                    <a href="#" class="logo-link">
+                        <div class="logo"><img src="<?php print $pathPrefix; ?>img/bc-logo-dark.png" width="37" height="43" alt="bloomcase logo" /></div>
+                        <div class="site-title">bloomcase</div>
+                    </a>
+                    <div id="presentation-exit">
+                        <a href="#" class="button">exit</a>
                     </div>
                 </div>
             </div>

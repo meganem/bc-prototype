@@ -138,23 +138,39 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   font-weight: 600;
 }
 
+/* line 107, ../scss/_base.scss */
+#footer .logo {
+  margin-right: 0.25em;
+}
+
+/* line 110, ../scss/_base.scss */
+#footer .logo img {
+  height: auto;
+  width: 25px;
+}
+
+/* line 114, ../scss/_base.scss */
+#footer .site-title {
+  font-size: 1.2em;
+}
+
 /* --------------- Display and positioning helper classes --------------- */
-/* line 108, ../scss/_base.scss */
+/* line 119, ../scss/_base.scss */
 .hidden {
   display: none;
 }
 
-/* line 111, ../scss/_base.scss */
+/* line 122, ../scss/_base.scss */
 .row {
   clear: both;
 }
 
-/* line 114, ../scss/_base.scss */
+/* line 125, ../scss/_base.scss */
 .align-center {
   text-align: center;
 }
 
-/* line 117, ../scss/_base.scss */
+/* line 128, ../scss/_base.scss */
 .grid-4 {
   width: 30%;
   display: inline-block;
@@ -166,12 +182,12 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   box-sizing: border-box;
 }
 
-/* line 125, ../scss/_base.scss */
+/* line 136, ../scss/_base.scss */
 .grid-4:last-child {
   margin-right: 0;
 }
 
-/* line 128, ../scss/_base.scss */
+/* line 139, ../scss/_base.scss */
 .divider {
   clear: both;
   border-top: 1px solid #e9e9e9;
@@ -182,12 +198,12 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 /* --------------- HEADER --------------- */
 /* --------------- CONTENT --------------- */
 /* --------------- FOOTER --------------- */
-/* line 149, ../scss/_base.scss */
+/* line 160, ../scss/_base.scss */
 #footer {
   font-size: 0.8em;
 }
 
-/* line 152, ../scss/_base.scss */
+/* line 163, ../scss/_base.scss */
 #footer p {
   margin: 0;
 }
@@ -1269,6 +1285,77 @@ input.disabled {
 /* line 22, ../scss/modules/_edit-presentation-node.scss */
 .form-row {
   margin-bottom: 1em;
+}
+
+/* ----- Presentation Footer ----- */
+/* line 2, ../scss/modules/_presentation-footer.scss */
+#presentation-exit {
+  display: inline-block;
+  float: right;
+}
+
+/* line 7, ../scss/modules/_presentation-footer.scss */
+#footer.presentation {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+/* line 12, ../scss/modules/_presentation-footer.scss */
+#footer.presentation a.clicker, #footer.presentation .clicker img {
+  height: 25px;
+  width: 25px;
+  border-color: #121212;
+}
+/* line 17, ../scss/modules/_presentation-footer.scss */
+#footer.presentation .clicker img {
+  vertical-align: top;
+}
+/* line 20, ../scss/modules/_presentation-footer.scss */
+#footer.presentation a.clicker:hover, #footer.presentation a.clicker:focus, #footer.presentation a.clicker:active {
+  border-color: whitesmoke;
+}
+/* line 23, ../scss/modules/_presentation-footer.scss */
+#footer.presentation .click-nav ul li ul {
+  bottom: 35px;
+  left: auto;
+  position: absolute;
+  right: auto;
+  top: auto;
+  padding: 0.5em;
+}
+/* line 31, ../scss/modules/_presentation-footer.scss */
+#footer.presentation ul.dropdown {
+  width: 700px;
+}
+/* line 34, ../scss/modules/_presentation-footer.scss */
+#footer.presentation ul.dropdown li {
+  display: inline-block;
+}
+/* line 36, ../scss/modules/_presentation-footer.scss */
+#footer.presentation ul.dropdown li img {
+  vertical-align: text-bottom;
+}
+/* line 40, ../scss/modules/_presentation-footer.scss */
+#footer.presentation ul.dropdown li:first-child {
+  padding-top: 0em;
+}
+/* line 43, ../scss/modules/_presentation-footer.scss */
+#footer.presentation ul.dropdown li a {
+  padding: 0.2em;
+  background: transparent;
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  -ms-border-radius: 0.25em;
+  -o-border-radius: 0.25em;
+  border-radius: 0.25em;
+}
+/* line 48, ../scss/modules/_presentation-footer.scss */
+#footer.presentation ul.dropdown li:last-child {
+  padding-bottom: 0em;
+}
+/* line 51, ../scss/modules/_presentation-footer.scss */
+#footer.presentation ul.dropdown li a:hover, #footer.presentation ul.dropdown li a:focus, #footer.presentation ul.dropdown li a:active {
+  background: #121212;
 }
 
 /* --------------- Node info modal --------------- */
