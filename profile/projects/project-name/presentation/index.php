@@ -14,15 +14,16 @@ if ($nestLevel > 0) {
 }
 
 // SET PATHS FOR INCLUDE FILES
-$headerInclude = $pathPrefix . "parts/header.php";
-$footerInclude = $pathPrefix . "parts/footer.php";
+$headerInclude = $pathPrefix . "parts/header-presentation.php";
+$footerInclude = $pathPrefix . "parts/footer-presentation.php";
 
 // INCLUDE HEADER
 include $headerInclude; 
 ?>
 
-			
-<p>Presentation page will go here, with custom header/footer TBD.</p>
+	<div class="light container">		
+		<p>Presentation page will go here, with custom footer.</p>
+	</div>
 
 <?php 
 //INCLUDE FOOTER
