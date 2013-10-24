@@ -44,9 +44,7 @@ function resizePanels() {
     d3.selectAll("#background").style("width", width + "px").style("height", svgHeight + "px")
     d3.selectAll("#map").style("width", width + "px").style("height", svgHeight + "px")
     d3.select("#toolboxG").style("width", width + "px").attr("transform", "translate(0," + (svgHeight - toolboxOffset) + ")");
-    d3.select("#toolboxBG")
-    .attr("width", width)
-    .attr("height", 200);
+    d3.select("#toolboxBG").attr("width", width).attr("height", 200);
     
 }
 
@@ -228,6 +226,7 @@ function drawBC(nodeData,linkData) {
     .on("mouseup", endMove);
 
     var zoom2Div = d3.select("#betweenLayer").selectAll("div.zoom2").data(nodeData).enter().append("div")
+    .style("display", function(d) {return d.isMeta ? "none" : "block"})
     .attr("class", "zoom2")
     .style("position", "absolute")
     .style("left", "30px")
@@ -254,7 +253,21 @@ function drawBC(nodeData,linkData) {
     }
 
     });
-    
+
+    var secDiv = d3.select("#aboveLayer").selectAll("div.zoom2Overlay").data(nodeData).enter().append("div")
+    .style("display", function(d) {return d.isMeta ? "none" : "block"})
+    .attr("class", "zoom2 zoom2Overlay")
+    .style("position", "absolute")
+    .style("left", "30px")
+    .style("top", "200px")
+    .style("background-color", "rgba(255, 255, 255, 0)")
+    .style("border", "0")
+    .style("opacity", 0)
+    .style("pointer-events", "none")
+    .style("cursor", "pointer")
+    .on("mousedown", startMove)
+    .on("mouseup", endMove);
+
     var secDiv = d3.select("#aboveLayer").selectAll("div.sec").data(nodeData).enter().append("div")
     .style("display", function(d) {return d.isMeta ? "none" : "block"})
     .attr("class", "sec modal node-info")
@@ -301,7 +314,7 @@ function drawBC(nodeData,linkData) {
     .duration(1000)
     .style("opacity", 1);
     
-    
+    /*
     secG.append("text")
                 .attr("dx", -1)
                 .attr("dy", ".35em")
@@ -310,7 +323,7 @@ function drawBC(nodeData,linkData) {
                 .style("fill", "white")
                 .text(function(d) { return "" + (d.column)})
 		.style("pointer-events", "none");
-
+*/
     panToCenter(0)
 }
 
@@ -798,9 +811,7 @@ function deleteLink(d,i) {
     var targetNodeID = d.target.nid.replace("meta","");
     var sourceNodeEvolvedSize = 0;
     var targetNodeEvolvedSize = 0;
-    
-    console.log(d.source.laneTotal)
-    console.log(d.target.laneTotal)
+
     for (x in nodeSet) {
 	if (nodeSet[x].nid == sourceNodeID) {
 	    sourceNode = nodeSet[x];
@@ -824,25 +835,17 @@ function deleteLink(d,i) {
 		targetNodeTargetLinks++;
 	    }
     }
-    console.log(d)
-    console.log("Source")
-    console.log(sourceNodeID)
-    console.log(sourceNodeSourceLinks)
-    console.log(sourceNodeTargetLinks)
-    console.log("Target")
-    console.log(targetNodeID)
-    console.log(targetNodeSourceLinks)
-    console.log(targetNodeTargetLinks)
 
-    if (d.source.laneTotal == d.target.laneTotal) {
+    if ((d.source.sourceCount + d.source.targetCount) > 1 && (d.target.sourceCount + d.target.targetCount) > 1) {
+	updatedEvolvedFromSimple(sourceNodeID, targetNode);
+    }
+    else if (d.source.laneTotal == d.target.laneTotal) {
 	updatedEvolvedFromSimple(sourceNodeID, targetNode);
     }
     else if (d.source.laneTotal < d.target.laneTotal) {
-	console.log("source on substream");
 	updatedEvolvedForward(sourceNodeID, targetNode, targetNodeID);
     }
     else if (d.source.laneTotal > d.target.laneTotal) {
-	console.log("target on substream");
 	updatedEvolvedBackward(sourceNodeID, targetNode, targetNodeID);
     }
 
@@ -853,18 +856,6 @@ function deleteLink(d,i) {
 }
 
 function updatedEvolvedForward(incSourceID, incTarget, incTargetID) {
-/*    var nodeSet = testLayout.nodes();
-    for (x in nodeSet) {
-	if (nodeSet[x].evolvedFrom) {
-	var oldEF = nodeSet[x].evolvedFrom.split(",");
-	console.log(incTargetID)
-	if (oldEF.indexOf(incTargetID) > -1) {
-	    nodeSet[x].evolvedFrom = nodeSet[x].evolvedFrom + ","+incSourceID;
-	}
-	}
-    }
-    */
-
     d3.select("#node" + incSourceID).attr("transform", "translate(20,20)").each(function() {document.getElementById("toolboxG").appendChild(this);})
     console.log("forward")
     updatedEvolvedFromSimple(incSourceID, incTarget);
@@ -874,26 +865,10 @@ function updatedEvolvedBackward(incSourceID, incTarget, incTargetID) {
     console.log("backward")
     d3.select("#node" + incTargetID).attr("transform", "translate(20,20)").each(function() {document.getElementById("toolboxG").appendChild(this);})
     updatedEvolvedFromSimple(incSourceID, incTarget);
-
-/*    var newEF = []
-    var nodeSet = testLayout.nodes();
-    for (x in nodeSet) {
-	if (nodeSet[x].nid == incSourceID) {
-	    console.log(nodeSet[x])
-	    if (!nodeSet[x].evolvedFrom) {
-		console.log("error")
-		return;
-	    }
-	    else {
-		incTarget.evolvedFrom = nodeSet[x].evolvedFrom;
-	    }
-	}
-    }
-    */
-//    updatedEvolvedFromSimple(incSourceID, incTarget);
 }
 
 function updatedEvolvedFromSimple(nodeID, incNode) {
+    //Need to account for meta-nodes being deleted because the link is no long multi
     var oldEF = incNode.evolvedFrom.split(",");
     var newEF = [];
     for (x in oldEF) {
