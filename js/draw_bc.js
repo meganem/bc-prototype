@@ -53,6 +53,7 @@ function drawBloomcase(fileName) {
     testLayout = new d3_layout_bloomcase();
     d3.json("../../../json/"+fileName+".json", function(data) {
     newNodes = data;
+
     if(newNodes.nodes.length <= 1) {
 	tutorial(1);
     }
@@ -1071,4 +1072,22 @@ function tutorial(nextPart) {
 	d3.selectAll("g.sec").transition().duration(1000).style("opacity", 1);
 	d3.select("#disabledDiv").remove();
     }
+}
+
+function validateParsley() {
+    var formValid = $( '#new-node-form' ).parsley( 'isValid' );
+    if(formValid) {
+	d3.select("#new-node").classed("hidden", true)
+	console.log(document.getElementById("new-node-form-title").value);
+	console.log(document.getElementById("new-node-form-desc").value);
+	console.log(document.getElementById("new-node-form-url").value);
+	console.log(document.getElementById("new-node-form-date").value);
+	console.log(document.getElementById("new-node-form-tags").value);
+	
+	d3.selectAll(".parsley-validated").property("value", "")
+    }
+    else {
+	console.log("Form is invalid")
+    }
+    return false;
 }
