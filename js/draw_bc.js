@@ -53,6 +53,9 @@ function drawBloomcase(fileName) {
     testLayout = new d3_layout_bloomcase();
     d3.json("../../../json/"+fileName+".json", function(data) {
     newNodes = data;
+    if(newNodes.nodes.length <= 1) {
+	tutorial(1);
+    }
     testLayout.nodes(newNodes.nodes);
     bloomZoom = d3.behavior.zoom()
     .on("zoom", panBC);
@@ -265,8 +268,9 @@ function drawBC(nodeData,linkData) {
     .style("opacity", 0)
     .style("pointer-events", "none")
     .style("cursor", "pointer")
-    .on("mousedown", startMove)
-    .on("mouseup", endMove);
+    .on("click", function(d) {	panToCenter(1000, d.column, d.row);populateMorePanel(d);d3.select("#morePanel").classed("hidden", false)});
+/*    .on("mousedown", startMove)
+    .on("mouseup", endMove); */
 
     var secDiv = d3.select("#aboveLayer").selectAll("div.sec").data(nodeData).enter().append("div")
     .style("display", function(d) {return d.isMeta ? "none" : "block"})
@@ -758,6 +762,11 @@ function createNewNode(d,i) {
     testLayout.nodes().push(newNode)
     newNodeArray = testLayout.nodes().filter(function(el) {return el.isMeta ? null : this});
     
+    if (d3.select("#project-tour-5").classed("hidden") == false) {
+        d3.selectAll(".project-tour").classed("hidden", true)
+    }
+
+    
 //    freshLayout = new d3_layout_bloomcase();
 //    freshLayout.nodes(newNodeArray);
     
@@ -1049,3 +1058,17 @@ function moveNodeToToolbox() {
     document.getElementById("toolboxG").appendChild(this);
 }
 
+function tutorial(nextPart) {
+	d3.selectAll("g.sec").style("opacity", 0);
+    if (nextPart == 1) {
+        d3.select("#bloomViz").insert("div", "#project-tour-1").attr("id","disabledDiv").style("height","100%").style("width","100%").style("background","red").style("position","absolute").style("top","0").style("z-index","2").style("opacity",0);
+	d3.selectAll("g.sec").style("opacity", 0);
+    }
+    d3.selectAll(".project-tour").classed("hidden", true)
+    d3.select("#project-tour-" + nextPart).classed("hidden", false)
+
+    if (nextPart == 5) {
+	d3.selectAll("g.sec").transition().duration(1000).style("opacity", 1);
+	d3.select("#disabledDiv").remove();
+    }
+}
