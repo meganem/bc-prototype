@@ -195,15 +195,39 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   margin-top: 0.5em;
 }
 
+/* line 145, ../scss/_base.scss */
+.float-left {
+  float: left;
+}
+/* line 147, ../scss/_base.scss */
+.float-left img {
+  margin-right: 1em;
+}
+
+/* line 151, ../scss/_base.scss */
+.float-right {
+  float: right;
+}
+/* line 153, ../scss/_base.scss */
+.float-right img {
+  margin-left: 1em;
+}
+
+/* line 157, ../scss/_base.scss */
+.clear-both {
+  clear: both;
+}
+
 /* --------------- HEADER --------------- */
 /* --------------- CONTENT --------------- */
 /* --------------- FOOTER --------------- */
-/* line 160, ../scss/_base.scss */
+/* line 175, ../scss/_base.scss */
 #footer {
   font-size: 0.8em;
+  clear: both;
 }
 
-/* line 163, ../scss/_base.scss */
+/* line 179, ../scss/_base.scss */
 #footer p {
   margin: 0;
 }
@@ -219,9 +243,10 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   padding: 16px 32px;
   margin-left: auto;
   margin-right: auto;
+  clear: both;
 }
 
-/* line 10, ../scss/layouts/_containers.scss */
+/* line 11, ../scss/layouts/_containers.scss */
 .container.constrained {
   max-width: 1200px;
 }

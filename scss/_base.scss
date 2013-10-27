@@ -142,6 +142,21 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
     margin-bottom: 0.5em;
     margin-top: 0.5em;
 }
+.float-left {
+    float:left;
+    img {
+        margin-right:1em;
+    }
+}
+.float-right {
+    float:right;
+    img {
+        margin-left:1em;
+    }
+}
+.clear-both {
+    clear:both;
+}
 
 /* --------------- HEADER --------------- */
 
@@ -159,6 +174,7 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 
 #footer {
     font-size: 0.8em;
+    clear:both;
 }
 #footer p {
     margin:0;
