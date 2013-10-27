@@ -23,7 +23,7 @@ include $headerInclude;
 	        <div id="content" class="container">
 
                 <div class="light">
-                    <h1>Terms of Use</h1>
+                    <h1>Terms of Service</h1>
                     
                     <p>
 <b>WARNING:</b> Bloomcase is currently in development. You understand and agree that the Service may still contain software bugs, suffer disruptions and not operate as intended or designated. Your use of the Service at this stage signifies your understanding of and agreement to participate in the Service's development.</p>

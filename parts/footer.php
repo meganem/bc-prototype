@@ -17,7 +17,7 @@
                                 <li><a href="<?php print $pathPrefix; ?>dashboard">Dashboard</a></li>
                                 <li><a href="<?php print $pathPrefix; ?>support">Support</a></li>
                                 <li><a href="<?php print $pathPrefix; ?>account">Account</a></li>
-                                <li><a href="<?php print $pathPrefix; ?>terms">Terms of Use</a></li>
+                                <li><a href="<?php print $pathPrefix; ?>terms">Terms of Service</a></li>
                                 <li><a href="<?php print $pathPrefix; ?>privacy">Privacy Policy</a></li>
                             </ul>
                         <?php } ?>
