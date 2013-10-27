@@ -24,20 +24,7 @@ include $headerInclude;
             	<h1>Bloomcase</h1>
             	<p class="lead">Show your creative process.</p>
             	<p>A new tool for creatives of all kinds to document and showcase creative process.</p>
-            	<div class="row">
-                    <div class="grid-4">
-                    	<img src="<?php print $pathPrefix; ?>img/home-hero1.png" width="300" alt="" />
-                    	<p>Document your evolving ideas</p>
-                    </div>
-                    <div class="grid-4">
-                    	<img src="<?php print $pathPrefix; ?>img/home-hero2.png" width="300" alt="" />
-                    	<p>Visualize your creative process</p>
-                	</div>
-                    <div class="grid-4">
-                    	<img src="<?php print $pathPrefix; ?>img/home-hero3.png" width="300" alt="" />
-                    	<p>Tell the story behind your work</p>
-                    </div>
-                </div>
+            	<div style="width:100%; height:400px; background:white; border:1px solid gray;">Video will go here</div>
                 <p class="lead"> <a href="how-it-works" class="button">How it works</a> <a href="sign-up" class="button purple">Sign Up</a></p>
 	        </div>
 
