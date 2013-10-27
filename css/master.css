@@ -202,18 +202,20 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 /* line 147, ../scss/_base.scss */
 .float-left img {
   margin-right: 1em;
+  margin-bottom: 1em;
 }
 
-/* line 151, ../scss/_base.scss */
+/* line 152, ../scss/_base.scss */
 .float-right {
   float: right;
 }
-/* line 153, ../scss/_base.scss */
+/* line 154, ../scss/_base.scss */
 .float-right img {
   margin-left: 1em;
+  margin-bottom: 1em;
 }
 
-/* line 157, ../scss/_base.scss */
+/* line 159, ../scss/_base.scss */
 .clear-both {
   clear: both;
 }
@@ -221,13 +223,13 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 /* --------------- HEADER --------------- */
 /* --------------- CONTENT --------------- */
 /* --------------- FOOTER --------------- */
-/* line 175, ../scss/_base.scss */
+/* line 177, ../scss/_base.scss */
 #footer {
   font-size: 0.8em;
   clear: both;
 }
 
-/* line 179, ../scss/_base.scss */
+/* line 181, ../scss/_base.scss */
 #footer p {
   margin: 0;
 }
