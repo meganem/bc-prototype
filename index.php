@@ -24,7 +24,7 @@ include $headerInclude;
             	<h1>Bloomcase</h1>
             	<p class="lead">Show your creative process.</p>
             	<p>A new tool for creatives of all kinds to document and showcase creative process.</p>
-            	<div style="width:100%; height:400px; background:white; border:1px solid gray;">Video will go here</div>
+            	<iframe src="//player.vimeo.com/video/77932520?title=0&amp;byline=0&amp;portrait=0&amp;color=783d7a" width="500" height="384" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                 <p class="lead"> <a href="how-it-works" class="button">How it works</a> <a href="sign-up" class="button purple">Sign Up</a></p>
 	        </div>
 
