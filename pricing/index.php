@@ -32,6 +32,7 @@ include $headerInclude;
                     		(limit 100 artifacts per project)<br>
                     		No collaborators<br>
                     		Self-service online support</p>
+                            <a href="<?php print $pathPrefix; ?>sign-up" class="button purple">Sign up</a>
                     </div>
                     <div class="grid-4">
                     	<img src="<?php print $pathPrefix; ?>img/pricing-pro.png" width="238" alt="" />
@@ -41,6 +42,7 @@ include $headerInclude;
                     		Customizeable project presentation styles<br>
                     		Up to two collaborators per project<br>
                     		Email support</p>
+                            <a href="<?php print $pathPrefix; ?>sign-in" class="button blue">Upgrade</a>
                 	</div>
                     <div class="grid-4">
                     	<img src="<?php print $pathPrefix; ?>img/pricing-business.png" width="238" alt="" />
@@ -50,6 +52,7 @@ include $headerInclude;
                     		Customizeable project presentation styles<br>
                     		Unlimited collaborators per project<br>
                     		24/7 support</p>
+                            <a href="<?php print $pathPrefix; ?>sign-in" class="button blue">Upgrade</a>
                     </div>
                 </div>
 	        </div>
