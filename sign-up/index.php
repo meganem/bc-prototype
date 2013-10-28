@@ -27,6 +27,7 @@ include $headerInclude;
 			        <input id="sign-up-form-email" name="email" type="text" placeholder="email" data-trigger="keyup" data-type="email" data-validation-minlength="4"  data-required="true">
 					<input id="sign-up-form-password" name="password" type="password" placeholder="password" data-trigger="keyup" data-validation-minlength="4"  data-required="true" data-minlength="6" >
 					<input id="sign-up-form-password-validate" name="password-validate" type="password" placeholder="repeat password" data-trigger="keyup" data-validation-minlength="4"  data-required="true" data-equalto="#sign-up-form-password" >
+					<p class="small"><input id="sign-up-form-terms" name="agree-terms" type="checkbox" data-required="true" > I agree to Bloomcase Terms of Service</p>
 			        <input id="sign-up-form-submit" class="button green" type="submit" value="submit">
 			    </form>
             	
