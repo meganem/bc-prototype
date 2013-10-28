@@ -1,5 +1,5 @@
 /* --------------- GENERAL STYLES --------------- */
-/* line 3, ../scss/_base.scss */
+/* line 3, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
@@ -9,61 +9,61 @@ body {
 }
 
 /* --------------- Headers --------------- */
-/* line 13, ../scss/_base.scss */
+/* line 13, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
   margin: 1em 0 .5em 0;
 }
 
-/* line 17, ../scss/_base.scss */
+/* line 17, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 h1 {
   font-size: 3em;
   line-height: 1.2em;
 }
 
-/* line 21, ../scss/_base.scss */
+/* line 21, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 .front h1 {
   display: none;
 }
 
-/* line 24, ../scss/_base.scss */
+/* line 24, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 h2 {
   font-size: 2.25em;
   line-height: 1.25em;
 }
 
-/* line 28, ../scss/_base.scss */
+/* line 28, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 h3 {
   font-size: 1.5em;
   line-height: 1.4em;
 }
 
-/* line 32, ../scss/_base.scss */
+/* line 32, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 h4 {
   font-size: 1.25em;
   line-height: 1.5em;
 }
 
-/* line 36, ../scss/_base.scss */
+/* line 36, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 h5 {
   font-size: 1em;
   line-height: 1.5em;
 }
 
-/* line 40, ../scss/_base.scss */
+/* line 40, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 h6 {
   font-size: 0.9em;
   line-height: 1.5em;
 }
 
 /* --------------- Images --------------- */
-/* line 46, ../scss/_base.scss */
+/* line 46, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 img {
   max-width: 100%;
 }
 
 /* --------------- Text --------------- */
-/* line 51, ../scss/_base.scss */
+/* line 51, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 .lead {
   font-weight: 300;
   font-size: 1.75em;
@@ -71,33 +71,33 @@ img {
   margin-bottom: 0.5em;
 }
 
-/* line 57, ../scss/_base.scss */
+/* line 57, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 .small {
   font-size: 0.8em;
 }
 
 /* --------------- Lists --------------- */
-/* line 62, ../scss/_base.scss */
+/* line 62, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 ul li {
   list-style-type: square;
 }
 
 /* --------------- Links --------------- */
-/* line 67, ../scss/_base.scss */
+/* line 67, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 a {
   text-decoration: none;
   color: #b38c14;
   font-weight: 600;
 }
 
-/* line 72, ../scss/_base.scss */
+/* line 72, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 a:hover, a:focus {
   text-decoration: underline;
   position: relative;
 }
 
 /* --------------- Tooltips on links --------------- */
-/* line 78, ../scss/_base.scss */
+/* line 78, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 a[data-title]:hover:after {
   content: attr(data-title);
   color: #121212;
@@ -120,62 +120,62 @@ a[data-title]:hover:after {
 }
 
 /* --------------- Logo and Site Title --------------- */
-/* line 94, ../scss/_base.scss */
+/* line 94, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 .logo, .site-title {
   display: inline-block;
 }
 
-/* line 97, ../scss/_base.scss */
+/* line 97, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 .logo {
   margin-right: 0.5em;
   vertical-align: super;
 }
 
-/* line 101, ../scss/_base.scss */
+/* line 101, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   text-decoration: none;
 }
 
-/* line 104, ../scss/_base.scss */
+/* line 104, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 .site-title {
   color: white;
   font-size: 1.5em;
   font-weight: 600;
 }
 
-/* line 110, ../scss/_base.scss */
+/* line 110, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 #footer .logo {
   margin-right: 0.25em;
 }
 
-/* line 113, ../scss/_base.scss */
+/* line 113, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 #footer .logo img {
   height: auto;
   width: 25px;
 }
 
-/* line 117, ../scss/_base.scss */
+/* line 117, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 #footer .site-title {
   font-size: 1.2em;
 }
 
 /* --------------- Display and positioning helper classes --------------- */
-/* line 122, ../scss/_base.scss */
+/* line 122, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 .hidden {
   display: none;
 }
 
-/* line 125, ../scss/_base.scss */
+/* line 125, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 .row {
   clear: both;
 }
 
-/* line 128, ../scss/_base.scss */
+/* line 128, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 .align-center {
   text-align: center;
 }
 
-/* line 131, ../scss/_base.scss */
+/* line 131, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 .grid-4 {
   width: 30%;
   display: inline-block;
@@ -187,12 +187,12 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   box-sizing: border-box;
 }
 
-/* line 139, ../scss/_base.scss */
+/* line 139, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 .grid-4:last-child {
   margin-right: 0;
 }
 
-/* line 142, ../scss/_base.scss */
+/* line 142, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 .divider {
   clear: both;
   border-top: 1px solid #e9e9e9;
@@ -200,27 +200,27 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   margin-top: 0.5em;
 }
 
-/* line 148, ../scss/_base.scss */
+/* line 148, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 .float-left {
   float: left;
 }
-/* line 150, ../scss/_base.scss */
+/* line 150, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 .float-left img {
   margin-right: 1em;
   margin-bottom: 1em;
 }
 
-/* line 155, ../scss/_base.scss */
+/* line 155, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 .float-right {
   float: right;
 }
-/* line 157, ../scss/_base.scss */
+/* line 157, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 .float-right img {
   margin-left: 1em;
   margin-bottom: 1em;
 }
 
-/* line 162, ../scss/_base.scss */
+/* line 162, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 .clear-both {
   clear: both;
 }
@@ -228,24 +228,24 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 /* --------------- HEADER --------------- */
 /* --------------- CONTENT --------------- */
 /* --------------- FOOTER --------------- */
-/* line 180, ../scss/_base.scss */
+/* line 180, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 #footer {
   font-size: 0.8em;
   clear: both;
 }
 
-/* line 184, ../scss/_base.scss */
+/* line 184, /Applications/MAMP/htdocs/bc-prototype/scss/_base.scss */
 #footer p {
   margin: 0;
 }
 
 /* --------------- Containers --------------- */
-/* line 2, ../scss/layouts/_containers.scss */
+/* line 2, /Applications/MAMP/htdocs/bc-prototype/scss/layouts/_containers.scss */
 .border-top {
   border-top: 1px solid #3f3f3f;
 }
 
-/* line 5, ../scss/layouts/_containers.scss */
+/* line 5, /Applications/MAMP/htdocs/bc-prototype/scss/layouts/_containers.scss */
 .container {
   padding: 16px 32px;
   margin-left: auto;
@@ -253,13 +253,13 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   clear: both;
 }
 
-/* line 11, ../scss/layouts/_containers.scss */
+/* line 11, /Applications/MAMP/htdocs/bc-prototype/scss/layouts/_containers.scss */
 .container.constrained {
   max-width: 1200px;
 }
 
 /* --------------- DARK --------------- */
-/* line 3, ../scss/_themes.scss */
+/* line 3, /Applications/MAMP/htdocs/bc-prototype/scss/_themes.scss */
 .dark {
   background: #121212;
   color: #e9e9e9;
@@ -268,20 +268,20 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 }
 
 /* --------------- Links - dark --------------- */
-/* line 11, ../scss/_themes.scss */
+/* line 11, /Applications/MAMP/htdocs/bc-prototype/scss/_themes.scss */
 .dark a {
   color: #e5c04e;
   font-weight: 300;
 }
 
 /* --------------- Buttons - dark --------------- */
-/* line 17, ../scss/_themes.scss */
+/* line 17, /Applications/MAMP/htdocs/bc-prototype/scss/_themes.scss */
 .dark .button {
   color: white;
 }
 
 /* --------------- Buttons --------------- */
-/* line 2, ../scss/modules/_buttons.scss */
+/* line 2, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_buttons.scss */
 .button {
   background: #3f3f3f;
   -webkit-border-radius: 0.5em;
@@ -298,53 +298,53 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   border: 0;
 }
 
-/* line 14, ../scss/modules/_buttons.scss */
+/* line 14, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_buttons.scss */
 .button:hover, .button:focus {
   background: #2c2c2c;
   text-decoration: none;
 }
 
-/* line 18, ../scss/modules/_buttons.scss */
+/* line 18, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_buttons.scss */
 .button.red {
   background: #ae2f2c;
 }
 
-/* line 21, ../scss/modules/_buttons.scss */
+/* line 21, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_buttons.scss */
 .button.red:hover, .button.red:focus {
   background: #79201e;
 }
 
-/* line 24, ../scss/modules/_buttons.scss */
+/* line 24, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_buttons.scss */
 .button.purple {
   background: #783d7a;
 }
 
-/* line 27, ../scss/modules/_buttons.scss */
+/* line 27, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_buttons.scss */
 .button.purple:hover, .button.purple:focus {
   background: #542a55;
 }
 
-/* line 30, ../scss/modules/_buttons.scss */
+/* line 30, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_buttons.scss */
 .button.green {
   background: #4b6a18;
 }
 
-/* line 33, ../scss/modules/_buttons.scss */
+/* line 33, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_buttons.scss */
 .button.green:hover, .button.green:focus {
   background: #344a10;
 }
 
-/* line 36, ../scss/modules/_buttons.scss */
+/* line 36, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_buttons.scss */
 .button.blue {
   background: #086989;
 }
 
-/* line 39, ../scss/modules/_buttons.scss */
+/* line 39, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_buttons.scss */
 .button.blue:hover, .button.blue:focus {
   background: #05495f;
 }
 
-/* line 42, ../scss/modules/_buttons.scss */
+/* line 42, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_buttons.scss */
 .button.more-link, .button.more-link:hover {
   background-image: url("../img/icon-arrow-right.png");
   background-position: 87% center;
@@ -354,20 +354,20 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 
 /* --------------- NAVIGATION --------------- */
 /* --------------- Main menu --------------- */
-/* line 4, ../scss/modules/_menu-main.scss */
+/* line 4, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-main.scss */
 #main-menu {
   display: inline-block;
   margin-top: 0.25em;
   float: right;
 }
 
-/* line 9, ../scss/modules/_menu-main.scss */
+/* line 9, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-main.scss */
 ul.menu {
   margin: 0;
   padding: 0;
 }
 
-/* line 13, ../scss/modules/_menu-main.scss */
+/* line 13, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-main.scss */
 .menu li {
   margin-right: 0.5em;
   padding-right: 0.5em;
@@ -377,7 +377,7 @@ ul.menu {
   line-height: 1em;
 }
 
-/* line 21, ../scss/modules/_menu-main.scss */
+/* line 21, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-main.scss */
 .menu li:last-child {
   border-right: none;
   margin-right: 0;
@@ -385,7 +385,7 @@ ul.menu {
 }
 
 /* --------------- Main menu - logged in --------------- */
-/* line 28, ../scss/modules/_menu-main.scss */
+/* line 28, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-main.scss */
 .logged-in #main-menu ul#general-links.menu {
   display: inline-block;
   margin-right: 0.5em;
@@ -394,14 +394,14 @@ ul.menu {
   height: 35px;
 }
 
-/* line 35, ../scss/modules/_menu-main.scss */
+/* line 35, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-main.scss */
 .logged-in #main-menu .menu li {
   border-right: 0;
 }
 
 /* --------------- LOGGED IN USER MENU --------------- */
 /* --------------- Notifications --------------- */
-/* line 4, ../scss/modules/_notification.scss */
+/* line 4, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_notification.scss */
 .notification {
   background: #ae2f2c;
   -webkit-border-radius: 1em;
@@ -425,12 +425,12 @@ ul.menu {
   box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
 }
 
-/* line 20, ../scss/modules/_notification.scss */
+/* line 20, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_notification.scss */
 ul.dropdown li.notifications {
   padding: 0 1.5em;
 }
 
-/* line 23, ../scss/modules/_notification.scss */
+/* line 23, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_notification.scss */
 .notifications-title {
   font-size: 0.7em;
   font-weight: 600;
@@ -438,25 +438,25 @@ ul.dropdown li.notifications {
   text-transform: uppercase;
 }
 
-/* line 29, ../scss/modules/_notification.scss */
+/* line 29, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_notification.scss */
 .notification-message {
   font-size: 0.8em;
   margin-bottom: 0.5em;
 }
 
-/* line 33, ../scss/modules/_notification.scss */
+/* line 33, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_notification.scss */
 ul.dropdown li .notification-link a {
   padding: 0;
   font-size: 0.8em;
 }
 
-/* line 37, ../scss/modules/_notification.scss */
+/* line 37, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_notification.scss */
 ul.dropdown li .notification-link a:after {
   content: " »";
 }
 
 /* --------------- Click nav and Dropdown menu --------------- */
-/* line 3, ../scss/modules/_menu-dropdown.scss */
+/* line 3, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 ul.dropdown {
   color: #121212;
   background: white;
@@ -467,7 +467,7 @@ ul.dropdown {
   box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.5);
 }
 
-/* line 10, ../scss/modules/_menu-dropdown.scss */
+/* line 10, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 ul.dropdown li {
   display: block;
   padding: 0em 0.5em;
@@ -475,17 +475,17 @@ ul.dropdown li {
   margin-right: 0;
 }
 
-/* line 16, ../scss/modules/_menu-dropdown.scss */
+/* line 16, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 ul.dropdown li:first-child {
   padding-top: 1em;
 }
 
-/* line 19, ../scss/modules/_menu-dropdown.scss */
+/* line 19, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 ul.dropdown li:last-child {
   padding-bottom: 1em;
 }
 
-/* line 22, ../scss/modules/_menu-dropdown.scss */
+/* line 22, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 ul.dropdown li a {
   color: #b38c14;
   display: block;
@@ -494,30 +494,30 @@ ul.dropdown li a {
   padding: 0.25em 1em;
 }
 
-/* line 29, ../scss/modules/_menu-dropdown.scss */
+/* line 29, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 ul.dropdown li a:hover, ul.dropdown li a:focus, ul.dropdown li a:active {
   text-decoration: none;
   color: #121212;
 }
 
-/* line 33, ../scss/modules/_menu-dropdown.scss */
+/* line 33, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 ul.dropdown li.separator {
   border-bottom: 1px solid #3f3f3f;
   margin-bottom: 0.5em;
   padding-top: 0.5em;
 }
 
-/* line 38, ../scss/modules/_menu-dropdown.scss */
+/* line 38, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 .click-nav {
   display: inline-block;
 }
 
-/* line 41, ../scss/modules/_menu-dropdown.scss */
+/* line 41, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 .click-nav-2 {
   margin-right: 0.5em;
 }
 
-/* line 44, ../scss/modules/_menu-dropdown.scss */
+/* line 44, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 .click-nav ul {
   position: relative;
   margin: 0;
@@ -525,38 +525,38 @@ ul.dropdown li.separator {
   z-index: 21;
 }
 
-/* line 50, ../scss/modules/_menu-dropdown.scss */
+/* line 50, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 .click-nav ul li {
   position: relative;
   list-style: none;
   cursor: pointer;
 }
 
-/* line 55, ../scss/modules/_menu-dropdown.scss */
+/* line 55, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 .click-nav ul li ul {
   position: absolute;
   left: 0;
   right: 0;
 }
 
-/* line 60, ../scss/modules/_menu-dropdown.scss */
+/* line 60, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 .click-nav.click-nav-1 ul li ul {
   position: absolute;
   left: auto;
   right: 0;
 }
 
-/* line 65, ../scss/modules/_menu-dropdown.scss */
+/* line 65, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 .click-nav ul .clicker {
   position: relative;
 }
 
-/* line 68, ../scss/modules/_menu-dropdown.scss */
+/* line 68, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 .click-nav ul li a {
   display: block;
 }
 
-/* line 71, ../scss/modules/_menu-dropdown.scss */
+/* line 71, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 a.clicker {
   color: #121212;
   height: 35px;
@@ -564,28 +564,28 @@ a.clicker {
   border: 1px solid whitesmoke;
 }
 
-/* line 77, ../scss/modules/_menu-dropdown.scss */
+/* line 77, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 a.clicker:hover, a.clicker:focus, a.clicker:active {
   text-decoration: none;
   border: 1px solid #121212;
 }
 
-/* line 81, ../scss/modules/_menu-dropdown.scss */
+/* line 81, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 .click-nav-1 a.clicker {
   border: 1px solid #121212;
 }
 
-/* line 84, ../scss/modules/_menu-dropdown.scss */
+/* line 84, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 .click-nav-1 a.clicker:hover, .click-nav-1 a.clicker:focus, .click-nav-1 a.clicker:active {
   border: 1px solid #e5c04e;
 }
 
-/* line 87, ../scss/modules/_menu-dropdown.scss */
+/* line 87, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 .clicker:after {
   content: none;
 }
 
-/* line 90, ../scss/modules/_menu-dropdown.scss */
+/* line 90, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 .clicker img {
   height: 35px;
   vertical-align: bottom;
@@ -593,31 +593,31 @@ a.clicker:hover, a.clicker:focus, a.clicker:active {
 }
 
 /* Fallbacks */
-/* line 96, ../scss/modules/_menu-dropdown.scss */
+/* line 96, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 .click-nav .no-js ul {
   display: none;
 }
 
-/* line 99, ../scss/modules/_menu-dropdown.scss */
+/* line 99, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-dropdown.scss */
 .click-nav .no-js:hover ul {
   display: block;
 }
 
 /* --------------- PROJECT PAGE --------------- */
 /* --------------- Project header --------------- */
-/* line 4, ../scss/modules/_menu-project.scss */
+/* line 4, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-project.scss */
 #project-header {
   border-bottom: 1px solid #121212;
 }
 
-/* line 7, ../scss/modules/_menu-project.scss */
+/* line 7, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-project.scss */
 .project-thumb {
   display: inline-block;
   margin-right: 0.5em;
   vertical-align: super;
 }
 
-/* line 12, ../scss/modules/_menu-project.scss */
+/* line 12, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-project.scss */
 h1.project-title {
   font-size: 1.5em;
   font-weight: 600;
@@ -626,112 +626,112 @@ h1.project-title {
 }
 
 /* --------------- Project menu (modes) --------------- */
-/* line 20, ../scss/modules/_menu-project.scss */
+/* line 20, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-project.scss */
 #project-menu {
   display: inline-block;
   float: right;
 }
 
-/* line 24, ../scss/modules/_menu-project.scss */
+/* line 24, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-project.scss */
 #project-menu img {
   display: block;
 }
 
-/* line 27, ../scss/modules/_menu-project.scss */
+/* line 27, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-project.scss */
 #project-menu a {
   opacity: 0.6;
 }
 
-/* line 30, ../scss/modules/_menu-project.scss */
+/* line 30, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-project.scss */
 #project-menu a:hover, #project-menu a:focus, #project-menu a.active {
   opacity: 1;
 }
 
-/* line 33, ../scss/modules/_menu-project.scss */
+/* line 33, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-project.scss */
 #project-menu .menu li {
   border: 0;
 }
 
 /* --------------- Project actions menu (dropdown) --------------- */
-/* line 38, ../scss/modules/_menu-project.scss */
+/* line 38, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-project.scss */
 #project-actions-menu img {
   margin-right: 0.25em;
 }
 
 /* --------------- Edit presentation menu (dropdown) --------------- */
-/* line 43, ../scss/modules/_menu-project.scss */
+/* line 43, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-project.scss */
 #edit-presentation-header {
   display: inline-block;
   float: right;
 }
 
-/* line 47, ../scss/modules/_menu-project.scss */
+/* line 47, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-project.scss */
 #edit-presentation-header ul.dropdown {
   width: 180px;
 }
 
-/* line 50, ../scss/modules/_menu-project.scss */
+/* line 50, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-project.scss */
 #edit-presentation-menu-title, #edit-presentation-done {
   display: inline-block;
 }
 
-/* line 53, ../scss/modules/_menu-project.scss */
+/* line 53, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-project.scss */
 #edit-presentation-menu-title {
   margin-right: 1em;
   font-weight: 600;
 }
 
-/* line 57, ../scss/modules/_menu-project.scss */
+/* line 57, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-project.scss */
 #edit-presentation-header a.clicker {
   opacity: 0.6;
   border: none;
 }
 
-/* line 61, ../scss/modules/_menu-project.scss */
+/* line 61, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_menu-project.scss */
 #edit-presentation-header a.clicker:hover, #edit-presentation-header a.clicker:focus, #edit-presentation-header a.clicker:active {
   opacity: 1;
   border: none;
 }
 
 /* --------------- Project map styles --------------- */
-/* line 2, ../scss/modules/_map.scss */
+/* line 2, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_map.scss */
 .Idea:hover, .Draft:hover, .Inspiration:hover, .Final:hover, .Sketch:hover {
   stroke: #121212;
 }
 
-/* line 3, ../scss/modules/_map.scss */
+/* line 3, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_map.scss */
 .Idea {
   fill: #b38c14;
 }
 
-/* line 4, ../scss/modules/_map.scss */
+/* line 4, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_map.scss */
 .Draft {
   fill: #086989;
 }
 
-/* line 5, ../scss/modules/_map.scss */
+/* line 5, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_map.scss */
 .Inspiration {
   fill: #783d7a;
 }
 
-/* line 6, ../scss/modules/_map.scss */
+/* line 6, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_map.scss */
 .Final {
   fill: #121212;
 }
 
-/* line 7, ../scss/modules/_map.scss */
+/* line 7, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_map.scss */
 .Sketch {
   fill: #4b6a18;
 }
 
-/* line 8, ../scss/modules/_map.scss */
+/* line 8, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_map.scss */
 .link {
   stroke: #121212;
   fill: none;
   stroke-width: 2px;
 }
 
-/* line 9, ../scss/modules/_map.scss */
+/* line 9, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_map.scss */
 .node text {
   pointer-events: none;
   font: 10px sans-serif;
@@ -739,36 +739,36 @@ h1.project-title {
 }
 
 /* --------------- SVGs --------------- */
-/* line 12, ../scss/modules/_map.scss */
+/* line 12, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_map.scss */
 #map, #background {
   width: 100%;
   height: 500px;
 }
 
-/* line 13, ../scss/modules/_map.scss */
+/* line 13, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_map.scss */
 #map, #background, #betweenLayer {
   top: 0;
 }
 
-/* line 14, ../scss/modules/_map.scss */
+/* line 14, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_map.scss */
 #background {
   position: absolute;
 }
 
-/* line 15, ../scss/modules/_map.scss */
+/* line 15, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_map.scss */
 #map, #betweenLayer {
   position: relative;
 }
 
 /* --------------- Display Parent --------------- */
-/* line 18, ../scss/modules/_map.scss */
+/* line 18, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_map.scss */
 #bloomViz {
   position: relative;
   overflow: hidden;
 }
 
 /* --------------- Zoom level 2 --------------- */
-/* line 24, ../scss/modules/_map.scss */
+/* line 24, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_map.scss */
 .zoom2 {
   background-color: #121212;
   border: 2px solid #121212;
@@ -780,14 +780,14 @@ h1.project-title {
   width: 70px;
 }
 
-/* line 34, ../scss/modules/_map.scss */
+/* line 34, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_map.scss */
 .zoom2 img {
   height: 100%;
   opacity: 0;
   width: 100%;
 }
 
-/* line 39, ../scss/modules/_map.scss */
+/* line 39, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_map.scss */
 .zoom2 .text {
   color: white;
   font-size: 0.6em;
@@ -799,14 +799,14 @@ h1.project-title {
   bottom: -10%;
 }
 
-/* line 49, ../scss/modules/_map.scss */
+/* line 49, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_map.scss */
 .zoom2 .text.below {
   color: #121212;
   bottom: -0.5em;
 }
 
 /* --------------- Zoom controls --------------- */
-/* line 2, ../scss/modules/_zoom-controls.scss */
+/* line 2, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_zoom-controls.scss */
 #zoom-controls {
   position: absolute;
   top: 5px;
@@ -818,13 +818,13 @@ h1.project-title {
   z-index: 1;
 }
 
-/* line 12, ../scss/modules/_zoom-controls.scss */
+/* line 12, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_zoom-controls.scss */
 #zoom-label {
   font-size: 0.8em;
   line-height: 1em;
 }
 
-/* line 16, ../scss/modules/_zoom-controls.scss */
+/* line 16, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_zoom-controls.scss */
 .zoom-control {
   display: inline-block;
   background: #121212;
@@ -835,12 +835,12 @@ h1.project-title {
   margin-right: 2px;
 }
 
-/* line 25, ../scss/modules/_zoom-controls.scss */
+/* line 25, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_zoom-controls.scss */
 .zoom-control:hover {
   background: #3f3f3f;
 }
 
-/* line 28, ../scss/modules/_zoom-controls.scss */
+/* line 28, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_zoom-controls.scss */
 #zoom-1 {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -849,7 +849,7 @@ h1.project-title {
   border-radius: 3px;
 }
 
-/* line 31, ../scss/modules/_zoom-controls.scss */
+/* line 31, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_zoom-controls.scss */
 #zoom-2 {
   height: 20px;
   width: 20px;
@@ -860,7 +860,7 @@ h1.project-title {
   border-radius: 4px;
 }
 
-/* line 36, ../scss/modules/_zoom-controls.scss */
+/* line 36, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_zoom-controls.scss */
 #zoom-3 {
   height: 27px;
   width: 27px;
@@ -872,18 +872,18 @@ h1.project-title {
 }
 
 /* --------------- For trimming overflow text --------------- */
-/* line 2, ../scss/modules/_ellipsis.scss */
+/* line 2, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_ellipsis.scss */
 .ellipsis:before, .ellipsis:after, .ellipsis > * {
   opacity: 1;
 }
 
-/* line 5, ../scss/modules/_ellipsis.scss */
+/* line 5, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_ellipsis.scss */
 .ellipsis {
   overflow: hidden;
   height: 3.9em;
 }
 
-/* line 9, ../scss/modules/_ellipsis.scss */
+/* line 9, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_ellipsis.scss */
 .ellipsis:before {
   content: "";
   float: left;
@@ -892,7 +892,7 @@ h1.project-title {
   background: white;
 }
 
-/* line 16, ../scss/modules/_ellipsis.scss */
+/* line 16, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_ellipsis.scss */
 .ellipsis > *:first-child {
   float: right;
   width: 100%;
@@ -900,7 +900,7 @@ h1.project-title {
   background: white;
 }
 
-/* line 22, ../scss/modules/_ellipsis.scss */
+/* line 22, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_ellipsis.scss */
 .ellipsis:after {
   content: " ...";
   float: right;
@@ -914,7 +914,7 @@ h1.project-title {
 }
 
 /* --------------- Modals and Panels --------------- */
-/* line 2, ../scss/modules/_modal.scss */
+/* line 2, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_modal.scss */
 .modal, .panel {
   background: white;
   border: 1px solid #121212;
@@ -927,7 +927,7 @@ h1.project-title {
   left: 50%;
 }
 
-/* line 11, ../scss/modules/_modal.scss */
+/* line 11, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_modal.scss */
 .modal {
   -webkit-border-radius: 0.5em;
   -moz-border-radius: 0.5em;
@@ -936,7 +936,7 @@ h1.project-title {
   border-radius: 0.5em;
 }
 
-/* line 14, ../scss/modules/_modal.scss */
+/* line 14, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_modal.scss */
 .panel {
   border-bottom: 0;
   border-top: 0;
@@ -949,12 +949,12 @@ h1.project-title {
 }
 
 /* --------------- Modal arrows --------------- */
-/* line 26, ../scss/modules/_modal.scss */
+/* line 26, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_modal.scss */
 .modal-arrow {
   height: 0px;
 }
 
-/* line 29, ../scss/modules/_modal.scss */
+/* line 29, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_modal.scss */
 .modal-arrow:before, .modal-arrow:after {
   content: " ";
   height: 0;
@@ -963,7 +963,7 @@ h1.project-title {
   border: 15px solid transparent;
 }
 
-/* line 36, ../scss/modules/_modal.scss */
+/* line 36, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_modal.scss */
 .modal-arrow:before {
   z-index: 2;
   border-top-color: white;
@@ -971,7 +971,7 @@ h1.project-title {
   margin-top: 35px;
 }
 
-/* line 42, ../scss/modules/_modal.scss */
+/* line 42, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_modal.scss */
 .modal-arrow:after {
   z-index: 1;
   border-top-color: #3f3f3f;
@@ -980,19 +980,19 @@ h1.project-title {
 }
 
 /* --------------- Arrows for new node form states --------------- */
-/* line 49, ../scss/modules/_modal.scss */
+/* line 49, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_modal.scss */
 .is-short .modal-arrow:before {
   left: 95px;
   margin-top: 170px;
 }
 
-/* line 53, ../scss/modules/_modal.scss */
+/* line 53, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_modal.scss */
 .is-short .modal-arrow:after {
   left: 95px;
   margin-top: 172px;
 }
 
-/* line 57, ../scss/modules/_modal.scss */
+/* line 57, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_modal.scss */
 .is-long .modal-arrow:before {
   border-top-color: transparent;
   border-right-color: white;
@@ -1000,7 +1000,7 @@ h1.project-title {
   margin-top: 160px;
 }
 
-/* line 63, ../scss/modules/_modal.scss */
+/* line 63, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_modal.scss */
 .is-long .modal-arrow:after {
   border-top-color: transparent;
   border-right-color: #3f3f3f;
@@ -1009,7 +1009,7 @@ h1.project-title {
 }
 
 /* ----- Alert ----- */
-/* line 2, ../scss/modules/_alert.scss */
+/* line 2, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_alert.scss */
 .alert {
   width: 300px;
   margin-left: -150px;
@@ -1019,88 +1019,88 @@ h1.project-title {
   font-size: 0.85em;
 }
 
-/* line 10, ../scss/modules/_alert.scss */
+/* line 10, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_alert.scss */
 .alert-success {
   background: #e3ebd6;
 }
-/* line 12, ../scss/modules/_alert.scss */
+/* line 12, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_alert.scss */
 .alert-success a {
   color: #4b6a18;
 }
-/* line 15, ../scss/modules/_alert.scss */
+/* line 15, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_alert.scss */
 .alert-success a:hover {
   color: #121212;
 }
 
-/* line 20, ../scss/modules/_alert.scss */
+/* line 20, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_alert.scss */
 .alert-error {
   background: #eed5d4;
 }
-/* line 22, ../scss/modules/_alert.scss */
+/* line 22, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_alert.scss */
 .alert-error a {
   color: #ae2f2c;
 }
-/* line 25, ../scss/modules/_alert.scss */
+/* line 25, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_alert.scss */
 .alert-error a:hover {
   color: #121212;
 }
 
-/* line 29, ../scss/modules/_alert.scss */
+/* line 29, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_alert.scss */
 .alert-info {
   background: #d1ebf3;
 }
-/* line 31, ../scss/modules/_alert.scss */
+/* line 31, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_alert.scss */
 .alert-info a {
   color: #086989;
 }
-/* line 34, ../scss/modules/_alert.scss */
+/* line 34, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_alert.scss */
 .alert-info a:hover {
   color: #121212;
 }
 
 /* --------------- New node form --------------- */
-/* line 2, ../scss/modules/_new-node-form.scss */
+/* line 2, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 .modal.is-short {
   height: 185px;
   width: 230px;
 }
 
-/* line 6, ../scss/modules/_new-node-form.scss */
+/* line 6, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 .modal.is-long {
   width: 260px;
 }
 
-/* line 9, ../scss/modules/_new-node-form.scss */
+/* line 9, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 #new-node-thumb {
   display: inline-block;
   margin-right: .5em;
 }
 
-/* line 13, ../scss/modules/_new-node-form.scss */
+/* line 13, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 #new-node-form {
   display: inline-block;
   width: 100%;
   position: relative;
 }
 
-/* line 18, ../scss/modules/_new-node-form.scss */
+/* line 18, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 #new-node-cancel {
   line-height: 17px;
   position: absolute;
   right: 17px;
 }
 
-/* line 23, ../scss/modules/_new-node-form.scss */
+/* line 23, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 #new-node-cancel img {
   opacity: 0.5;
 }
 
-/* line 26, ../scss/modules/_new-node-form.scss */
+/* line 26, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 #new-node-cancel:hover img {
   opacity: 1;
 }
 
-/* line 36, ../scss/modules/_new-node-form.scss */
+/* line 36, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 input[type=text],
 input[type=url],
 input[type=tel],
@@ -1124,24 +1124,24 @@ textarea {
   margin-bottom: 0.5em;
 }
 
-/* line 45, ../scss/modules/_new-node-form.scss */
+/* line 45, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 input.disabled {
   opacity: 0.3;
 }
 
-/* line 48, ../scss/modules/_new-node-form.scss */
+/* line 48, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 #new-node-form-buttons {
   margin-top: .5em;
   vertical-align: top;
 }
 
-/* line 52, ../scss/modules/_new-node-form.scss */
+/* line 52, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 #new-node-more {
   display: inline-block;
   float: right;
 }
 
-/* line 56, ../scss/modules/_new-node-form.scss */
+/* line 56, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 .dark-background {
   background: #121212;
   -webkit-border-radius: 0.5em;
@@ -1165,18 +1165,18 @@ input.disabled {
   float: left;
 }
 
-/* line 72, ../scss/modules/_new-node-form.scss */
+/* line 72, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 .dark-background .icon-camera {
   margin-top: 10px;
 }
 
-/* line 75, ../scss/modules/_new-node-form.scss */
+/* line 75, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 .dark-background:hover, .dark-background:focus {
   background: #3f3f3f;
   text-decoration: none;
 }
 
-/* line 79, ../scss/modules/_new-node-form.scss */
+/* line 79, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 .icon-sketch {
   padding-top: 30px;
   background-image: url("../img/icon-sketch-sm.png");
@@ -1186,13 +1186,13 @@ input.disabled {
   padding-top: 14px;
 }
 
-/* line 87, ../scss/modules/_new-node-form.scss */
+/* line 87, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 .form-divider {
   margin-bottom: .5em;
 }
 
 /* --------------- State change for new node form --------------- */
-/* line 95, ../scss/modules/_new-node-form.scss */
+/* line 95, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 .is-short #new-node-form-desc,
 .is-short #new-node-form-url,
 .is-short #new-node-form-date,
@@ -1201,28 +1201,28 @@ input.disabled {
   display: none;
 }
 
-/* line 98, ../scss/modules/_new-node-form.scss */
+/* line 98, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 .is-long #new-node-more {
   display: none;
 }
 
-/* line 101, ../scss/modules/_new-node-form.scss */
+/* line 101, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 .is-long #new-node-form-submit {
   float: right;
 }
 
 /* --------------- Form validation with Parsley --------------- */
-/* line 106, ../scss/modules/_new-node-form.scss */
+/* line 106, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 .parsley-error {
   background: #ffe4e4;
 }
 
-/* line 109, ../scss/modules/_new-node-form.scss */
+/* line 109, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 .parsley-success {
   background: #e7ffe4;
 }
 
-/* line 112, ../scss/modules/_new-node-form.scss */
+/* line 112, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 .parsley-error-list {
   font-size: 0.7em;
   margin: -3em 0 1em 0.5em;
@@ -1243,31 +1243,31 @@ input.disabled {
   box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
 }
 
-/* line 125, ../scss/modules/_new-node-form.scss */
+/* line 125, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_new-node-form.scss */
 .parsley-error-list li {
   list-style: none;
 }
 
-/* ----- Sign Up Form ----- */
-/* line 3, ../scss/modules/_sign-up-form.scss */
-#sign-up-form {
+/* ----- Sign Up/In Form ----- */
+/* line 3, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_sign-up-form.scss */
+#sign-up-form, #sign-in-form {
   max-width: 300px;
 }
 
 /* --------------- Edit presentation reorder panel --------------- */
-/* line 2, ../scss/modules/_edit-presentation-reorder-panel.scss */
+/* line 2, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_edit-presentation-reorder-panel.scss */
 #edit-presentation-reorder h2 {
   font-size: 1.5em;
   margin: 0 0 0.5em;
 }
 
-/* line 6, ../scss/modules/_edit-presentation-reorder-panel.scss */
+/* line 6, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_edit-presentation-reorder-panel.scss */
 #edit-presentation-reorder-done {
   bottom: 15px;
   position: absolute;
 }
 
-/* line 10, ../scss/modules/_edit-presentation-reorder-panel.scss */
+/* line 10, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_edit-presentation-reorder-panel.scss */
 .reorder-node {
   border: 1px solid #e9e9e9;
   padding: 0.5em 1em;
@@ -1279,13 +1279,13 @@ input.disabled {
   margin-bottom: 0.5em;
 }
 
-/* line 16, ../scss/modules/_edit-presentation-reorder-panel.scss */
+/* line 16, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_edit-presentation-reorder-panel.scss */
 .reorder-node-title {
   display: inline-block;
   max-width: 90%;
 }
 
-/* line 20, ../scss/modules/_edit-presentation-reorder-panel.scss */
+/* line 20, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_edit-presentation-reorder-panel.scss */
 .icon-reorder {
   display: inline-block;
   float: right;
@@ -1293,18 +1293,18 @@ input.disabled {
 }
 
 /* -- Edit presentation node panel -- */
-/* line 2, ../scss/modules/_edit-presentation-node.scss */
+/* line 2, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_edit-presentation-node.scss */
 #edit-presentation-node-form {
   font-size: 1em;
   line-height: 1.2em;
 }
 
-/* line 6, ../scss/modules/_edit-presentation-node.scss */
+/* line 6, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_edit-presentation-node.scss */
 #edit-presentation-node-form-order {
   width: 3em;
 }
 
-/* line 9, ../scss/modules/_edit-presentation-node.scss */
+/* line 9, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_edit-presentation-node.scss */
 .edit-presentation-node-form-template-option {
   width: 20%;
   margin-right: 2%;
@@ -1315,45 +1315,45 @@ input.disabled {
   margin-top: 0.5em;
 }
 
-/* line 18, ../scss/modules/_edit-presentation-node.scss */
+/* line 18, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_edit-presentation-node.scss */
 .edit-presentation-node-form-template-option input {
   display: block;
   width: 100%;
 }
 
-/* line 22, ../scss/modules/_edit-presentation-node.scss */
+/* line 22, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_edit-presentation-node.scss */
 .form-row {
   margin-bottom: 1em;
 }
 
 /* ----- Presentation Footer ----- */
-/* line 2, ../scss/modules/_presentation-footer.scss */
+/* line 2, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_presentation-footer.scss */
 #presentation-exit {
   display: inline-block;
   float: right;
 }
 
-/* line 7, ../scss/modules/_presentation-footer.scss */
+/* line 7, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_presentation-footer.scss */
 #footer.presentation {
   bottom: 0;
   position: absolute;
   width: 100%;
 }
-/* line 12, ../scss/modules/_presentation-footer.scss */
+/* line 12, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_presentation-footer.scss */
 #footer.presentation a.clicker, #footer.presentation .clicker img {
   height: 25px;
   width: 25px;
   border-color: #121212;
 }
-/* line 17, ../scss/modules/_presentation-footer.scss */
+/* line 17, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_presentation-footer.scss */
 #footer.presentation .clicker img {
   vertical-align: top;
 }
-/* line 20, ../scss/modules/_presentation-footer.scss */
+/* line 20, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_presentation-footer.scss */
 #footer.presentation a.clicker:hover, #footer.presentation a.clicker:focus, #footer.presentation a.clicker:active {
   border-color: whitesmoke;
 }
-/* line 23, ../scss/modules/_presentation-footer.scss */
+/* line 23, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_presentation-footer.scss */
 #footer.presentation .click-nav ul li ul {
   bottom: 35px;
   left: auto;
@@ -1362,23 +1362,23 @@ input.disabled {
   top: auto;
   padding: 0.5em;
 }
-/* line 31, ../scss/modules/_presentation-footer.scss */
+/* line 31, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_presentation-footer.scss */
 #footer.presentation ul.dropdown {
   width: 700px;
 }
-/* line 34, ../scss/modules/_presentation-footer.scss */
+/* line 34, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_presentation-footer.scss */
 #footer.presentation ul.dropdown li {
   display: inline-block;
 }
-/* line 36, ../scss/modules/_presentation-footer.scss */
+/* line 36, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_presentation-footer.scss */
 #footer.presentation ul.dropdown li img {
   vertical-align: text-bottom;
 }
-/* line 40, ../scss/modules/_presentation-footer.scss */
+/* line 40, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_presentation-footer.scss */
 #footer.presentation ul.dropdown li:first-child {
   padding-top: 0em;
 }
-/* line 43, ../scss/modules/_presentation-footer.scss */
+/* line 43, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_presentation-footer.scss */
 #footer.presentation ul.dropdown li a {
   padding: 0.2em;
   background: transparent;
@@ -1388,54 +1388,54 @@ input.disabled {
   -o-border-radius: 0.25em;
   border-radius: 0.25em;
 }
-/* line 48, ../scss/modules/_presentation-footer.scss */
+/* line 48, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_presentation-footer.scss */
 #footer.presentation ul.dropdown li:last-child {
   padding-bottom: 0em;
 }
-/* line 51, ../scss/modules/_presentation-footer.scss */
+/* line 51, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_presentation-footer.scss */
 #footer.presentation ul.dropdown li a:hover, #footer.presentation ul.dropdown li a:focus, #footer.presentation ul.dropdown li a:active {
   background: #121212;
 }
 
 /* --------------- Node info modal --------------- */
-/* line 2, ../scss/modules/_node-info.scss */
+/* line 2, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_node-info.scss */
 .node-info {
   width: 190px;
 }
 
-/* line 5, ../scss/modules/_node-info.scss */
+/* line 5, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_node-info.scss */
 .node-info-title {
   font-weight: 600;
   margin: 0.75em 0;
   line-height: 1em;
 }
 
-/* line 10, ../scss/modules/_node-info.scss */
+/* line 10, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_node-info.scss */
 .node-info-type {
   margin-right: 5px;
 }
 
-/* line 13, ../scss/modules/_node-info.scss */
+/* line 13, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_node-info.scss */
 .node-info-desc {
   font-size: 0.8em;
   line-height: 1.3em;
   margin: 1em 0;
 }
 
-/* line 18, ../scss/modules/_node-info.scss */
+/* line 18, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_node-info.scss */
 .node-info-edit {
   padding: 0.3em 1em 0.5em 1em;
   float: left;
 }
 
-/* line 22, ../scss/modules/_node-info.scss */
+/* line 22, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_node-info.scss */
 .node-info-more {
   padding: 0.3em 21px 0.5em 1em;
   float: right;
 }
 
 /* ----- Project Tour ----- */
-/* line 2, ../scss/modules/_project-tour.scss */
+/* line 2, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_project-tour.scss */
 .project-tour {
   width: 300px;
   z-index: 100;
@@ -1443,19 +1443,19 @@ input.disabled {
   line-height: 1.4em;
 }
 
-/* line 8, ../scss/modules/_project-tour.scss */
+/* line 8, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_project-tour.scss */
 #project-tour-1 {
   margin-left: -150px;
   top: 40%;
 }
 
-/* line 13, ../scss/modules/_project-tour.scss */
+/* line 13, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_project-tour.scss */
 #project-tour-2 {
   left: 30px;
   top: 140px;
 }
 
-/* line 17, ../scss/modules/_project-tour.scss */
+/* line 17, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_project-tour.scss */
 #project-tour-2 .modal-arrow:before, #project-tour-3 .modal-arrow:before {
   border-top-color: transparent;
   border-bottom-color: white;
@@ -1463,7 +1463,7 @@ input.disabled {
   top: -63px;
 }
 
-/* line 23, ../scss/modules/_project-tour.scss */
+/* line 23, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_project-tour.scss */
 #project-tour-2 .modal-arrow:after, #project-tour-3 .modal-arrow:after {
   border-top-color: transparent;
   border-bottom-color: #3f3f3f;
@@ -1471,50 +1471,50 @@ input.disabled {
   top: -67px;
 }
 
-/* line 30, ../scss/modules/_project-tour.scss */
+/* line 30, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_project-tour.scss */
 #project-tour-3 {
   left: auto;
   right: 30px;
   top: 140px;
 }
 
-/* line 35, ../scss/modules/_project-tour.scss */
+/* line 35, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_project-tour.scss */
 #project-tour-3 .modal-arrow:before, #project-tour-3 .modal-arrow:after {
   right: 30px;
   left: auto;
 }
 
-/* line 40, ../scss/modules/_project-tour.scss */
+/* line 40, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_project-tour.scss */
 #project-tour-4 {
   margin-left: -150px;
   top: 20%;
 }
 
-/* line 44, ../scss/modules/_project-tour.scss */
+/* line 44, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_project-tour.scss */
 #project-tour-4 .modal-arrow:before, #project-tour-5 .modal-arrow:before, #project-tour-6 .modal-arrow:before {
   left: 130px;
   margin-top: 9px;
 }
 
-/* line 48, ../scss/modules/_project-tour.scss */
+/* line 48, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_project-tour.scss */
 #project-tour-4 .modal-arrow:after, #project-tour-5 .modal-arrow:after, #project-tour-6 .modal-arrow:after {
   left: 130px;
   margin-top: 11px;
 }
 
-/* line 53, ../scss/modules/_project-tour.scss */
+/* line 53, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_project-tour.scss */
 #project-tour-5 {
   margin-left: -150px;
   top: 55%;
 }
 
-/* line 57, ../scss/modules/_project-tour.scss */
+/* line 57, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_project-tour.scss */
 #project-tour-6 {
   margin-left: -150px;
   top: 75%;
 }
 
-/* line 62, ../scss/modules/_project-tour.scss */
+/* line 62, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_project-tour.scss */
 ul.project-tour-status {
   margin: 0;
   padding: 0;
@@ -1522,7 +1522,7 @@ ul.project-tour-status {
   float: left;
 }
 
-/* line 68, ../scss/modules/_project-tour.scss */
+/* line 68, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_project-tour.scss */
 ul.project-tour-status li {
   list-style-type: none;
   display: inline-block;
@@ -1530,7 +1530,7 @@ ul.project-tour-status li {
   padding: 0;
 }
 
-/* line 74, ../scss/modules/_project-tour.scss */
+/* line 74, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_project-tour.scss */
 ul.project-tour-status a {
   display: inline-block;
   -webkit-border-radius: 8px;
@@ -1544,24 +1544,24 @@ ul.project-tour-status a {
   border: 1px solid #3f3f3f;
 }
 
-/* line 82, ../scss/modules/_project-tour.scss */
+/* line 82, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_project-tour.scss */
 ul.project-tour-status a.active, ul.project-tour-status a:hover, ul.project-tour-status a:focus {
   background: #3f3f3f;
 }
 
-/* line 85, ../scss/modules/_project-tour.scss */
+/* line 85, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_project-tour.scss */
 .close {
   line-height: 11px;
   position: absolute;
   right: 11px;
 }
 
-/* line 90, ../scss/modules/_project-tour.scss */
+/* line 90, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_project-tour.scss */
 .close img {
   opacity: 0.5;
 }
 
-/* line 93, ../scss/modules/_project-tour.scss */
+/* line 93, /Applications/MAMP/htdocs/bc-prototype/scss/modules/_project-tour.scss */
 .close:hover img {
   opacity: 1;
 }
