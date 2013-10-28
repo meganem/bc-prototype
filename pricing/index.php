@@ -46,7 +46,7 @@ include $headerInclude;
                 	</div>
                     <div class="grid-4">
                     	<img src="<?php print $pathPrefix; ?>img/pricing-business.png" width="238" alt="" />
-                    	<h2>Business</h2>
+                    	<h2>Deluxe</h2>
                     	<p class="lead">$15/month</p>
                     	<p>Unlimited projects of any size<br>
                     		Customizeable project presentation styles<br>
