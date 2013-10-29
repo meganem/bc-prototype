@@ -17,6 +17,12 @@
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,400italic,300italic,600italic,700italic' rel='stylesheet' type='text/css'>
 
         <script src="<?php print $pathPrefix; ?>js/vendor/modernizr-2.6.2.min.js"></script>
+
+        <!--[if !IE 7]>
+            <style type="text/css">
+                #wrapper {display:table;height:100%}
+            </style>
+        <![endif]-->
     </head>
     <body class="<?php print $bodyclass; ?>">
 
@@ -68,4 +74,5 @@
                     <?php } ?>
                     </div>
                 </div>
-            </div>
+            </div><!-- End header -->
+            <div id="main">

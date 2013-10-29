@@ -1,4 +1,7 @@
 /* --------------- GENERAL STYLES --------------- */
+html, body {
+    height:100%;
+}
 
 body {
     font-family: "Open Sans", sans-serif;
@@ -6,6 +9,25 @@ body {
     background: $beige;
     color: $black;
     line-height: 1.75em;
+}
+
+/* Opera fix for sticky footer */
+/* body:before {
+    content:"";
+    height:100%;
+    float:left;
+    width:0;
+    margin-top:-32767px;
+} */
+
+
+#wrapper {
+    min-height:100%;
+}
+
+#main {
+    overflow:auto;
+    padding-bottom:90px;
 }
 
 /* --------------- Headers --------------- */
@@ -107,6 +129,7 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
     font-weight: 600;
 }
 
+/* ----- Footer logo and site title ----- */
 #footer .logo {
     margin-right: 0.25em;
 }
@@ -178,8 +201,11 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 /* --------------- FOOTER --------------- */
 
 #footer {
-    font-size: 0.8em;
+    position:relative;
+    margin-top:-90px;
+    height:90px;
     clear:both;
+    font-size: 0.8em;
 }
 #footer p {
     margin:0;
