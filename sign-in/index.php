@@ -22,7 +22,7 @@ include $headerInclude;
 	        <div class="container constrained light">
             	<h1>Sign In</h1>
             	<p class="small"><em>All fields are required.</em></p>
-            	<form id="sign-in-form" class="" data-validate="parsley" novalidate>
+            	<form id="sign-in-form" class="" data-validate="parsley" novalidate action="<?php print $pathPrefix; ?>dashboard" method="POST">
 					<input id="sign-in-form-username" name="username" type="text" placeholder="username" data-trigger="change focusout keyup" data-required="true" data-validation-minlength="3">
 					<input id="sign-in-form-password" name="password" type="password" placeholder="password" data-trigger="keyup" data-validation-minlength="4"  data-required="true" data-minlength="6" >
 					
