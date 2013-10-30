@@ -22,7 +22,16 @@ include $headerInclude;
 ?>
 
 	        <div class="container light">
-                    <h1>Dashboard</h1>
+                    <h1>My Dashboard</h1>
+                    <div class="row">
+	                    <div class="span8">
+	                    	main area with my profile, my projects
+	                    </div>
+	                    <div class="span4">
+	                    	sidebar with alerts and tips
+	                    </div>
+	                </div>
+                    
                     
             </div>
 
