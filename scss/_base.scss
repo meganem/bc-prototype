@@ -185,11 +185,17 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 
 .row {
     clear:both;
-
+    .span1 { @include span-columns(1,12); }
+    .span2 { @include span-columns(2,12); }
     .span3 { @include span-columns(3,12); }
     .span4 { @include span-columns(4,12); }
+    .span5 { @include span-columns(5,12); }
     .span6 { @include span-columns(6,12); }
+    .span7 { @include span-columns(7,12); }
     .span8 { @include span-columns(8,12); }
+    .span9 { @include span-columns(9,12); }
+    .span10 { @include span-columns(10,12); }
+    .span11 { @include span-columns(11,12); }
     div:last-child { margin-right:0; }
 }
 

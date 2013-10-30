@@ -249,41 +249,90 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 .row {
   clear: both;
 }
+/* line 188, ../scss/_base.scss */
+.row .span1 {
+  width: 6.77966%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+}
 /* line 189, ../scss/_base.scss */
+.row .span2 {
+  width: 15.25424%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+}
+/* line 190, ../scss/_base.scss */
 .row .span3 {
   width: 23.72881%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 190, ../scss/_base.scss */
+/* line 191, ../scss/_base.scss */
 .row .span4 {
   width: 32.20339%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 191, ../scss/_base.scss */
+/* line 192, ../scss/_base.scss */
+.row .span5 {
+  width: 40.67797%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+}
+/* line 193, ../scss/_base.scss */
 .row .span6 {
   width: 49.15254%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 192, ../scss/_base.scss */
+/* line 194, ../scss/_base.scss */
+.row .span7 {
+  width: 57.62712%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+}
+/* line 195, ../scss/_base.scss */
 .row .span8 {
   width: 66.10169%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 193, ../scss/_base.scss */
+/* line 196, ../scss/_base.scss */
+.row .span9 {
+  width: 74.57627%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+}
+/* line 197, ../scss/_base.scss */
+.row .span10 {
+  width: 83.05085%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+}
+/* line 198, ../scss/_base.scss */
+.row .span11 {
+  width: 91.52542%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+}
+/* line 199, ../scss/_base.scss */
 .row div:last-child {
   margin-right: 0;
 }
 
 /* --------------- FOOTER --------------- */
-/* line 198, ../scss/_base.scss */
+/* line 204, ../scss/_base.scss */
 #footer {
   position: relative;
   margin-top: -90px;
@@ -292,7 +341,7 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   font-size: 0.8em;
 }
 
-/* line 205, ../scss/_base.scss */
+/* line 211, ../scss/_base.scss */
 #footer p {
   margin: 0;
 }
