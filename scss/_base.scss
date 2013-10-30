@@ -145,9 +145,6 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 .hidden {
     display:none;
 }
-.row {
-    clear:both;
-}
 .align-center {
     text-align: center;
 }
@@ -186,16 +183,14 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
     clear:both;
 }
 
-/* --------------- HEADER --------------- */
+.row {
+    clear:both;
 
-#header {
-
-}
-
-/* --------------- CONTENT --------------- */
-
-#content {
-
+    .span3 { @include span-columns(3,12); }
+    .span4 { @include span-columns(4,12); }
+    .span6 { @include span-columns(6,12); }
+    .span8 { @include span-columns(8,12); }
+    div:last-child { margin-right:0; }
 }
 
 /* --------------- FOOTER --------------- */
