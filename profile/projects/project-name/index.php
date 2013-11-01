@@ -63,6 +63,11 @@ include $headerInclude;
 <!-- New node form -->
 <div id="new-node" class="modal is-short hidden">
      <div class="modal-arrow"></div>
+     <img id="testimage" />
+     <form name="Upload" action="#" enctype="multipart/form-data" method="post">
+   <p>Filename: <INPUT type="file" name="submitfile" id = "submitfile" />
+   <INPUT type="button" value="Send" onClick="uploadImage();" />
+   </form>
     <div id="new-node-cancel">
         <a class="" href="#">
             <img class="icon-cancel" src="<?php print $pathPrefix; ?>img/icon-cancel.png" alt="Cancel" width="17" height="17" />
@@ -90,7 +95,7 @@ include $headerInclude;
         <input id="new-node-form-tags" name="node-tags" type="text" placeholder="Tag it, comma separated" data-trigger="keyup" data-notblank="true">
         <div id="new-node-form-buttons">
             <input id="new-node-delete" class="button red" type="button" value="delete">
-            <input id="new-node-form-submit" class="button green" type="button" onclick="validateParsley()" value="done">
+            <input id="new-node-form-submit" class="button green" type="button" onclick="validateParsley();" value="done">
             <input id="new-node-more" class="button purple more-link" onclick="newNodeFormExpand();" type="button" value="more">
         </div>
     </form>

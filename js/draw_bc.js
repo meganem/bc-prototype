@@ -243,7 +243,7 @@ function drawBC(nodeData,linkData) {
     if(d.imgUrl) {
     if (d.imgUrl.length > 2) {
     d3.select(this)
-    .append("img").attr("src", "../../../img/example/zoom2/" + d.imgUrl)
+    .append("img").attr("src", d.imgUrl.substr(0,10) == "data:image" ? d.imgUrl : "../../../img/example/zoom2/" + d.imgUrl)
     .style("opacity", 1);
     d3.select(this).append("div")
     .attr("class", "text below")
@@ -288,7 +288,7 @@ function drawBC(nodeData,linkData) {
 	if(d.imgUrl) {
     if (d.imgUrl.length > 2) {
     d3.select(this)
-    .append("img").attr("src", "../../../img/example/zoom3/" + d.imgUrl)
+    .append("img").attr("src", d.imgUrl.substr(0,10) == "data:image" ? d.imgUrl : "../../../img/example/zoom3/" + d.imgUrl)
     }
     }
     });
@@ -525,13 +525,15 @@ function startMove(d,i) {
 }
 
 function populatePopup(incNode) {
-    d3.select("#node-popup > .node-info-image > img").style("display", incNode.imgUrl.length > 2 ? "block" : "none").attr("src", "../../../img/example/zoom3/" + incNode.imgUrl)
+    d3.select("#node-popup > .node-info-image > img").style("display", incNode.imgUrl.length > 2 ? "block" : "none")
+    .attr("src", incNode.imgUrl.substr(0,10) == "data:image" ? incNode.imgUrl : "../../../img/example/zoom3/" + incNode.imgUrl)
     d3.select("#node-popup > .node-info-title").html(function(d) {return "<img class='node-info-type' src='../../../img/icon-"+incNode.kind.toLowerCase() +"-sm.png' />" + incNode.title})
     d3.select("#node-popup > .node-info-desc").html(function(d) {return incNode.summary})
 }
 
 function populateMorePanel(incNode) {
-    d3.select("#morePanel > .node-info-image > img").style("display", incNode.imgUrl.length > 2 ? "block" : "none").attr("src", "../../../img/example/zoom3/" + incNode.imgUrl)
+    d3.select("#morePanel > .node-info-image > img").style("display", incNode.imgUrl.length > 2 ? "block" : "none")
+    .attr("src", incNode.imgUrl.substr(0,10) == "data:image" ? incNode.imgUrl : "../../../img/example/zoom3/" + incNode.imgUrl)
     d3.select("#morePanel > .node-info-title").html(function(d) {return "<img class='node-info-type' src='../../../img/icon-"+incNode.kind.toLowerCase() +"-sm.png' />" + incNode.title})
     d3.select("#morePanel > .node-info-desc").html(function(d) {return incNode.summary})    
 }
@@ -717,6 +719,7 @@ function createNewNode(d,i) {
     row: -0.5,
     column: 0,
     isMeta: false,
+    imgUrl: '',
     evolvedFrom: ""}
     
     if (forBack > 0) {
@@ -761,6 +764,7 @@ function createNewNode(d,i) {
     .attr("d", function(d) {return curvyLine([x1GenLine, y1GenLine],[(newNode.column * columnSize), ((newNode.row * rowSize))])});
     
     testLayout.nodes().push(newNode)
+    updatingNode = newNode;
     newNodeArray = testLayout.nodes().filter(function(el) {return el.isMeta ? null : this});
     
     if (d3.select("#project-tour-5").classed("hidden") == false) {
@@ -1065,29 +1069,51 @@ function tutorial(nextPart) {
         d3.select("#bloomViz").insert("div", "#project-tour-1").attr("id","disabledDiv").style("height","100%").style("width","100%").style("background","red").style("position","absolute").style("top","0").style("z-index","2").style("opacity",0);
 	d3.selectAll("g.sec").style("opacity", 0);
     }
+    
     d3.selectAll(".project-tour").classed("hidden", true)
     d3.select("#project-tour-" + nextPart).classed("hidden", false)
+}
 
-    if (nextPart == 5) {
-	d3.selectAll("g.sec").transition().duration(1000).style("opacity", 1);
+function uploadImage() {
+    
+        reader = new FileReader();
+        reader.onloadend = function() {
+	    console.log(JSON.stringify(updatingNode))
+            document.getElementById("testimage").src = reader.result;
+	    updatingNode.imgUrl = reader.result;
+	    console.log(JSON.stringify(updatingNode))
+        }
+    	file = document.getElementById("submitfile").files[0];
+        reader.readAsDataURL(file);
+	
+}
+
+function createFirstNode() {
+        d3.selectAll(".project-tour").classed("hidden", true)
+
+    	d3.selectAll("g.sec").transition().duration(1000).style("opacity", 1);
 	d3.select("#disabledDiv").remove();
-    }
+
+    nodeDetailsDialog(d3.select("g.sec"));
+    updatingNode = testLayout.nodes()[0];
 }
 
 function validateParsley() {
     var formValid = $( '#new-node-form' ).parsley( 'isValid' );
+    document.getElementById("new-node-form").focus();
     if(formValid) {
 	d3.select("#new-node").classed("hidden", true)
-	console.log(document.getElementById("new-node-form-title").value);
-	console.log(document.getElementById("new-node-form-desc").value);
-	console.log(document.getElementById("new-node-form-url").value);
-	console.log(document.getElementById("new-node-form-date").value);
-	console.log(document.getElementById("new-node-form-tags").value);
+	updatingNode.title = document.getElementById("new-node-form-title").value;
+	updatingNode.summary = document.getElementById("new-node-form-desc").value;
+	updatingNode.webUrl = document.getElementById("new-node-form-url").value;
+	updatingNode.timestamp = document.getElementById("new-node-form-date").value;
+	updatingNode.tags = document.getElementById("new-node-form-tags").value;
 	
 	d3.selectAll(".parsley-validated").property("value", "")
     }
     else {
 	console.log("Form is invalid")
     }
+    
     return false;
 }
