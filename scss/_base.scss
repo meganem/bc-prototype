@@ -78,6 +78,7 @@ img {
 }
 .small {
     font-size: 0.8em;
+    line-height: 1.5em;
 }
 
 /* --------------- Lists --------------- */
@@ -159,12 +160,20 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 .grid-4:last-child {
     margin-right:0;
 }
+
 .divider {
     clear:both;
     border-top: 1px solid $gray-light;
     margin-bottom: 0.5em;
     margin-top: 0.5em;
+    padding-top:1em;
 }
+.divider:last-of-type {
+    border-bottom: 1px solid $gray-light;
+    padding-bottom:0.5em;
+}
+
+
 .float-left {
     float:left;
     img {
@@ -185,6 +194,7 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 
 .row {
     clear:both;
+    overflow:hidden;
     .span1 { @include span-columns(1,12); }
     .span2 { @include span-columns(2,12); }
     .span3 { @include span-columns(3,12); }

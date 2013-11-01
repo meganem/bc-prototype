@@ -98,30 +98,31 @@ img {
 /* line 79, ../scss/_base.scss */
 .small {
   font-size: 0.8em;
+  line-height: 1.5em;
 }
 
 /* --------------- Lists --------------- */
-/* line 84, ../scss/_base.scss */
+/* line 85, ../scss/_base.scss */
 ul li {
   list-style-type: square;
 }
 
 /* --------------- Links --------------- */
-/* line 89, ../scss/_base.scss */
+/* line 90, ../scss/_base.scss */
 a {
   text-decoration: none;
   color: #b38c14;
   font-weight: 600;
 }
 
-/* line 94, ../scss/_base.scss */
+/* line 95, ../scss/_base.scss */
 a:hover, a:focus {
   text-decoration: underline;
   position: relative;
 }
 
 /* --------------- Tooltips on links --------------- */
-/* line 100, ../scss/_base.scss */
+/* line 101, ../scss/_base.scss */
 a[data-title]:hover:after {
   content: attr(data-title);
   color: #121212;
@@ -144,23 +145,23 @@ a[data-title]:hover:after {
 }
 
 /* --------------- Logo and Site Title --------------- */
-/* line 116, ../scss/_base.scss */
+/* line 117, ../scss/_base.scss */
 .logo, .site-title {
   display: inline-block;
 }
 
-/* line 119, ../scss/_base.scss */
+/* line 120, ../scss/_base.scss */
 .logo {
   margin-right: 0.5em;
   vertical-align: super;
 }
 
-/* line 123, ../scss/_base.scss */
+/* line 124, ../scss/_base.scss */
 a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   text-decoration: none;
 }
 
-/* line 126, ../scss/_base.scss */
+/* line 127, ../scss/_base.scss */
 .site-title {
   color: white;
   font-size: 1.5em;
@@ -168,34 +169,34 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 }
 
 /* ----- Footer logo and site title ----- */
-/* line 133, ../scss/_base.scss */
+/* line 134, ../scss/_base.scss */
 #footer .logo {
   margin-right: 0.25em;
 }
 
-/* line 136, ../scss/_base.scss */
+/* line 137, ../scss/_base.scss */
 #footer .logo img {
   height: auto;
   width: 25px;
 }
 
-/* line 140, ../scss/_base.scss */
+/* line 141, ../scss/_base.scss */
 #footer .site-title {
   font-size: 1.2em;
 }
 
 /* --------------- Display and positioning helper classes --------------- */
-/* line 145, ../scss/_base.scss */
+/* line 146, ../scss/_base.scss */
 .hidden {
   display: none;
 }
 
-/* line 148, ../scss/_base.scss */
+/* line 149, ../scss/_base.scss */
 .align-center {
   text-align: center;
 }
 
-/* line 151, ../scss/_base.scss */
+/* line 152, ../scss/_base.scss */
 .grid-4 {
   width: 30%;
   display: inline-block;
@@ -207,132 +208,140 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   box-sizing: border-box;
 }
 
-/* line 159, ../scss/_base.scss */
+/* line 160, ../scss/_base.scss */
 .grid-4:last-child {
   margin-right: 0;
 }
 
-/* line 162, ../scss/_base.scss */
+/* line 164, ../scss/_base.scss */
 .divider {
   clear: both;
   border-top: 1px solid #e9e9e9;
   margin-bottom: 0.5em;
   margin-top: 0.5em;
+  padding-top: 1em;
 }
 
-/* line 168, ../scss/_base.scss */
+/* line 171, ../scss/_base.scss */
+.divider:last-of-type {
+  border-bottom: 1px solid #e9e9e9;
+  padding-bottom: 0.5em;
+}
+
+/* line 177, ../scss/_base.scss */
 .float-left {
   float: left;
 }
-/* line 170, ../scss/_base.scss */
+/* line 179, ../scss/_base.scss */
 .float-left img {
   margin-right: 1em;
   margin-bottom: 1em;
 }
 
-/* line 175, ../scss/_base.scss */
+/* line 184, ../scss/_base.scss */
 .float-right {
   float: right;
 }
-/* line 177, ../scss/_base.scss */
+/* line 186, ../scss/_base.scss */
 .float-right img {
   margin-left: 1em;
   margin-bottom: 1em;
 }
 
-/* line 182, ../scss/_base.scss */
+/* line 191, ../scss/_base.scss */
 .clear-both {
   clear: both;
 }
 
-/* line 186, ../scss/_base.scss */
+/* line 195, ../scss/_base.scss */
 .row {
   clear: both;
+  overflow: hidden;
 }
-/* line 188, ../scss/_base.scss */
+/* line 198, ../scss/_base.scss */
 .row .span1 {
   width: 6.77966%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 189, ../scss/_base.scss */
+/* line 199, ../scss/_base.scss */
 .row .span2 {
   width: 15.25424%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 190, ../scss/_base.scss */
+/* line 200, ../scss/_base.scss */
 .row .span3 {
   width: 23.72881%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 191, ../scss/_base.scss */
+/* line 201, ../scss/_base.scss */
 .row .span4 {
   width: 32.20339%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 192, ../scss/_base.scss */
+/* line 202, ../scss/_base.scss */
 .row .span5 {
   width: 40.67797%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 193, ../scss/_base.scss */
+/* line 203, ../scss/_base.scss */
 .row .span6 {
   width: 49.15254%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 194, ../scss/_base.scss */
+/* line 204, ../scss/_base.scss */
 .row .span7 {
   width: 57.62712%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 195, ../scss/_base.scss */
+/* line 205, ../scss/_base.scss */
 .row .span8 {
   width: 66.10169%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 196, ../scss/_base.scss */
+/* line 206, ../scss/_base.scss */
 .row .span9 {
   width: 74.57627%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 197, ../scss/_base.scss */
+/* line 207, ../scss/_base.scss */
 .row .span10 {
   width: 83.05085%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 198, ../scss/_base.scss */
+/* line 208, ../scss/_base.scss */
 .row .span11 {
   width: 91.52542%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 199, ../scss/_base.scss */
+/* line 209, ../scss/_base.scss */
 .row div:last-child {
   margin-right: 0;
 }
 
 /* --------------- FOOTER --------------- */
-/* line 204, ../scss/_base.scss */
+/* line 214, ../scss/_base.scss */
 #footer {
   position: relative;
   margin-top: -90px;
@@ -341,7 +350,7 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   font-size: 0.8em;
 }
 
-/* line 211, ../scss/_base.scss */
+/* line 221, ../scss/_base.scss */
 #footer p {
   margin: 0;
 }
@@ -1539,6 +1548,28 @@ input.disabled {
 .node-info-more {
   padding: 0.3em 21px 0.5em 1em;
   float: right;
+}
+
+/* ----- Dashboard ----- */
+/* line 2, ../scss/modules/_dashboard.scss */
+.compact p {
+  margin: 0 0 0.5em 0;
+}
+
+/* line 5, ../scss/modules/_dashboard.scss */
+.compact h3 {
+  margin: 0;
+}
+
+/* line 10, ../scss/modules/_dashboard.scss */
+.dashboard h1 {
+  display: none;
+}
+
+/* line 12, ../scss/modules/_dashboard.scss */
+.project-updated-date {
+  font-style: italic;
+  color: #086989;
 }
 
 /* ----- Project Tour ----- */
