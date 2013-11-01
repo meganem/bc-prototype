@@ -66,7 +66,7 @@ include $headerInclude;
                 <div class="light" id="aboveLayer">
                 </div>
 
-		<!-- New node form -->
+<!-- New node form -->
 <div id="new-node" class="modal is-short hidden">
      <div class="modal-arrow"></div>
     <div id="new-node-cancel">
@@ -96,12 +96,37 @@ include $headerInclude;
         <input id="new-node-form-tags" name="node-tags" type="text" placeholder="Tag it, comma separated" data-trigger="keyup" data-notblank="true">
         <div id="new-node-form-buttons">
             <input id="new-node-delete" class="button red" type="button" value="delete">
-            <input id="new-node-form-submit" class="button green disabled" type="submit" value="done">
+            <input id="new-node-form-submit" class="button green" type="button" onclick="validateParsley();" value="done">
             <input id="new-node-more" class="button purple more-link" onclick="newNodeFormExpand();" type="button" value="more">
         </div>
     </form>
+         <img id="testimage" />
+     <form name="Upload" action="#" enctype="multipart/form-data" method="post">
+   <p>Filename: <INPUT type="file" name="submitfile" id = "submitfile" />
+   <INPUT type="button" value="Send" onClick="uploadImage();" />
+   </form>
+
 </div>
-		
+
+<!-- Cards at zoom level 3 -->
+<div id="node-popup" class="modal node-info hidden">
+    <div class="node-info-image">
+        <img class="" src="<?php print $pathPrefix; ?>img/node-thumb-popup.png" alt="" width="156" height="94" />
+    </div>
+    <div class="node-info-title">
+        <img class="node-info-type" src="<?php print $pathPrefix; ?>img/icon-idea-sm.png" alt="" width="20" height="20" /> 
+        A big idea that took some thought
+    </div>
+    <div class="node-info-desc ellipsis">
+        <div>My big idea is to create a website to showcase funny cats. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas faucibus mollis interdum. Donec id elit non mi porta gravida at eget metus.</div>
+    </div>
+    <div class="node-info-buttons">
+        <a class="node-info-edit button blue" href="#">edit</a>
+        <a class="node-info-more button purple more-link" href="#">more</a>
+    </div>
+    <div class="modal-arrow"></div>
+</div>
+
 		<!-- Example side panel when you have a node selected and then click "more" -->
 <div class="panel hidden" id="morePanel">
     <div id="node-info-image">
@@ -151,7 +176,7 @@ include $headerInclude;
 		<li><a href="#"></a></li>
 		<li><a href="#" class="active"></a></li>
 	</ul>
-	<a onclick="tutorial(5)" class="button blue">Let's do it!</a>
+	<a onclick="createFirstNode()" class="button blue">Let's do it!</a>
 	<div class="modal-arrow"></div>
 </div>
 
