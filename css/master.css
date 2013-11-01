@@ -1454,22 +1454,23 @@ input.disabled {
   bottom: 0;
   position: absolute;
   width: 100%;
+  height: auto;
 }
-/* line 12, ../scss/modules/_presentation-footer.scss */
+/* line 13, ../scss/modules/_presentation-footer.scss */
 #footer.presentation a.clicker, #footer.presentation .clicker img {
   height: 25px;
   width: 25px;
   border-color: #121212;
 }
-/* line 17, ../scss/modules/_presentation-footer.scss */
+/* line 18, ../scss/modules/_presentation-footer.scss */
 #footer.presentation .clicker img {
   vertical-align: top;
 }
-/* line 20, ../scss/modules/_presentation-footer.scss */
+/* line 21, ../scss/modules/_presentation-footer.scss */
 #footer.presentation a.clicker:hover, #footer.presentation a.clicker:focus, #footer.presentation a.clicker:active {
   border-color: whitesmoke;
 }
-/* line 23, ../scss/modules/_presentation-footer.scss */
+/* line 24, ../scss/modules/_presentation-footer.scss */
 #footer.presentation .click-nav ul li ul {
   bottom: 35px;
   left: auto;
@@ -1478,23 +1479,23 @@ input.disabled {
   top: auto;
   padding: 0.5em;
 }
-/* line 31, ../scss/modules/_presentation-footer.scss */
+/* line 32, ../scss/modules/_presentation-footer.scss */
 #footer.presentation ul.dropdown {
   width: 700px;
 }
-/* line 34, ../scss/modules/_presentation-footer.scss */
+/* line 35, ../scss/modules/_presentation-footer.scss */
 #footer.presentation ul.dropdown li {
   display: inline-block;
 }
-/* line 36, ../scss/modules/_presentation-footer.scss */
+/* line 37, ../scss/modules/_presentation-footer.scss */
 #footer.presentation ul.dropdown li img {
   vertical-align: text-bottom;
 }
-/* line 40, ../scss/modules/_presentation-footer.scss */
+/* line 41, ../scss/modules/_presentation-footer.scss */
 #footer.presentation ul.dropdown li:first-child {
   padding-top: 0em;
 }
-/* line 43, ../scss/modules/_presentation-footer.scss */
+/* line 44, ../scss/modules/_presentation-footer.scss */
 #footer.presentation ul.dropdown li a {
   padding: 0.2em;
   background: transparent;
@@ -1504,11 +1505,11 @@ input.disabled {
   -o-border-radius: 0.25em;
   border-radius: 0.25em;
 }
-/* line 48, ../scss/modules/_presentation-footer.scss */
+/* line 49, ../scss/modules/_presentation-footer.scss */
 #footer.presentation ul.dropdown li:last-child {
   padding-bottom: 0em;
 }
-/* line 51, ../scss/modules/_presentation-footer.scss */
+/* line 52, ../scss/modules/_presentation-footer.scss */
 #footer.presentation ul.dropdown li a:hover, #footer.presentation ul.dropdown li a:focus, #footer.presentation ul.dropdown li a:active {
   background: #121212;
 }
