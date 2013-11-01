@@ -21,8 +21,14 @@ $footerInclude = $pathPrefix . "parts/footer-presentation.php";
 include $headerInclude; 
 ?>
 
-	<div class="light container">		
-		<p>Presentation page will go here, with custom footer.</p>
+	<div class="slide-template slide-template-full-image">
+		<img class="full-image" src="<?php print $pathPrefix; ?>img/image-big.jpg" />
+		<div class="slide-overlay">
+			<div class="slide-type">
+				<img src="<?php print $pathPrefix; ?>img/icon-idea-sm.png" width="70" height="70" alt="idea" />
+			</div>
+			<div class="slide-title">Idea will go here</div>
+		</div>
 	</div>
 
 <?php 
