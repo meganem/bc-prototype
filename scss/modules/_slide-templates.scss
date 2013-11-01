@@ -1,0 +1,44 @@
+/* ----- Slide Templates ----- */
+
+.full-image {
+	min-height: 100%;
+	min-width: 100%;
+	height: auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index:-10;
+	max-width:none;
+}
+
+@media screen and (max-width: 1200px) { 
+  .full-image {
+    left: 30%;
+    margin-left: -600px;
+  }
+}
+@media screen and (max-width: 600px) { 
+  .full-image {
+    left: 50%;
+  }
+}
+
+.slide-overlay {
+	background:$black;
+	bottom: 25%;
+    color: $white;
+    max-width: 60%;
+    padding: 2em;
+    position: fixed;
+}
+.slide-type {
+	float:left;
+	margin-right: 1em;
+	position:absolute;
+}
+.slide-title {
+	font-size: 4em;
+    font-weight: 300;
+    line-height: 1.2em;
+    padding-left: 100px;
+}

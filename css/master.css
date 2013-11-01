@@ -1572,6 +1572,57 @@ input.disabled {
   color: #086989;
 }
 
+/* ----- Slide Templates ----- */
+/* line 3, ../scss/modules/_slide-templates.scss */
+.full-image {
+  min-height: 100%;
+  min-width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  max-width: none;
+}
+
+@media screen and (max-width: 1200px) {
+  /* line 15, ../scss/modules/_slide-templates.scss */
+  .full-image {
+    left: 30%;
+    margin-left: -600px;
+  }
+}
+@media screen and (max-width: 600px) {
+  /* line 21, ../scss/modules/_slide-templates.scss */
+  .full-image {
+    left: 50%;
+  }
+}
+/* line 26, ../scss/modules/_slide-templates.scss */
+.slide-overlay {
+  background: #121212;
+  bottom: 25%;
+  color: white;
+  max-width: 60%;
+  padding: 2em;
+  position: fixed;
+}
+
+/* line 34, ../scss/modules/_slide-templates.scss */
+.slide-type {
+  float: left;
+  margin-right: 1em;
+  position: absolute;
+}
+
+/* line 39, ../scss/modules/_slide-templates.scss */
+.slide-title {
+  font-size: 4em;
+  font-weight: 300;
+  line-height: 1.2em;
+  padding-left: 100px;
+}
+
 /* ----- Project Tour ----- */
 /* line 2, ../scss/modules/_project-tour.scss */
 .project-tour {
