@@ -25,7 +25,7 @@ include $headerInclude;
 		<img class="full-image" src="<?php print $pathPrefix; ?>img/image-big.jpg" />
 		<div class="slide-overlay">
 			<div class="slide-type">
-				<img src="<?php print $pathPrefix; ?>img/icon-idea-sm.png" width="70" height="70" alt="idea" />
+				<img src="<?php print $pathPrefix; ?>img/icon-idea-lg.png" width="70" height="70" alt="idea" />
 			</div>
 			<div class="slide-title">Idea will go here</div>
 		</div>
