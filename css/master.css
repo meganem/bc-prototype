@@ -1585,20 +1585,7 @@ input.disabled {
   max-width: none;
 }
 
-@media screen and (max-width: 1200px) {
-  /* line 15, ../scss/modules/_slide-templates.scss */
-  .full-image {
-    left: 30%;
-    margin-left: -600px;
-  }
-}
-@media screen and (max-width: 600px) {
-  /* line 21, ../scss/modules/_slide-templates.scss */
-  .full-image {
-    left: 50%;
-  }
-}
-/* line 26, ../scss/modules/_slide-templates.scss */
+/* line 13, ../scss/modules/_slide-templates.scss */
 .slide-overlay {
   background: #121212;
   bottom: 25%;
@@ -1608,14 +1595,14 @@ input.disabled {
   position: fixed;
 }
 
-/* line 34, ../scss/modules/_slide-templates.scss */
+/* line 21, ../scss/modules/_slide-templates.scss */
 .slide-type {
   float: left;
   margin-right: 1em;
   position: absolute;
 }
 
-/* line 39, ../scss/modules/_slide-templates.scss */
+/* line 26, ../scss/modules/_slide-templates.scss */
 .slide-title {
   font-size: 4em;
   font-weight: 300;
@@ -1623,6 +1610,36 @@ input.disabled {
   padding-left: 100px;
 }
 
+@media screen and (max-width: 1200px) {
+  /* line 34, ../scss/modules/_slide-templates.scss */
+  .full-image {
+    left: 30%;
+    margin-left: -600px;
+  }
+}
+@media screen and (max-width: 600px) {
+  /* line 40, ../scss/modules/_slide-templates.scss */
+  .slide-overlay {
+    padding: 1em;
+  }
+
+  /* line 43, ../scss/modules/_slide-templates.scss */
+  .full-image {
+    left: 50%;
+  }
+
+  /* line 46, ../scss/modules/_slide-templates.scss */
+  .slide-title {
+    font-size: 2em;
+    padding-left: 60px;
+  }
+
+  /* line 50, ../scss/modules/_slide-templates.scss */
+  .slide-type img {
+    width: 40px;
+    height: 40px;
+  }
+}
 /* ----- Project Tour ----- */
 /* line 2, ../scss/modules/_project-tour.scss */
 .project-tour {
