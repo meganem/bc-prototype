@@ -1030,22 +1030,15 @@ h1.project-title {
   background: white;
 }
 
-/* --------------- Modals and Panels --------------- */
+/* --------------- Wells, Modals, and Panels --------------- */
 /* line 2, ../scss/modules/_modal.scss */
-.modal, .panel {
+.well, .modal, .panel {
   background: white;
   border: 1px solid #121212;
   padding: 0.7em 1em;
-  display: block;
-  position: absolute;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  left: 50%;
-}
-
-/* line 11, ../scss/modules/_modal.scss */
-.modal {
   -webkit-border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   -ms-border-radius: 0.5em;
@@ -1053,8 +1046,20 @@ h1.project-title {
   border-radius: 0.5em;
 }
 
-/* line 14, ../scss/modules/_modal.scss */
+/* line 9, ../scss/modules/_modal.scss */
+.modal, .panel {
+  display: block;
+  position: absolute;
+  left: 50%;
+}
+
+/* line 15, ../scss/modules/_modal.scss */
 .panel {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
   border-bottom: 0;
   border-top: 0;
   height: 100%;
@@ -1065,13 +1070,18 @@ h1.project-title {
   z-index: 20;
 }
 
+/* line 27, ../scss/modules/_modal.scss */
+.well h2:first-child, .modal h2:first-child, .panel h2:first-child, .well h3:first-child, .modal h3:first-child, .panel h3:first-child {
+  margin-top: 0;
+}
+
 /* --------------- Modal arrows --------------- */
-/* line 26, ../scss/modules/_modal.scss */
+/* line 32, ../scss/modules/_modal.scss */
 .modal-arrow {
   height: 0px;
 }
 
-/* line 29, ../scss/modules/_modal.scss */
+/* line 35, ../scss/modules/_modal.scss */
 .modal-arrow:before, .modal-arrow:after {
   content: " ";
   height: 0;
@@ -1080,7 +1090,7 @@ h1.project-title {
   border: 15px solid transparent;
 }
 
-/* line 36, ../scss/modules/_modal.scss */
+/* line 42, ../scss/modules/_modal.scss */
 .modal-arrow:before {
   z-index: 2;
   border-top-color: white;
@@ -1088,7 +1098,7 @@ h1.project-title {
   margin-top: 35px;
 }
 
-/* line 42, ../scss/modules/_modal.scss */
+/* line 48, ../scss/modules/_modal.scss */
 .modal-arrow:after {
   z-index: 1;
   border-top-color: #3f3f3f;
@@ -1097,19 +1107,19 @@ h1.project-title {
 }
 
 /* --------------- Arrows for new node form states --------------- */
-/* line 49, ../scss/modules/_modal.scss */
+/* line 55, ../scss/modules/_modal.scss */
 .is-short .modal-arrow:before {
   left: 95px;
   margin-top: 170px;
 }
 
-/* line 53, ../scss/modules/_modal.scss */
+/* line 59, ../scss/modules/_modal.scss */
 .is-short .modal-arrow:after {
   left: 95px;
   margin-top: 172px;
 }
 
-/* line 57, ../scss/modules/_modal.scss */
+/* line 63, ../scss/modules/_modal.scss */
 .is-long .modal-arrow:before {
   border-top-color: transparent;
   border-right-color: white;
@@ -1117,7 +1127,7 @@ h1.project-title {
   margin-top: 160px;
 }
 
-/* line 63, ../scss/modules/_modal.scss */
+/* line 69, ../scss/modules/_modal.scss */
 .is-long .modal-arrow:after {
   border-top-color: transparent;
   border-right-color: #3f3f3f;

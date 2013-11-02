@@ -1,17 +1,19 @@
-/* --------------- Modals and Panels --------------- */
-.modal, .panel {
+/* --------------- Wells, Modals, and Panels --------------- */
+.well {
     background: $white;
     border:1px solid $black;
     padding: 0.7em 1em;
-    display: block;
-    position:absolute;
     @include box-sizing(border-box);
-    left: 50%;
-}
-.modal {
     @include border-radius(0.5em);
 }
+.modal, .panel {
+    @extend .well;
+    display: block;
+    position:absolute;
+    left: 50%;
+}
 .panel {
+    @include border-radius(0);
     border-bottom: 0;
     border-top: 0;
     height: 100%;
@@ -20,6 +22,10 @@
     top: 0;
     width: 380px;
     z-index: 20;
+}
+
+.well h2:first-child, .well h3:first-child {
+    margin-top:0;
 }
 
 /* --------------- Modal arrows --------------- */
