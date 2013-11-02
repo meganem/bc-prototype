@@ -1612,7 +1612,7 @@ input.disabled {
 }
 
 /* line 34, ../scss/modules/_slide-templates.scss */
-.slide-template-half-image .slide-overlay {
+.slide-template-half-image .slide-overlay, .slide-template-half-map .slide-overlay {
   bottom: 0;
   max-width: 50%;
   right: 0;
@@ -1622,70 +1622,107 @@ input.disabled {
   box-sizing: border-box;
 }
 /* line 41, ../scss/modules/_slide-templates.scss */
-.slide-template-half-image .slide-type {
+.slide-template-half-image .slide-type, .slide-template-half-map .slide-type {
   float: none;
   margin-right: auto;
   position: static;
   margin-bottom: 1em;
 }
 /* line 47, ../scss/modules/_slide-templates.scss */
-.slide-template-half-image .slide-title {
+.slide-template-half-image .slide-title, .slide-template-half-map .slide-title {
   padding-left: 0;
 }
 /* line 50, ../scss/modules/_slide-templates.scss */
-.slide-template-half-image .full-image {
+.slide-template-half-image .full-image, .slide-template-half-map .full-image {
   left: auto;
   right: 20%;
 }
 
+/* line 58, ../scss/modules/_slide-templates.scss */
+.slide-image-container {
+  border: 1px solid white;
+  height: 30%;
+  height: 40%;
+  overflow: hidden;
+  margin-bottom: 1em;
+}
+/* line 64, ../scss/modules/_slide-templates.scss */
+.slide-image-container img {
+  margin-left: -50%;
+  margin-top: -35%;
+  max-width: none;
+  width: 200%;
+}
+
 @media screen and (max-width: 1200px) {
-  /* line 57, ../scss/modules/_slide-templates.scss */
+  /* line 73, ../scss/modules/_slide-templates.scss */
   .full-image {
     left: 30%;
     margin-left: -600px;
   }
 
-  /* line 62, ../scss/modules/_slide-templates.scss */
-  .slide-template-half-image .full-image {
+  /* line 78, ../scss/modules/_slide-templates.scss */
+  .slide-template-half-image .full-image, .slide-template-half-map .full-image {
     margin-left: auto;
     right: 0;
   }
+
+  /* line 83, ../scss/modules/_slide-templates.scss */
+  .slide-image-container {
+    height: 30%;
+  }
+  /* line 85, ../scss/modules/_slide-templates.scss */
+  .slide-image-container img {
+    margin-top: -25%;
+  }
 }
 @media screen and (max-width: 900px) {
-  /* line 70, ../scss/modules/_slide-templates.scss */
-  .slide-template-half-image .full-image {
+  /* line 92, ../scss/modules/_slide-templates.scss */
+  .slide-template-half-image .full-image, .slide-template-half-map .full-image {
     right: -25%;
   }
-  /* line 73, ../scss/modules/_slide-templates.scss */
-  .slide-template-half-image .slide-title {
+  /* line 95, ../scss/modules/_slide-templates.scss */
+  .slide-template-half-image .slide-title, .slide-template-half-map .slide-title {
     font-size: 3em;
+  }
+
+  /* line 99, ../scss/modules/_slide-templates.scss */
+  .slide-image-container {
+    height: auto;
+    max-height: 25%;
+  }
+  /* line 102, ../scss/modules/_slide-templates.scss */
+  .slide-image-container img {
+    margin-left: auto;
+    margin-top: auto;
+    max-width: 100%;
   }
 }
 @media screen and (max-width: 600px) {
-  /* line 79, ../scss/modules/_slide-templates.scss */
+  /* line 110, ../scss/modules/_slide-templates.scss */
   .slide-overlay {
     padding: 1em;
   }
 
-  /* line 82, ../scss/modules/_slide-templates.scss */
+  /* line 113, ../scss/modules/_slide-templates.scss */
   .full-image {
     left: 50%;
   }
 
-  /* line 85, ../scss/modules/_slide-templates.scss */
+  /* line 116, ../scss/modules/_slide-templates.scss */
   .slide-title {
     font-size: 2em;
     padding-left: 60px;
   }
 
-  /* line 89, ../scss/modules/_slide-templates.scss */
+  /* line 120, ../scss/modules/_slide-templates.scss */
   .slide-type img {
     width: 40px;
     height: 40px;
   }
 
-  /* line 94, ../scss/modules/_slide-templates.scss */
-  .slide-template-half-image .slide-overlay {
+  /* line 125, ../scss/modules/_slide-templates.scss */
+  .slide-template-half-image .slide-overlay, .slide-template-half-map .slide-overlay {
     bottom: 0;
     left: 0;
     max-width: 100%;
@@ -1693,12 +1730,21 @@ input.disabled {
     right: 0;
     top: auto;
   }
-  /* line 102, ../scss/modules/_slide-templates.scss */
-  .slide-template-half-image .full-image {
+  /* line 133, ../scss/modules/_slide-templates.scss */
+  .slide-template-half-image .full-image, .slide-template-half-map .full-image {
     left: 30%;
     margin-left: -600px;
     right: auto;
     top: -25%;
+  }
+
+  /* line 141, ../scss/modules/_slide-templates.scss */
+  .slide-template-half-map .slide-title {
+    font-size: 2em;
+  }
+  /* line 144, ../scss/modules/_slide-templates.scss */
+  .slide-template-half-map .lead {
+    font-size: 1em;
   }
 }
 /* ----- Project Tour ----- */
