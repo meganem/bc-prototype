@@ -1747,6 +1747,44 @@ input.disabled {
     font-size: 1em;
   }
 }
+/* ----- Presentation controls ----- */
+/* line 151, ../scss/modules/_slide-templates.scss */
+.presentation-control {
+  display: inline-block;
+  position: absolute;
+  bottom: 50%;
+  z-index: 100;
+}
+/* line 157, ../scss/modules/_slide-templates.scss */
+.presentation-control a {
+  font-size: 2em;
+  padding: 0 0.65em 0.25em;
+  background: #121212;
+  color: white;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  -ms-border-radius: 2em;
+  -o-border-radius: 2em;
+  border-radius: 2em;
+  border: 1px solid #3f3f3f;
+  opacity: 0.3;
+}
+/* line 166, ../scss/modules/_slide-templates.scss */
+.presentation-control a:hover, .presentation-control a:focus, .presentation-control a:active {
+  text-decoration: none;
+  opacity: 1;
+}
+
+/* line 173, ../scss/modules/_slide-templates.scss */
+.presentation-control.previous {
+  left: 1em;
+}
+
+/* line 176, ../scss/modules/_slide-templates.scss */
+.presentation-control.next {
+  right: 1em;
+}
+
 /* ----- Project Tour ----- */
 /* line 2, ../scss/modules/_project-tour.scss */
 .project-tour {
