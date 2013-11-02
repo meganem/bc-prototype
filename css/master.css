@@ -418,49 +418,50 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 .button:hover, .button:focus {
   background: #2c2c2c;
   text-decoration: none;
+  cursor: pointer;
 }
 
-/* line 18, ../scss/modules/_buttons.scss */
+/* line 19, ../scss/modules/_buttons.scss */
 .button.red {
   background: #ae2f2c;
 }
 
-/* line 21, ../scss/modules/_buttons.scss */
+/* line 22, ../scss/modules/_buttons.scss */
 .button.red:hover, .button.red:focus {
   background: #79201e;
 }
 
-/* line 24, ../scss/modules/_buttons.scss */
+/* line 25, ../scss/modules/_buttons.scss */
 .button.purple {
   background: #783d7a;
 }
 
-/* line 27, ../scss/modules/_buttons.scss */
+/* line 28, ../scss/modules/_buttons.scss */
 .button.purple:hover, .button.purple:focus {
   background: #542a55;
 }
 
-/* line 30, ../scss/modules/_buttons.scss */
+/* line 31, ../scss/modules/_buttons.scss */
 .button.green {
   background: #4b6a18;
 }
 
-/* line 33, ../scss/modules/_buttons.scss */
+/* line 34, ../scss/modules/_buttons.scss */
 .button.green:hover, .button.green:focus {
   background: #344a10;
 }
 
-/* line 36, ../scss/modules/_buttons.scss */
+/* line 37, ../scss/modules/_buttons.scss */
 .button.blue {
   background: #086989;
 }
 
-/* line 39, ../scss/modules/_buttons.scss */
+/* line 40, ../scss/modules/_buttons.scss */
 .button.blue:hover, .button.blue:focus {
   background: #05495f;
 }
 
-/* line 42, ../scss/modules/_buttons.scss */
+/* line 43, ../scss/modules/_buttons.scss */
 .button.more-link, .button.more-link:hover {
   background-image: url("../img/icon-arrow-right.png");
   background-position: 87% center;
@@ -1768,19 +1769,31 @@ input.disabled {
   border-radius: 2em;
   border: 1px solid #3f3f3f;
   opacity: 0.3;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+  -o-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
 }
-/* line 166, ../scss/modules/_slide-templates.scss */
+/* line 169, ../scss/modules/_slide-templates.scss */
 .presentation-control a:hover, .presentation-control a:focus, .presentation-control a:active {
   text-decoration: none;
   opacity: 1;
 }
 
-/* line 173, ../scss/modules/_slide-templates.scss */
+/* line 176, ../scss/modules/_slide-templates.scss */
 .presentation-control.previous {
   left: 1em;
 }
 
-/* line 176, ../scss/modules/_slide-templates.scss */
+/* line 179, ../scss/modules/_slide-templates.scss */
 .presentation-control.next {
   right: 1em;
 }
