@@ -62,7 +62,7 @@ include $headerInclude;
 
 	                    </div>
 	                    <div class="span4">
-	                    	<div class="alert-info">
+	                    	<div class="well alert alert-info">
 	                    		<p>Note from the system about something!</p>
 	                    	</div>
 	                    	<div id="dashboard-tips" class="well">
