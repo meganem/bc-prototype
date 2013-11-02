@@ -1611,34 +1611,94 @@ input.disabled {
   padding-left: 100px;
 }
 
+/* line 34, ../scss/modules/_slide-templates.scss */
+.slide-template-half-image .slide-overlay {
+  bottom: 0;
+  max-width: 50%;
+  right: 0;
+  top: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 41, ../scss/modules/_slide-templates.scss */
+.slide-template-half-image .slide-type {
+  float: none;
+  margin-right: auto;
+  position: static;
+  margin-bottom: 1em;
+}
+/* line 47, ../scss/modules/_slide-templates.scss */
+.slide-template-half-image .slide-title {
+  padding-left: 0;
+}
+/* line 50, ../scss/modules/_slide-templates.scss */
+.slide-template-half-image .full-image {
+  left: auto;
+  right: 20%;
+}
+
 @media screen and (max-width: 1200px) {
-  /* line 34, ../scss/modules/_slide-templates.scss */
+  /* line 57, ../scss/modules/_slide-templates.scss */
   .full-image {
     left: 30%;
     margin-left: -600px;
   }
+
+  /* line 62, ../scss/modules/_slide-templates.scss */
+  .slide-template-half-image .full-image {
+    margin-left: auto;
+    right: 0;
+  }
+}
+@media screen and (max-width: 900px) {
+  /* line 70, ../scss/modules/_slide-templates.scss */
+  .slide-template-half-image .full-image {
+    right: -25%;
+  }
+  /* line 73, ../scss/modules/_slide-templates.scss */
+  .slide-template-half-image .slide-title {
+    font-size: 3em;
+  }
 }
 @media screen and (max-width: 600px) {
-  /* line 40, ../scss/modules/_slide-templates.scss */
+  /* line 79, ../scss/modules/_slide-templates.scss */
   .slide-overlay {
     padding: 1em;
   }
 
-  /* line 43, ../scss/modules/_slide-templates.scss */
+  /* line 82, ../scss/modules/_slide-templates.scss */
   .full-image {
     left: 50%;
   }
 
-  /* line 46, ../scss/modules/_slide-templates.scss */
+  /* line 85, ../scss/modules/_slide-templates.scss */
   .slide-title {
     font-size: 2em;
     padding-left: 60px;
   }
 
-  /* line 50, ../scss/modules/_slide-templates.scss */
+  /* line 89, ../scss/modules/_slide-templates.scss */
   .slide-type img {
     width: 40px;
     height: 40px;
+  }
+
+  /* line 94, ../scss/modules/_slide-templates.scss */
+  .slide-template-half-image .slide-overlay {
+    bottom: 0;
+    left: 0;
+    max-width: 100%;
+    padding-bottom: 100px;
+    right: 0;
+    top: auto;
+  }
+  /* line 102, ../scss/modules/_slide-templates.scss */
+  .slide-template-half-image .full-image {
+    left: 30%;
+    margin-left: -600px;
+    right: auto;
+    top: -25%;
   }
 }
 /* ----- Project Tour ----- */
