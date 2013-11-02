@@ -162,6 +162,9 @@
 		@include border-radius(2em);
 		border:1px solid $gray;
 		opacity:0.3;
+		@include transition-property(opacity);
+		@include transition-duration(0.1s);
+  		@include transition-timing-function(ease-in);
 	}
 	a:hover, a:focus, a:active {
 		text-decoration:none;
