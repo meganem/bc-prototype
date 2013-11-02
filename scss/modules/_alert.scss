@@ -1,12 +1,19 @@
 /* ----- Alert ----- */
 .alert {
-	width:300px;
-	margin-left:-150px;
-	top: 150px;
 	padding: 0.5em 2em .5em 1em;
 	line-height: 1.3em;
 	font-size: 0.85em;
 }
+
+.modal.alert {
+	width:300px;
+	margin-left:-150px;
+	top: 150px;
+}
+.well.alert {
+	margin-bottom:1em;
+}
+
 .alert-success {
 	background: tint($green-light, 80%);
 	a {
