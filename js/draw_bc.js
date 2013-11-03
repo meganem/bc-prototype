@@ -294,7 +294,7 @@ function drawBC(nodeData,linkData) {
     });
     
     secDiv.append("div").attr("class", "node-info-title").html(function(d) {return "<img class='node-info-type' src='../../../img/icon-"+d.kind.toLowerCase() +"-sm.png' />" + d.title})
-    secDiv.append("div").attr("class", "node-info-desc ellipsis").html(function(d) {return d.summary})
+    secDiv.append("div").attr("class", "node-info-desc ellipsis").html(function(d) {return "<div>" + d.summary + "</div>"})
     var secButtonDiv = secDiv.append("div").attr("class", "node-info-buttons")
     
     secButtonDiv.append("a")
@@ -528,14 +528,14 @@ function populatePopup(incNode) {
     d3.select("#node-popup > .node-info-image > img").style("display", incNode.imgUrl.length > 2 ? "block" : "none")
     .attr("src", incNode.imgUrl.substr(0,10) == "data:image" ? incNode.imgUrl : "../../../img/example/zoom3/" + incNode.imgUrl)
     d3.select("#node-popup > .node-info-title").html(function(d) {return "<img class='node-info-type' src='../../../img/icon-"+incNode.kind.toLowerCase() +"-sm.png' />" + incNode.title})
-    d3.select("#node-popup > .node-info-desc").html(function(d) {return incNode.summary})
+    d3.select("#node-popup > .node-info-desc").html("<div>" + incNode.summary + "</div>")
 }
 
 function populateMorePanel(incNode) {
     d3.select("#morePanel > .node-info-image > img").style("display", incNode.imgUrl.length > 2 ? "block" : "none")
     .attr("src", incNode.imgUrl.substr(0,10) == "data:image" ? incNode.imgUrl : "../../../img/example/zoom3/" + incNode.imgUrl)
-    d3.select("#morePanel > .node-info-title").html(function(d) {return "<img class='node-info-type' src='../../../img/icon-"+incNode.kind.toLowerCase() +"-sm.png' />" + incNode.title})
-    d3.select("#morePanel > .node-info-desc").html(function(d) {return incNode.summary})    
+    d3.select("#morePanel > .node-info-title").html("<img class='node-info-type' src='../../../img/icon-"+incNode.kind.toLowerCase() +"-sm.png' />" + incNode.title)
+    d3.select("#morePanel > .node-info-desc").html("<div>" + incNode.summary + "</div>")    
 }
 
 function endMove(d,i) {
@@ -762,6 +762,35 @@ function createNewNode(d,i) {
     .transition()
     .duration(500)
     .attr("d", function(d) {return curvyLine([x1GenLine, y1GenLine],[(newNode.column * columnSize), ((newNode.row * rowSize))])});
+    
+    d3.select("#betweenLayer").append("div")
+    .attr("class", "newDiv")
+    .style("position", "absolute")
+    .style("left", "30px")
+    .style("top", "200px")
+    .style("opacity", 0)
+    .style("pointer-events", "none");
+
+    d3.select("div.newDiv")
+    .data([newNode])
+    .attr("class", "zoom2")
+    .each(function(d,i) {
+    if(d.imgUrl) {
+    if (d.imgUrl.length > 2) {
+    d3.select(this)
+    .append("img").attr("src", d.imgUrl.substr(0,10) == "data:image" ? d.imgUrl : "../../../img/example/zoom2/" + d.imgUrl)
+    .style("opacity", 1);
+    d3.select(this).append("div")
+    .attr("class", "text below")
+    .html(d.title);
+    }    
+    }
+        else {
+    d3.select(this).append("div")
+    .attr("class", "text")
+    .html(d.title);
+    }
+    });
     
     testLayout.nodes().push(newNode)
     updatingNode = newNode;
