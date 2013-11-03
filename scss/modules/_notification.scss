@@ -29,6 +29,14 @@ ul.dropdown li.notifications {
 .notification-message {
     font-size: 0.8em;
     margin-bottom: 0.5em;
+    line-height: 1.5em;
+
+    a {
+        color:$black;
+    }
+    a:hover, a:focus {
+        
+    }
 }
 ul.dropdown li .notification-link a {
     padding:0;

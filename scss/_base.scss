@@ -195,6 +195,8 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 .row {
     clear:both;
     overflow:hidden;
+    margin-bottom:1em;
+    
     .span1 { @include span-columns(1,12); }
     .span2 { @include span-columns(2,12); }
     .span3 { @include span-columns(3,12); }
