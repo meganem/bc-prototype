@@ -80,7 +80,7 @@ include $headerInclude;
                         <div class="row divider align-center">
                             <p>This is a row with a divider on it that is aligned center.</p>
                         </div>
-                        <div class="row border-top align-center">
+                        <div class="row border-top">
                             <p>This is a row with a border-top added to make a more dark separator.</p>
                         </div>
                         <div class="row divider compact">
