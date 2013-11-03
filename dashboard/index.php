@@ -88,7 +88,7 @@ include $headerInclude;
 	                </div><!-- end row -->
 
 	                <div id="dashboard-tips" class="row">
-                		<p><strong>Tip:</strong> Did you know? blah blah blah. <a href="<?php print $pathPrefix; ?>tips" class="">See more tips</a></p>
+                		<p><strong>Tip:</strong> In the project menu, you can edit your project details, edit your presentation, and view your history. <a href="<?php print $pathPrefix; ?>tips" class="">See more tips</a></p>
                 		
 	                </div>
                     
