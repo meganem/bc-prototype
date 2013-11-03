@@ -61,7 +61,7 @@ include $headerInclude;
 	                    </div>
 	                    <div class="span4">
 	                    	<div class="row well alert alert-info">
-	                    		<p>Note from the system about something!</p>
+	                    		<p><strong>Hi Laurie!</strong> We just added the ability for you to view your project's history – <a href="#">click here to check it out</a>.</p>
 	                    	</div>
 	                    	<div class="row well">
 	                    		<h2>My Activity</h2>
@@ -75,7 +75,13 @@ include $headerInclude;
 	                    	</div>
 	                    	<div class="row well">
 	                    		<h2>Sharing</h2>
-	                    		<p>sharing links</p>
+	                    		<p class="small">Share your hard work! Use these links to share with others:</p>
+	                    		<p class="small"><strong>Your profile:</strong><br>
+		                    		<input type="text" onclick="this.select();" name="copylink" value="http://bloomcase.com/laurie-reid">
+		                    	</p>
+		                    	<p class="small"><strong>Your projects:</strong><br>
+		                    		<input type="text" onclick="this.select();" name="copylink" value="http://bloomcase.com/laurie-reid/projects">
+		                    	</p>
 	                    		
 	                    	</div>
 	                    </div>
