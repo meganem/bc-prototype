@@ -21,12 +21,11 @@ $footerInclude = $pathPrefix . "parts/footer.php";
 include $headerInclude; 
 ?>
 
-	        <div id="content" class="container">
+	        <div class="container constrained light">
 
-                <div class="light">
-                    <h1>My Account</h1>
-                    <p class="lead">TBD</p>
-                </div>
+                <h1>My Account</h1>
+                <p class="lead">stuff here</p>
+               
 
             </div>
 
