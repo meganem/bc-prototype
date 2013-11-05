@@ -21,7 +21,7 @@ $footerInclude = $pathPrefix . "parts/footer.php";
 include $headerInclude; 
 ?>
 
-	        <div class="container light">
+	        <div class="container constrained light">
                     <h1>My Dashboard</h1>
                     <div class="row">
 	                    <div class="span8 well">
