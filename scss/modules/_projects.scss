@@ -1,0 +1,60 @@
+/* ----- Projects ----- */
+.projects {
+	h1 {
+		display:none;
+	}
+	h2 {
+		margin-bottom:.5em;
+	}
+}
+
+.featured {
+	color: $gold;
+	background:$beige;
+    @include border-radius(.5em);
+	font-size: 0.6em;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    margin-left: 0.5em;
+    padding: 0.2em 0.75em;
+}
+#projects-search {
+	position:absolute;
+	right: 1.5em;
+    top: 0.5em;
+	width:180px;
+	input.search {
+		padding-right:2em;
+	}
+	input.search-submit {
+		height:20px;
+		width:20px;
+		color:transparent;
+		background:transparent;
+		background-image:url("../img/icon-search.png");
+		background-repeat:no-repeat;
+		background-position:center;
+		position: absolute;
+    	right: 7px;
+    	top:7px;
+    	border:none;
+    	opacity:0.3;
+	}
+	input.search-submit:hover, input.search-submit:focus {
+		opacity:0.7;
+	}
+}
+
+a.tag {
+	font-size:0.7em;
+	background:$beige;
+	color:$gray;
+	padding:0.25em 0.75em;
+	@include border-radius(0.5em);
+}
+a.tag:hover, a.tag:focus {
+	text-decoration:none;
+	color:$black;
+	background:darken($beige, 10%);
+}
