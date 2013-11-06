@@ -10,7 +10,7 @@ body {
   font-size: 16px;
   background: whitesmoke;
   color: #121212;
-  line-height: 1.75em;
+  line-height: 1.5em;
 }
 
 /* Opera fix for sticky footer */
@@ -259,91 +259,92 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   clear: both;
   overflow: hidden;
   margin-bottom: 1em;
+  position: relative;
 }
-/* line 201, ../scss/_base.scss */
+/* line 202, ../scss/_base.scss */
 .row .span1 {
   width: 6.77966%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 202, ../scss/_base.scss */
+/* line 203, ../scss/_base.scss */
 .row .span2 {
   width: 15.25424%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 203, ../scss/_base.scss */
+/* line 204, ../scss/_base.scss */
 .row .span3 {
   width: 23.72881%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 204, ../scss/_base.scss */
+/* line 205, ../scss/_base.scss */
 .row .span4 {
   width: 32.20339%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 205, ../scss/_base.scss */
+/* line 206, ../scss/_base.scss */
 .row .span5 {
   width: 40.67797%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 206, ../scss/_base.scss */
+/* line 207, ../scss/_base.scss */
 .row .span6 {
   width: 49.15254%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 207, ../scss/_base.scss */
+/* line 208, ../scss/_base.scss */
 .row .span7 {
   width: 57.62712%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 208, ../scss/_base.scss */
+/* line 209, ../scss/_base.scss */
 .row .span8 {
   width: 66.10169%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 209, ../scss/_base.scss */
+/* line 210, ../scss/_base.scss */
 .row .span9 {
   width: 74.57627%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 210, ../scss/_base.scss */
+/* line 211, ../scss/_base.scss */
 .row .span10 {
   width: 83.05085%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 211, ../scss/_base.scss */
+/* line 212, ../scss/_base.scss */
 .row .span11 {
   width: 91.52542%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 212, ../scss/_base.scss */
+/* line 213, ../scss/_base.scss */
 .row div:last-child {
   margin-right: 0;
 }
 
 /* --------------- FOOTER --------------- */
-/* line 217, ../scss/_base.scss */
+/* line 218, ../scss/_base.scss */
 #footer {
   position: relative;
   margin-top: -90px;
@@ -352,7 +353,7 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   font-size: 0.8em;
 }
 
-/* line 224, ../scss/_base.scss */
+/* line 225, ../scss/_base.scss */
 #footer p {
   margin: 0;
 }
@@ -469,6 +470,11 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   background-position: 87% center;
   background-repeat: no-repeat;
   padding-right: 30px;
+}
+
+/* line 50, ../scss/modules/_buttons.scss */
+.lead .button {
+  padding: 0.5em 1.25em;
 }
 
 /* --------------- NAVIGATION --------------- */
@@ -1051,9 +1057,10 @@ h1.project-title {
   -ms-border-radius: 0.5em;
   -o-border-radius: 0.5em;
   border-radius: 0.5em;
+  position: relative;
 }
 
-/* line 9, ../scss/modules/_modal.scss */
+/* line 10, ../scss/modules/_modal.scss */
 .modal, .panel {
   display: block;
   position: absolute;
@@ -1062,7 +1069,7 @@ h1.project-title {
   border-color: #121212;
 }
 
-/* line 17, ../scss/modules/_modal.scss */
+/* line 18, ../scss/modules/_modal.scss */
 .panel {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -1079,7 +1086,7 @@ h1.project-title {
   z-index: 20;
 }
 
-/* line 29, ../scss/modules/_modal.scss */
+/* line 30, ../scss/modules/_modal.scss */
 .well h2, .modal h2, .panel h2 {
   text-transform: uppercase;
   font-size: 1.2em;
@@ -1087,23 +1094,23 @@ h1.project-title {
   color: #3f3f3f;
 }
 
-/* line 35, ../scss/modules/_modal.scss */
+/* line 36, ../scss/modules/_modal.scss */
 .well > h2:first-child, .modal > h2:first-child, .panel > h2:first-child, .well > h3:first-child, .modal > h3:first-child, .panel > h3:first-child {
   margin-top: 0;
 }
 
-/* line 39, ../scss/modules/_modal.scss */
+/* line 40, ../scss/modules/_modal.scss */
 .well.well-dark, .well-dark.modal, .well-dark.panel {
   background: #f0f0f0;
 }
 
 /* --------------- Modal arrows --------------- */
-/* line 44, ../scss/modules/_modal.scss */
+/* line 45, ../scss/modules/_modal.scss */
 .modal-arrow {
   height: 0px;
 }
 
-/* line 47, ../scss/modules/_modal.scss */
+/* line 48, ../scss/modules/_modal.scss */
 .modal-arrow:before, .modal-arrow:after {
   content: " ";
   height: 0;
@@ -1112,7 +1119,7 @@ h1.project-title {
   border: 15px solid transparent;
 }
 
-/* line 54, ../scss/modules/_modal.scss */
+/* line 55, ../scss/modules/_modal.scss */
 .modal-arrow:before {
   z-index: 2;
   border-top-color: white;
@@ -1120,7 +1127,7 @@ h1.project-title {
   margin-top: 35px;
 }
 
-/* line 60, ../scss/modules/_modal.scss */
+/* line 61, ../scss/modules/_modal.scss */
 .modal-arrow:after {
   z-index: 1;
   border-top-color: #3f3f3f;
@@ -1129,19 +1136,19 @@ h1.project-title {
 }
 
 /* --------------- Arrows for new node form states --------------- */
-/* line 67, ../scss/modules/_modal.scss */
+/* line 68, ../scss/modules/_modal.scss */
 .is-short .modal-arrow:before {
   left: 95px;
   margin-top: 170px;
 }
 
-/* line 71, ../scss/modules/_modal.scss */
+/* line 72, ../scss/modules/_modal.scss */
 .is-short .modal-arrow:after {
   left: 95px;
   margin-top: 172px;
 }
 
-/* line 75, ../scss/modules/_modal.scss */
+/* line 76, ../scss/modules/_modal.scss */
 .is-long .modal-arrow:before {
   border-top-color: transparent;
   border-right-color: white;
@@ -1149,7 +1156,7 @@ h1.project-title {
   margin-top: 160px;
 }
 
-/* line 81, ../scss/modules/_modal.scss */
+/* line 82, ../scss/modules/_modal.scss */
 .is-long .modal-arrow:after {
   border-top-color: transparent;
   border-right-color: #3f3f3f;
@@ -1855,6 +1862,84 @@ h2.profile-name {
   display: block;
   font-size: 1.5em;
   font-weight: 300;
+}
+
+/* ----- Projects ----- */
+/* line 3, ../scss/modules/_projects.scss */
+.projects h1 {
+  display: none;
+}
+/* line 6, ../scss/modules/_projects.scss */
+.projects h2 {
+  margin-bottom: .5em;
+}
+
+/* line 11, ../scss/modules/_projects.scss */
+.featured {
+  color: #b38c14;
+  background: whitesmoke;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  border-radius: 0.5em;
+  font-size: 0.6em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin-left: 0.5em;
+  padding: 0.2em 0.75em;
+}
+
+/* line 22, ../scss/modules/_projects.scss */
+#projects-search {
+  position: absolute;
+  right: 1.5em;
+  top: 0.5em;
+  width: 180px;
+}
+/* line 27, ../scss/modules/_projects.scss */
+#projects-search input.search {
+  padding-right: 2em;
+}
+/* line 30, ../scss/modules/_projects.scss */
+#projects-search input.search-submit {
+  height: 20px;
+  width: 20px;
+  color: transparent;
+  background: transparent;
+  background-image: url("../img/icon-search.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  border: none;
+  opacity: 0.3;
+}
+/* line 44, ../scss/modules/_projects.scss */
+#projects-search input.search-submit:hover, #projects-search input.search-submit:focus {
+  opacity: 0.7;
+}
+
+/* line 49, ../scss/modules/_projects.scss */
+a.tag {
+  font-size: 0.7em;
+  background: whitesmoke;
+  color: #3f3f3f;
+  padding: 0.25em 0.75em;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  border-radius: 0.5em;
+}
+
+/* line 56, ../scss/modules/_projects.scss */
+a.tag:hover, a.tag:focus {
+  text-decoration: none;
+  color: #121212;
+  background: gainsboro;
 }
 
 /* ----- Project Tour ----- */
