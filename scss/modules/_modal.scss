@@ -5,6 +5,7 @@
     padding: 1em 1.5em;
     @include box-sizing(border-box);
     @include border-radius(0.5em);
+    position:relative;
 }
 .modal, .panel {
     @extend .well;
