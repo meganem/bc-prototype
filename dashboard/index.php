@@ -55,7 +55,7 @@ include $headerInclude;
                 				<p class="date small">Last updated August 15, 2013 at 1:10pm</p>
                 				<p><a href="#" class="button blue">Edit</a> <a href="#" class="button green">Open</a> </p>
                 			</div>
-                			<p><a href="<?php print $pathPrefix; ?>profile/projects" class="">See all projects</a></p>
+                			<p><a href="<?php print $pathPrefix; ?>profile/projects" class="">See all projects</a> | <a href="<?php print $pathPrefix; ?>profile/projects/new" class="">New project</a></p>
                     	
 
 	                    </div>
