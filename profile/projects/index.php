@@ -94,7 +94,7 @@ include $headerInclude;
                     </div>
 
                      <div class="span4">
-                     	<p class="lead"><a href="#" class="button purple"><img class="icon-new" src="<?php print $pathPrefix; ?>img/icon-new-white.png" alt="" width="30" height="30" /> New Project</a></p>
+                     	<p class="lead"><a href="<?php print $pathPrefix; ?>profile/projects/new" class="button purple"><img class="icon-new" src="<?php print $pathPrefix; ?>img/icon-new-white.png" alt="" width="30" height="30" /> New Project</a></p>
 
                      	<p><strong>Tip:</strong> To feature a project, edit the project details. <a href="<?php print $pathPrefix; ?>tips" class="">See more tips</a></p>
                      	
