@@ -8,7 +8,7 @@ body {
     font-size:16px;
     background: $beige;
     color: $black;
-    line-height: 1.75em;
+    line-height: 1.5em;
 }
 
 /* Opera fix for sticky footer */
@@ -197,6 +197,7 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
     clear:both;
     overflow:hidden;
     margin-bottom:1em;
+    position:relative;
     
     .span1 { @include span-columns(1,12); }
     .span2 { @include span-columns(2,12); }
