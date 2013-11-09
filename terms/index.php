@@ -20,12 +20,11 @@ $footerInclude = $pathPrefix . "parts/footer.php";
 include $headerInclude; 
 ?>
 
-	        <div id="content" class="container">
+	        <div class="container constrained light">
 
-                <div class="light">
-                    <h1>Terms of Service</h1>
-                    
-                    <p>
+              <h1>Terms of Service</h1>
+              
+              <p>
 <b>WARNING:</b> Bloomcase is currently in development. You understand and agree that the Service may still contain software bugs, suffer disruptions and not operate as intended or designated. Your use of the Service at this stage signifies your understanding of and agreement to participate in the Service's development.</p>
 
 <b>   1. ACCEPTANCE OF TERMS </b>
@@ -148,9 +147,8 @@ Bloomcase does not want to receive confidential or proprietary information from 
       Notices to you may be made via either email or regular mail. The Service may also provide notices of changes to the TOS or other matters by displaying notices or links to notices to you generally on the Service. The TOS and the relationship between you and Bloomcase shall be governed by the laws of the State of California without regard to its conflict of law provisions. You and Bloomcase agree to submit to the personal and exclusive jurisdiction of the courts located within Los Angeles, California.  The failure of Bloomcase to exercise or enforce any right or provision of the TOS shall not constitute a waiver of such right or provision. The TOS constitutes the entire agreement between you and Bloomcase and govern your use of the Service, superseding any prior agreements between you and Bloomcase (including, but not limited to, any prior versions of the TOS). You also may be subject to additional terms and conditions that may apply when you use affiliate or other Bloomcase services, third-party content or third-party software. If any provision of the TOS or incorporated documents are found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavor to give effect to the parties' intentions as reflected in the provision, and the other provisions of the TOS remain in full force and effect. You agree that regardless of any statute or law to the contrary, any claim or cause of action arising out of or related to use of the Service or the TOS must be filed within one (1) year after such claim or cause of action arose or be forever barred. The section titles in the TOS are for convenience only and have no legal or contractual effect.</p>
 <p>If you have any questions regarding these terms, contact as us at <a href="mailto:hello@bloomcase.com">hello@bloomcase.com</a></p>
 
-                </div>
 
-            </div>
+       </div>
 
 
 <?php 

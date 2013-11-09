@@ -20,11 +20,10 @@ $footerInclude = $pathPrefix . "parts/footer.php";
 include $headerInclude; 
 ?>
 
-	        <div id="content" class="container">
+	        <div class="container constrained light">
 
-                <div class="light">
-                    <h1>Privacy Policy</h1>
-                    <p><b>What This Privacy Policy Covers </b></p>
+	            <h1>Privacy Policy</h1>
+	            <p><b>What This Privacy Policy Covers </b></p>
 <p>
 This policy covers how Bloomcase ("Bloomcase," "we," "us," or "our") treats personal information that it collects and receives on www.bloomcase.com. We are not in the business of selling information about you: we use information shared with us for the sole purpose of running and improving our services. This notice tells you what information we collect, steps we take to protect and secure it, how we use and share information, and finally, how you can contact us with questions or concerns.</p>
 <p><b> Information We Gather </b></p>
@@ -113,9 +112,7 @@ If Bloomcase learns of a security systems breach we may attempt to notify you el
 <p><b>Contacting Bloomcase</b></p>
 <p>If you have a privacy concern regarding Bloomcase, or this policy, and if you cannot satisfactorily resolve it through the use of those sites, products or services, you can write to us by email at <a href="mailto:hello@Bloomcase.com">hello@Bloomcase.com</a>.</p>
 
-                </div>
-
-            </div>
+         </div>
 
 
 <?php 
