@@ -2,7 +2,7 @@
 // BLOG
 $nestLevel = 4;
 $loggedIn = true;
-$bodyclass = "logged-in";
+$bodyclass = "logged-in project-page";
 $projectMenuActive = "blog";
 
 // DETERMINE PATH PREFIX

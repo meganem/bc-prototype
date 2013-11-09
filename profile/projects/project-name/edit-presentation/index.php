@@ -2,7 +2,7 @@
 // EDIT PRESENTATION
 $nestLevel = 4;
 $loggedIn = true;
-$bodyclass = "logged-in";
+$bodyclass = "logged-in project-page";
 
 // DETERMINE PATH PREFIX
 $pathLevel = "../";
@@ -44,7 +44,7 @@ include $headerInclude;
                         </div> <!-- End click-nav -->
                         <div id="edit-presentation-menu-title">Edit Presentation</div>
                         <div id="edit-presentation-done">
-                            <a href="#" class="button blue">Done</a>
+                            <a href="<?php print $pathPrefix; ?>profile/projects/project-name" class="button blue">Done</a>
                         </div>
                     </div> <!-- End edit-presentation-header -->
 
