@@ -23,18 +23,11 @@ include $headerInclude;
 
 	        <div class="container constrained light">
                     <h1>My Dashboard</h1>
+                	<!-- <div class="row well alert alert-info">
+                		<p><strong>Hi Laurie!</strong> We just added the ability for you to view your project's history – <a href="#">click here to check it out</a>.</p>
+                	</div> -->
                     <div class="row">
 	                    <div class="span8 well">
-
-                    		<h2>My Profile</h2>
-                    		<div class="row compact divider">
-                				<div class="float-left">
-                					<img src="<?php print $pathPrefix; ?>img/placeholder.png" width="100" alt="" />
-                				</div>
-                				<h3>Laurie Reid</h3>
-                				<p class="small">An aspiring architect, studying at San Francisco State University. Passionate about design, psychology, and cookies.</p>
-                				<p><a href="<?php print $pathPrefix; ?>profile/edit" class="button blue">Edit</a> <a href="<?php print $pathPrefix; ?>profile" class="button green">View</a> <a href="<?php print $pathPrefix; ?>account" class="button purple">My Account</a></p>
-                    		</div>
                     	
                     		<h2>My Projects</h2>
                     		<div class="row compact divider">
@@ -62,10 +55,29 @@ include $headerInclude;
 
 	                    </div>
 	                    <div class="span4">
-	                    	<div class="row well alert alert-info">
-	                    		<p><strong>Hi Laurie!</strong> We just added the ability for you to view your project's history – <a href="#">click here to check it out</a>.</p>
-	                    	</div>
+	                    	
 	                    	<div class="row well">
+	                    		<h2>My Profile</h2>
+	                    		<div class="row divider">
+	                				<div class="">
+	                					<img src="<?php print $pathPrefix; ?>img/placeholder.png" width="300" height="150" alt="" />
+	                				</div>
+	                				<h3>Laurie Reid</h3>
+	                				<p class="small">An aspiring architect, studying at San Francisco State University. Passionate about design, psychology, and cookies.</p>
+	                				<p><a href="<?php print $pathPrefix; ?>profile/edit" class="button blue">Edit</a> <a href="<?php print $pathPrefix; ?>profile" class="button green">View</a> <a href="<?php print $pathPrefix; ?>account" class="button purple">My Account</a></p>
+	                    		</div>
+	                    		<h2>Public Lnks</h2>
+	                    		<p class="small"><strong>My profile:</strong><br>
+		                    		<input type="text" onclick="this.select();" name="copylink" value="http://bloomcase.com/laurie-reid">
+		                    	</p>
+		                    	<p class="small"><strong>My projects:</strong><br>
+		                    		<input type="text" onclick="this.select();" name="copylink" value="http://bloomcase.com/laurie-reid/projects">
+		                    	</p>
+			                    
+	                    	</div>
+
+	                    	
+	                    	<!-- <div class="row well">
 	                    		<h2>My Activity</h2>
 	                    		<p class="notification-message"><span class="date">August 15, 2013 at 1:10pm</span> <br>
 	                    			Idea "A big idea" added to <a href="<?php print $pathPrefix; ?>profile/projects/project-name">My Project</a></p>
@@ -74,18 +86,8 @@ include $headerInclude;
 	                    			<p class="notification-message"><span class="date">August 15, 2013 at 12:42pm</span> <br>
 	                    			<a href="<?php print $pathPrefix; ?>profile/projects/project-name">My Project</a> created</p>
 	                    		<p><a href="<?php print $pathPrefix; ?>history" class="">See full history</a></p>
-	                    	</div>
-	                    	<div class="row well">
-	                    		<h2>Sharing</h2>
-	                    		<p class="small">Share your hard work! Use these links to share with others:</p>
-	                    		<p class="small"><strong>Your profile:</strong><br>
-		                    		<input type="text" onclick="this.select();" name="copylink" value="http://bloomcase.com/laurie-reid">
-		                    	</p>
-		                    	<p class="small"><strong>Your projects:</strong><br>
-		                    		<input type="text" onclick="this.select();" name="copylink" value="http://bloomcase.com/laurie-reid/projects">
-		                    	</p>
-	                    		
-	                    	</div>
+	                    	</div> -->
+	                    	
 	                    </div>
 	                </div><!-- end row -->
 
