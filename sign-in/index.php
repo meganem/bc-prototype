@@ -19,18 +19,21 @@ $footerInclude = $pathPrefix . "parts/footer.php";
 include $headerInclude; 
 ?>
 
-	        <div class="container constrained light">
+	        <div class="container constrained light align-center">
             	<h1>Sign In</h1>
-            	<p class="small"><em>All fields are required.</em></p>
-            	<form id="sign-in-form" class="" data-validate="parsley" novalidate action="<?php print $pathPrefix; ?>dashboard" method="POST">
-					<input id="sign-in-form-username" name="username" type="text" placeholder="username" data-trigger="change focusout keyup" data-required="true" data-validation-minlength="3">
-					<input id="sign-in-form-password" name="password" type="password" placeholder="password" data-trigger="keyup" data-validation-minlength="4"  data-required="true" data-minlength="6" >
-					
-					<p class="small"><input id="sign-in-form-remember" name="remember" type="checkbox" > Remember me</p>
-			        <input id="sign-in-form-submit" class="button green" type="submit" value="sign in">
-			    </form>
-			    <p class="small">Need an account? <a href="<?php print $pathPrefix; ?>sign-up">Sign up</a></p>
-            	
+            	<div class="row">
+            		<div class="well align-left center span4">
+		            	<p class="small"><em>All fields are required.</em></p>
+		            	<form id="sign-in-form" class="" data-validate="parsley" novalidate action="<?php print $pathPrefix; ?>dashboard" method="POST">
+							<input id="sign-in-form-username" name="username" type="text" placeholder="username" data-trigger="change focusout keyup" data-required="true" data-validation-minlength="3">
+							<input id="sign-in-form-password" name="password" type="password" placeholder="password" data-trigger="keyup" data-validation-minlength="4"  data-required="true" data-minlength="6" >
+							
+							<p class="small"><input id="sign-in-form-remember" name="remember" type="checkbox" > Remember me</p>
+					        <input id="sign-in-form-submit" class="button green" type="submit" value="sign in">
+					    </form>
+					    <p class="small">Need an account? <a href="<?php print $pathPrefix; ?>sign-up">Sign up</a></p>
+            		</div>
+            	</div>
 	        </div>
 
             
