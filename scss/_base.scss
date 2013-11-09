@@ -27,7 +27,7 @@ body {
 
 #main {
     overflow:auto;
-    padding-bottom:90px;
+    padding-bottom:90px + 32px;
     padding-top:2em;
 }
 
@@ -44,6 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     font-size:3em;
     line-height: 1.2em;
+    margin-top:0;
 }
 .front h1 {
     display:none;
@@ -67,6 +68,21 @@ h5 {
 h6 {
     font-size:0.9em;
     line-height: 1.5em;
+}
+
+
+h3.faq {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-top:2em;
+}
+h3.faq:before {
+    content:"Q:";
+    background:$beige;
+    padding:0.25em 0.5em;
+    border:1px solid $gray-light;
+    @include border-radius(1.5em);
+    margin-right:0.25em;
 }
 
 /* --------------- Images --------------- */
@@ -154,6 +170,16 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 .align-center {
     text-align: center;
 }
+.align-left {
+    text-align:left;
+}
+.row .well.center {
+    display: inline-block;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .grid-4 {
     width:30%;
     display: inline-block;

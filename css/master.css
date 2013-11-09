@@ -29,7 +29,7 @@ body {
 /* line 28, ../scss/_base.scss */
 #main {
   overflow: auto;
-  padding-bottom: 90px;
+  padding-bottom: 122px;
   padding-top: 2em;
 }
 
@@ -49,51 +49,73 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 3em;
   line-height: 1.2em;
+  margin-top: 0;
 }
 
-/* line 48, ../scss/_base.scss */
+/* line 49, ../scss/_base.scss */
 .front h1 {
   display: none;
 }
 
-/* line 51, ../scss/_base.scss */
+/* line 52, ../scss/_base.scss */
 h2 {
   font-size: 2.25em;
   line-height: 1.25em;
 }
 
-/* line 55, ../scss/_base.scss */
+/* line 56, ../scss/_base.scss */
 h3 {
   font-size: 1.5em;
   line-height: 1.4em;
 }
 
-/* line 59, ../scss/_base.scss */
+/* line 60, ../scss/_base.scss */
 h4 {
   font-size: 1.25em;
   line-height: 1.5em;
 }
 
-/* line 63, ../scss/_base.scss */
+/* line 64, ../scss/_base.scss */
 h5 {
   font-size: 1em;
   line-height: 1.5em;
 }
 
-/* line 67, ../scss/_base.scss */
+/* line 68, ../scss/_base.scss */
 h6 {
   font-size: 0.9em;
   line-height: 1.5em;
 }
 
+/* line 74, ../scss/_base.scss */
+h3.faq {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-top: 2em;
+}
+
+/* line 79, ../scss/_base.scss */
+h3.faq:before {
+  content: "Q:";
+  background: whitesmoke;
+  padding: 0.25em 0.5em;
+  border: 1px solid #e9e9e9;
+  -webkit-border-radius: 1.5em;
+  -moz-border-radius: 1.5em;
+  -ms-border-radius: 1.5em;
+  -o-border-radius: 1.5em;
+  border-radius: 1.5em;
+  margin-right: 0.25em;
+}
+
 /* --------------- Images --------------- */
-/* line 73, ../scss/_base.scss */
+/* line 89, ../scss/_base.scss */
 img {
   max-width: 100%;
 }
 
 /* --------------- Text --------------- */
-/* line 78, ../scss/_base.scss */
+/* line 94, ../scss/_base.scss */
 .lead {
   font-weight: 300;
   font-size: 1.75em;
@@ -101,34 +123,34 @@ img {
   margin-bottom: 0.5em;
 }
 
-/* line 84, ../scss/_base.scss */
+/* line 100, ../scss/_base.scss */
 .small {
   font-size: 0.8em;
   line-height: 1.5em;
 }
 
 /* --------------- Lists --------------- */
-/* line 90, ../scss/_base.scss */
+/* line 106, ../scss/_base.scss */
 ul li {
   list-style-type: square;
 }
 
 /* --------------- Links --------------- */
-/* line 95, ../scss/_base.scss */
+/* line 111, ../scss/_base.scss */
 a {
   text-decoration: none;
   color: #b38c14;
   font-weight: 600;
 }
 
-/* line 100, ../scss/_base.scss */
+/* line 116, ../scss/_base.scss */
 a:hover, a:focus {
   text-decoration: underline;
   position: relative;
 }
 
 /* --------------- Tooltips on links --------------- */
-/* line 106, ../scss/_base.scss */
+/* line 122, ../scss/_base.scss */
 a[data-title]:hover:after {
   content: attr(data-title);
   color: #121212;
@@ -151,23 +173,23 @@ a[data-title]:hover:after {
 }
 
 /* --------------- Logo and Site Title --------------- */
-/* line 122, ../scss/_base.scss */
+/* line 138, ../scss/_base.scss */
 .logo, .site-title {
   display: inline-block;
 }
 
-/* line 125, ../scss/_base.scss */
+/* line 141, ../scss/_base.scss */
 .logo {
   margin-right: 0.5em;
   vertical-align: super;
 }
 
-/* line 129, ../scss/_base.scss */
+/* line 145, ../scss/_base.scss */
 a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   text-decoration: none;
 }
 
-/* line 132, ../scss/_base.scss */
+/* line 148, ../scss/_base.scss */
 .site-title {
   color: white;
   font-size: 1.5em;
@@ -175,34 +197,47 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 }
 
 /* ----- Footer logo and site title ----- */
-/* line 139, ../scss/_base.scss */
+/* line 155, ../scss/_base.scss */
 #footer .logo {
   margin-right: 0.25em;
 }
 
-/* line 142, ../scss/_base.scss */
+/* line 158, ../scss/_base.scss */
 #footer .logo img {
   height: auto;
   width: 25px;
 }
 
-/* line 146, ../scss/_base.scss */
+/* line 162, ../scss/_base.scss */
 #footer .site-title {
   font-size: 1.2em;
 }
 
 /* --------------- Display and positioning helper classes --------------- */
-/* line 151, ../scss/_base.scss */
+/* line 167, ../scss/_base.scss */
 .hidden {
   display: none;
 }
 
-/* line 154, ../scss/_base.scss */
+/* line 170, ../scss/_base.scss */
 .align-center {
   text-align: center;
 }
 
-/* line 157, ../scss/_base.scss */
+/* line 173, ../scss/_base.scss */
+.align-left {
+  text-align: left;
+}
+
+/* line 176, ../scss/_base.scss */
+.row .well.center, .row .center.modal, .row .center.panel {
+  display: inline-block;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 183, ../scss/_base.scss */
 .grid-4 {
   width: 30%;
   display: inline-block;
@@ -214,12 +249,12 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   box-sizing: border-box;
 }
 
-/* line 165, ../scss/_base.scss */
+/* line 191, ../scss/_base.scss */
 .grid-4:last-child {
   margin-right: 0;
 }
 
-/* line 169, ../scss/_base.scss */
+/* line 195, ../scss/_base.scss */
 .divider {
   clear: both;
   border-top: 1px solid #e9e9e9;
@@ -228,128 +263,128 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   padding-top: 1em;
 }
 
-/* line 176, ../scss/_base.scss */
+/* line 202, ../scss/_base.scss */
 .divider:last-of-type {
   border-bottom: 1px solid #e9e9e9;
   padding-bottom: 0.5em;
 }
 
-/* line 182, ../scss/_base.scss */
+/* line 208, ../scss/_base.scss */
 .float-left {
   float: left;
 }
-/* line 184, ../scss/_base.scss */
+/* line 210, ../scss/_base.scss */
 .float-left img {
   margin-right: 1em;
   margin-bottom: 1em;
 }
 
-/* line 189, ../scss/_base.scss */
+/* line 215, ../scss/_base.scss */
 .float-right {
   float: right;
 }
-/* line 191, ../scss/_base.scss */
+/* line 217, ../scss/_base.scss */
 .float-right img {
   margin-left: 1em;
   margin-bottom: 1em;
 }
 
-/* line 196, ../scss/_base.scss */
+/* line 222, ../scss/_base.scss */
 .clear-both {
   clear: both;
 }
 
-/* line 200, ../scss/_base.scss */
+/* line 226, ../scss/_base.scss */
 .row {
   clear: both;
   overflow: hidden;
   margin-bottom: 1em;
   position: relative;
 }
-/* line 206, ../scss/_base.scss */
+/* line 232, ../scss/_base.scss */
 .row .span1 {
   width: 6.77966%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 207, ../scss/_base.scss */
+/* line 233, ../scss/_base.scss */
 .row .span2 {
   width: 15.25424%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 208, ../scss/_base.scss */
+/* line 234, ../scss/_base.scss */
 .row .span3 {
   width: 23.72881%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 209, ../scss/_base.scss */
+/* line 235, ../scss/_base.scss */
 .row .span4 {
   width: 32.20339%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 210, ../scss/_base.scss */
+/* line 236, ../scss/_base.scss */
 .row .span5 {
   width: 40.67797%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 211, ../scss/_base.scss */
+/* line 237, ../scss/_base.scss */
 .row .span6 {
   width: 49.15254%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 212, ../scss/_base.scss */
+/* line 238, ../scss/_base.scss */
 .row .span7 {
   width: 57.62712%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 213, ../scss/_base.scss */
+/* line 239, ../scss/_base.scss */
 .row .span8 {
   width: 66.10169%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 214, ../scss/_base.scss */
+/* line 240, ../scss/_base.scss */
 .row .span9 {
   width: 74.57627%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 215, ../scss/_base.scss */
+/* line 241, ../scss/_base.scss */
 .row .span10 {
   width: 83.05085%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 216, ../scss/_base.scss */
+/* line 242, ../scss/_base.scss */
 .row .span11 {
   width: 91.52542%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
 }
-/* line 217, ../scss/_base.scss */
+/* line 243, ../scss/_base.scss */
 .row div:last-child {
   margin-right: 0;
 }
 
 /* --------------- FOOTER --------------- */
-/* line 222, ../scss/_base.scss */
+/* line 248, ../scss/_base.scss */
 #footer {
   position: relative;
   margin-top: -90px;
@@ -358,7 +393,7 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   font-size: 0.8em;
 }
 
-/* line 229, ../scss/_base.scss */
+/* line 255, ../scss/_base.scss */
 #footer p {
   margin: 0;
 }
