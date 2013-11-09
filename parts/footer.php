@@ -29,7 +29,9 @@
             </div>
         </div><!-- End footer -->
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> -->
+        <script src="<?php print $pathPrefix; ?>js/vendor/jquery-1.10.1.min.js"></script>
+
         <script src="<?php print $pathPrefix; ?>js/vendor/d3.vs.min.js"></script>
         <script src="<?php print $pathPrefix; ?>js/vendor/parsley.js"></script>
         <script src="<?php print $pathPrefix; ?>js/vendor/parsley.extend.js"></script>
