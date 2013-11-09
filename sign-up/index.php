@@ -22,7 +22,6 @@ include $headerInclude;
 	        <div class="container constrained light align-center">
             	<h1>Sign Up</h1>
             	<div class="row">
-
             		<div class="well align-left center span4">
 		            	<p class="small"><em>All fields are required.</em></p>
 		            	<form id="sign-up-form" class="" data-validate="parsley" novalidate action="<?php print $pathPrefix; ?>sign-up/verify" method="POST">
@@ -35,7 +34,6 @@ include $headerInclude;
 					    </form>
 					    <p class="small">Already have an account? <a href="<?php print $pathPrefix; ?>sign-in">Sign in</a></p>
 					</div>
-					
         		</div>
 	        </div>
 
