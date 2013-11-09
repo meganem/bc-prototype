@@ -49,6 +49,11 @@ include $headerInclude;
                 	<p>By visualizing the steps of your creative process, you can create a unique context for presenting your work. Bloomcase provides flexible presentation templates that allow you to curate a public presenation of your projects, in addition to letting visitors explore your process maps.</p>
                 </div>
             </div>
+            <div class="container constrained light border-top">
+                <div class="row align-center">
+                    <p class="lead"> <a href="sign-up" class="button purple">Sign Up</a></p>
+                </div>
+            </div>
             
 
 
