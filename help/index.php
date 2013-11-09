@@ -45,8 +45,20 @@ include $headerInclude;
                   	<h3 class="faq">How do I delete artifacts?</h3>
                   	<p>Click on an existing artifact. Click "Edit" and click "Delete" at the bottom of the edit form.</p>
 
+                  	<h3 class="faq">How do I make a presentation?</h3>
+                  	<p>Open the project you want to make a presentation for. From the project menu (the icon next to the project name), click "Edit Presentation." Click on artifacts to include them in your presentation and customize which template they should use. Customize the order and styles of your presentation from the Edit Presentation menu (icon next to the "Edit Presentation" text). Click "Done" when you are done editing your presentation.</p>
+
+                  	<h3 class="faq">How do I launch my presentation?</h3>
+                  	<p>From the project menu, click "Launch Presentation" or the "Presentation Mode" button on the right side of the toolbar.</p>
+
                   	<h3 class="faq">How do I delete a project?</h3>
                   	<p>From your project, open the project menu (click the project icon). Click "Edit project" and look for the "Delete" button on the edit form.</p>
+
+                  	<h3 class="faq">How do I archive a project?</h3>
+                  	<p>Archiving a project hides it from your list of active projects, but doesn't delete it. From the project menu, click "Archive Project."</p>
+
+                  	<h3 class="faq">How do I feature a project?</h3>
+                  	<p>Edit the project details, check the "Featured" checkbox, and click "Done."</p>
 
                   	<h3 class="faq">How do I make sure a project or artifact is private?</h3>
                   	<p>From your project, open the project menu (click the project icon). Click "Edit project" and check to make sure the "Public" option is unchecked. To curate within a public project which artifacts are private, open the project and click on an existing artiface. Click "Edit" and make sure the "Public" option is unchecked.</p>
