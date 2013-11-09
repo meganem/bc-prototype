@@ -35,16 +35,17 @@ include $headerInclude;
                 <div class="row">
                     <!-- <div class="float-right"><img src="<?php print $pathPrefix; ?>img/placeholder.png" width="100" alt="" /></div> -->
                 	<p class="lead">Projects portfolio</p>
-                	<p>Bloomcase enables you to keep a professional public portfolio of your projects. By taggin projects you can organize them into categories that suit your work, and you can choose per project whether to make it public.</p>
+                	<p>Bloomcase enables you to keep a professional public portfolio of your projects. By tagging projects you can organize them into categories that suit your work, and you can choose per project whether to make it public.</p>
                 </div>
             </div>
             <div class="container constrained light border-top">
                 <div class="row">
                     <!-- <div class="float-left"><img src="<?php print $pathPrefix; ?>img/placeholder.png" width="100" alt="" /></div> -->
-                	<p class="lead">Story mode, Presentation mode, and Blog mode</p>
-                	<p>There are three modes you can view your projects in. <strong>Story mode</strong> is a exploratory visualization mode that features three zoom levels (icons, thumbnails, and cards). In this mode, you can click on each artifact to learn more, and view the process map.</p>
-                	<p><strong>Presentation mode</strong> is a curated, step-by-step tour of your project where you can choose per artifact which presentation template you would like to use. There are four presentation templates that you can choose from.</p>
-                	<p><strong>Blog mode</strong> a more traditional, linear way of viewing your project contents, and is more suitable for printing and reading in a chronological fashion.</p>
+                	<p class="lead">Three unique ways to tell your story</p>
+                	<p>Bloomcase gives you three ways to view your projects.</p>
+                    <p><strong>Story mode</strong> is a exploratory visualization mode that features three zoom levels (icons, thumbnails, and cards). In this mode, you can click on each artifact to learn more, and view the process map.</p>
+                	<p><strong>Presentation mode</strong> is a curated, step-by-step tour of your project where you can choose per artifact which template you would like to use. There are four presentation templates that you can choose from.</p>
+                	<p><strong>Blog mode</strong> is a more traditional, linear way of viewing your project contents, and is more suitable for printing and reading in a chronological fashion.</p>
                 </div>
             </div>
             <div class="container constrained light border-top">
