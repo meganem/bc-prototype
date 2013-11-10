@@ -1095,14 +1095,22 @@ function uploadImage() {
     
         reader = new FileReader();
         reader.onloadend = function() {
-	    console.log(JSON.stringify(updatingNode))
-            document.getElementById("testimage").src = reader.result;
-	    updatingNode.imgUrl = reader.result;
-	    console.log(JSON.stringify(updatingNode))
+    	    console.log(JSON.stringify(updatingNode))
+                document.getElementById("testimage").src = reader.result;
+    	    updatingNode.imgUrl = reader.result;
+    	    console.log(JSON.stringify(updatingNode))
         }
     	file = document.getElementById("submitfile").files[0];
         reader.readAsDataURL(file);
+        d3.select('#testimage').classed("hidden", false);
+        d3.select('#file-upload-submit').classed("hidden", true);
 	
+}
+
+function handleFiles(theFile) {
+    //alert("a file has been selected");
+    d3.select("#file-upload-cameraicon").classed("hidden", true);
+    d3.select('#file-upload-submit').classed("hidden", false);
 }
 
 function createFirstNode() {

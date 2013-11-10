@@ -63,24 +63,29 @@ include $headerInclude;
 <!-- New node form -->
 <div id="new-node" class="modal is-short hidden">
      <div class="modal-arrow"></div>
-     <img id="testimage" />
-     <form name="Upload" action="#" enctype="multipart/form-data" method="post">
-   <p>Filename: <INPUT type="file" name="submitfile" id = "submitfile" />
-   <INPUT type="button" value="Send" onClick="uploadImage();" />
-   </form>
+     
     <div id="new-node-cancel">
         <a class="" href="#">
             <img class="icon-cancel" src="<?php print $pathPrefix; ?>img/icon-cancel.png" alt="Cancel" width="17" height="17" />
         </a>
     </div>
+
+
     <form id="new-node-form" class="" data-validate="parsley" novalidate>
         <div class="form-divider">
             <a id="new-node-type" href="#" class="dark-background">
                 <div class="icon-sketch">sketch</div>
             </a>
-            <a id="new-node-image" href="#" class="dark-background">
-                <img class="icon-camera" src="<?php print $pathPrefix; ?>img/icon-camera.png" alt="Choose image" width="32" height="25" />
-            </a>
+            
+            <form name="Upload" action="#" enctype="multipart/form-data" method="post">
+                <div class="file-upload dark-background">
+                     <img id="file-upload-cameraicon" class="icon-camera" src="<?php print $pathPrefix; ?>img/icon-camera.png" alt="Choose image" width="32" height="25" />
+                    <input type="file" name="submitfile" id="submitfile" onchange="handleFiles(this.files)" />
+                    <input id="file-upload-submit" type="button" value="upload" onClick="uploadImage();" class="hidden" />
+                    <img id="testimage" class="hidden" />
+                </div>
+            </form>
+            
         </div>
         
         <input id="new-node-form-title" name="node-title" type="text" placeholder="Name it" data-trigger="change focusout keyup" data-required="true" data-validation-minlength="0">
