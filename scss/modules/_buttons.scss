@@ -40,6 +40,13 @@
 .button.blue:hover, .button.blue:focus {
     background: shade($blue, 30%);
 }
+.button.beige {
+    background: $beige;
+    color:$black;
+}
+.button.beige:hover, .button.beige:focus {
+    background: shade($beige, 20%);
+}
 .button.more-link, .button.more-link:hover {
     background-image: url("../img/icon-arrow-right.png");
     background-position: 87% center;
