@@ -506,6 +506,17 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 }
 
 /* line 43, ../scss/modules/_buttons.scss */
+.button.beige {
+  background: whitesmoke;
+  color: #121212;
+}
+
+/* line 47, ../scss/modules/_buttons.scss */
+.button.beige:hover, .button.beige:focus {
+  background: #c4c4c4;
+}
+
+/* line 50, ../scss/modules/_buttons.scss */
 .button.more-link, .button.more-link:hover {
   background-image: url("../img/icon-arrow-right.png");
   background-position: 87% center;
@@ -513,7 +524,7 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   padding-right: 30px;
 }
 
-/* line 50, ../scss/modules/_buttons.scss */
+/* line 57, ../scss/modules/_buttons.scss */
 .lead .button {
   padding: 0.5em 1.25em;
 }
@@ -1908,6 +1919,12 @@ h2.profile-name {
   display: block;
   font-size: 1.5em;
   font-weight: 300;
+}
+
+/* line 16, ../scss/modules/_profile.scss */
+#edit-profile-form-link {
+  margin-top: 0;
+  margin-bottom: 2em;
 }
 
 /* ----- Projects ----- */
