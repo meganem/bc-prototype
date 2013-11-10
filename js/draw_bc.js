@@ -311,9 +311,6 @@ function drawBC(nodeData,linkData) {
     secG.append("path")
     .attr("class", function(d){ return "nodeSymbol " + d.kind; })
     .attr("d", function(d,i) {return shapeMeasures[d.kind]["pathd"]})
-    .attr("transform", function(d) { 
-	return "translate(" + (-1*(shapeMeasures[d.kind]["myWidth"]/2)) + "," + (-1*(shapeMeasures[d.kind]["myHeight"]/2)) + ")"; 
-    })
     .style("opacity", 0)
     .transition()
     .duration(1000)
@@ -441,7 +438,7 @@ function setZoomLevel(zl) {
 	    
 	    d3.selectAll("path.nodeSymbol")
 	    .attr("transform", function(d) { 
-	return "translate(" + ((-1*(shapeMeasures[d.kind]["myWidth"]/2))) + "," + ((-1*(shapeMeasures[d.kind]["myHeight"]/2))) + ")"; 
+	return "translate(0,0)"; 
     });
 
 	    break;
@@ -457,7 +454,7 @@ function setZoomLevel(zl) {
 	    
 	    d3.selectAll("path.nodeSymbol")
 	    .attr("transform", function(d) { 
-	return "translate(" + (35 + (-1*(shapeMeasures[d.kind]["myWidth"]/2))) + "," + ((-1*(shapeMeasures[d.kind]["myHeight"]/2)) - 34) + ")"; 
+	return "translate(34,-34)"; 
     });
 
 	    break;
@@ -625,7 +622,7 @@ function endMove(d,i) {
     var circBCTitleRect = nodeOpts.append("rect")
     .attr("class", "options optionsBC optionsInfo")
     .attr("id", function(p) {return "optNameRect" + p})
-    .attr("x", function(p,q) {return q > 1 ? -100 : -10})
+    .attr("x", function(p,q) {return q > 1 ? -105 : -10})
     .attr("y", -10)
     .attr("width", 115)
     .attr("height", 20)
@@ -663,14 +660,12 @@ function endMove(d,i) {
     .attr("d", function(p) {
 	return shapeMeasures[p]["smalld"]
     })
-    .attr("transform", function(p) { 
-	return "translate(" + (-1*(shapeMeasures[p]["myWidth"]/2)) + "," + (-1*(shapeMeasures[p]["myHeight"]/2)) + ")scale(1)"; 
-    })
     .style("cursor", "pointer")
 
     d3.select("#newNode")
     .style("fill", shapeMeasures[currentNewNode]["color"])
     .attr("d", shapeMeasures[currentNewNode]["pathd"])
+    .attr("transform", "translate(0,0)")
     .on("click", function() {createNewNode(currentNewNode,0)})
     .style("cursor", "pointer")
 
@@ -707,6 +702,8 @@ function selectNewNode(d,i) {
     d3.select("#newNode")
     .on("click", function() {createNewNode(d,0)})
     .attr("d", shapeMeasures[d]["pathd"])
+    .transition()
+    .duration(300)
     .style("fill", shapeMeasures[d]["color"]);
 
     d3.select("#newNodeTitle").text(d);
@@ -952,12 +949,6 @@ function updatedBloomCase(newBCNodes, newBCLinks) {
     var oldLinks = testLayout.links();
     var oldNodes = testLayout.nodes();    
     
-    console.log("old nodes and links")
-    console.log(oldNodes.length)
-    console.log(newBCNodes.length)
-    console.log(oldLinks.length)
-    console.log(newBCLinks.length)
-    
     //first cut out the nodes that are no longer there
     var n = oldNodes.length - 1;
     while (n >= 0) {
@@ -976,7 +967,6 @@ function updatedBloomCase(newBCNodes, newBCLinks) {
     }
 
 //Add new nodes
-	console.log("Length: " + newBCNodes.length)
     for (x in newBCNodes) {
 	var foundNode = false;
 	for (y in oldNodes) {
@@ -1001,9 +991,6 @@ function updatedBloomCase(newBCNodes, newBCLinks) {
     .append("path")
     .attr("class", function(d){ return "nodeSymbol " + d.kind; })
     .attr("d", function(d,i) {return shapeMeasures[d.kind]["pathd"]})
-    .attr("transform", function(d) { 
-	return "translate(" + (-1*(shapeMeasures[d.kind]["myWidth"]/2)) + "," + (-1*(shapeMeasures[d.kind]["myHeight"]/2)) + ")"; 
-    })
     .style("opacity", 0)
     .transition()
     .duration(1000)
