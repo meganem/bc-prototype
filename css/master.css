@@ -1658,6 +1658,11 @@ input.disabled {
   color: #086989;
 }
 
+/* line 16, ../scss/modules/_dashboard.scss */
+#dashboard-projects {
+  min-height: 36em;
+}
+
 /* ----- Slide Templates ----- */
 /* line 3, ../scss/modules/_slide-templates.scss */
 .full-image {
