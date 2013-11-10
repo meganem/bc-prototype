@@ -399,6 +399,61 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
   margin: 0;
 }
 
+/* ----- Homepage ------ */
+/* line 261, ../scss/_base.scss */
+#home-splash {
+  background-image: url("../img/bc_home_bkg.png");
+  background-repeat: no-repeat;
+  background-position: center 138px;
+  height: 450px;
+}
+
+/* line 267, ../scss/_base.scss */
+#tagline {
+  font-size: 3em;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75em;
+  margin-top: 0;
+}
+
+/* line 274, ../scss/_base.scss */
+.front iframe {
+  border: 1px solid #3f3f3f;
+  height: 271px;
+  left: 120px;
+  position: relative;
+  top: 30px;
+  width: 350px;
+}
+
+/* line 282, ../scss/_base.scss */
+.home-points {
+  font-size: 1.4em;
+  font-weight: 300;
+  line-height: 1.2em;
+  position: absolute;
+  width: 200px;
+}
+
+/* line 289, ../scss/_base.scss */
+#home-points-1 {
+  left: 45px;
+  margin-top: -180px;
+}
+
+/* line 293, ../scss/_base.scss */
+#home-points-2 {
+  left: 269px;
+  margin-top: -50px;
+}
+
+/* line 297, ../scss/_base.scss */
+#home-points-3 {
+  margin-top: -180px;
+  right: 50px;
+}
+
 /* --------------- Containers --------------- */
 /* line 2, ../scss/layouts/_containers.scss */
 .border-top {
