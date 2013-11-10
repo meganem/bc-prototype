@@ -144,32 +144,32 @@ include $headerInclude;
 <div id="project-tour-2" class="modal project-tour align-center">
 	<div class="modal-arrow"></div>
 	<p>In the project menu, you can edit your project details, edit your presentation, and view your history.</p>
-	<ul class="project-tour-status">
+	<!-- <ul class="project-tour-status">
 		<li><a href="#" class="active"></a></li>
 		<li><a href="#"></a></li>
 		<li><a href="#"></a></li>
-	</ul>
+	</ul> -->
 	<a onclick="tutorial(3)" class="button more-link">Next</a>
 </div>
 
 <div id="project-tour-3" class="modal project-tour align-center">
 	<div class="modal-arrow"></div>
 	<p>Toggle viewing your project between story, presentation, and blog modes.</p>
-	<ul class="project-tour-status">
+	<!-- <ul class="project-tour-status">
 		<li><a href="#"></a></li>
 		<li><a href="#" class="active"></a></li>
 		<li><a href="#"></a></li>
-	</ul>
+	</ul> -->
 	<a onclick="tutorial(4)" class="button more-link">Next</a>
 </div>
 
 <div id="project-tour-4" class="modal modal-center project-tour align-center">
 	<p>To get started, add your first artifact to your project!</p>
-	<ul class="project-tour-status">
+	<!-- <ul class="project-tour-status">
 		<li><a href="#"></a></li>
 		<li><a href="#"></a></li>
 		<li><a href="#" class="active"></a></li>
-	</ul>
+	</ul> -->
 	<a onclick="createFirstNode()" class="button blue">Let's do it!</a>
 	<div class="modal-arrow"></div>
 </div>
