@@ -319,7 +319,6 @@ function drawBC(nodeData,linkData) {
     .duration(1000)
     .style("opacity", 1);
     
-    /*
     secG.append("text")
                 .attr("dx", -1)
                 .attr("dy", ".35em")
@@ -328,7 +327,7 @@ function drawBC(nodeData,linkData) {
                 .style("fill", "white")
                 .text(function(d) { return "" + (d.column)})
 		.style("pointer-events", "none");
-*/
+
     panToCenter(0)
 }
 
@@ -568,15 +567,22 @@ function endMove(d,i) {
 		else {
 		    updatingNode.evolvedFrom.length == 0 ? updatingNode.evolvedFrom = blNodes[no].nid : updatingNode.evolvedFrom += ("," + blNodes[no].nid)
 		}
+    d3.select("#genLine")
+    .data([{source: updatingNode, target: blNodes[no]}])
+    .attr("id", "inserted")
+    .attr("class", "connections")
+    .transition()
+    .duration(500)
+    .attr("d", function(d) {return curvyLine([x1GenLine, y1GenLine],[(newNode.column * columnSize), ((newNode.row * rowSize))])});
+
+	d3.select("#genNode").remove();
+	d3.select("#map").on("mousemove", null)
+        var newNodeArray = testLayout.nodes().filter(function(el) {return el.isMeta ? null : this});
+        var freshLayout = new d3_layout_bloomcase();
+        freshLayout.nodes(newNodeArray);
+        updatedBloomCase(freshLayout.nodes(),freshLayout.links())
+        return;
 	    }
-	    d3.select("#genNode").remove();
-	    d3.select("#genLine").remove();
-	    d3.select("#map").on("mousemove", null)
-    var newNodeArray = testLayout.nodes().filter(function(el) {return el.isMeta ? null : this});
-    var freshLayout = new d3_layout_bloomcase();
-    freshLayout.nodes(newNodeArray);
-    updatedBloomCase(freshLayout.nodes(),freshLayout.links())
-	    return;
 	}
     }
 
@@ -794,21 +800,17 @@ function createNewNode(d,i) {
     
     testLayout.nodes().push(newNode)
     updatingNode = newNode;
-    newNodeArray = testLayout.nodes().filter(function(el) {return el.isMeta ? null : this});
     
     if (d3.select("#project-tour-5").classed("hidden") == false) {
         d3.selectAll(".project-tour").classed("hidden", true)
     }
+    
+    var newNodeArray = testLayout.nodes().filter(function(el) {return el.isMeta ? null : this});
+    var freshLayout = new d3_layout_bloomcase();
+    freshLayout.nodes(newNodeArray);
+    updatedBloomCase(freshLayout.nodes(),freshLayout.links())
 
-    
-//    freshLayout = new d3_layout_bloomcase();
-//    freshLayout.nodes(newNodeArray);
-    
-//    drawBC(freshLayout.nodes(),freshLayout.links())
-//    testLayout.nodes(newNodeArray);
-    redrawBC(500);
     var runLater = setTimeout(function() {nodeDetailsDialog(createdNode)}, 1000)
-    console.log(newNode)
     panToCenter(1000, newNode.column,newNode.row);
 
 }
@@ -892,6 +894,9 @@ function deleteLink(d,i) {
 	updatedEvolvedBackward(sourceNodeID, targetNode, targetNodeID);
     }
 
+    d3.selectAll("path.connections").filter(function(el) {return el.source == d.source && el.target == d.target}).remove();
+    d3.selectAll("g.uiPath").filter(function(el) {return el.source == d.source && el.target == d.target}).remove();
+    
     var newNodeArray = testLayout.nodes().filter(function(el) {return el.isMeta ? null : this});
     var freshLayout = new d3_layout_bloomcase();
     freshLayout.nodes(newNodeArray);
@@ -984,9 +989,6 @@ function updatedBloomCase(newBCNodes, newBCLinks) {
 	}
 	if (foundNode == false) {
 	    oldNodes.push(newBCNodes[x]);
-///////////////
-
-    console.log(newBCNodes[x])
 
     d3.select("#bloomG").append("g")
     .data([newBCNodes[x]])
@@ -1055,7 +1057,6 @@ function updatedBloomCase(newBCNodes, newBCLinks) {
 	}
     }
     
-//    drawBC(testLayout.nodes(),testLayout.links());
     redrawBC(500);
 
 }
