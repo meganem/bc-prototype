@@ -32,7 +32,11 @@ include $headerInclude;
                             <textarea id="new-project-form-desc" rows="5" name="project-desc" placeholder="Describe it" data-trigger="keyup" data-notblank="true" data-validation-minlength="1"></textarea>
                             <input id="new-project-form-tags" name="project-tags" type="text" placeholder="Tag it, comma separated" data-trigger="keyup" data-notblank="true">
                             <p><input id="new-project-form-featured" name="featured" type="checkbox"> Featured</p>
-                            <input id="new-project-form-submit" class="button purple" type="submit" value="Create Project">
+                            <div class="align-center">
+                                <p class="lead"><input id="new-project-form-submit" class="button purple" type="submit" value="Create and Open"></p>
+                                <p>or</p>
+                                <p><a href="<?php print $pathPrefix; ?>profile/projects" class="button purple">Create and return to my projects</a></p>
+                            </div>
                         </form>
                         <p class="small"> <a href="<?php print $pathPrefix; ?>profile/projects">Cancel</a></p>
                     </div>
