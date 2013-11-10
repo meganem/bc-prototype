@@ -29,7 +29,7 @@ include $headerInclude;
                     <div class="row">
 	                    <div class="span8 well">
                     	
-                    		<h2>My Projects</h2>
+                    		<h2>Active Projects</h2>
                     		<div class="row compact divider">
 	                    		<div class="float-left">
                 					<img src="<?php print $pathPrefix; ?>img/placeholder.png" width="100" alt="" />
@@ -50,7 +50,7 @@ include $headerInclude;
                 				<p class="date small">Last updated August 15, 2013 at 1:10pm</p>
                 				<p><a href="#" class="button blue">Edit</a> <a href="#" class="button green">Open</a> </p>
                 			</div>
-                			<p><a href="<?php print $pathPrefix; ?>profile/projects" class="">See all projects</a> | <a href="<?php print $pathPrefix; ?>profile/projects/new" class="">New project</a></p>
+                			<p><a href="<?php print $pathPrefix; ?>profile/projects" class="">See all projects (10)</a> | <a href="<?php print $pathPrefix; ?>profile/projects/new" class="">New project</a></p>
                     	
 
 	                    </div>
