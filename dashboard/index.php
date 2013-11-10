@@ -29,7 +29,7 @@ include $headerInclude;
                     <div class="row">
 	                    <div id="dashboard-projects" class="span8 well">
                     	
-                    		<h2>My Projects</h2>
+                    		<h2>Active Projects</h2>
                     		<p>Get started by making your first project!</p>
                     		<p class="lead"><a href="<?php print $pathPrefix; ?>profile/projects/new" class="button purple"><img class="icon-new" src="<?php print $pathPrefix; ?>img/icon-new-white.png" alt="" width="30" height="30" /> New Project</a></p>
                 			
