@@ -73,9 +73,17 @@ include $headerInclude;
             <a id="new-node-type" href="#" class="dark-background">
                 <div class="icon-sketch">sketch</div>
             </a>
-            <a id="new-node-image" onclick="selectImage()" class="dark-background" style="cursor:pointer;")>
-                <img class="icon-camera" src="<?php print $pathPrefix; ?>img/icon-camera.png" alt="Choose image" width="32" height="25" />
-            </a>
+	<a id="new-node-image" onclick="selectImage()" class="dark-background" style="cursor:pointer;">
+		<img class="icon-camera" src="<?php print $pathPrefix; ?>img/icon-camera.png" alt="Choose image" width="32" height="25" />
+        </a>
+<!---
+            <form name="Upload" action="#" enctype="multipart/form-data" method="post">
+                <div class="file-upload dark-background">
+                     <img id="file-upload-cameraicon" class="icon-camera" src="<?php print $pathPrefix; ?>img/icon-camera.png" alt="Choose image" width="32" height="25" />
+                    <input type="file" name="submitfile" id="submitfile" onchange="handleFiles(this.files)" />
+                </div>
+            </form>
+	-->
         </div>
         
         <input id="new-node-form-title" name="node-title" type="text" placeholder="Name it" data-trigger="change focusout keyup" data-required="true" data-validation-minlength="0">
@@ -140,32 +148,32 @@ include $headerInclude;
 <div id="project-tour-2" class="modal project-tour align-center">
 	<div class="modal-arrow"></div>
 	<p>In the project menu, you can edit your project details, edit your presentation, and view your history.</p>
-	<!-- <ul class="project-tour-status">
+	<ul class="project-tour-status">
 		<li><a href="#" class="active"></a></li>
 		<li><a href="#"></a></li>
 		<li><a href="#"></a></li>
-	</ul> -->
+	</ul>
 	<a onclick="tutorial(3)" class="button more-link">Next</a>
 </div>
 
 <div id="project-tour-3" class="modal project-tour align-center">
 	<div class="modal-arrow"></div>
 	<p>Toggle viewing your project between story, presentation, and blog modes.</p>
-	<!-- <ul class="project-tour-status">
+	<ul class="project-tour-status">
 		<li><a href="#"></a></li>
 		<li><a href="#" class="active"></a></li>
 		<li><a href="#"></a></li>
-	</ul> -->
+	</ul>
 	<a onclick="tutorial(4)" class="button more-link">Next</a>
 </div>
 
 <div id="project-tour-4" class="modal modal-center project-tour align-center">
 	<p>To get started, add your first artifact to your project!</p>
-	<!-- <ul class="project-tour-status">
+	<ul class="project-tour-status">
 		<li><a href="#"></a></li>
 		<li><a href="#"></a></li>
 		<li><a href="#" class="active"></a></li>
-	</ul> -->
+	</ul>
 	<a onclick="createFirstNode()" class="button blue">Let's do it!</a>
 	<div class="modal-arrow"></div>
 </div>
