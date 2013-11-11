@@ -317,6 +317,7 @@ function drawBC(nodeData,linkData) {
     .duration(1000)
     .style("opacity", 1);
     
+    /*
     secG.append("text")
                 .attr("dx", -1)
                 .attr("dy", ".35em")
@@ -325,6 +326,7 @@ function drawBC(nodeData,linkData) {
                 .style("fill", "white")
                 .text(function(d) { return "" + (d.column)})
 		.style("pointer-events", "none");
+		*/
 
     panToCenter(0)
 }
