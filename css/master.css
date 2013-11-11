@@ -162,7 +162,7 @@ a[data-title]:hover:after {
   position: absolute;
   top: 250%;
   white-space: nowrap;
-  z-index: 20;
+  z-index: 25;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -397,6 +397,61 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 /* line 256, ../scss/_base.scss */
 #footer p {
   margin: 0;
+}
+
+/* ----- Homepage ------ */
+/* line 261, ../scss/_base.scss */
+#home-splash {
+  background-image: url("../img/bc_home_bkg.png");
+  background-repeat: no-repeat;
+  background-position: center 138px;
+  height: 450px;
+}
+
+/* line 267, ../scss/_base.scss */
+#tagline {
+  font-size: 3em;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75em;
+  margin-top: 0;
+}
+
+/* line 274, ../scss/_base.scss */
+.front iframe {
+  border: 1px solid #3f3f3f;
+  height: 271px;
+  left: 120px;
+  position: relative;
+  top: 30px;
+  width: 350px;
+}
+
+/* line 282, ../scss/_base.scss */
+.home-points {
+  font-size: 1.4em;
+  font-weight: 300;
+  line-height: 1.2em;
+  position: absolute;
+  width: 200px;
+}
+
+/* line 289, ../scss/_base.scss */
+#home-points-1 {
+  left: 45px;
+  margin-top: -180px;
+}
+
+/* line 293, ../scss/_base.scss */
+#home-points-2 {
+  left: 269px;
+  margin-top: -50px;
+}
+
+/* line 297, ../scss/_base.scss */
+#home-points-3 {
+  margin-top: -180px;
+  right: 50px;
 }
 
 /* --------------- Containers --------------- */
@@ -991,8 +1046,8 @@ h1.project-title {
 /* line 2, ../scss/modules/_zoom-controls.scss */
 #zoom-controls {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 16px;
+  right: 16px;
   background: white;
   border: 1px solid #121212;
   display: inline-block;
@@ -1403,8 +1458,40 @@ input.disabled {
   margin-bottom: .5em;
 }
 
+/* line 91, ../scss/modules/_new-node-form.scss */
+#submitfile {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  position: absolute;
+  right: 0px;
+  top: 0;
+  font-size: 40px;
+}
+
+/* line 99, ../scss/modules/_new-node-form.scss */
+.file-upload {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+/* line 104, ../scss/modules/_new-node-form.scss */
+#file-upload-submit {
+  position: relative;
+  z-index: 40;
+}
+
+/* line 108, ../scss/modules/_new-node-form.scss */
+#testimage {
+  min-width: 60px;
+  max-width: 120px;
+  margin-left: -0.5em;
+  margin-top: -0.5em;
+  min-height: 60px;
+}
+
 /* --------------- State change for new node form --------------- */
-/* line 95, ../scss/modules/_new-node-form.scss */
+/* line 121, ../scss/modules/_new-node-form.scss */
 .is-short #new-node-form-desc,
 .is-short #new-node-form-url,
 .is-short #new-node-form-date,
@@ -1413,28 +1500,28 @@ input.disabled {
   display: none;
 }
 
-/* line 98, ../scss/modules/_new-node-form.scss */
+/* line 124, ../scss/modules/_new-node-form.scss */
 .is-long #new-node-more {
   display: none;
 }
 
-/* line 101, ../scss/modules/_new-node-form.scss */
+/* line 127, ../scss/modules/_new-node-form.scss */
 .is-long #new-node-form-submit {
   float: right;
 }
 
 /* --------------- Form validation with Parsley --------------- */
-/* line 106, ../scss/modules/_new-node-form.scss */
+/* line 132, ../scss/modules/_new-node-form.scss */
 .parsley-error {
   background: #ffe4e4;
 }
 
-/* line 109, ../scss/modules/_new-node-form.scss */
+/* line 135, ../scss/modules/_new-node-form.scss */
 .parsley-success {
   background: #e7ffe4;
 }
 
-/* line 112, ../scss/modules/_new-node-form.scss */
+/* line 138, ../scss/modules/_new-node-form.scss */
 .parsley-error-list {
   font-size: 0.7em;
   margin: -3em 0 1em 0.5em;
@@ -1455,7 +1542,7 @@ input.disabled {
   box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
 }
 
-/* line 125, ../scss/modules/_new-node-form.scss */
+/* line 151, ../scss/modules/_new-node-form.scss */
 .parsley-error-list li {
   list-style: none;
 }

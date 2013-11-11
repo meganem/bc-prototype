@@ -20,11 +20,22 @@ $footerInclude = $pathPrefix . "parts/footer.php";
 include $headerInclude; 
 ?>
 
-	        <div class="container constrained light align-center">
+	        <div id="home-splash" class="container constrained light align-center">
             	<h1>Bloomcase</h1>
-            	<p class="lead">Show your creative process.</p>
-            	<p>A new tool for creatives of all kinds to document and showcase creative process.</p>
+            	<p id="tagline">Show your creative process.</p>
+            	<p class="lead">A new tool for creatives of all kinds to document and showcase creative process.</p>
             	<iframe src="//player.vimeo.com/video/77932520?title=0&amp;byline=0&amp;portrait=0&amp;color=783d7a" width="500" height="384" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <div id="home-points-1" class="home-points">
+                    <p>document your evolving ideas</p>
+                </div>
+                <div id="home-points-2" class="home-points">
+                    <p>visualize your creative process</p>
+                </div>
+                <div id="home-points-3" class="home-points">
+                    <p>show the story behind your work</p>
+                </div>
+            </div>
+            <div class="container constrained light align-center">
                 <p class="lead"> <a href="how-it-works" class="button">How it works</a> <a href="sign-up" class="button purple">Sign Up</a></p>
 	        </div>
 
