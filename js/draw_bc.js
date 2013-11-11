@@ -300,6 +300,7 @@ function drawBC(nodeData,linkData) {
     secButtonDiv.append("a")
     .attr("class", "node-info-edit button blue")
     .attr("href", "#")
+    .on("click", function(d) {	editNode(d)})
     .html("edit")
 
     secButtonDiv.append("a")
@@ -500,7 +501,7 @@ function startMove(d,i) {
     var curMouse = d3.mouse(this.parentNode);
     d3.select("#map").on("mousemove", moveGenNode)
     d3.select("#bloomG").on("mouseup", endMove)
-    d3.select("#bloomG").insert("path", ".sec")
+    d3.select("#bgBloomG").insert("path", ".sec")
     .attr("id", "genLine")
     .attr("d", function(d) {return curvyLine([x1GenLine, y1GenLine],[curMouse[0], curMouse[1]]) })
     .style("stroke", "black")
@@ -525,6 +526,12 @@ function populatePopup(incNode) {
     .attr("src", incNode.imgUrl.substr(0,10) == "data:image" ? incNode.imgUrl : "../../../img/example/zoom3/" + incNode.imgUrl)
     d3.select("#node-popup > .node-info-title").html(function(d) {return "<img class='node-info-type' src='../../../img/icon-"+incNode.kind.toLowerCase() +"-sm.png' />" + incNode.title})
     d3.select("#node-popup > .node-info-desc").html("<div>" + incNode.summary + "</div>")
+    
+    d3.select("#node-popup")
+    .select(".node-info-edit")
+    .on("click", function(d) {	editNode(incNode)})
+
+    
 }
 
 function populateMorePanel(incNode) {
@@ -749,7 +756,7 @@ function createNewNode(d,i) {
 
     d3.selectAll(".options").remove();
     
-    d3.select("#newNode").attr("id", "inserted")
+    d3.select("#newNode").attr("id", "inserted").classed("nodeSymbol", true);
 //    .attr("transform", "translate(-13,-15)")
     var createdNode = d3.select("#genNode")
     .data([newNode])
@@ -765,35 +772,49 @@ function createNewNode(d,i) {
     .transition()
     .duration(500)
     .attr("d", function(d) {return curvyLine([x1GenLine, y1GenLine],[(newNode.column * columnSize), ((newNode.row * rowSize))])});
-    
-    d3.select("#betweenLayer").append("div")
-    .attr("class", "newDiv")
-    .style("position", "absolute")
-    .style("left", "30px")
-    .style("top", "200px")
-    .style("opacity", 0)
-    .style("pointer-events", "none");
 
-    d3.select("div.newDiv")
-    .data([newNode])
-    .attr("class", "zoom2")
-    .each(function(d,i) {
-    if(d.imgUrl) {
-    if (d.imgUrl.length > 2) {
-    d3.select(this)
-    .append("img").attr("src", d.imgUrl.substr(0,10) == "data:image" ? d.imgUrl : "../../../img/example/zoom2/" + d.imgUrl)
-    .style("opacity", 1);
-    d3.select(this).append("div")
-    .attr("class", "text below")
-    .html(d.title);
-    }    
-    }
-        else {
-    d3.select(this).append("div")
-    .attr("class", "text")
-    .html(d.title);
-    }
-    });
+    var newUIG = d3.select("#mgBloomG").append("g").attr("id", "newUILine")
+    .data([{source: newSource, target: newTarget}])
+    .attr("class", "uiPath")
+    .on("mouseover", pathOver)
+    .on("mouseout", pathOut);
+    
+    newUIG
+    .append("path")
+    .style("stroke", "orange")
+    .style("stroke-linecap", "round")
+    .attr("class", "uiPath")
+    .style("stroke-width", 8)
+    .style("fill", "none")
+    .attr("d", function(d) {return curvyLine([d.source.column * columnSize, (d.source.row * rowSize)],[d.target.column * columnSize, (d.target.row * rowSize)]) })
+    .style("opacity", 0)
+    ;
+    
+    newUIG
+    .append("circle")
+    .attr("class", "uiPath")
+    .attr("r", 8)
+    .attr("cx", function(d) {return ((d.target.column * columnSize) + (d.source.column * columnSize)) / 2})
+    .attr("cy", function(d) {return ((d.target.row * rowSize) + (d.source.row * rowSize)) / 2})
+    .style("fill", "white")
+    .style("stroke", "black")
+    .style("stroke-width", "1px")
+    .style("cursor", "pointer")
+    .on("mouseover", function() {d3.select(this).style("fill", "cyan")})
+    .on("mouseout", function() {d3.select(this).style("fill", "white")})
+    .on("click", deleteLink)
+    .style("display", "none")
+
+
+    newUIG
+    .append("text")
+    .attr("class", "uiPath")
+    .attr("x", function(d) {return (((d.target.column * columnSize) + (d.source.column * columnSize)) / 2) - 4})
+    .attr("y", function(d) {return (((d.target.row * rowSize) + (d.source.row * rowSize)) / 2) + 4})
+    .text("x")
+    .style("pointer-events", "none")
+    .style("display", "none");
+    
     
     testLayout.nodes().push(newNode)
     updatingNode = newNode;
@@ -813,8 +834,10 @@ function createNewNode(d,i) {
 }
 
 function nodeDetailsDialog(targetNode) {
+    console.log(targetNode);
     var nodeXY = d3.transform(targetNode.attr("transform"));
-    d3.select("#new-node").classed("hidden", false).attr("class", "modal is-short");
+    d3.select("#new-node").classed("hidden", false).attr("class", "modal is-short")
+    
 //    d3.select("#new-node").classed("hidden", false).style("left", ((parseInt(nodeXY.translate[0]) - 75) + bloomZoom.translate()[0]) + "px").style("top", ((parseInt(nodeXY.translate[1]) - 40) + bloomZoom.translate()[1]) + "px")
 
 }
@@ -902,12 +925,10 @@ function deleteLink(d,i) {
 
 function updatedEvolvedForward(incSourceID, incTarget, incTargetID) {
     d3.select("#node" + incSourceID).attr("transform", "translate(20,20)").each(function() {document.getElementById("toolboxG").appendChild(this);})
-    console.log("forward")
     updatedEvolvedFromSimple(incSourceID, incTarget);
 }
 
 function updatedEvolvedBackward(incSourceID, incTarget, incTargetID) {
-    console.log("backward")
     d3.select("#node" + incTargetID).attr("transform", "translate(20,20)").each(function() {document.getElementById("toolboxG").appendChild(this);})
     updatedEvolvedFromSimple(incSourceID, incTarget);
 }
@@ -959,7 +980,6 @@ function updatedBloomCase(newBCNodes, newBCLinks) {
 	    }
 	}
 	if(foundNode == false) {
-	    console.log("not found")
 	    d3.selectAll("g.sec").filter(function(el) {return el.nid == oldNodes[n].nid}).remove();
 	    oldNodes.splice(n,1);
 	}
@@ -973,7 +993,6 @@ function updatedBloomCase(newBCNodes, newBCLinks) {
 	    if (newBCNodes[x].nid == oldNodes[y].nid) {
 		newBCNodes[x] = oldNodes[y];
 		foundNode = true;
-		console.log("found")
 		break;
 	    }
 	}
@@ -1031,7 +1050,6 @@ function updatedBloomCase(newBCNodes, newBCLinks) {
 	}
 	if (foundLink == false) {
 	    oldLinks.push(newBCLinks[x]);
-	    console.log(newBCLinks[x])
     d3.selectAll("#bloomG").append("path").data([newBCLinks[x]])
     .style("stroke", "black")
     .attr("class", "connections")
@@ -1068,7 +1086,6 @@ function hideToolbox() {
 	toolboxHidden = true;
 	newY = currentToolboxY + 180;
     }
-    console.log("transform(0,"+ newY+")")
     d3.select("#toolboxG")
     .transition()
     .duration(500)
@@ -1095,10 +1112,8 @@ function uploadImage() {
     
         reader = new FileReader();
         reader.onloadend = function() {
-	    console.log(JSON.stringify(updatingNode))
-            document.getElementById("testimage").src = reader.result;
+	    d3.select("#new-node .icon-camera").attr("src", reader.result);
 	    updatingNode.imgUrl = reader.result;
-	    console.log(JSON.stringify(updatingNode))
         }
     	file = document.getElementById("submitfile").files[0];
         reader.readAsDataURL(file);
@@ -1111,6 +1126,7 @@ function createFirstNode() {
     	d3.selectAll("g.sec").transition().duration(1000).style("opacity", 1);
 	d3.select("#disabledDiv").remove();
 
+    d3.select("g.sec").each(function(d,i) {panToCenter(1, d.column,d.row)});
     nodeDetailsDialog(d3.select("g.sec"));
     updatingNode = testLayout.nodes()[0];
 }
@@ -1118,6 +1134,10 @@ function createFirstNode() {
 function validateParsley() {
     var formValid = $( '#new-node-form' ).parsley( 'isValid' );
     document.getElementById("new-node-form").focus();
+
+////Hack because no wifi thus no jquery    
+    formValid = true;
+
     if(formValid) {
 	d3.select("#new-node").classed("hidden", true)
 	updatingNode.title = document.getElementById("new-node-form-title").value;
@@ -1125,12 +1145,143 @@ function validateParsley() {
 	updatingNode.webUrl = document.getElementById("new-node-form-url").value;
 	updatingNode.timestamp = document.getElementById("new-node-form-date").value;
 	updatingNode.tags = document.getElementById("new-node-form-tags").value;
-	
+	d3.select("#new-node .icon-camera").attr("src", "../../../img/icon-camera.png");
 	d3.selectAll(".parsley-validated").property("value", "")
+	createRemainingNodeComponents(updatingNode);
+	
+	if (testLayout.nodes().length == 1) {
+	    d3.select("#project-tour-5").classed("hidden", false)
+	}
+	else {
+	    d3.select("#project-tour-5").classed("hidden", true)	    
+	}
+
     }
     else {
 	console.log("Form is invalid")
     }
     
     return false;
+}
+
+function selectImage() {
+    document.getElementById("submitfile").click();
+}
+
+function createRemainingNodeComponents(incNode) {
+    if (d3.selectAll("g.sec")[0].length == d3.selectAll("div.sec")[0].length) {
+	d3.selectAll("div.zoom2").select("img").attr("src", function(d) {return d.imgUrl.substr(0,10) == "data:image" ? d.imgUrl : "../../../img/example/zoom2/" + d.imgUrl});
+	d3.selectAll("div.zoom2").select(".text").html(function(d) {return d.title});
+	d3.selectAll("div.sec")
+	.each(function (d) {
+	d3.select(this).select(".node-info-title").html("<img class='node-info-type' src='../../../img/icon-"+d.kind.toLowerCase() +"-sm.png' />" + d.title)
+	d3.select(this).select(".node-info-desc").html("<div>" + d.summary + "</div>")
+	if (d.imgUrl) {
+	    d3.select(this).select("img").attr("src", d.imgUrl.substr(0,10) == "data:image" ? d.imgUrl : "../../../img/example/zoom2/" + d.imgUrl)
+	}
+	}
+	)
+    }
+    else {
+
+    d3.select("#betweenLayer").append("div")
+    .attr("class", "newDiv")
+    .style("position", "absolute")
+    .style("left", "400px")
+    .style("top", "300px")
+    .style("opacity", 0)
+    .style("pointer-events", "none");
+
+    d3.select("div.newDiv")
+    .data([incNode])
+    .attr("class", "zoom2")
+    .each(function(d,i) {
+    if(d.imgUrl) {
+    if (d.imgUrl.length > 2) {
+    d3.select(this)
+    .append("img").attr("src", d.imgUrl.substr(0,10) == "data:image" ? d.imgUrl : "../../../img/example/zoom2/" + d.imgUrl)
+    .style("opacity", 1);
+    d3.select(this).append("div")
+    .attr("class", "text below")
+    .html(d.title);
+    }    
+    }
+        else {
+    d3.select(this).append("div")
+    .attr("class", "text")
+    .html(d.title);
+    }
+    });
+    
+    var newSecDiv = d3.select("#aboveLayer").append("div")
+    .data([incNode])
+    .style("display", function(d) {return d.isMeta ? "none" : "block"})
+    .attr("class", "zoom2 zoom2Overlay")
+    .style("position", "absolute")
+    .style("left", "30px")
+    .style("top", "200px")
+    .style("background-color", "rgba(255, 255, 255, 0)")
+    .style("border", "0")
+    .style("opacity", 0)
+    .style("pointer-events", "none")
+    .style("cursor", "pointer")
+    .on("click", function(d) {	panToCenter(1000, d.column, d.row);populateMorePanel(d);d3.select("#morePanel").classed("hidden", false)});
+
+    var newSecDiv = d3.select("#aboveLayer").append("div")
+    .data([incNode])
+    .style("display", function(d) {return d.isMeta ? "none" : "block"})
+    .attr("class", "sec modal node-info")
+    .style("position", "absolute")
+    .style("left", "30px")
+    .style("top", "200px")
+    .style("opacity", 0)
+    .style("pointer-events", "none");
+    
+    newSecDiv.append("div")
+    .attr("class", "node-info-image")
+    .each(function(d,i) {
+	if(d.imgUrl) {
+    if (d.imgUrl.length > 2) {
+    d3.select(this)
+    .append("img").attr("src", d.imgUrl.substr(0,10) == "data:image" ? d.imgUrl : "../../../img/example/zoom3/" + d.imgUrl)
+    }
+    }
+    });
+    
+    newSecDiv.append("div").attr("class", "node-info-title").html(function(d) {return "<img class='node-info-type' src='../../../img/icon-"+d.kind.toLowerCase() +"-sm.png' />" + d.title})
+    newSecDiv.append("div").attr("class", "node-info-desc ellipsis").html(function(d) {return "<div>" + d.summary + "</div>"})
+    var secButtonDiv = newSecDiv.append("div").attr("class", "node-info-buttons")
+    
+    secButtonDiv.append("a")
+    .attr("class", "node-info-edit button blue")
+    .attr("href", "#")
+    .on("click", function(d) {	editNode(d)})
+    .html("edit")
+
+    secButtonDiv.append("a")
+    .attr("class", "node-info-more button purple")
+    .attr("href", "#")
+    .on("click", function(d) {	panToCenter(1000, d.column, d.row);populateMorePanel(d);d3.select("#morePanel").classed("hidden", false)})
+    .html("more");
+    }
+}
+
+function editNode(incNode) {
+    
+	updatingNode = incNode;
+    	d3.select("#node-popup").classed("hidden", true)
+    	d3.select("#new-node").classed("hidden", false)
+	document.getElementById("new-node-form-title").value = updatingNode.title;
+	document.getElementById("new-node-form-desc").value = updatingNode.summary;
+	document.getElementById("new-node-form-url").value = updatingNode.webUrl;
+	document.getElementById("new-node-form-date").value = updatingNode.timestamp;
+	document.getElementById("new-node-form-tags").value = updatingNode.tags;
+	if (updatingNode.imgUrl.length > 2) {
+	    d3.select("#new-node .icon-camera").attr("src", updatingNode.imgUrl.substr(0,10) == "data:image" ? updatingNode.imgUrl : "../../../img/example/zoom2/" + updatingNode.imgUrl);
+	}
+	else {
+	    d3.select("#new-node .icon-camera").attr("src", "../../../img/icon-camera.png");
+	}
+//	d3.selectAll(".parsley-validated").property("value", "")
+
 }

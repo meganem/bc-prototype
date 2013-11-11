@@ -63,11 +63,6 @@ include $headerInclude;
 <!-- New node form -->
 <div id="new-node" class="modal is-short hidden">
      <div class="modal-arrow"></div>
-     <img id="testimage" />
-     <form name="Upload" action="#" enctype="multipart/form-data" method="post">
-   <p>Filename: <INPUT type="file" name="submitfile" id = "submitfile" />
-   <INPUT type="button" value="Send" onClick="uploadImage();" />
-   </form>
     <div id="new-node-cancel">
         <a class="" href="#">
             <img class="icon-cancel" src="<?php print $pathPrefix; ?>img/icon-cancel.png" alt="Cancel" width="17" height="17" />
@@ -75,10 +70,10 @@ include $headerInclude;
     </div>
     <form id="new-node-form" class="" data-validate="parsley" novalidate>
         <div class="form-divider">
-            <a id="new-node-type" href="#" class="dark-background">
+            <a id="new-node-type" href="#" class="dark-background" style="cursor:pointer;")>
                 <div class="icon-sketch">sketch</div>
             </a>
-            <a id="new-node-image" href="#" class="dark-background">
+            <a id="new-node-image" onclick="selectImage()" class="dark-background">
                 <img class="icon-camera" src="<?php print $pathPrefix; ?>img/icon-camera.png" alt="Choose image" width="32" height="25" />
             </a>
         </div>
@@ -99,6 +94,7 @@ include $headerInclude;
             <input id="new-node-more" class="button purple more-link" onclick="newNodeFormExpand();" type="button" value="more">
         </div>
     </form>
+    <INPUT type="file"  onchange="uploadImage();" name="submitfile" id = "submitfile" style="display:none;" />
 </div>
 
 <!-- Cards at zoom level 3 -->

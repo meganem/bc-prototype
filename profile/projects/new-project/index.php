@@ -73,7 +73,7 @@ include $headerInclude;
             <a id="new-node-type" href="#" class="dark-background">
                 <div class="icon-sketch">sketch</div>
             </a>
-            <a id="new-node-image" href="#" class="dark-background">
+            <a id="new-node-image" onclick="selectImage()" class="dark-background" style="cursor:pointer;")>
                 <img class="icon-camera" src="<?php print $pathPrefix; ?>img/icon-camera.png" alt="Choose image" width="32" height="25" />
             </a>
         </div>
@@ -94,11 +94,7 @@ include $headerInclude;
             <input id="new-node-more" class="button purple more-link" onclick="newNodeFormExpand();" type="button" value="more">
         </div>
     </form>
-         <img id="testimage" />
-     <form name="Upload" action="#" enctype="multipart/form-data" method="post">
-   <p>Filename: <INPUT type="file" name="submitfile" id = "submitfile" />
-   <INPUT type="button" value="Send" onClick="uploadImage();" />
-   </form>
+	<INPUT type="file"  onchange="uploadImage();" name="submitfile" id = "submitfile" style="display:none;" />
 
 </div>
 
