@@ -95,3 +95,9 @@ $( '#new-node-form' ).parsley('addListener', {
     }
 } );
 
+
+//Close things
+function closeThis(theId) {
+    $('#' + theId).addClass('hidden');
+}
+

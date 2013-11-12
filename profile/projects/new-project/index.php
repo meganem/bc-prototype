@@ -30,7 +30,7 @@ include $headerInclude;
                 
                     <?php include $pathPrefix . "parts/project-actions-menu.php" ?>
                     
-                    <h1 class="project-title">My Project</h1>
+                    <h1 class="project-title">By the Bay</h1>
                     <?php include $pathPrefix . "parts/project-menu.php" ?>
 
                 </div> <!-- End container -->
@@ -180,7 +180,7 @@ include $headerInclude;
 
 <div id="project-tour-5" class="modal modal-center project-tour align-center">
 	<div class="close">
-        <a class="" href="#">
+        <a class="" href="#" onclick="closeThis('project-tour-5');">
             <img class="icon-close" src="<?php print $pathPrefix; ?>img/icon-close-black.png" alt="close" width="11" height="11" />
         </a>
     </div>
