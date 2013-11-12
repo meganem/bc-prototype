@@ -1149,7 +1149,7 @@ function validateParsley() {
 	updatingNode.webUrl = document.getElementById("new-node-form-url").value;
 	updatingNode.timestamp = document.getElementById("new-node-form-date").value;
 	updatingNode.tags = document.getElementById("new-node-form-tags").value;
-	d3.select("#new-node .icon-camera").attr("src", "../../../img/icon-camera.png");
+	d3.select("#new-node #new-node-image-preview").attr("src", "../../../img/icon-camera.png");
 	d3.selectAll(".parsley-validated").property("value", "")
 	createRemainingNodeComponents(updatingNode);
 	
@@ -1281,10 +1281,10 @@ function editNode(incNode) {
 	document.getElementById("new-node-form-date").value = updatingNode.timestamp;
 	document.getElementById("new-node-form-tags").value = updatingNode.tags;
 	if (updatingNode.imgUrl.length > 2) {
-	    d3.select("#new-node .icon-camera").attr("src", updatingNode.imgUrl.substr(0,10) == "data:image" ? updatingNode.imgUrl : "../../../img/example/zoom2/" + updatingNode.imgUrl);
+	    d3.select("#new-node #new-node-image-preview").attr("src", updatingNode.imgUrl.substr(0,10) == "data:image" ? updatingNode.imgUrl : "../../../img/example/zoom2/" + updatingNode.imgUrl);
 	}
 	else {
-	    d3.select("#new-node .icon-camera").attr("src", "../../../img/icon-camera.png");
+	    d3.select("#new-node #new-node-image-preview").attr("src", "../../../img/icon-camera.png");
 	}
 //	d3.selectAll(".parsley-validated").property("value", "")
 
