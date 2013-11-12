@@ -7,12 +7,12 @@
 }
 #project-tour-1 {
 	margin-left: -150px;
-    top: 40%;
+    top: 30%;
 }
 
 #project-tour-2 {
-	left: 30px;
-    top: 140px;
+	left: 10px;
+    top: 133px;
 }
 #project-tour-2 .modal-arrow:before, #project-tour-3 .modal-arrow:before {
 	border-top-color:transparent;
@@ -29,8 +29,8 @@
 
 #project-tour-3 {
 	left:auto;
-	right: 30px;
-    top: 140px;
+	right: 51px;
+    top: 137px;
 }
 #project-tour-3 .modal-arrow:before, #project-tour-3 .modal-arrow:after {
 	right:30px;
@@ -49,10 +49,13 @@
 	left:130px;
 	margin-top:11px;
 }
+#project-tour-4 .modal-arrow:before, #project-tour-4 .modal-arrow:after {
+	display:none;
+}
 
 #project-tour-5 {
 	margin-left: -150px;
-    top: 55%;
+    top: 31%;
 }
 #project-tour-6 {
 	margin-left: -150px;

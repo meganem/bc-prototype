@@ -2104,13 +2104,13 @@ a.tag:hover, a.tag:focus {
 /* line 8, ../scss/modules/_project-tour.scss */
 #project-tour-1 {
   margin-left: -150px;
-  top: 40%;
+  top: 30%;
 }
 
 /* line 13, ../scss/modules/_project-tour.scss */
 #project-tour-2 {
-  left: 30px;
-  top: 140px;
+  left: 10px;
+  top: 133px;
 }
 
 /* line 17, ../scss/modules/_project-tour.scss */
@@ -2132,8 +2132,8 @@ a.tag:hover, a.tag:focus {
 /* line 30, ../scss/modules/_project-tour.scss */
 #project-tour-3 {
   left: auto;
-  right: 30px;
-  top: 140px;
+  right: 51px;
+  top: 137px;
 }
 
 /* line 35, ../scss/modules/_project-tour.scss */
@@ -2160,19 +2160,24 @@ a.tag:hover, a.tag:focus {
   margin-top: 11px;
 }
 
-/* line 53, ../scss/modules/_project-tour.scss */
-#project-tour-5 {
-  margin-left: -150px;
-  top: 55%;
+/* line 52, ../scss/modules/_project-tour.scss */
+#project-tour-4 .modal-arrow:before, #project-tour-4 .modal-arrow:after {
+  display: none;
 }
 
-/* line 57, ../scss/modules/_project-tour.scss */
+/* line 56, ../scss/modules/_project-tour.scss */
+#project-tour-5 {
+  margin-left: -150px;
+  top: 31%;
+}
+
+/* line 60, ../scss/modules/_project-tour.scss */
 #project-tour-6 {
   margin-left: -150px;
   top: 75%;
 }
 
-/* line 62, ../scss/modules/_project-tour.scss */
+/* line 65, ../scss/modules/_project-tour.scss */
 ul.project-tour-status {
   margin: 0;
   padding: 0;
@@ -2180,7 +2185,7 @@ ul.project-tour-status {
   float: left;
 }
 
-/* line 68, ../scss/modules/_project-tour.scss */
+/* line 71, ../scss/modules/_project-tour.scss */
 ul.project-tour-status li {
   list-style-type: none;
   display: inline-block;
@@ -2188,7 +2193,7 @@ ul.project-tour-status li {
   padding: 0;
 }
 
-/* line 74, ../scss/modules/_project-tour.scss */
+/* line 77, ../scss/modules/_project-tour.scss */
 ul.project-tour-status a {
   display: inline-block;
   -webkit-border-radius: 8px;
@@ -2202,24 +2207,24 @@ ul.project-tour-status a {
   border: 1px solid #3f3f3f;
 }
 
-/* line 82, ../scss/modules/_project-tour.scss */
+/* line 85, ../scss/modules/_project-tour.scss */
 ul.project-tour-status a.active, ul.project-tour-status a:hover, ul.project-tour-status a:focus {
   background: #3f3f3f;
 }
 
-/* line 85, ../scss/modules/_project-tour.scss */
+/* line 88, ../scss/modules/_project-tour.scss */
 .close {
   line-height: 11px;
   position: absolute;
   right: 11px;
 }
 
-/* line 90, ../scss/modules/_project-tour.scss */
+/* line 93, ../scss/modules/_project-tour.scss */
 .close img {
   opacity: 0.5;
 }
 
-/* line 93, ../scss/modules/_project-tour.scss */
+/* line 96, ../scss/modules/_project-tour.scss */
 .close:hover img {
   opacity: 1;
 }
