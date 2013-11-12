@@ -74,7 +74,7 @@ include $headerInclude;
                 <div class="icon-sketch">sketch</div>
             </a>
 	<a id="new-node-image" onclick="selectImage()" class="dark-background" style="cursor:pointer;">
-		<img class="icon-camera" src="<?php print $pathPrefix; ?>img/icon-camera.png" alt="Choose image" width="32" height="25" />
+		<img id="new-node-image-preview" class="icon-camera" src="<?php print $pathPrefix; ?>img/icon-camera.png" alt="Choose image" />
         </a>
 <!---
             <form name="Upload" action="#" enctype="multipart/form-data" method="post">

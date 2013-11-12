@@ -71,6 +71,8 @@ input.disabled {
 }
 .dark-background .icon-camera {
     margin-top: 10px;
+    width:32px;
+    height:25px;
 }
 .dark-background:hover, .dark-background:focus {
     background: $gray;
@@ -88,24 +90,12 @@ input.disabled {
     margin-bottom: .5em;
 }
 
-#submitfile {
-    opacity: 0; 
-    filter: alpha(opacity=0); 
-    position: absolute; 
-    right: 0px; 
-    top: 0; 
-    font-size: 40px;
-}
-.file-upload {
+#new-node-image {
     overflow: hidden; 
     position: relative;
     cursor: pointer;
 }
-#file-upload-submit {
-    position:relative;
-    z-index:40;
-}
-#testimage {
+#new-node-image-preview.image-preview {
     min-width: 60px;
     max-width: 120px;
     margin-left: -0.5em;

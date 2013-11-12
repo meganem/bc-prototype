@@ -1435,15 +1435,17 @@ input.disabled {
 /* line 72, ../scss/modules/_new-node-form.scss */
 .dark-background .icon-camera {
   margin-top: 10px;
+  width: 32px;
+  height: 25px;
 }
 
-/* line 75, ../scss/modules/_new-node-form.scss */
+/* line 77, ../scss/modules/_new-node-form.scss */
 .dark-background:hover, .dark-background:focus {
   background: #3f3f3f;
   text-decoration: none;
 }
 
-/* line 79, ../scss/modules/_new-node-form.scss */
+/* line 81, ../scss/modules/_new-node-form.scss */
 .icon-sketch {
   padding-top: 30px;
   background-image: url("../img/icon-sketch-sm.png");
@@ -1453,36 +1455,20 @@ input.disabled {
   padding-top: 14px;
 }
 
-/* line 87, ../scss/modules/_new-node-form.scss */
+/* line 89, ../scss/modules/_new-node-form.scss */
 .form-divider {
   margin-bottom: .5em;
 }
 
-/* line 91, ../scss/modules/_new-node-form.scss */
-#submitfile {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
-  right: 0px;
-  top: 0;
-  font-size: 40px;
-}
-
-/* line 99, ../scss/modules/_new-node-form.scss */
-.file-upload {
+/* line 93, ../scss/modules/_new-node-form.scss */
+#new-node-image {
   overflow: hidden;
   position: relative;
   cursor: pointer;
 }
 
-/* line 104, ../scss/modules/_new-node-form.scss */
-#file-upload-submit {
-  position: relative;
-  z-index: 40;
-}
-
-/* line 108, ../scss/modules/_new-node-form.scss */
-#testimage {
+/* line 98, ../scss/modules/_new-node-form.scss */
+#new-node-image-preview.image-preview {
   min-width: 60px;
   max-width: 120px;
   margin-left: -0.5em;
@@ -1491,7 +1477,7 @@ input.disabled {
 }
 
 /* --------------- State change for new node form --------------- */
-/* line 121, ../scss/modules/_new-node-form.scss */
+/* line 111, ../scss/modules/_new-node-form.scss */
 .is-short #new-node-form-desc,
 .is-short #new-node-form-url,
 .is-short #new-node-form-date,
@@ -1500,28 +1486,28 @@ input.disabled {
   display: none;
 }
 
-/* line 124, ../scss/modules/_new-node-form.scss */
+/* line 114, ../scss/modules/_new-node-form.scss */
 .is-long #new-node-more {
   display: none;
 }
 
-/* line 127, ../scss/modules/_new-node-form.scss */
+/* line 117, ../scss/modules/_new-node-form.scss */
 .is-long #new-node-form-submit {
   float: right;
 }
 
 /* --------------- Form validation with Parsley --------------- */
-/* line 132, ../scss/modules/_new-node-form.scss */
+/* line 122, ../scss/modules/_new-node-form.scss */
 .parsley-error {
   background: #ffe4e4;
 }
 
-/* line 135, ../scss/modules/_new-node-form.scss */
+/* line 125, ../scss/modules/_new-node-form.scss */
 .parsley-success {
   background: #e7ffe4;
 }
 
-/* line 138, ../scss/modules/_new-node-form.scss */
+/* line 128, ../scss/modules/_new-node-form.scss */
 .parsley-error-list {
   font-size: 0.7em;
   margin: -3em 0 1em 0.5em;
@@ -1542,7 +1528,7 @@ input.disabled {
   box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
 }
 
-/* line 151, ../scss/modules/_new-node-form.scss */
+/* line 141, ../scss/modules/_new-node-form.scss */
 .parsley-error-list li {
   list-style: none;
 }

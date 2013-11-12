@@ -1114,7 +1114,9 @@ function uploadImage() {
     
         reader = new FileReader();
         reader.onloadend = function() {
-	    d3.select("#new-node .icon-camera").attr("src", reader.result);
+	    d3.select("#new-node-image-preview").attr("src", reader.result);
+        d3.select("#new-node-image-preview").classed("icon-camera", false);
+        d3.select("#new-node-image-preview").classed("image-preview", true);
 	    updatingNode.imgUrl = reader.result;
         }
     	file = document.getElementById("submitfile").files[0];
