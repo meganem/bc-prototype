@@ -1150,6 +1150,8 @@ function validateParsley() {
 	updatingNode.timestamp = document.getElementById("new-node-form-date").value;
 	updatingNode.tags = document.getElementById("new-node-form-tags").value;
 	d3.select("#new-node #new-node-image-preview").attr("src", "../../../img/icon-camera.png");
+    d3.select("#new-node #new-node-image-preview").classed("icon-camera", true);
+    d3.select("#new-node #new-node-image-preview").classed("image-preview", false);
 	d3.selectAll(".parsley-validated").property("value", "")
 	createRemainingNodeComponents(updatingNode);
 	
@@ -1285,6 +1287,8 @@ function editNode(incNode) {
 	}
 	else {
 	    d3.select("#new-node #new-node-image-preview").attr("src", "../../../img/icon-camera.png");
+        d3.select("#new-node #new-node-image-preview").classed("icon-camera", true);
+        d3.select("#new-node #new-node-image-preview").classed("image-preview", false);
 	}
 //	d3.selectAll(".parsley-validated").property("value", "")
 
