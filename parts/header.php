@@ -51,7 +51,7 @@
                         <ul class="no-js">
                             <li>
                                 <a href="#" class="clicker">
-                                    <img src="<?php print $pathPrefix; ?>img/user-sm.png" width="35" height="35" alt="User profile picture" /></a>
+                                    <img src="<?php print $pathPrefix; ?>img/laurie-icon.jpg" width="35" height="35" alt="User profile picture" /></a>
                             		<div class="notification">2</div>
                                 </a>
                                 <ul id="user-actions-menu" class="menu dropdown">

@@ -1,5 +1,5 @@
 <?php 
-// DASHBOARD
+// DASHBOARD - LAURIE
 $nestLevel = 1;
 $loggedIn = true;
 $bodyclass = "logged-in dashboard";
@@ -60,7 +60,7 @@ include $headerInclude;
 	                    		<h2>My Profile</h2>
 	                    		<div class="row divider">
 	                				<div class="">
-	                					<img src="<?php print $pathPrefix; ?>img/placeholder.png" width="336" height="165" alt="" />
+	                					<img src="<?php print $pathPrefix; ?>img/laurie-profile.jpg" width="336" alt="Laurie Reid" />
 	                				</div>
 	                				<h3>Laurie Reid</h3>
 	                				<p class="small">An aspiring architect, studying at San Francisco State University. Passionate about design, psychology, and cookies.</p>

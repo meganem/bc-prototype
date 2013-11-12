@@ -26,7 +26,7 @@ include $headerInclude;
 
 	        	<div class="row">
 	                <div class="span3 float-left">
-						<img class="profile-image" src="<?php print $pathPrefix; ?>img/placeholder.png" width="300" alt="" />
+						<img class="profile-image" src="<?php print $pathPrefix; ?>img/laurie-square.jpg" width="300" alt="" />
 					</div>
 					<div class="span9">
 						
