@@ -167,6 +167,7 @@ function drawBC(nodeData,linkData) {
     .style("stroke", "black")
     .attr("class", "connections")
     .style("stroke-width", 2)
+    .style("pointer-events", "none")
     .style("fill", "none")
     .attr("d", function(d) {return curvyLine([d.source.column * columnSize, (d.source.row * rowSize)],[d.target.column * columnSize, (d.target.row * rowSize)]) })
     .style("opacity", 0)
@@ -502,13 +503,15 @@ function startMove(d,i) {
     updatingNode = d;
     var curMouse = d3.mouse(this.parentNode);
     d3.select("#map").on("mousemove", moveGenNode)
-    d3.select("#bloomG").on("mouseup", endMove)
+    d3.selectAll("svg").on("mouseup", endMove)
     d3.select("#bgBloomG").insert("path", ".sec")
     .attr("id", "genLine")
     .attr("d", function(d) {return curvyLine([x1GenLine, y1GenLine],[curMouse[0], curMouse[1]]) })
     .style("stroke", "black")
     .style("fill", "none")
     .style("stroke-width", 2)
+    .style("pointer-events", "none")
+    
     d3.select("#bloomG").append("g")
     .attr("id","genNode")
     .on("click", function() {d3.select("#modalOptions").style("display","block");})
@@ -577,6 +580,7 @@ function endMove(d,i) {
     .data([{source: updatingNode, target: blNodes[no]}])
     .attr("id", "inserted")
     .attr("class", "connections")
+    .style("pointer-events", "none")
     .transition()
     .duration(500)
     .attr("d", function(d) {return curvyLine([x1GenLine, y1GenLine],[(newNode.column * columnSize), ((newNode.row * rowSize))])});
@@ -771,6 +775,7 @@ function createNewNode(d,i) {
     .data([{source: newSource, target: newTarget}])
     .attr("id", "inserted")
     .attr("class", "connections")
+    .style("pointer-events", "none")
     .transition()
     .duration(500)
     .attr("d", function(d) {return curvyLine([x1GenLine, y1GenLine],[(newNode.column * columnSize), ((newNode.row * rowSize))])});
@@ -829,6 +834,9 @@ function createNewNode(d,i) {
     var freshLayout = new d3_layout_bloomcase();
     freshLayout.nodes(newNodeArray);
     updatedBloomCase(freshLayout.nodes(),freshLayout.links())
+    
+    d3.select("#new-node-type > div").attr("class", "icon-" + d).html(d)
+
 
     var runLater = setTimeout(function() {nodeDetailsDialog(createdNode)}, 1000)
     panToCenter(1000, newNode.column,newNode.row);
@@ -836,7 +844,6 @@ function createNewNode(d,i) {
 }
 
 function nodeDetailsDialog(targetNode) {
-    console.log(targetNode);
     var nodeXY = d3.transform(targetNode.attr("transform"));
     d3.select("#new-node").classed("hidden", false).attr("class", "modal is-short")
     
@@ -960,11 +967,34 @@ function hideModal() {
 function moveGenNode(d,i) {
     var curMouse = d3.mouse(this);
     forBack = (curMouse[0] - bloomZoom.translate()[0] - x1GenLine);
-    d3.select("#genNode")
-    .attr("transform","translate("+(curMouse[0] - bloomZoom.translate()[0])+","+(curMouse[1] - bloomZoom.translate()[1])+")")
+    upDown = (curMouse[1] - bloomZoom.translate()[1] - y1GenLine);
+    
+    if (forBack > 0) {
+	forBack = ((Math.floor(forBack / rowSize) * rowSize));
+    }
+    else {
+	forBack = ((Math.round(forBack / rowSize) * rowSize));
+    }
 
+    if (upDown > 0) {
+	upDown = ((Math.floor(upDown / columnSize) * columnSize));
+    }
+    else {
+	upDown = ((Math.round(upDown / columnSize) * columnSize));
+    }
+    
+/*    d3.select("#genNode")
+    .attr("transform","translate("+(curMouse[0] - bloomZoom.translate()[0])+","+(curMouse[1] - bloomZoom.translate()[1])+")")
     d3.select("#genLine")
     .attr("d", function(d) {return curvyLine([x1GenLine, y1GenLine],[(curMouse[0] - bloomZoom.translate()[0]), (curMouse[1] - bloomZoom.translate()[1])])});
+    */
+
+    d3.select("#genNode")
+    .attr("transform","translate("+(x1GenLine + forBack)+","+(y1GenLine + upDown)+")")
+
+    d3.select("#genLine")
+    .attr("d", function(d) {return curvyLine([x1GenLine, y1GenLine],[(x1GenLine + forBack), (y1GenLine + upDown)])});
+
         
 }
 
@@ -1056,6 +1086,7 @@ function updatedBloomCase(newBCNodes, newBCLinks) {
     .style("stroke", "black")
     .attr("class", "connections")
     .style("stroke-width", 2)
+    .style("pointer-events", "none")
     .style("fill", "none")
     .attr("d", function(d) {return curvyLine([d.source.column * columnSize, (d.source.row * rowSize)],[d.target.column * columnSize, (d.target.row * rowSize)]) })
     .style("opacity", 0)
@@ -1297,6 +1328,7 @@ function editNode(incNode) {
 	updatingNode = incNode;
     	d3.select("#node-popup").classed("hidden", true)
     	d3.select("#new-node").classed("hidden", false)
+	d3.select("#new-node-type > div").attr("class", "icon-" + updatingNode.kind.toLowerCase()).html(updatingNode.kind.toLowerCase())
 	document.getElementById("new-node-form-title").value = updatingNode.title;
 	document.getElementById("new-node-form-desc").value = updatingNode.summary;
 	document.getElementById("new-node-form-url").value = updatingNode.webUrl;
