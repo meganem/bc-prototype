@@ -565,8 +565,8 @@ function endMove(d,i) {
     var curMouse = d3.mouse(this);
     var blNodes = testLayout.nodes();
     for (no in blNodes) {
-	var checkX = Math.abs(blNodes[no].column * columnSize - curMouse[0]);
-	var checkY = Math.abs((blNodes[no].row * rowSize) - curMouse[1]);
+	var checkX = Math.abs((updatingNode.column * columnSize) - (blNodes[no].column * columnSize) + forBack);
+	var checkY = Math.abs((updatingNode.row * rowSize) - (blNodes[no].row * rowSize) + upDown);
 	if (checkX < 20 && checkY < 20) {
 	    if (blNodes[no].column != updatingNode.column && !(blNodes[no].evolvedFrom.indexOf(updatingNode.nid) > -1 || updatingNode.evolvedFrom.indexOf(blNodes[no].nid) > -1)) {
 	    
