@@ -32,7 +32,7 @@
         <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> -->
         <script src="<?php print $pathPrefix; ?>js/vendor/jquery-1.10.1.min.js"></script>
 
-        <script src="<?php print $pathPrefix; ?>js/vendor/d3.vs.min.js"></script>
+        <script src="<?php print $pathPrefix; ?>js/vendor/d3.v3.min.js"></script>
         <script src="<?php print $pathPrefix; ?>js/vendor/parsley.js"></script>
         <script src="<?php print $pathPrefix; ?>js/vendor/parsley.extend.js"></script>
         <script>window.jQuery || document.write('<script src="<?php print $pathPrefix; ?>js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
