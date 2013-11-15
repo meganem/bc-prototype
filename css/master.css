@@ -1451,68 +1451,51 @@ input.disabled {
 }
 
 /* line 81, ../scss/modules/_new-node-form.scss */
-.icon-Sketch {
-  padding-top: 30px;
+.icon-sketch, .icon-draft, .icon-idea, .icon-inspiration, .icon-final {
+  background-repeat: no-repeat;
+  background-position: top center;
+  margin-top: 6px;
+  padding-top: 14px;
+}
+
+/* line 87, ../scss/modules/_new-node-form.scss */
+.icon-sketch {
   background-image: url("../img/icon-sketch-sm.png");
-  background-repeat: no-repeat;
-  background-position: top center;
-  margin-top: 6px;
-  padding-top: 14px;
 }
 
-/* line 89, ../scss/modules/_new-node-form.scss */
-.icon-Inspiration {
-  padding-top: 30px;
+/* line 90, ../scss/modules/_new-node-form.scss */
+.icon-inspiration {
   background-image: url("../img/icon-inspiration-sm.png");
-  background-repeat: no-repeat;
-  background-position: top center;
-  margin-top: 6px;
-  padding-top: 14px;
 }
 
-/* line 97, ../scss/modules/_new-node-form.scss */
-.icon-Draft {
-  padding-top: 30px;
+/* line 93, ../scss/modules/_new-node-form.scss */
+.icon-draft {
   background-image: url("../img/icon-draft-sm.png");
-  background-repeat: no-repeat;
-  background-position: top center;
-  margin-top: 6px;
-  padding-top: 14px;
 }
 
-/* line 105, ../scss/modules/_new-node-form.scss */
-.icon-Idea {
-  padding-top: 30px;
+/* line 96, ../scss/modules/_new-node-form.scss */
+.icon-idea {
   background-image: url("../img/icon-idea-sm.png");
-  background-repeat: no-repeat;
-  background-position: top center;
-  margin-top: 6px;
-  padding-top: 14px;
 }
 
-/* line 113, ../scss/modules/_new-node-form.scss */
-.icon-Final {
-  padding-top: 30px;
+/* line 99, ../scss/modules/_new-node-form.scss */
+.icon-final {
   background-image: url("../img/icon-final-sm.png");
-  background-repeat: no-repeat;
-  background-position: top center;
-  margin-top: 6px;
-  padding-top: 14px;
 }
 
-/* line 122, ../scss/modules/_new-node-form.scss */
+/* line 103, ../scss/modules/_new-node-form.scss */
 .form-divider {
   margin-bottom: .5em;
 }
 
-/* line 126, ../scss/modules/_new-node-form.scss */
+/* line 107, ../scss/modules/_new-node-form.scss */
 #new-node-image {
   overflow: hidden;
   position: relative;
   cursor: pointer;
 }
 
-/* line 131, ../scss/modules/_new-node-form.scss */
+/* line 112, ../scss/modules/_new-node-form.scss */
 #new-node-image-preview.image-preview {
   min-width: 60px;
   max-width: 120px;
@@ -1522,7 +1505,7 @@ input.disabled {
 }
 
 /* --------------- State change for new node form --------------- */
-/* line 144, ../scss/modules/_new-node-form.scss */
+/* line 125, ../scss/modules/_new-node-form.scss */
 .is-short #new-node-form-desc,
 .is-short #new-node-form-url,
 .is-short #new-node-form-date,
@@ -1531,28 +1514,28 @@ input.disabled {
   display: none;
 }
 
-/* line 147, ../scss/modules/_new-node-form.scss */
+/* line 128, ../scss/modules/_new-node-form.scss */
 .is-long #new-node-more {
   display: none;
 }
 
-/* line 150, ../scss/modules/_new-node-form.scss */
+/* line 131, ../scss/modules/_new-node-form.scss */
 .is-long #new-node-form-submit {
   float: right;
 }
 
 /* --------------- Form validation with Parsley --------------- */
-/* line 155, ../scss/modules/_new-node-form.scss */
+/* line 136, ../scss/modules/_new-node-form.scss */
 .parsley-error {
   background: #ffe4e4;
 }
 
-/* line 158, ../scss/modules/_new-node-form.scss */
+/* line 139, ../scss/modules/_new-node-form.scss */
 .parsley-success {
   background: #e7ffe4;
 }
 
-/* line 161, ../scss/modules/_new-node-form.scss */
+/* line 142, ../scss/modules/_new-node-form.scss */
 .parsley-error-list {
   font-size: 0.7em;
   margin: -3em 0 1em 0.5em;
@@ -1573,7 +1556,7 @@ input.disabled {
   box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
 }
 
-/* line 174, ../scss/modules/_new-node-form.scss */
+/* line 155, ../scss/modules/_new-node-form.scss */
 .parsley-error-list li {
   list-style: none;
 }
