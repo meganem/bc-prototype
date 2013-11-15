@@ -520,7 +520,10 @@ function draggingClicking() {
 
 
 function startMove(d,i) {
+    this.parentNode.appendChild(this);
     d3.event.stopPropagation();
+    updatingNode = d;
+    d3.select("#new-node-type").attr("onclick", 'initializeTypeSelector(d3.select("#node'+d.nid+'"), false)')
     clickNotDrag = true;
     clickDragTimer = setTimeout('draggingClicking()', 250);
     
@@ -630,7 +633,9 @@ function endMove(d,i) {
 
 function initializeTypeSelector(selectedNode, isNew) {
     d3.select("#map").on("mousemove", null)
-    
+    d3.select("#node-popup").classed("hidden", true);
+    d3.select("#new-node").classed("hidden", true);
+
     selectedNode.select("path").attr("id", "newNode")
     
     if(isNew == false) {
@@ -710,7 +715,7 @@ function initializeTypeSelector(selectedNode, isNew) {
     var shapeOpts = nodeOpts.append("path")
     .attr("class", function(p){ return "options " + p; })
     .attr("id", function(p) {return "opt" + p})
-    .on("click", function(p,q) {selectNewNode(p,q,isNew)})
+    .on("click", function(p,q) {selectNewNode(p,q,isNew, selectedNode)})
     .on("mouseover", function(p) {d3.selectAll(".optionsInfo").style("display","none");d3.select("#optNameRect" + p).style("display","block");d3.select("#optNameText" + p).style("display","block");})
     .on("mouseout", function() {d3.selectAll(".optionsInfo").style("display","none")})
     .attr("d", function(p) {
@@ -730,7 +735,7 @@ function initializeTypeSelector(selectedNode, isNew) {
     }
     else {
     d3.select("#newNode")
-    .on("click", function() {changeNodeType(currentNewNode)})
+    .on("click", function() {changeNodeType(currentNewNode, selectedNode)})
     }
 
     selectedNode
@@ -742,21 +747,21 @@ function initializeTypeSelector(selectedNode, isNew) {
     .style("pointer-events","none");
 }
 
-function changeNodeType(newKind) {
+function changeNodeType(newKind, selectedNode) {
     
     d3.select("#new-node-type > div").attr("class", "icon-" + newKind.toLowerCase()).html(newKind.toLowerCase())
     d3.event.stopPropagation();
-    nodeDetailsDialog(d3.select("g.sec"));
+    nodeDetailsDialog(selectedNode);
     updatingNode.kind = newKind;
     d3.selectAll("#newNodeTitle").remove();
-    d3.select("g.sec").on("mousedown", startMove).on("mouseup", endMove);
+    d3.selectAll("g.sec").on("mousedown", startMove).on("mouseup", endMove);
     d3.select("#map").on("click", hideModal)
     d3.selectAll(".options").remove();
     d3.select("#newNode").on("click", function() {}).attr("id", "node" + updatingNode.nid)
 
 }
 
-function selectNewNode(d,i,isNew) {
+function selectNewNode(d,i,isNew, selectedNode) {
     d3.event.stopPropagation();
     for (i in possibleShapes) {
 	if (possibleShapes[i] == d) {
@@ -788,7 +793,7 @@ function selectNewNode(d,i,isNew) {
     }
     else {
     d3.select("#newNode")
-    .on("click", function() {changeNodeType(currentNewNode)})
+    .on("click", function() {changeNodeType(currentNewNode, selectedNode)})
     }
     
     d3.select("#newNodeTitle").text(d);
@@ -810,6 +815,9 @@ function createNewNode(d,i) {
     imgUrl: '',
     evolvedFrom: "",
     featured: 0}
+    
+    d3.select("#new-node-type").attr("onclick", 'initializeTypeSelector(d3.select("#node'+newNodeID+'"), false)')
+
     
     if (forBack > 0) {
 	newSource = updatingNode;
@@ -872,7 +880,7 @@ function createNewNode(d,i) {
     .style("display", "none")
     .text("0")
     
-    d3.select("#insertedNode").attr("id", "")
+    d3.select("#insertedNode").attr("id", "node" + newNodeID)
     
     d3.select("#genLine")
     .data([{source: newSource, target: newTarget}])
