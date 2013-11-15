@@ -1451,7 +1451,7 @@ input.disabled {
 }
 
 /* line 81, ../scss/modules/_new-node-form.scss */
-.icon-sketch {
+.icon-Sketch {
   padding-top: 30px;
   background-image: url("../img/icon-sketch-sm.png");
   background-repeat: no-repeat;
@@ -1461,7 +1461,7 @@ input.disabled {
 }
 
 /* line 89, ../scss/modules/_new-node-form.scss */
-.icon-inspiration {
+.icon-Inspiration {
   padding-top: 30px;
   background-image: url("../img/icon-inspiration-sm.png");
   background-repeat: no-repeat;
@@ -1471,7 +1471,7 @@ input.disabled {
 }
 
 /* line 97, ../scss/modules/_new-node-form.scss */
-.icon-draft {
+.icon-Draft {
   padding-top: 30px;
   background-image: url("../img/icon-draft-sm.png");
   background-repeat: no-repeat;
@@ -1481,7 +1481,7 @@ input.disabled {
 }
 
 /* line 105, ../scss/modules/_new-node-form.scss */
-.icon-idea {
+.icon-Idea {
   padding-top: 30px;
   background-image: url("../img/icon-idea-sm.png");
   background-repeat: no-repeat;
@@ -1491,7 +1491,7 @@ input.disabled {
 }
 
 /* line 113, ../scss/modules/_new-node-form.scss */
-.icon-final {
+.icon-Final {
   padding-top: 30px;
   background-image: url("../img/icon-final-sm.png");
   background-repeat: no-repeat;
