@@ -28,6 +28,25 @@ include $headerInclude;
 			<div id="project-header" class="light">
                 <div class="container">
                 
+		<div id="edit-presentation-header" style="display:none;">
+                        <div class="click-nav click-nav-3">
+                            <ul class="no-js">
+                                <li>
+                                    <a href="#" class="clicker">
+                                        <img src="<?php print $pathPrefix; ?>img/icon-edit-presentation.png" width="35" height="35" alt="" />
+                                    </a>
+                                    <ul id="edit-presentation-menu" class="menu dropdown">
+                                        <li><a href="#"><img class="icon-history" src="<?php print $pathPrefix; ?>img/icon-history.png" alt="" width="20" height="20" /> Change order</a></li>
+                                        <li><a href="#"><img class="icon-edit" src="<?php print $pathPrefix; ?>img/icon-edit.png" alt="" width="20" height="20" /> Edit styles</a></li>
+                                    </ul>
+                                </li>
+                           </ul>
+                        </div> <!-- End click-nav -->
+                        <div id="edit-presentation-menu-title">Edit Presentation</div>
+                        <div id="edit-presentation-done">
+                            <a href="#" onclick="exitPresentationMode()" class="button blue">Done</a>
+                        </div>
+                    </div>
                     <?php include $pathPrefix . "parts/project-actions-menu.php" ?>
                     
                     <h1 class="project-title">My Project</h1>

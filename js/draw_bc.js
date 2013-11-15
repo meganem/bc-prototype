@@ -1407,6 +1407,8 @@ function editNode(incNode) {
 }
 
 function presentationMode() {
+    d3.select("#edit-presentation-header").style("display", "block")
+    d3.select("#project-menu").style("display", "none")
     d3.select("#presentation-edit-link").attr("onclick", "exitPresentationMode()")
     d3.select("#zoom-controls").style("display", "none")
     d3.selectAll(".presentation-graphics").style("display", function(d) {return d.featured > 0 ? "block" : "none"})
@@ -1415,6 +1417,8 @@ function presentationMode() {
 }
 
 function exitPresentationMode() {
+    d3.select("#edit-presentation-header").style("display", "none")
+    d3.select("#project-menu").style("display", "block")
     d3.select("#presentation-edit-link").attr("onclick", "presentationMode()")
     d3.select("#zoom-controls").style("display", "block")
     d3.selectAll(".presentation-graphics").style("display", "none")
