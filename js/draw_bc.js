@@ -49,6 +49,10 @@ function resizePanels() {
 }
 
 function drawBloomcase(fileName) {
+    
+    d3.select("#edit-presentation-reorder").style("display", "none")
+    d3.select("#edit-presentation-reorder-done").select("a").attr("onclick", "hideReorderingPanel()")
+    
     d3.select("icon-presentation").on("click", presentationMode)
     newNodes = {};
     testLayout = new d3_layout_bloomcase();
@@ -1281,7 +1285,7 @@ function validateParsley() {
     document.getElementById("new-node-form").focus();
 
 ////Hack because no wifi thus no jquery    
-    formValid = true;
+//    formValid = true;
 
     if(formValid) {
 	d3.select("#new-node").classed("hidden", true)
@@ -1464,10 +1468,106 @@ function presentationMode() {
     d3.select("#zoom-controls").style("display", "none")
     d3.selectAll(".presentation-graphics").style("display", function(d) {return d.featured > 0 ? "block" : "none"})
     d3.selectAll("g.sec").on("mousedown", function() {}).on("mouseup", function() {}).on("click", setPresentation);
+        
+    reorderList();
+}
+
+function reorderList() {
+    d3.select("#edit-presentation-reorder-nodes").selectAll(".reorder-node").remove();
+    var presentedNodes = testLayout.nodes().filter(function(el) {return el.featured > 0})
+    
+    presentedNodes.sort(function (a,b) {
+    if (parseInt(a.featured) > parseInt(b.featured))
+    return 1;
+    if (parseInt(a.featured) < parseInt(b.featured))
+    return -1;
+    return 0;
+    });
+    
+    var reorderNode = d3.select("#edit-presentation-reorder-nodes").selectAll(".reorder-node").data(presentedNodes)
+    .enter()
+    .append("div")
+    .attr("class", "reorder-node")
+    .attr("draggable", true)
+    .style("-moz-user-select", "none")
+    .style("-webkit-user-select", "none")
+    .style("-user-select", "none")
+    .style("-khtml-user-drag", "element")
+    .style("-webkit-user-drag", "element")
+    .style("cursor", "move")
+    .on('dragstart', reorderDragStart)
+    .on('dragenter', reorderDragEnter)
+    .on('dragover', reorderDragOver)
+    .on('dragleave', reorderDragLeave)
+    .on('drop', reorderDrop);
+    
+    reorderNode.append("div").attr("class", "reorder-node-title").append("img")
+    .attr("class", "node-info-type")
+    .attr("src", function(d) {return "../../../img/icon-"+d.kind+"-sm.png"})
+    .style("width", "20px")
+    .style("height", "20px")
+
+    reorderNode.append("div").attr("class", "reorder-node-title").append("span")
+    .html(function(d) {return d.title})
+    
+    reorderNode.append("div").attr("class", "icon-reorder").append("img")
+    .attr("src", "../../../img/icon-reorder.png")
+    .style("width", "20px")
+    .style("height", "20px")
+    
+}
+
+function reorderDragStart(d,i) {
+    updatingNode = d;
+}
+
+function reorderDrop(d,i) {
+    var oldOrder = parseInt(updatingNode.featured);
+    var newOrder = parseInt(d.featured);
+    
+    if (oldOrder - newOrder > 0) {
+	
+    for (x in testLayout.nodes()) {
+	if (testLayout.nodes()[x].featured > newOrder && testLayout.nodes()[x].featured <= oldOrder) {
+	    testLayout.nodes()[x].featured = parseInt(testLayout.nodes()[x].featured) + 1;
+	}
+    }
+	
+    }
+    else if (oldOrder - newOrder < 0) {
+
+    for (x in testLayout.nodes()) {
+	if (testLayout.nodes()[x].featured <= newOrder && testLayout.nodes()[x].featured >= oldOrder) {
+	    testLayout.nodes()[x].featured = parseInt(testLayout.nodes()[x].featured) - 1;
+	}
+    }
+	
+    }
+    
+    updatingNode.featured = parseInt(d.featured) + 1;
+
+    presentationMode();
+    refreshPresentationValues();
 
 }
 
+function reorderDragEnter(d,i) {
+    d3.select(this).style("border-bottom", "5px solid black")
+    
+    d3.event.preventDefault();
+}
+function reorderDragOver(d,i) {
+    d3.select(this).style("border-bottom", "5px solid black")
+    d3.event.preventDefault();
+}
+function reorderDragLeave(d,i) {
+    d3.select(this).style("border-bottom", "1px solid #e9e9e9")
+    d3.event.preventDefault();
+}
+
+
 function exitPresentationMode() {
+    d3.select("#edit-presentation-reorder").style("display", "none")    
     d3.select("#edit-presentation-header").style("display", "none")
     d3.select("#project-menu").style("display", "block")
     d3.select("#presentation-edit-link").attr("onclick", "presentationMode()")
@@ -1477,18 +1577,19 @@ function exitPresentationMode() {
 }
 
 function setPresentation(d,i) {
-    var oldValue = testLayout.nodes()[i].featured;
+    var oldValue = parseInt(testLayout.nodes()[i].featured);
     var newValue = (d.featured == 0 ? parseInt(d3.max(testLayout.nodes(), function(el) {return el.featured})) + 1 : 0);
     testLayout.nodes()[i].featured = newValue;
     
     if (oldValue > 0) {
     for (x in testLayout.nodes()) {
-	if (testLayout.nodes()[x].featured > oldValue) {
-	    testLayout.nodes()[x].featured--;
+	if (parseInt(testLayout.nodes()[x].featured) > oldValue) {
+	    testLayout.nodes()[x].featured = parseInt(testLayout.nodes()[x].featured) - 1;
 	}
     }
     }
     refreshPresentationValues();
+    reorderList();
 }
 
 function refreshPresentationValues() {
@@ -1496,4 +1597,12 @@ function refreshPresentationValues() {
     .text(function(d) {return d.featured});
     
     d3.selectAll(".presentation-graphics").style("display", function(d) {return d.featured > 0 ? "block" : "none"})
+}
+
+function showReorderingPanel() {
+    d3.select("#edit-presentation-reorder").style("display", "block")
+}
+
+function hideReorderingPanel() {
+    d3.select("#edit-presentation-reorder").style("display", "none")    
 }

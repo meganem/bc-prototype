@@ -40,7 +40,7 @@ include $headerInclude;
                                         <img src="<?php print $pathPrefix; ?>img/icon-edit-presentation.png" width="35" height="35" alt="" />
                                     </a>
                                     <ul id="edit-presentation-menu" class="menu dropdown">
-                                        <li><a href="#"><img class="icon-history" src="<?php print $pathPrefix; ?>img/icon-history.png" alt="" width="20" height="20" /> Change order</a></li>
+                                        <li><a href="#" onclick="showReorderingPanel()"><img class="icon-history" src="<?php print $pathPrefix; ?>img/icon-history.png" alt="" width="20" height="20" /> Change order</a></li>
                                         <li><a href="#"><img class="icon-edit" src="<?php print $pathPrefix; ?>img/icon-edit.png" alt="" width="20" height="20" /> Edit styles</a></li>
                                     </ul>
                                 </li>
@@ -58,6 +58,7 @@ include $headerInclude;
             </div> <!-- End project-header -->
             
 	        <div class="light" id="bloomViz">
+		<?php include $pathPrefix . "templates/edit-presentation-reorder-panel.php"; ?>
 
                 <!-- Zoom controls -->
                 <div id="zoom-controls">
