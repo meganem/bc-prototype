@@ -1407,6 +1407,7 @@ function editNode(incNode) {
 }
 
 function presentationMode() {
+    setZoomLevel(1);
     d3.select("#edit-presentation-header").style("display", "block")
     d3.select("#project-menu").style("display", "none")
     d3.select("#presentation-edit-link").attr("onclick", "exitPresentationMode()")
