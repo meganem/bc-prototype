@@ -597,9 +597,9 @@ function endMove(d,i) {
 	var checkX = Math.abs((updatingNode.column * columnSize) - (blNodes[no].column * columnSize) + forBack);
 	var checkY = Math.abs((updatingNode.row * rowSize) - (blNodes[no].row * rowSize) + upDown);
 	if (checkX < 20 && checkY < 20) {
-	    if (blNodes[no].column != updatingNode.column && !(blNodes[no].evolvedFrom.indexOf(updatingNode.nid) > -1 || updatingNode.evolvedFrom.indexOf(blNodes[no].nid) > -1)) {
+	    if (!(blNodes[no].evolvedFrom.indexOf(updatingNode.nid) > -1 || updatingNode.evolvedFrom.indexOf(blNodes[no].nid) > -1)) {
 	    
-	        if (forBack > 0) {
+	        if (forBack >= 0) {
 		    blNodes[no].evolvedFrom.length == 0 ? blNodes[no].evolvedFrom = updatingNode.nid : blNodes[no].evolvedFrom += ("," + updatingNode.nid)
 		}
 		else {
