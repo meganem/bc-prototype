@@ -576,7 +576,6 @@ function populateMorePanel(incNode) {
 
 function endMove(d,i) {
     d3.selectAll("svg").on("mouseup", function() {})
-    console.log("endMove")
     if(clickNotDrag == true) {
 	panToCenter(1000, updatingNode.column, updatingNode.row);
 	hideModal();
@@ -624,10 +623,25 @@ function endMove(d,i) {
 	    }
 	}
     }
+    
+    initializeTypeSelector(d3.select("#genNode"), true);
 
+}
+
+function initializeTypeSelector(selectedNode, isNew) {
     d3.select("#map").on("mousemove", null)
     
-    d3.select("#genNode")
+    selectedNode.select("path").attr("id", "newNode")
+    
+    if(isNew == false) {
+	selectedNode.on("mousedown", function() {}).on("mouseup", function() {}).on("click", function() {})
+	d3.selectAll("g.sec").on("mousedown", function() {}).on("mouseup", function() {})
+	d3.select("#map").on("click", function() {})
+	d3.selectAll("svg").on("mouseup", function() {})
+
+    }
+    
+    selectedNode
     .insert("circle", "#newNode")
     .attr("class", "options")
     .style("fill", "white")
@@ -656,7 +670,7 @@ function endMove(d,i) {
 	return circx+","+circy;
     }
     
-    var nodeOpts = d3.select("#genNode").selectAll("path.options").data(possibleShapes)
+    var nodeOpts = selectedNode.selectAll("path.options").data(possibleShapes)
     .enter()
     .append("g")
     .attr("transform", function (p,q) {return "translate("+ pointsOnCircle(p,q) + ")scale(1)"});
@@ -696,7 +710,7 @@ function endMove(d,i) {
     var shapeOpts = nodeOpts.append("path")
     .attr("class", function(p){ return "options " + p; })
     .attr("id", function(p) {return "opt" + p})
-    .on("click", function(p) {selectNewNode(p)})
+    .on("click", function(p,q) {selectNewNode(p,q,isNew)})
     .on("mouseover", function(p) {d3.selectAll(".optionsInfo").style("display","none");d3.select("#optNameRect" + p).style("display","block");d3.select("#optNameText" + p).style("display","block");})
     .on("mouseout", function() {d3.selectAll(".optionsInfo").style("display","none")})
     .attr("d", function(p) {
@@ -708,20 +722,41 @@ function endMove(d,i) {
     .style("fill", shapeMeasures[currentNewNode]["color"])
     .attr("d", shapeMeasures[currentNewNode]["pathd"])
     .attr("transform", "translate(0,0)")
-    .on("click", function() {createNewNode(currentNewNode,0)})
     .style("cursor", "pointer")
+    
+    if (isNew == true) {
+    d3.select("#newNode")
+    .on("click", function() {createNewNode(currentNewNode,0)})
+    }
+    else {
+    d3.select("#newNode")
+    .on("click", function() {changeNodeType(currentNewNode)})
+    }
 
-    d3.select("#genNode")
+    selectedNode
     .append("text")
     .attr("id", "newNodeTitle")
     .attr("text-anchor", "middle")
     .attr("y", 30)
     .text(currentNewNode)
     .style("pointer-events","none");
+}
+
+function changeNodeType(newKind) {
+    
+    d3.select("#new-node-type > div").attr("class", "icon-" + newKind.toLowerCase()).html(newKind.toLowerCase())
+    d3.event.stopPropagation();
+    nodeDetailsDialog(d3.select("g.sec"));
+    updatingNode.kind = newKind;
+    d3.selectAll("#newNodeTitle").remove();
+    d3.select("g.sec").on("mousedown", startMove).on("mouseup", endMove);
+    d3.select("#map").on("click", hideModal)
+    d3.selectAll(".options").remove();
+    d3.select("#newNode").on("click", function() {}).attr("id", "node" + updatingNode.nid)
 
 }
 
-function selectNewNode(d,i) {
+function selectNewNode(d,i,isNew) {
     d3.event.stopPropagation();
     for (i in possibleShapes) {
 	if (possibleShapes[i] == d) {
@@ -742,12 +777,20 @@ function selectNewNode(d,i) {
     
     currentNewNode = d;
     d3.select("#newNode")
-    .on("click", function() {createNewNode(d,0)})
     .attr("d", shapeMeasures[d]["pathd"])
     .transition()
     .duration(300)
     .style("fill", shapeMeasures[d]["color"]);
 
+    if (isNew == true) {
+    d3.select("#newNode")
+    .on("click", function() {createNewNode(currentNewNode,0)})
+    }
+    else {
+    d3.select("#newNode")
+    .on("click", function() {changeNodeType(currentNewNode)})
+    }
+    
     d3.select("#newNodeTitle").text(d);
     
 }
@@ -802,7 +845,7 @@ function createNewNode(d,i) {
     .on("mousedown", startMove)
     .on("mouseup", endMove)
     
-        d3.select("#insertedNode").insert("circle", "#inserted")
+    d3.select("#insertedNode").insert("circle", "#inserted")
     .style("fill", "#faf3df")
     .style("stroke", "black")
     .style("stroke-width", "2px")
@@ -895,7 +938,7 @@ function createNewNode(d,i) {
     freshLayout.nodes(newNodeArray);
     updatedBloomCase(freshLayout.nodes(),freshLayout.links())
     
-    d3.select("#new-node-type > div").attr("class", "icon-" + d).html(d)
+    d3.select("#new-node-type > div").attr("class", "icon-" + d.toLowerCase()).html(d.toLowerCase())
 
 
     var runLater = setTimeout(function() {nodeDetailsDialog(createdNode)}, 1000)
@@ -906,9 +949,6 @@ function createNewNode(d,i) {
 function nodeDetailsDialog(targetNode) {
     var nodeXY = d3.transform(targetNode.attr("transform"));
     d3.select("#new-node").classed("hidden", false).attr("class", "modal is-short")
-    
-//    d3.select("#new-node").classed("hidden", false).style("left", ((parseInt(nodeXY.translate[0]) - 75) + bloomZoom.translate()[0]) + "px").style("top", ((parseInt(nodeXY.translate[1]) - 40) + bloomZoom.translate()[1]) + "px")
-
 }
 
 function pathOver(d,i) {
@@ -1222,7 +1262,9 @@ function createFirstNode() {
 	d3.select("#disabledDiv").remove();
 
     d3.select("g.sec").each(function(d,i) {panToCenter(1, d.column,d.row)});
-    nodeDetailsDialog(d3.select("g.sec"));
+    initializeTypeSelector(d3.select("g.sec"), false)
+    
+//    nodeDetailsDialog(d3.select("g.sec"));
     updatingNode = testLayout.nodes()[0];
 }
 
