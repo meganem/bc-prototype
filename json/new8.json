@@ -43,7 +43,7 @@
             "webUrlTitle": "",
             "tags": "",
             "public": "1",
-            "featured": "1"
+            "featured": "0"
         },
         {
             "nid": "18",
@@ -58,7 +58,7 @@
             "webUrlTitle": "",
             "tags": "tattoo",
             "public": "1",
-            "featured": "1"
+            "featured": "2"
         },
         {
             "nid": "17",
@@ -73,7 +73,7 @@
             "webUrlTitle": "",
             "tags": "",
             "public": "1",
-            "featured": "1"
+            "featured": "0"
         },
         {
             "nid": "16",
@@ -88,7 +88,7 @@
             "webUrlTitle": "",
             "tags": "",
             "public": "1",
-            "featured": "1"
+            "featured": "3"
         },
         {
             "nid": "15",
@@ -103,7 +103,7 @@
             "webUrlTitle": "",
             "tags": "",
             "public": "1",
-            "featured": "1"
+            "featured": "0"
         },
         {
             "nid": "14",
@@ -133,7 +133,7 @@
             "webUrlTitle": "",
             "tags": "flowers",
             "public": "1",
-            "featured": "1"
+            "featured": "4"
         },
         {
             "nid": "12",
@@ -148,7 +148,7 @@
             "webUrlTitle": "",
             "tags": "",
             "public": "1",
-            "featured": "1"
+            "featured": "0"
         },
         {
             "nid": "11",
@@ -163,7 +163,7 @@
             "webUrlTitle": "",
             "tags": "",
             "public": "1",
-            "featured": "1"
+            "featured": "5"
         },
         {
             "nid": "10",
@@ -178,7 +178,7 @@
             "webUrlTitle": "",
             "tags": "",
             "public": "1",
-            "featured": "1"
+            "featured": "6"
         },
         {
             "nid": "9",
@@ -193,7 +193,7 @@
             "webUrlTitle": "",
             "tags": "",
             "public": "1",
-            "featured": "1"
+            "featured": "0"
         },
         {
             "nid": "7",
@@ -208,7 +208,7 @@
             "webUrlTitle": "",
             "tags": "tattoo, flowers",
             "public": "1",
-            "featured": "1"
+            "featured": "0"
         },
         {
             "nid": "6",
@@ -223,7 +223,7 @@
             "webUrlTitle": "",
             "tags": "wedding",
             "public": "1",
-            "featured": "1"
+            "featured": "7"
         },
         {
             "nid": "5",
@@ -238,7 +238,7 @@
             "webUrlTitle": "",
             "tags": "event, flowers, wedding",
             "public": "1",
-            "featured": "1"
+            "featured": "8"
         },
         {
             "nid": "4",
@@ -253,7 +253,7 @@
             "webUrlTitle": "",
             "tags": "",
             "public": "1",
-            "featured": "1"
+            "featured": "0"
         },
         {
             "nid": "3",
@@ -268,7 +268,7 @@
             "webUrlTitle": "",
             "tags": "",
             "public": "1",
-            "featured": "1"
+            "featured": "9"
         },
         {
             "nid": "2",
@@ -283,7 +283,7 @@
             "webUrlTitle": "",
             "tags": "",
             "public": "1",
-            "featured": "1"
+            "featured": "10"
         },
         {
             "nid": "1",
@@ -298,7 +298,7 @@
             "webUrlTitle": "",
             "tags": "tattoo",
             "public": "1",
-            "featured": "1"
+            "featured": "0"
         }
     ]
 }

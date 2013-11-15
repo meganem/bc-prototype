@@ -49,6 +49,7 @@ function resizePanels() {
 }
 
 function drawBloomcase(fileName) {
+    d3.select("icon-presentation").on("click", presentationMode)
     newNodes = {};
     testLayout = new d3_layout_bloomcase();
     d3.json("../../../json/"+fileName+".json", function(data) {
@@ -309,6 +310,33 @@ function drawBC(nodeData,linkData) {
     .attr("href", "#")
     .on("click", function(d) {	panToCenter(1000, d.column, d.row);populateMorePanel(d);d3.select("#morePanel").classed("hidden", false)})
     .html("more")
+
+    secG.append("circle")
+    .style("fill", "#faf3df")
+    .style("stroke", "black")
+    .style("stroke-width", "2px")
+    .style("display", "none")
+    .attr("class", "presentation-graphics")
+    .attr("r", 22)
+    .attr("cx", 0)
+
+    secG.append("circle")
+    .style("fill", "darkred")
+    .style("display", "none")
+    .attr("class", "presentation-graphics")
+    .attr("r", 10)
+    .attr("cx", 18)
+    .attr("cy", -18)
+
+    secG.append("text")
+    .attr("r", 10)
+    .attr("dx", 13)
+    .attr("dy", -13)
+    .attr("class", "presentation-graphics presentation-order-text")
+    .style("fill", "white")
+    .style("font-weight", 900)
+    .style("display", "none")
+    .text(function(d) {return d.featured})
     
     secG.append("path")
     .attr("class", function(d){ return "nodeSymbol " + d.kind; })
@@ -1344,4 +1372,8 @@ function editNode(incNode) {
 	}
 //	d3.selectAll(".parsley-validated").property("value", "")
 
+}
+
+function presentationMode() {
+	d3.selectAll(".presentation-graphics").style("display", function(d) {return d.featured > 0 ? "block" : "none"})
 }
