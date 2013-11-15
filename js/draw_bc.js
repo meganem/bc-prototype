@@ -575,7 +575,8 @@ function populateMorePanel(incNode) {
 }
 
 function endMove(d,i) {
-    
+    d3.selectAll("svg").on("mouseup", function() {})
+    console.log("endMove")
     if(clickNotDrag == true) {
 	panToCenter(1000, updatingNode.column, updatingNode.row);
 	hideModal();
@@ -764,7 +765,8 @@ function createNewNode(d,i) {
     column: 0,
     isMeta: false,
     imgUrl: '',
-    evolvedFrom: ""}
+    evolvedFrom: "",
+    featured: 0}
     
     if (forBack > 0) {
 	newSource = updatingNode;
@@ -790,14 +792,44 @@ function createNewNode(d,i) {
 
     d3.selectAll(".options").remove();
     
-    d3.select("#newNode").attr("id", "inserted").classed("nodeSymbol", true);
+    d3.select("#newNode").attr("id", "inserted").classed("nodeSymbol", true).on("click", function() {});
 //    .attr("transform", "translate(-13,-15)")
+    
     var createdNode = d3.select("#genNode")
     .data([newNode])
     .attr("id", "insertedNode")
     .attr("class", "sec")
     .on("mousedown", startMove)
     .on("mouseup", endMove)
+    
+        d3.select("#insertedNode").insert("circle", "#inserted")
+    .style("fill", "#faf3df")
+    .style("stroke", "black")
+    .style("stroke-width", "2px")
+    .style("display", "none")
+    .attr("class", "presentation-graphics")
+    .attr("r", 22)
+    .attr("cx", 0)
+
+    d3.select("#insertedNode").append("circle")
+    .style("fill", "darkred")
+    .style("display", "none")
+    .attr("class", "presentation-graphics")
+    .attr("r", 10)
+    .attr("cx", 18)
+    .attr("cy", -18)
+
+    d3.select("#insertedNode").append("text")
+    .attr("r", 10)
+    .attr("dx", 13)
+    .attr("dy", -13)
+    .attr("class", "presentation-graphics presentation-order-text")
+    .style("fill", "white")
+    .style("font-weight", 900)
+    .style("display", "none")
+    .text("0")
+    
+    d3.select("#insertedNode").attr("id", "")
     
     d3.select("#genLine")
     .data([{source: newSource, target: newTarget}])
@@ -1375,5 +1407,38 @@ function editNode(incNode) {
 }
 
 function presentationMode() {
-	d3.selectAll(".presentation-graphics").style("display", function(d) {return d.featured > 0 ? "block" : "none"})
+    d3.select("#presentation-edit-link").attr("onclick", "exitPresentationMode()")
+    d3.select("#zoom-controls").style("display", "none")
+    d3.selectAll(".presentation-graphics").style("display", function(d) {return d.featured > 0 ? "block" : "none"})
+    d3.selectAll("g.sec").on("mousedown", function() {}).on("mouseup", function() {}).on("click", setPresentation);
+
+}
+
+function exitPresentationMode() {
+    d3.select("#presentation-edit-link").attr("onclick", "presentationMode()")
+    d3.select("#zoom-controls").style("display", "block")
+    d3.selectAll(".presentation-graphics").style("display", "none")
+    d3.selectAll("g.sec").on("mousedown", startMove).on("mouseup", endMove).on("click", function() {});
+}
+
+function setPresentation(d,i) {
+    var oldValue = testLayout.nodes()[i].featured;
+    var newValue = (d.featured == 0 ? parseInt(d3.max(testLayout.nodes(), function(el) {return el.featured})) + 1 : 0);
+    testLayout.nodes()[i].featured = newValue;
+    
+    if (oldValue > 0) {
+    for (x in testLayout.nodes()) {
+	if (testLayout.nodes()[x].featured > oldValue) {
+	    testLayout.nodes()[x].featured--;
+	}
+    }
+    }
+    refreshPresentationValues();
+}
+
+function refreshPresentationValues() {
+    d3.selectAll(".presentation-order-text")
+    .text(function(d) {return d.featured});
+    
+    d3.selectAll(".presentation-graphics").style("display", function(d) {return d.featured > 0 ? "block" : "none"})
 }
