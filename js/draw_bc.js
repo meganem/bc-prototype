@@ -1531,6 +1531,7 @@ function reorderDrop(d,i) {
     var oldOrder = parseInt(updatingNode.featured);
     var newOrder = parseInt(d.featured);
     if (oldOrder == newOrder) {
+	d3.selectAll(".reorder-node").style("border-bottom", "1px solid #e9e9e9")
 	return;
     }
     
@@ -1562,7 +1563,6 @@ function reorderDrop(d,i) {
 
 function reorderDragEnter(d,i) {
     d3.select(this).style("border-bottom", "5px solid black")
-    
     d3.event.preventDefault();
 }
 function reorderDragOver(d,i) {
