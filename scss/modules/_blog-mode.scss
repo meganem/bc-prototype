@@ -1,0 +1,46 @@
+/* ----- Blog Mode ----- */
+.blog-mode h1 {
+	display:none;
+}
+.project-page.blog-mode #main {
+	padding-bottom:122px;
+}
+.blog-post {
+	display:block;
+	margin-bottom:1em;
+	border-bottom:1px solid $gray-light;
+	padding-bottom:1em;
+	clear:both;
+	overflow:auto;
+}
+.blog-post h2 {
+	margin-top:.5em;
+}
+.blog-post-image img {
+	float:left;
+	margin-right:1em;
+}
+.blog-post-date {
+
+}
+.blog-post-title {
+
+}
+.blog-post-desc {
+
+}
+.blog-post-tags {
+
+	a.tag {
+
+	}
+}
+.blog-post-evolvedfrom {
+	
+	a.post-evolvedfrom {
+
+	}
+}
+.blog-post-buttons {
+
+}

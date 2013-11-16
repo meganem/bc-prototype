@@ -2323,3 +2323,35 @@ ul.project-tour-status a.active, ul.project-tour-status a:hover, ul.project-tour
 .close:hover img {
   opacity: 1;
 }
+
+/* ----- Blog Mode ----- */
+/* line 2, ../scss/modules/_blog-mode.scss */
+.blog-mode h1 {
+  display: none;
+}
+
+/* line 5, ../scss/modules/_blog-mode.scss */
+.project-page.blog-mode #main {
+  padding-bottom: 122px;
+}
+
+/* line 8, ../scss/modules/_blog-mode.scss */
+.blog-post {
+  display: block;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #e9e9e9;
+  padding-bottom: 1em;
+  clear: both;
+  overflow: auto;
+}
+
+/* line 16, ../scss/modules/_blog-mode.scss */
+.blog-post h2 {
+  margin-top: .5em;
+}
+
+/* line 19, ../scss/modules/_blog-mode.scss */
+.blog-post-image img {
+  float: left;
+  margin-right: 1em;
+}
