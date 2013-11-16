@@ -1085,14 +1085,20 @@ g.sec {
   height: 15px;
   width: 15px;
   margin-right: 2px;
+  opacity: 0.5;
 }
 
-/* line 25, ../scss/modules/_zoom-controls.scss */
+/* line 26, ../scss/modules/_zoom-controls.scss */
+.zoom-control.active {
+  opacity: 1;
+}
+
+/* line 29, ../scss/modules/_zoom-controls.scss */
 .zoom-control:hover {
   background: #3f3f3f;
 }
 
-/* line 28, ../scss/modules/_zoom-controls.scss */
+/* line 32, ../scss/modules/_zoom-controls.scss */
 #zoom-1 {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1101,7 +1107,7 @@ g.sec {
   border-radius: 3px;
 }
 
-/* line 31, ../scss/modules/_zoom-controls.scss */
+/* line 35, ../scss/modules/_zoom-controls.scss */
 #zoom-2 {
   height: 20px;
   width: 20px;
@@ -1112,7 +1118,7 @@ g.sec {
   border-radius: 4px;
 }
 
-/* line 36, ../scss/modules/_zoom-controls.scss */
+/* line 40, ../scss/modules/_zoom-controls.scss */
 #zoom-3 {
   height: 27px;
   width: 27px;
