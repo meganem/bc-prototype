@@ -1089,7 +1089,7 @@ g.sec {
 }
 
 /* line 26, ../scss/modules/_zoom-controls.scss */
-.zoom-control.active {
+.zoom-control.active, .zoom-control:focus {
   opacity: 1;
 }
 

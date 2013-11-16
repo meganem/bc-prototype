@@ -23,7 +23,7 @@
     margin-right: 2px;
     opacity:0.5;
 }
-.zoom-control.active {
+.zoom-control.active, .zoom-control:focus {
     opacity:1;
 }
 .zoom-control:hover {
