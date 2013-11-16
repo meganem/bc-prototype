@@ -1530,6 +1530,9 @@ function reorderDragEnd(d,i) {
 function reorderDrop(d,i) {
     var oldOrder = parseInt(updatingNode.featured);
     var newOrder = parseInt(d.featured);
+    if (oldOrder == newOrder) {
+	return;
+    }
     
     if (oldOrder - newOrder > 0) {
 	
