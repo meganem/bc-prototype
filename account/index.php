@@ -3,6 +3,7 @@
 $nestLevel = 1;
 $loggedIn = true;
 $bodyclass = "logged-in";
+$userMenuActive = "my-account";
 
 // DETERMINE PATH PREFIX
 $pathLevel = "../";

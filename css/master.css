@@ -732,29 +732,39 @@ ul.dropdown li a {
 }
 
 /* line 29, ../scss/modules/_menu-dropdown.scss */
+ul.dropdown li a img {
+  opacity: 0.5;
+}
+
+/* line 32, ../scss/modules/_menu-dropdown.scss */
 ul.dropdown li a:hover, ul.dropdown li a:focus, ul.dropdown li a:active, ul.dropdown li a.active {
   text-decoration: none;
   color: #121212;
 }
 
-/* line 33, ../scss/modules/_menu-dropdown.scss */
+/* line 36, ../scss/modules/_menu-dropdown.scss */
+ul.dropdown li a:hover img, ul.dropdown li a:focus img, ul.dropdown li a:active img, ul.dropdown li a.active img {
+  opacity: 1;
+}
+
+/* line 40, ../scss/modules/_menu-dropdown.scss */
 ul.dropdown li.separator {
   border-bottom: 1px solid #3f3f3f;
   margin-bottom: 0.5em;
   padding-top: 0.5em;
 }
 
-/* line 38, ../scss/modules/_menu-dropdown.scss */
+/* line 45, ../scss/modules/_menu-dropdown.scss */
 .click-nav {
   display: inline-block;
 }
 
-/* line 41, ../scss/modules/_menu-dropdown.scss */
+/* line 48, ../scss/modules/_menu-dropdown.scss */
 .click-nav-2 {
   margin-right: 0.5em;
 }
 
-/* line 44, ../scss/modules/_menu-dropdown.scss */
+/* line 51, ../scss/modules/_menu-dropdown.scss */
 .click-nav ul {
   position: relative;
   margin: 0;
@@ -762,38 +772,38 @@ ul.dropdown li.separator {
   z-index: 21;
 }
 
-/* line 50, ../scss/modules/_menu-dropdown.scss */
+/* line 57, ../scss/modules/_menu-dropdown.scss */
 .click-nav ul li {
   position: relative;
   list-style: none;
   cursor: pointer;
 }
 
-/* line 55, ../scss/modules/_menu-dropdown.scss */
+/* line 62, ../scss/modules/_menu-dropdown.scss */
 .click-nav ul li ul {
   position: absolute;
   left: 0;
   right: 0;
 }
 
-/* line 60, ../scss/modules/_menu-dropdown.scss */
+/* line 67, ../scss/modules/_menu-dropdown.scss */
 .click-nav.click-nav-1 ul li ul {
   position: absolute;
   left: auto;
   right: 0;
 }
 
-/* line 65, ../scss/modules/_menu-dropdown.scss */
+/* line 72, ../scss/modules/_menu-dropdown.scss */
 .click-nav ul .clicker {
   position: relative;
 }
 
-/* line 68, ../scss/modules/_menu-dropdown.scss */
+/* line 75, ../scss/modules/_menu-dropdown.scss */
 .click-nav ul li a {
   display: block;
 }
 
-/* line 71, ../scss/modules/_menu-dropdown.scss */
+/* line 78, ../scss/modules/_menu-dropdown.scss */
 a.clicker {
   color: #121212;
   height: 35px;
@@ -801,28 +811,28 @@ a.clicker {
   border: 1px solid whitesmoke;
 }
 
-/* line 77, ../scss/modules/_menu-dropdown.scss */
+/* line 84, ../scss/modules/_menu-dropdown.scss */
 a.clicker:hover, a.clicker:focus, a.clicker:active {
   text-decoration: none;
   border: 1px solid #121212;
 }
 
-/* line 81, ../scss/modules/_menu-dropdown.scss */
+/* line 88, ../scss/modules/_menu-dropdown.scss */
 .click-nav-1 a.clicker {
   border: 1px solid #121212;
 }
 
-/* line 84, ../scss/modules/_menu-dropdown.scss */
+/* line 91, ../scss/modules/_menu-dropdown.scss */
 .click-nav-1 a.clicker:hover, .click-nav-1 a.clicker:focus, .click-nav-1 a.clicker:active {
   border: 1px solid #e5c04e;
 }
 
-/* line 87, ../scss/modules/_menu-dropdown.scss */
+/* line 94, ../scss/modules/_menu-dropdown.scss */
 .clicker:after {
   content: none;
 }
 
-/* line 90, ../scss/modules/_menu-dropdown.scss */
+/* line 97, ../scss/modules/_menu-dropdown.scss */
 .clicker img {
   height: 35px;
   vertical-align: bottom;
@@ -830,12 +840,12 @@ a.clicker:hover, a.clicker:focus, a.clicker:active {
 }
 
 /* Fallbacks */
-/* line 96, ../scss/modules/_menu-dropdown.scss */
+/* line 103, ../scss/modules/_menu-dropdown.scss */
 .click-nav .no-js ul {
   display: none;
 }
 
-/* line 99, ../scss/modules/_menu-dropdown.scss */
+/* line 106, ../scss/modules/_menu-dropdown.scss */
 .click-nav .no-js:hover ul {
   display: block;
 }

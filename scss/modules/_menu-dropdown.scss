@@ -26,10 +26,17 @@ ul.dropdown li a {
     font-weight: 400;
     padding: 0.25em 1em;
 }
+ul.dropdown li a img {
+    opacity: 0.5;
+}
 ul.dropdown li a:hover, ul.dropdown li a:focus, ul.dropdown li a:active, ul.dropdown li a.active {
     text-decoration:none;
     color: $black;
 }
+ul.dropdown li a:hover img, ul.dropdown li a:focus img, ul.dropdown li a:active img, ul.dropdown li a.active img {
+    opacity:1;
+}
+
 ul.dropdown li.separator {
     border-bottom:1px solid $gray;    
     margin-bottom: 0.5em;
