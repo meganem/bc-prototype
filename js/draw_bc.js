@@ -337,9 +337,6 @@ function drawBC(nodeData,linkData) {
     .attr("dx", 13)
     .attr("dy", -13)
     .attr("class", "presentation-graphics presentation-order-text")
-    .style("fill", "white")
-    .style("font-weight", 900)
-    .style("display", "none")
     .text(function(d) {return d.featured})
     
     secG.append("path")

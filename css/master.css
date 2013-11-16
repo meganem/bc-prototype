@@ -1577,6 +1577,15 @@ input.disabled {
   max-width: 300px;
 }
 
+/* --- Map styles when editing your presentation ---- */
+/* line 3, ../scss/modules/_edit-presentation-map.scss */
+.presentation-order-text {
+  font-weight: 400;
+  fill: white;
+  font-size: 12px;
+  display: block;
+}
+
 /* --------------- Edit presentation reorder panel --------------- */
 /* line 2, ../scss/modules/_edit-presentation-reorder-panel.scss */
 #edit-presentation-reorder h2 {
