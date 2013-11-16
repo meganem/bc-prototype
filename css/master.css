@@ -1370,19 +1370,20 @@ g.sec {
   line-height: 17px;
   position: absolute;
   right: 17px;
+  z-index: 50;
 }
 
-/* line 23, ../scss/modules/_new-node-form.scss */
+/* line 24, ../scss/modules/_new-node-form.scss */
 #new-node-cancel img {
   opacity: 0.5;
 }
 
-/* line 26, ../scss/modules/_new-node-form.scss */
+/* line 27, ../scss/modules/_new-node-form.scss */
 #new-node-cancel:hover img {
   opacity: 1;
 }
 
-/* line 36, ../scss/modules/_new-node-form.scss */
+/* line 37, ../scss/modules/_new-node-form.scss */
 input[type=text],
 input[type=url],
 input[type=tel],
@@ -1406,24 +1407,24 @@ textarea {
   margin-bottom: 0.5em;
 }
 
-/* line 45, ../scss/modules/_new-node-form.scss */
+/* line 46, ../scss/modules/_new-node-form.scss */
 input.disabled {
   opacity: 0.3;
 }
 
-/* line 48, ../scss/modules/_new-node-form.scss */
+/* line 49, ../scss/modules/_new-node-form.scss */
 #new-node-form-buttons {
   margin-top: .5em;
   vertical-align: top;
 }
 
-/* line 52, ../scss/modules/_new-node-form.scss */
+/* line 53, ../scss/modules/_new-node-form.scss */
 #new-node-more {
   display: inline-block;
   float: right;
 }
 
-/* line 56, ../scss/modules/_new-node-form.scss */
+/* line 57, ../scss/modules/_new-node-form.scss */
 .dark-background {
   background: #121212;
   -webkit-border-radius: 0.5em;
@@ -1447,20 +1448,20 @@ input.disabled {
   float: left;
 }
 
-/* line 72, ../scss/modules/_new-node-form.scss */
+/* line 73, ../scss/modules/_new-node-form.scss */
 .dark-background .icon-camera {
   margin-top: 10px;
   width: 32px;
   height: 25px;
 }
 
-/* line 77, ../scss/modules/_new-node-form.scss */
+/* line 78, ../scss/modules/_new-node-form.scss */
 .dark-background:hover, .dark-background:focus {
   background: #3f3f3f;
   text-decoration: none;
 }
 
-/* line 81, ../scss/modules/_new-node-form.scss */
+/* line 82, ../scss/modules/_new-node-form.scss */
 .icon-sketch, .icon-draft, .icon-idea, .icon-inspiration, .icon-final {
   background-repeat: no-repeat;
   background-position: top center;
@@ -1468,44 +1469,44 @@ input.disabled {
   padding-top: 14px;
 }
 
-/* line 87, ../scss/modules/_new-node-form.scss */
+/* line 88, ../scss/modules/_new-node-form.scss */
 .icon-sketch {
   background-image: url("../img/icon-sketch-sm.png");
 }
 
-/* line 90, ../scss/modules/_new-node-form.scss */
+/* line 91, ../scss/modules/_new-node-form.scss */
 .icon-inspiration {
   background-image: url("../img/icon-inspiration-sm.png");
 }
 
-/* line 93, ../scss/modules/_new-node-form.scss */
+/* line 94, ../scss/modules/_new-node-form.scss */
 .icon-draft {
   background-image: url("../img/icon-draft-sm.png");
 }
 
-/* line 96, ../scss/modules/_new-node-form.scss */
+/* line 97, ../scss/modules/_new-node-form.scss */
 .icon-idea {
   background-image: url("../img/icon-idea-sm.png");
 }
 
-/* line 99, ../scss/modules/_new-node-form.scss */
+/* line 100, ../scss/modules/_new-node-form.scss */
 .icon-final {
   background-image: url("../img/icon-final-sm.png");
 }
 
-/* line 103, ../scss/modules/_new-node-form.scss */
+/* line 104, ../scss/modules/_new-node-form.scss */
 .form-divider {
   margin-bottom: .5em;
 }
 
-/* line 107, ../scss/modules/_new-node-form.scss */
+/* line 108, ../scss/modules/_new-node-form.scss */
 #new-node-image {
   overflow: hidden;
   position: relative;
   cursor: pointer;
 }
 
-/* line 112, ../scss/modules/_new-node-form.scss */
+/* line 113, ../scss/modules/_new-node-form.scss */
 #new-node-image-preview.image-preview {
   min-width: 60px;
   max-width: 120px;
@@ -1515,7 +1516,7 @@ input.disabled {
 }
 
 /* --------------- State change for new node form --------------- */
-/* line 125, ../scss/modules/_new-node-form.scss */
+/* line 126, ../scss/modules/_new-node-form.scss */
 .is-short #new-node-form-desc,
 .is-short #new-node-form-url,
 .is-short #new-node-form-date,
@@ -1524,28 +1525,28 @@ input.disabled {
   display: none;
 }
 
-/* line 128, ../scss/modules/_new-node-form.scss */
+/* line 129, ../scss/modules/_new-node-form.scss */
 .is-long #new-node-more {
   display: none;
 }
 
-/* line 131, ../scss/modules/_new-node-form.scss */
+/* line 132, ../scss/modules/_new-node-form.scss */
 .is-long #new-node-form-submit {
   float: right;
 }
 
 /* --------------- Form validation with Parsley --------------- */
-/* line 136, ../scss/modules/_new-node-form.scss */
+/* line 137, ../scss/modules/_new-node-form.scss */
 .parsley-error {
   background: #ffe4e4;
 }
 
-/* line 139, ../scss/modules/_new-node-form.scss */
+/* line 140, ../scss/modules/_new-node-form.scss */
 .parsley-success {
   background: #e7ffe4;
 }
 
-/* line 142, ../scss/modules/_new-node-form.scss */
+/* line 143, ../scss/modules/_new-node-form.scss */
 .parsley-error-list {
   font-size: 0.7em;
   margin: -3em 0 1em 0.5em;
@@ -1566,7 +1567,7 @@ input.disabled {
   box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
 }
 
-/* line 155, ../scss/modules/_new-node-form.scss */
+/* line 156, ../scss/modules/_new-node-form.scss */
 .parsley-error-list li {
   list-style: none;
 }
@@ -2146,71 +2147,126 @@ a.tag:hover, a.tag:focus {
   top: 133px;
 }
 
-/* line 17, ../scss/modules/_project-tour.scss */
-#project-tour-2 .modal-arrow:before, #project-tour-3 .modal-arrow:before {
+/* line 20, ../scss/modules/_project-tour.scss */
+#project-tour-2 .modal-arrow:before,
+#project-tour-3 .modal-arrow:before,
+#project-tour-4 .modal-arrow:before,
+#project-tour-5 .modal-arrow:before {
   border-top-color: transparent;
   border-bottom-color: white;
   left: 30px;
   top: -63px;
 }
 
-/* line 23, ../scss/modules/_project-tour.scss */
-#project-tour-2 .modal-arrow:after, #project-tour-3 .modal-arrow:after {
+/* line 29, ../scss/modules/_project-tour.scss */
+#project-tour-2 .modal-arrow:after,
+#project-tour-3 .modal-arrow:after,
+#project-tour-4 .modal-arrow:after,
+#project-tour-5 .modal-arrow:after {
   border-top-color: transparent;
   border-bottom-color: #3f3f3f;
   left: 30px;
   top: -67px;
 }
 
-/* line 30, ../scss/modules/_project-tour.scss */
-#project-tour-3 {
+/* line 36, ../scss/modules/_project-tour.scss */
+#project-tour-6 .modal-arrow:before {
+  border-bottom-color: transparent;
+  border-top-color: transparent;
+  border-left-color: white;
   left: auto;
-  right: 51px;
+  top: -16px;
+  right: -29px;
+}
+
+/* line 44, ../scss/modules/_project-tour.scss */
+#project-tour-6 .modal-arrow:after {
+  border-bottom-color: transparent;
+  border-top-color: transparent;
+  border-left-color: #3f3f3f;
+  left: auto;
+  top: -18px;
+  right: -31px;
+}
+
+/* line 57, ../scss/modules/_project-tour.scss */
+#project-tour-3,
+#project-tour-4,
+#project-tour-5 {
+  left: auto;
+  right: 10px;
   top: 137px;
 }
 
-/* line 35, ../scss/modules/_project-tour.scss */
-#project-tour-3 .modal-arrow:before, #project-tour-3 .modal-arrow:after {
-  right: 30px;
+/* line 62, ../scss/modules/_project-tour.scss */
+#project-tour-6 {
+  left: auto;
+  right: 132px;
+  top: 161px;
+}
+
+/* line 68, ../scss/modules/_project-tour.scss */
+#project-tour-3 .modal-arrow:before,
+#project-tour-3 .modal-arrow:after {
+  right: 122px;
   left: auto;
 }
 
-/* line 40, ../scss/modules/_project-tour.scss */
-#project-tour-4 {
+/* line 73, ../scss/modules/_project-tour.scss */
+#project-tour-4 .modal-arrow:before,
+#project-tour-4 .modal-arrow:after {
+  right: 70px;
+  left: auto;
+}
+
+/* line 78, ../scss/modules/_project-tour.scss */
+#project-tour-5 .modal-arrow:before,
+#project-tour-5 .modal-arrow:after {
+  right: 21px;
+  left: auto;
+}
+
+/* line 83, ../scss/modules/_project-tour.scss */
+#project-tour-7 {
   margin-left: -150px;
   top: 20%;
 }
 
-/* line 44, ../scss/modules/_project-tour.scss */
-#project-tour-4 .modal-arrow:before, #project-tour-5 .modal-arrow:before, #project-tour-6 .modal-arrow:before {
+/* line 89, ../scss/modules/_project-tour.scss */
+#project-tour-7 .modal-arrow:before,
+#project-tour-8 .modal-arrow:before,
+#project-tour-9 .modal-arrow:before {
   left: 130px;
   margin-top: 9px;
 }
 
-/* line 48, ../scss/modules/_project-tour.scss */
-#project-tour-4 .modal-arrow:after, #project-tour-5 .modal-arrow:after, #project-tour-6 .modal-arrow:after {
+/* line 95, ../scss/modules/_project-tour.scss */
+#project-tour-7 .modal-arrow:after,
+#project-tour-8 .modal-arrow:after,
+#project-tour-9 .modal-arrow:after {
   left: 130px;
   margin-top: 11px;
 }
 
-/* line 52, ../scss/modules/_project-tour.scss */
-#project-tour-4 .modal-arrow:before, #project-tour-4 .modal-arrow:after {
+/* line 100, ../scss/modules/_project-tour.scss */
+#project-tour-7 .modal-arrow:before,
+#project-tour-7 .modal-arrow:after {
   display: none;
 }
 
-/* line 56, ../scss/modules/_project-tour.scss */
-#project-tour-5 {
+/* line 104, ../scss/modules/_project-tour.scss */
+#project-tour-8 {
   margin-left: -150px;
   top: 31%;
 }
 
-/* line 60, ../scss/modules/_project-tour.scss */
-#project-tour-6 {
+/* line 108, ../scss/modules/_project-tour.scss */
+#project-tour-9 {
   margin-left: -150px;
   top: 75%;
 }
 
-/* line 65, ../scss/modules/_project-tour.scss */
+/* line 113, ../scss/modules/_project-tour.scss */
 ul.project-tour-status {
   margin: 0;
   padding: 0;
@@ -2218,7 +2274,7 @@ ul.project-tour-status {
   float: left;
 }
 
-/* line 71, ../scss/modules/_project-tour.scss */
+/* line 119, ../scss/modules/_project-tour.scss */
 ul.project-tour-status li {
   list-style-type: none;
   display: inline-block;
@@ -2226,7 +2282,7 @@ ul.project-tour-status li {
   padding: 0;
 }
 
-/* line 77, ../scss/modules/_project-tour.scss */
+/* line 125, ../scss/modules/_project-tour.scss */
 ul.project-tour-status a {
   display: inline-block;
   -webkit-border-radius: 8px;
@@ -2240,24 +2296,24 @@ ul.project-tour-status a {
   border: 1px solid #3f3f3f;
 }
 
-/* line 85, ../scss/modules/_project-tour.scss */
+/* line 133, ../scss/modules/_project-tour.scss */
 ul.project-tour-status a.active, ul.project-tour-status a:hover, ul.project-tour-status a:focus {
   background: #3f3f3f;
 }
 
-/* line 88, ../scss/modules/_project-tour.scss */
+/* line 136, ../scss/modules/_project-tour.scss */
 .close {
   line-height: 11px;
   position: absolute;
   right: 11px;
 }
 
-/* line 93, ../scss/modules/_project-tour.scss */
+/* line 141, ../scss/modules/_project-tour.scss */
 .close img {
   opacity: 0.5;
 }
 
-/* line 96, ../scss/modules/_project-tour.scss */
+/* line 144, ../scss/modules/_project-tour.scss */
 .close:hover img {
   opacity: 1;
 }
