@@ -14,50 +14,98 @@
 	left: 10px;
     top: 133px;
 }
-#project-tour-2 .modal-arrow:before, #project-tour-3 .modal-arrow:before {
+#project-tour-2 .modal-arrow:before, 
+#project-tour-3 .modal-arrow:before,
+#project-tour-4 .modal-arrow:before,
+#project-tour-5 .modal-arrow:before {
 	border-top-color:transparent;
-	border-bottom-color:white;
+	border-bottom-color:$white;
 	left:30px;
 	top:-63px;
 }
-#project-tour-2 .modal-arrow:after, #project-tour-3 .modal-arrow:after {
+#project-tour-2 .modal-arrow:after, 
+#project-tour-3 .modal-arrow:after,
+#project-tour-4 .modal-arrow:after,
+#project-tour-5 .modal-arrow:after {
 	border-top-color:transparent;
 	border-bottom-color:$gray;
 	left:30px;
 	top:-67px;
 }
 
-#project-tour-3 {
+#project-tour-6 .modal-arrow:before {
+	border-bottom-color:transparent;
+	border-top-color: transparent;
+	border-left-color:$white;
 	left:auto;
-	right: 51px;
+	top:-16px;
+	right:-29px;
+}
+#project-tour-6 .modal-arrow:after {
+	border-bottom-color:transparent;
+	border-top-color: transparent;
+	border-left-color:$gray;
+	left:auto;
+	top: -18px;
+	right: -31px;
+}
+
+
+
+#project-tour-3,
+#project-tour-4,
+#project-tour-5 {
+	left:auto;
+	right: 10px;
     top: 137px;
 }
-#project-tour-3 .modal-arrow:before, #project-tour-3 .modal-arrow:after {
-	right:30px;
+#project-tour-6 {
+	left:auto;
+	right: 132px;
+	top: 161px;
+}
+#project-tour-3 .modal-arrow:before, 
+#project-tour-3 .modal-arrow:after {
+	right:122px;
+	left:auto;
+}
+#project-tour-4 .modal-arrow:before, 
+#project-tour-4 .modal-arrow:after {
+	right:70px;
+	left:auto;
+}
+#project-tour-5 .modal-arrow:before, 
+#project-tour-5 .modal-arrow:after {
+	right:21px;
 	left:auto;
 }
 
-#project-tour-4 {
+#project-tour-7 {
 	margin-left: -150px;
     top: 20%;
 }
-#project-tour-4 .modal-arrow:before, #project-tour-5 .modal-arrow:before, #project-tour-6 .modal-arrow:before {
+#project-tour-7 .modal-arrow:before, 
+#project-tour-8 .modal-arrow:before, 
+#project-tour-9 .modal-arrow:before {
 	left:130px;
 	margin-top:9px;
 }
-#project-tour-4 .modal-arrow:after, #project-tour-5 .modal-arrow:after, #project-tour-6 .modal-arrow:after {
+#project-tour-7 .modal-arrow:after, 
+#project-tour-8 .modal-arrow:after, 
+#project-tour-9 .modal-arrow:after {
 	left:130px;
 	margin-top:11px;
 }
-#project-tour-4 .modal-arrow:before, #project-tour-4 .modal-arrow:after {
+#project-tour-7 .modal-arrow:before, 
+#project-tour-7 .modal-arrow:after {
 	display:none;
 }
 
-#project-tour-5 {
+#project-tour-8 {
 	margin-left: -150px;
     top: 31%;
 }
-#project-tour-6 {
+#project-tour-9 {
 	margin-left: -150px;
     top: 75%;
 }
