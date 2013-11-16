@@ -337,6 +337,7 @@ function drawBC(nodeData,linkData) {
     .attr("dx", 13)
     .attr("dy", -13)
     .attr("class", "presentation-graphics presentation-order-text")
+    .style("display", "none")
     .text(function(d) {return d.featured})
     
     secG.append("path")
@@ -1281,8 +1282,8 @@ function validateParsley() {
     var formValid = $( '#new-node-form' ).parsley( 'isValid' );
     document.getElementById("new-node-form").focus();
 
-////Hack because no wifi thus no jquery    
-//    formValid = true;
+////Hack to skip validation   
+    formValid = true;
 
     if(formValid) {
 	d3.select("#new-node").classed("hidden", true)
