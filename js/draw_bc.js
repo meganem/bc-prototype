@@ -320,7 +320,7 @@ function drawBC(nodeData,linkData) {
     .style("stroke", "black")
     .style("stroke-width", "2px")
     .style("display", "none")
-    .attr("class", "presentation-graphics")
+    .attr("class", "presentation-graphics presentation-node-background")
     .attr("r", 22)
     .attr("cx", 0)
 
@@ -1499,13 +1499,15 @@ function reorderList() {
     .on('dragleave', reorderDragLeave)
     .on('drop', reorderDrop);
     
-    reorderNode.append("div").attr("class", "reorder-node-title").append("img")
+    var subDiv = reorderNode.append("div").attr("class", "reorder-node-title");
+    
+    subDiv.append("img")
     .attr("class", "node-info-type")
     .attr("src", function(d) {return "../../../img/icon-"+d.kind+"-sm.png"})
     .style("width", "20px")
     .style("height", "20px")
 
-    reorderNode.append("div").attr("class", "reorder-node-title").append("span")
+    subDiv.append("span")
     .html(function(d) {return d.title})
     
     reorderNode.append("div").attr("class", "icon-reorder").append("img")
@@ -1517,11 +1519,16 @@ function reorderList() {
 
 function reorderDragStart(d,i) {
     updatingNode = d;
+    
+    d3.selectAll(".presentation-node-background").filter(function(p) {return p == d ? this : null}).style("fill", "#eed588")
+//    
     d3.select(this).style("opacity", .5)
 }
 
 function reorderDragEnd(d,i) {
     d3.select(this).style("opacity", 1)
+    d3.selectAll(".presentation-node-background").style("fill", "#faf3df")
+
 }
 
 function reorderDrop(d,i) {
