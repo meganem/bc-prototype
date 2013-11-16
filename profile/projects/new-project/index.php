@@ -86,7 +86,7 @@ include $headerInclude;
 <div id="new-node" class="modal is-long hidden">
      <div class="modal-arrow"></div>
     <div id="new-node-cancel">
-        <a class="" href="#">
+        <a class="" href="#" onclick="closeThis('new-node');">
             <img class="icon-cancel" src="<?php print $pathPrefix; ?>img/icon-cancel.png" alt="Cancel" width="17" height="17" />
         </a>
     </div>
@@ -162,39 +162,40 @@ include $headerInclude;
 <div id="project-tour-2" class="modal project-tour align-center">
 	<div class="modal-arrow"></div>
 	<p>In the project menu, you can edit your project details, edit your presentation, and view your history.</p>
-	<!-- <ul class="project-tour-status">
-		<li><a href="#" class="active"></a></li>
-		<li><a href="#"></a></li>
-		<li><a href="#"></a></li>
-	</ul> -->
 	<a onclick="tutorial(3)" class="button more-link">Next</a>
 </div>
 
 <div id="project-tour-3" class="modal project-tour align-center">
 	<div class="modal-arrow"></div>
-	<p>Toggle viewing your project between story, presentation, and blog modes.</p>
-	<!-- <ul class="project-tour-status">
-		<li><a href="#"></a></li>
-		<li><a href="#" class="active"></a></li>
-		<li><a href="#"></a></li>
-	</ul> -->
+	<p>You are now viewing your project in "story" mode.</p>
 	<a onclick="tutorial(4)" class="button more-link">Next</a>
 </div>
+<div id="project-tour-4" class="modal project-tour align-center">
+    <div class="modal-arrow"></div>
+    <p>Toggle to view your project in "presentation" mode.</p>
+    <a onclick="tutorial(5)" class="button more-link">Next</a>
+</div>
+<div id="project-tour-5" class="modal project-tour align-center">
+    <div class="modal-arrow"></div>
+    <p>You can also view your project in a more traditional "blog" mode.</p>
+    <a onclick="tutorial(6)" class="button more-link">Next</a>
+</div>
 
-<div id="project-tour-4" class="modal modal-center project-tour align-center">
+<div id="project-tour-6" class="modal project-tour align-center">
+    <div class="modal-arrow"></div>
+    <p>Zoom in on your project to see it at different scales.</p>
+    <a onclick="tutorial(7)" class="button more-link">Next</a>
+</div>
+
+<div id="project-tour-7" class="modal modal-center project-tour align-center">
 	<p>To get started, add your first artifact to your project!</p>
-	<!-- <ul class="project-tour-status">
-		<li><a href="#"></a></li>
-		<li><a href="#"></a></li>
-		<li><a href="#" class="active"></a></li>
-	</ul> -->
 	<a onclick="createFirstNode()" class="button blue">Let's do it!</a>
 	<div class="modal-arrow"></div>
 </div>
 
-<div id="project-tour-5" class="modal modal-center project-tour align-center">
+<div id="project-tour-8" class="modal modal-center project-tour align-center">
 	<div class="close">
-        <a class="" href="#" onclick="closeThis('project-tour-5');">
+        <a class="" href="#" onclick="closeThis('project-tour-8');">
             <img class="icon-close" src="<?php print $pathPrefix; ?>img/icon-close-black.png" alt="close" width="11" height="11" />
         </a>
     </div>
@@ -205,7 +206,7 @@ include $headerInclude;
 	<div class="modal-arrow"></div>
 </div>
 
-<div id="project-tour-6" class="modal modal-center project-tour align-center">
+<div id="project-tour-9" class="modal modal-center project-tour align-center">
 	<div class="close">
         <a class="" href="#">
             <img class="icon-close" src="<?php print $pathPrefix; ?>img/icon-close-black.png" alt="close" width="11" height="11" />
