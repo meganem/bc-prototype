@@ -139,7 +139,7 @@ function drawBC(nodeData,linkData) {
     }
     
     //Toolbox
-    d3.select("#toolboxG")
+    d3.select("#toolboxG").style("display", "none")
     .append("rect")
     .attr("id", "toolboxBG")
     .style("fill", "lightgray")
