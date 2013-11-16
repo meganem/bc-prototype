@@ -1496,6 +1496,7 @@ function reorderList() {
     .style("-webkit-user-drag", "element")
     .style("cursor", "move")
     .on('dragstart', reorderDragStart)
+    .on('dragend', reorderDragEnd)
     .on('dragenter', reorderDragEnter)
     .on('dragover', reorderDragOver)
     .on('dragleave', reorderDragLeave)
@@ -1519,6 +1520,11 @@ function reorderList() {
 
 function reorderDragStart(d,i) {
     updatingNode = d;
+    d3.select(this).style("opacity", .5)
+}
+
+function reorderDragEnd(d,i) {
+    d3.select(this).style("opacity", 1)
 }
 
 function reorderDrop(d,i) {
