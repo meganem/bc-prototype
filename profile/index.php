@@ -33,11 +33,11 @@ include $headerInclude;
 						
 						<h2 class="profile-name">Laurie Reid</h2>
 						<p class="lead">An aspiring architect, studying at San Francisco State University. Passionate about design, psychology, and cookies.</p>
-						<p>More about Laurie... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vehicula semper ante. Sed nec volutpat massa. Nam et tortor scelerisque, sagittis ipsum eget, porttitor sem. Duis aliquet ante in leo adipiscing, eu mattis ante luctus. Nunc at porta dui, vel dictum tellus. </p>
+						<p>I thrive on creative, challenging work at the forefront of sustainability in architectural design. I believe that the world needs revolutionary, cost-effective, sustainable solutions for a future of over-population and poverty. In my work, I strive to showcase a thoughtful balance of new techniques, innovation, and cost-efficiency.</p>
 
 						<div class="profile-links">
 							<h3>Connect</h3>
-							<a href="#">www.bloomcase.com/lauriereid</a> 
+							<a href="#">www.bloomcase.com/laurie-reid</a> 
 							<a href="#">www.twitter.com/lauriereid</a> 
 						</div>
 
@@ -67,7 +67,7 @@ include $headerInclude;
         				<p class="date small">Last updated August 15, 2013 at 1:10pm</p>
         				<p><a href="#" class="button green">View Presentation</a> </p>
         			</div>
-        			<p><a href="<?php print $pathPrefix; ?>profile/projects" class="">See all projects</a></p>
+        			<p><a href="<?php print $pathPrefix; ?>profile/projects" class="">See all projects (3)</a></p>
 				</div>
 
                
