@@ -95,17 +95,9 @@ include $headerInclude;
             <a id="new-node-type" href="#" class="dark-background">
                 <div class="icon-sketch">sketch</div>
             </a>
-	<a id="new-node-image" onclick="selectImage()" class="dark-background" style="cursor:pointer;">
-		<img id="new-node-image-preview" class="icon-camera" src="<?php print $pathPrefix; ?>img/icon-camera.png" alt="Choose image" />
-        </a>
-<!---
-            <form name="Upload" action="#" enctype="multipart/form-data" method="post">
-                <div class="file-upload dark-background">
-                     <img id="file-upload-cameraicon" class="icon-camera" src="<?php print $pathPrefix; ?>img/icon-camera.png" alt="Choose image" width="32" height="25" />
-                    <input type="file" name="submitfile" id="submitfile" onchange="handleFiles(this.files)" />
-                </div>
-            </form>
-	-->
+            <a id="new-node-image" onclick="selectImage()" class="dark-background" style="cursor:pointer;">
+                <img id="new-node-image-preview" class="icon-camera" src="<?php print $pathPrefix; ?>img/icon-camera.png" alt="Choose image" />
+            </a>
         </div>
         
         <input id="new-node-form-title" name="node-title" type="text" placeholder="Name it" data-trigger="change focusout keyup" data-required="true" data-validation-minlength="0">
