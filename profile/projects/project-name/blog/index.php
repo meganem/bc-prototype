@@ -34,7 +34,73 @@ include $headerInclude;
             </div> <!-- End project-header -->
 			
 			<div class="light constrained container">
-				<p>Blog mode will go here.</p>
+				
+				<div class="blog-post">
+					<div id="blog-post-image">
+				        <img class="" src="<?php print $pathPrefix; ?>img/example/panel/second-inking.jpg" alt="" width="347" height="" />
+				    </div>
+				    <div class="blog-post-date date">
+						January 15, 2013 at 5:23pm
+				    </div>
+				    <div class="blog-post-title">
+				    	<img class="blog-post-type" src="<?php print $pathPrefix; ?>img/icon-draft-sm.png" alt="" width="20" height="20" /> 
+				    	Second inking session
+				    </div>
+				    <div class="blog-post-desc">
+				        <div>I did decide to get color when I went in to my second inking session.</div>
+				    </div>
+				    <div class="blog-post-tags">
+				    	<a href="#" class="tag">tattoo</a>
+				    </div>
+				    <div id="blog-post-buttons">
+				        <a id="blog-post-edit" class="button blue" href="#">edit</a>
+				    </div>
+				</div>
+
+				<div class="blog-post">
+					<div id="blog-post-image">
+				        <img class="" src="<?php print $pathPrefix; ?>img/example/panel/considering-color.jpg" alt="" width="347" height="" />
+				    </div>
+				    <div class="blog-post-date date">
+						November 21, 2013 at 2:23pm
+				    </div>
+				    <div class="blog-post-title">
+				    	<img class="blog-post-type" src="<?php print $pathPrefix; ?>img/icon-sketch-sm.png" alt="" width="20" height="20" /> 
+				    	Considering color
+				    </div>
+				    <div class="blog-post-desc">
+				        <div>Before my final inking session, I played around in Photoshop to consider whether I wanted to add color to my tattoo.</div>
+				    </div>
+				    <div class="blog-post-tags">
+				    	
+				    </div>
+				    <div id="blog-post-buttons">
+				        <a id="blog-post-edit" class="button blue" href="#">edit</a>
+				    </div>
+				</div>
+
+				<div class="blog-post">
+					<div id="blog-post-image">
+				        <img class="" src="<?php print $pathPrefix; ?>img/example/panel/first-inking.jpg" alt="" width="347" height="" />
+				    </div>
+				    <div class="blog-post-date date">
+						October 3, 2013 at 6:57pm
+				    </div>
+				    <div class="blog-post-title">
+				    	<img class="blog-post-type" src="<?php print $pathPrefix; ?>img/icon-final-sm.png" alt="" width="20" height="20" /> 
+				    	1st inking session
+				    </div>
+				    <div class="blog-post-desc">
+				        <div>The first inking session took two hours, and my artist, Todd Tauscher of Hold Fast Studio in Redwood City, did an amazing job on the outline.</div>
+				    </div>
+				    <div class="blog-post-tags">
+				    	<a href="#" class="tag">tattoo</a>
+				    </div>
+				    <div id="blog-post-buttons">
+				        <a id="blog-post-edit" class="button blue" href="#">edit</a>
+				    </div>
+				</div>
+
 			</div>
 
 <?php 
