@@ -24,10 +24,10 @@ h1.project-title {
 #project-menu img {
     display:block;
 }
-#project-menu a {
-    opacity: 0.6;
+#project-menu a img {
+    opacity: 0.5;
 }
-#project-menu a:hover, #project-menu a:focus, #project-menu a.active  {
+#project-menu a:hover img, #project-menu a:focus img, #project-menu a.active img  {
     opacity: 1;
 }
 #project-menu .menu li {
