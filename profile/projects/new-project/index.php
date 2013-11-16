@@ -83,7 +83,7 @@ include $headerInclude;
                 </div>
 
 <!-- New node form -->
-<div id="new-node" class="modal is-short hidden">
+<div id="new-node" class="modal is-long hidden">
      <div class="modal-arrow"></div>
     <div id="new-node-cancel">
         <a class="" href="#">
