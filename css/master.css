@@ -732,7 +732,7 @@ ul.dropdown li a {
 }
 
 /* line 29, ../scss/modules/_menu-dropdown.scss */
-ul.dropdown li a:hover, ul.dropdown li a:focus, ul.dropdown li a:active {
+ul.dropdown li a:hover, ul.dropdown li a:focus, ul.dropdown li a:active, ul.dropdown li a.active {
   text-decoration: none;
   color: #121212;
 }
