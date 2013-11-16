@@ -1496,6 +1496,7 @@ function reorderList() {
     .style("-webkit-user-drag", "element")
     .style("cursor", "move")
     .on('dragstart', reorderDragStart)
+    .on('dragend', reorderDragEnd)
     .on('dragenter', reorderDragEnter)
     .on('dragover', reorderDragOver)
     .on('dragleave', reorderDragLeave)
@@ -1519,11 +1520,20 @@ function reorderList() {
 
 function reorderDragStart(d,i) {
     updatingNode = d;
+    d3.select(this).style("opacity", .5)
+}
+
+function reorderDragEnd(d,i) {
+    d3.select(this).style("opacity", 1)
 }
 
 function reorderDrop(d,i) {
     var oldOrder = parseInt(updatingNode.featured);
     var newOrder = parseInt(d.featured);
+    if (oldOrder == newOrder) {
+	d3.selectAll(".reorder-node").style("border-bottom", "1px solid #e9e9e9")
+	return;
+    }
     
     if (oldOrder - newOrder > 0) {
 	
@@ -1553,7 +1563,6 @@ function reorderDrop(d,i) {
 
 function reorderDragEnter(d,i) {
     d3.select(this).style("border-bottom", "5px solid black")
-    
     d3.event.preventDefault();
 }
 function reorderDragOver(d,i) {
