@@ -1497,7 +1497,9 @@ function reorderList() {
     .on('dragenter', reorderDragEnter)
     .on('dragover', reorderDragOver)
     .on('dragleave', reorderDragLeave)
-    .on('drop', reorderDrop);
+    .on('mouseover', reorderHighlight)
+    .on('mouseout', reorderDragEnd)
+    .on('drop', reorderDrop)
     
     var subDiv = reorderNode.append("div").attr("class", "reorder-node-title");
     
@@ -1528,7 +1530,12 @@ function reorderDragStart(d,i) {
 function reorderDragEnd(d,i) {
     d3.select(this).style("opacity", 1)
     d3.selectAll(".presentation-node-background").style("fill", "#faf3df")
+    d3.selectAll(".reorder-node").style("border-bottom", "1px solid #e9e9e9")
 
+}
+
+function reorderHighlight(d,i) {
+    d3.selectAll(".presentation-node-background").filter(function(p) {return p == d ? this : null}).style("fill", "#eed588")
 }
 
 function reorderDrop(d,i) {
