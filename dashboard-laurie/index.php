@@ -51,7 +51,7 @@ include $headerInclude;
             				<p class="date small">Last updated August 15, 2013 at 1:10pm</p>
             				<p><a href="#" class="button blue">Edit</a> <a href="#" class="button green">Open</a></p>
             			</div>
-                			<p><a href="<?php print $pathPrefix; ?>profile/projects" class="">See all projects (10)</a> | <a href="<?php print $pathPrefix; ?>profile/projects/new" class="">New project</a></p>
+                			<p><a href="<?php print $pathPrefix; ?>profile/projects" class="">See all projects (3)</a> | <a href="<?php print $pathPrefix; ?>profile/projects/new" class="">New project</a></p>
                     	
 
 	                    </div>
@@ -76,18 +76,6 @@ include $headerInclude;
 		                    	</p>
 			                    
 	                    	</div>
-
-	                    	
-	                    	<!-- <div class="row well">
-	                    		<h2>My Activity</h2>
-	                    		<p class="notification-message"><span class="date">August 15, 2013 at 1:10pm</span> <br>
-	                    			Idea "A big idea" added to <a href="<?php print $pathPrefix; ?>profile/projects/project-name">My Project</a></p>
-	                    			<p class="notification-message"><span class="date">August 15, 2013 at 12:54pm</span> <br>
-	                    			Sketch "First sketches" added to <a href="<?php print $pathPrefix; ?>profile/projects/project-name">My Project</a></p>
-	                    			<p class="notification-message"><span class="date">August 15, 2013 at 12:42pm</span> <br>
-	                    			<a href="<?php print $pathPrefix; ?>profile/projects/project-name">My Project</a> created</p>
-	                    		<p><a href="<?php print $pathPrefix; ?>history" class="">See full history</a></p>
-	                    	</div> -->
 	                    	
 	                    </div>
 	                </div><!-- end row -->
