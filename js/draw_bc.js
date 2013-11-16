@@ -1298,10 +1298,10 @@ function validateParsley() {
 	createRemainingNodeComponents(updatingNode);
 	
 	if (testLayout.nodes().length == 1) {
-	    d3.select("#project-tour-5").classed("hidden", false)
+	    d3.select("#project-tour-8").classed("hidden", false)
 	}
 	else {
-	    d3.select("#project-tour-5").classed("hidden", true)	    
+	    d3.select("#project-tour-8").classed("hidden", true)	    
 	}
 
     }
