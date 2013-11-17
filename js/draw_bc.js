@@ -174,7 +174,7 @@ function drawBC(nodeData,linkData) {
     .style("stroke-width", 2)
     .style("pointer-events", "none")
     .style("fill", "none")
-    .attr("d", function(d) {return curvyLine([d.source.column * columnSize, (d.source.row * rowSize)],[d.target.column * columnSize, (d.target.row * rowSize)]) })
+    .attr("d", function(d) {return curvyLine([d.source.column * columnSize, d.source.component * (d.source.row * rowSize)],[d.target.column * columnSize, d.source.component * (d.target.row * rowSize)]) })
     .style("opacity", 0)
     ;
     
@@ -195,7 +195,7 @@ function drawBC(nodeData,linkData) {
     .attr("class", "uiPath")
     .style("stroke-width", 8)
     .style("fill", "none")
-    .attr("d", function(d) {return curvyLine([d.source.column * columnSize, (d.source.row * rowSize)],[d.target.column * columnSize, (d.target.row * rowSize)]) })
+    .attr("d", function(d) {return curvyLine([d.source.column * columnSize, d.source.component * (d.source.row * rowSize)],[d.target.column * columnSize, d.source.component * (d.target.row * rowSize)]) })
     .style("opacity", 0)
     ;
     
@@ -204,7 +204,7 @@ function drawBC(nodeData,linkData) {
     .attr("class", "uiPath")
     .attr("r", 8)
     .attr("cx", function(d) {return ((d.target.column * columnSize) + (d.source.column * columnSize)) / 2})
-    .attr("cy", function(d) {return ((d.target.row * rowSize) + (d.source.row * rowSize)) / 2})
+    .attr("cy", function(d) {return d.source.component * ((d.target.row * rowSize) + (d.source.row * rowSize)) / 2})
     .style("fill", "white")
     .style("stroke", "black")
     .style("stroke-width", "1px")
@@ -219,7 +219,7 @@ function drawBC(nodeData,linkData) {
     .append("text")
     .attr("class", "uiPath")
     .attr("x", function(d) {return (((d.target.column * columnSize) + (d.source.column * columnSize)) / 2) - 4})
-    .attr("y", function(d) {return (((d.target.row * rowSize) + (d.source.row * rowSize)) / 2) + 4})
+    .attr("y", function(d) {return d.source.component * (((d.target.row * rowSize) + (d.source.row * rowSize)) / 2) + 4})
     .text("x")
     .style("pointer-events", "none")
     .style("display", "none");
@@ -231,7 +231,7 @@ function drawBC(nodeData,linkData) {
 //    .style("display", function(d) {return d.isMeta ? "block" : "block"})
     .attr("id", function(d) {return "node" + d.nid})
     .attr("class", "sec")
-    .attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ ((d.row * rowSize)) +")"})
+    .attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ (d.component * (d.row * rowSize)) +")"})
     .on("mousedown", startMove)
     .on("mouseup", endMove);
 
@@ -383,11 +383,11 @@ function panToCenter(transitionDuration, centerColumn,centerRow) {
 
     d3.selectAll("div.zoom2").transition().duration(transitionDuration)
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 40) + "px")})
-    .style("top", function(d) {return "" + ((-35 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    .style("top", function(d) {return "" + (d.component * (-35 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
     
     d3.selectAll("div.sec").transition().duration(transitionDuration)
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 105) + "px")})
-    .style("top", function(d) {return "" + ((-115 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    .style("top", function(d) {return "" + (d.component * (-115 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
 
 }
 
@@ -398,11 +398,11 @@ function panBC() {
     
     d3.selectAll("div.zoom2")
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 40) + "px")})
-    .style("top", function(d) {return "" + ((-35 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    .style("top", function(d) {return "" + (d.component * (-35 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
     
     d3.selectAll("div.sec")
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 105) + "px")})
-    .style("top", function(d) {return "" + ((-115 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    .style("top", function(d) {return "" + (d.component * (-115 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
 }
 
 function redrawBC(transitionSpeed) {
@@ -410,9 +410,9 @@ function redrawBC(transitionSpeed) {
     d3.select("#bgBloomG").transition().duration(transitionSpeed).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
     d3.select("#mgBloomG").transition().duration(transitionSpeed).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
 
-    d3.selectAll("#bloomG > g.sec").transition().duration(transitionSpeed).attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ ((d.row * rowSize)) +")"})
+    d3.selectAll("#bloomG > g.sec").transition().duration(transitionSpeed).attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ (d.component * (d.row * rowSize)) +")"})
 
-    d3.selectAll("path.connections").transition().duration(transitionSpeed).attr("d", function(d) {return curvyLine([d.source.column * columnSize, (d.source.row * rowSize)],[d.target.column * columnSize, (d.target.row * rowSize)]) });
+    d3.selectAll("path.connections").transition().duration(transitionSpeed).attr("d", function(d) {return curvyLine([d.source.column * columnSize, d.source.component * (d.source.row * rowSize)],[d.target.column * columnSize, d.source.component * (d.target.row * rowSize)]) });
     
     d3.selectAll("line.hGrid")
     .transition().duration(transitionSpeed)
@@ -427,23 +427,23 @@ function redrawBC(transitionSpeed) {
     d3.selectAll("div.zoom2")
     .transition().duration(transitionSpeed)
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 40) + "px")})
-    .style("top", function(d) {return "" + ((-35 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    .style("top", function(d) {return "" + (d.component * (-35 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
 
     d3.selectAll("div.sec")
     .transition().duration(transitionSpeed)
     .style("left", function(d) {return "" + (bloomZoom.translate()[0] + ((d.column * columnSize) - 105) + "px")})
-    .style("top", function(d) {return "" + ((-115 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
+    .style("top", function(d) {return "" + (d.component * (-115 + (d.row * rowSize)) + bloomZoom.translate()[1]) + "px"})
 
     d3.selectAll("path.uiPath")
-    .attr("d", function(d) {return curvyLine([d.source.column * columnSize, (d.source.row * rowSize)],[d.target.column * columnSize, (d.target.row * rowSize)]) });
+    .attr("d", function(d) {return curvyLine([d.source.column * columnSize, d.source.component * (d.source.row * rowSize)],[d.target.column * columnSize, d.source.component * (d.target.row * rowSize)]) });
     
     d3.selectAll("circle.uiPath")
     .attr("cx", function(d) {return ((d.target.column * columnSize) + (d.source.column * columnSize)) / 2})
-    .attr("cy", function(d) {return ((d.target.row * rowSize) + (d.source.row * rowSize)) / 2});
+    .attr("cy", function(d) {return d.source.component * ((d.target.row * rowSize) + (d.source.row * rowSize)) / 2});
 
     d3.selectAll("text.uiPath")
     .attr("x", function(d) {return (((d.target.column * columnSize) + (d.source.column * columnSize)) / 2) - 4})
-    .attr("y", function(d) {return (((d.target.row * rowSize) + (d.source.row * rowSize)) / 2) + 4});
+    .attr("y", function(d) {return d.source.component * (((d.target.row * rowSize) + (d.source.row * rowSize)) / 2) + 4});
 
 }
 
@@ -532,7 +532,7 @@ function startMove(d,i) {
     if (!d3.select("#genNode").empty()) {return;}
 
     x1GenLine = d.column * columnSize;
-    y1GenLine = (d.row * rowSize);
+    y1GenLine = d.component * (d.row * rowSize);
     updatingNode = d;
     var curMouse = d3.mouse(this.parentNode);
     d3.select("#map").on("mousemove", moveGenNode)
@@ -599,11 +599,14 @@ function endMove(d,i) {
     var blNodes = testLayout.nodes();
     for (no in blNodes) {
 	var checkX = Math.abs((updatingNode.column * columnSize) - (blNodes[no].column * columnSize) + forBack);
-	var checkY = Math.abs((updatingNode.row * rowSize) - (blNodes[no].row * rowSize) + upDown);
+	var checkY = Math.abs(updatingNode.component * (updatingNode.row * rowSize) - blNodes[no].component * (blNodes[no].row * rowSize) + upDown);
 	if (checkX < 20 && checkY < 20) {
 	    if (!(blNodes[no].evolvedFrom.indexOf(updatingNode.nid) > -1 || updatingNode.evolvedFrom.indexOf(blNodes[no].nid) > -1)) {
 	    
-	        if (forBack >= 0) {
+		if (updatingNode.component != blNodes[no].component) {
+		    blNodes[no].evolvedFrom.length == 0 ? blNodes[no].evolvedFrom = updatingNode.nid : blNodes[no].evolvedFrom += ("," + updatingNode.nid)
+		}
+	        else if (forBack >= 0) {
 		    blNodes[no].evolvedFrom.length == 0 ? blNodes[no].evolvedFrom = updatingNode.nid : blNodes[no].evolvedFrom += ("," + updatingNode.nid)
 		}
 		else {
