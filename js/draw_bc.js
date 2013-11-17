@@ -199,7 +199,7 @@ function drawBC(nodeData,linkData) {
     .style("opacity", 0)
     ;
     
-    uiPathG
+    d3.selectAll("g.uiPath").filter(function(d) {return d.source.isMeta == false ? this : null})
     .append("circle")
     .attr("class", "uiPath")
     .attr("r", 8)
@@ -215,7 +215,7 @@ function drawBC(nodeData,linkData) {
     .style("display", "none")
 
 
-    uiPathG
+    d3.selectAll("g.uiPath").filter(function(d) {return d.source.isMeta == false ? this : null})
     .append("text")
     .attr("class", "uiPath")
     .attr("x", function(d) {return (((d.target.column * columnSize) + (d.source.column * columnSize)) / 2) - 4})
