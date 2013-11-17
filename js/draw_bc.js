@@ -50,6 +50,7 @@ function resizePanels() {
 
 function drawBloomcase(fileName) {
     
+    d3.select("#new-node").classed("hidden", true).attr("class", "modal is-long");
     d3.select("#edit-presentation-reorder").style("display", "none")
     d3.select("#edit-presentation-reorder-done").select("a").attr("onclick", "hideReorderingPanel()")
     
@@ -123,7 +124,7 @@ function drawBloomcase(fileName) {
     }
     
 function drawBC(nodeData,linkData) {
-    d3.select("#new-node").classed("hidden", true).attr("class", "modal is-short");
+    d3.select("#new-node").classed("hidden", true).attr("class", "modal is-long");
     d3.selectAll("path.connections").remove();
     d3.selectAll("g.sec").remove();
     d3.selectAll("#inserted").remove();
@@ -373,8 +374,12 @@ function panToCenter(transitionDuration, centerColumn,centerRow) {
 //    var newZoomY = bloomZoom.translate()[1];
 
     d3.select("#node-popup").style("left", (svgCenter - 93) + "px").style("bottom", (svgMiddle + 25) + "px")
-    d3.select("#new-node").style("left", (svgCenter - 106) + "px").style("bottom", (svgMiddle + 25) + "px").attr("class", "modal is-short hidden");
+    d3.select("#new-node").style("left", (svgCenter - 106) + "px").style("bottom", (svgMiddle + 25) + "px").attr("class", "modal is-long hidden");
+    var nnLeft = parseInt(d3.select("#new-node").style("left"));
+    var nnBottom = parseInt(d3.select("#new-node").style("bottom"));
+    d3.select("#new-node").style("left", (nnLeft + 125) + "px").style("bottom", (nnBottom - 260) + "px");
 
+    
     bloomZoom.translate([newZoomX,newZoomY])
 
     d3.select("#bloomG").transition().duration(transitionDuration).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
@@ -961,7 +966,7 @@ function createNewNode(d,i) {
 
 function nodeDetailsDialog(targetNode) {
     var nodeXY = d3.transform(targetNode.attr("transform"));
-    d3.select("#new-node").classed("hidden", false).attr("class", "modal is-short")
+    d3.select("#new-node").classed("hidden", false)
 }
 
 function pathOver(d,i) {
