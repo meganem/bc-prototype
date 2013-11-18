@@ -2405,10 +2405,13 @@ ul.project-tour-status a.active, ul.project-tour-status a:hover, ul.project-tour
 #share-project.modal {
   width: 500px;
   margin-left: -250px;
-  top: 25%;
+  top: 15%;
+  -webkit-box-shadow: #656565 2px 2px 10px;
+  -moz-box-shadow: #656565 2px 2px 10px;
+  box-shadow: #656565 2px 2px 10px;
 }
 
-/* line 7, ../scss/modules/_share-project.scss */
+/* line 8, ../scss/modules/_share-project.scss */
 #share-project input {
   text-align: center;
 }

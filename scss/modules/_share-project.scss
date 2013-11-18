@@ -2,7 +2,8 @@
 #share-project.modal {
 	width:500px;
 	margin-left: -250px;
-	top: 25%;
+	top: 15%;
+	@include box-shadow(tint($gray, 20%) 2px 2px 10px);
 }
 #share-project input {
 	text-align:center;
