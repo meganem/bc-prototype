@@ -68,6 +68,7 @@ d3_layout_bloomcase = function() {
                 incNodes[incNode].row = -1;
                 incNodes[incNode].lane = 1;
                 incNodes[incNode].lane2 = 1;
+                incNodes[incNode].component = 0;
 		incNodes[incNode].sourceCount = 0;
 		incNodes[incNode].targetCount = 0;
                 incNodes[incNode].isMeta = false;                
@@ -185,26 +186,57 @@ d3_layout_bloomcase = function() {
     
     function hierarchicalLayout() {
 //        return;
-        //Walk backward to find the lowest possible value
-        for (blLink in blLinks) {
-            blLinks[blLink].target.column--;
-            if(blLinks[blLink].source.nid == "1") {
-                blLinks[blLink].source.column++;
-            }
-        }
+
+	var currentComponent = 1;
+	var allSorted = false;
+	var sortedNodes = [];
+
+	for (blNode in blNodes) {
+	    if (blNodes[blNode].column == -1) {
+		blNodes[blNode].column = -100;
+		sortedNodes.push(blNodes[blNode]);
+		blNodes[blNode].component = currentComponent;
+		currentComponent++;
+
+	    }
+	    while (sortedNodes.length > 0) {
+	    for (blLink in blLinks) {
+		if (sortedNodes[0] == blLinks[blLink].source && blLinks[blLink].target.column == -1) {
+		    blLinks[blLink].target.column = blLinks[blLink].source.column + 1;
+		    blLinks[blLink].target.component = blLinks[blLink].source.component;
+		    sortedNodes.push(blLinks[blLink].target);
+		}
+		if (sortedNodes[0] == blLinks[blLink].target && blLinks[blLink].source.column == -1) {
+		    blLinks[blLink].source.column = blLinks[blLink].target.column - 1;
+		    blLinks[blLink].source.component = blLinks[blLink].target.component;
+		    sortedNodes.push(blLinks[blLink].source);
+		}
+	    }
+	    sortedNodes.splice(0,1);
+	    }
+	}
         
-            //Now sort the nodes by placeholder column to the layout starts with the earliest discovered node    
+    //Now sort the nodes by placeholder column so the layout starts with the earliest discovered node    
     blNodes.sort(function (a,b) {
     if (a.column < b.column)
-    return 1;
-    if (a.column > b.column)
     return -1;
+    if (a.column > b.column)
+    return 1;
     return 0;
     });
     
     //Set the earliest node to column position 2 (we're numbering columns in intervals of 2 to leave room for meta-columns)
-    blNodes[0].column = 2;
     
+    while (currentComponent > 0) {
+	for (blNode in blNodes) {
+	    if (blNodes[blNode].component == currentComponent) {
+		blNodes[blNode].column = 2;
+		break;
+	    }
+	}
+		    currentComponent--;
+	}
+
     zeroSourceLinks = blLinks.filter(function(el) {return el.source.sourceCount == 0})
     var z = 0;
     while (z <= zeroSourceLinks.length) {
@@ -250,6 +282,7 @@ d3_layout_bloomcase = function() {
 	blNodes[x].laneTotal = blNodes[x].lane + blNodes[x].lane2;
     }
 
+	
     //Step through the array again starting
     var newLinks = [];
     for (z in blLinks) {
@@ -282,7 +315,7 @@ d3_layout_bloomcase = function() {
         }
     }
     //Arrange rows
-    
+
     for (shapes in shapeHierarchy) {
         for (bn in blNodes) {
             if (blNodes[bn].kind == shapeHierarchy[shapes]) {
@@ -297,6 +330,10 @@ d3_layout_bloomcase = function() {
     for (col in columnsByRows) {
     columnsByRows[col].sort(function (a,b) {
     var sortReturn = 0;
+    if (a["component"] < b["component"])
+    return 1;
+    if (a["component"] > b["component"])
+    return -1;
     if (a["laneTotal"] < b["laneTotal"])
     return 1;
     if (a["laneTotal"] > b["laneTotal"])
@@ -314,7 +351,7 @@ d3_layout_bloomcase = function() {
     }
     
     exposedCols = columnsByRows;
-            var currentKind = "";
+        var currentKind = "";
         var currentList = [];
         var offset = 0;
         var isFirst = false;
