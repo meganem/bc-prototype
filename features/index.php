@@ -72,7 +72,9 @@ include $headerInclude;
             </div>
             <div class="container constrained light border-top">
                 <div class="row">
-                    
+                    <div class="float-right">
+                        <img src="<?php print $pathPrefix; ?>img/features-shareproject.jpg" width="300" alt="" />
+                    </div>
                 	<p class="lead">Sharing your projects</p>
                 	<p>Sharing your projects is easy. We provide a helpful set of social media, email, and link sharing options for your projects that will help you get your work noticed.</p>
                 </div>
