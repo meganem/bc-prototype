@@ -2331,27 +2331,84 @@ ul.project-tour-status a.active, ul.project-tour-status a:hover, ul.project-tour
 }
 
 /* line 5, ../scss/modules/_blog-mode.scss */
+.blog-mode h1.project-title {
+  display: inline-block;
+}
+
+/* line 8, ../scss/modules/_blog-mode.scss */
 .project-page.blog-mode #main {
   padding-bottom: 122px;
 }
 
-/* line 8, ../scss/modules/_blog-mode.scss */
+/* line 11, ../scss/modules/_blog-mode.scss */
 .blog-post {
   display: block;
-  margin-bottom: 1em;
-  border-bottom: 1px solid #e9e9e9;
-  padding-bottom: 1em;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid #c5c5c5;
+  padding-bottom: 1.5em;
   clear: both;
   overflow: auto;
 }
 
-/* line 16, ../scss/modules/_blog-mode.scss */
+/* line 19, ../scss/modules/_blog-mode.scss */
 .blog-post h2 {
-  margin-top: .5em;
+  margin-top: .25em;
 }
 
-/* line 19, ../scss/modules/_blog-mode.scss */
+/* line 22, ../scss/modules/_blog-mode.scss */
 .blog-post-image img {
   float: left;
   margin-right: 1em;
+  max-width: 50%;
+}
+
+/* line 27, ../scss/modules/_blog-mode.scss */
+.blog-post-date {
+  font-size: 0.8em;
+}
+
+/* line 33, ../scss/modules/_blog-mode.scss */
+.blog-post-desc {
+  margin-bottom: 1em;
+}
+
+/* line 36, ../scss/modules/_blog-mode.scss */
+.blog-post-tags {
+  margin-bottom: 0.75em;
+}
+/* line 38, ../scss/modules/_blog-mode.scss */
+.blog-post-tags a.tag {
+  background: gainsboro;
+}
+/* line 41, ../scss/modules/_blog-mode.scss */
+.blog-post-tags a.tag:hover, .blog-post-tags a.tag:focus {
+  background: #c4c4c4;
+}
+
+/* line 45, ../scss/modules/_blog-mode.scss */
+.blog-post-evolvedfrom {
+  margin-bottom: 0.75em;
+  font-size: .8em;
+  line-height: 1.5em;
+}
+
+@media (max-width: 600px) {
+  /* line 58, ../scss/modules/_blog-mode.scss */
+  .blog-post-image img {
+    float: none;
+    max-width: 100%;
+    margin-right: 0;
+  }
+}
+/* ---- Share project modal ---*/
+/* line 2, ../scss/modules/_share-project.scss */
+#share-project.modal {
+  width: 500px;
+  margin-left: -250px;
+  top: 25%;
+}
+
+/* line 7, ../scss/modules/_share-project.scss */
+#share-project input {
+  text-align: center;
 }
