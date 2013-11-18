@@ -420,11 +420,11 @@ a.logo-link:hover, a.logo-link:focus, a.logo-link:active {
 /* line 274, ../scss/_base.scss */
 .front iframe {
   border: 1px solid #3f3f3f;
-  height: 271px;
+  height: 226px;
   left: 120px;
   position: relative;
-  top: 30px;
-  width: 350px;
+  top: 57px;
+  width: 400px;
 }
 
 /* line 282, ../scss/_base.scss */
