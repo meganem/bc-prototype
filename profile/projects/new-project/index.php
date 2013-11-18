@@ -141,6 +141,11 @@ include $headerInclude;
 
 		<!-- Example side panel when you have a node selected and then click "more" -->
 <div class="panel hidden" id="morePanel">
+    <div id="morePanel-close" class="close-button">
+        <a class="" href="#" onclick="closeThis('morePanel');">
+            <img class="icon-cancel" src="<?php print $pathPrefix; ?>img/icon-cancel.png" alt="Cancel" width="17" height="17" />
+        </a>
+    </div>
     <div id="node-info-image">
         <img class="" src="<?php print $pathPrefix; ?>img/node-big.png" alt="" width="347" height="" />
     </div>
