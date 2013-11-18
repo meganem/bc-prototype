@@ -21,10 +21,10 @@
     right: 17px;
     z-index:50;
 }
-#new-node-cancel img {
+.close-button img {
     opacity: 0.5;
 }
-#new-node-cancel:hover img {
+.close-button:hover img {
     opacity: 1;
 }
 input[type=text],

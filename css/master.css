@@ -1380,12 +1380,12 @@ g.sec {
 }
 
 /* line 24, ../scss/modules/_new-node-form.scss */
-#new-node-cancel img {
+.close-button img {
   opacity: 0.5;
 }
 
 /* line 27, ../scss/modules/_new-node-form.scss */
-#new-node-cancel:hover img {
+.close-button:hover img {
   opacity: 1;
 }
 
