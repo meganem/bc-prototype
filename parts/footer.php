@@ -38,5 +38,9 @@
         <script>window.jQuery || document.write('<script src="<?php print $pathPrefix; ?>js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
 
         <script src="<?php print $pathPrefix; ?>js/main.js"></script>
+
+        <script type="text/javascript">var switchTo5x=true;</script>
+        <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+        <script type="text/javascript">stLight.options({publisher: "103890ef-4ba2-4af6-9644-3dff0ef73a43", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
     </body>
 </html>
