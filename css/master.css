@@ -1821,7 +1821,20 @@ input.disabled {
   max-width: none;
 }
 
-/* line 13, ../scss/modules/_slide-templates.scss */
+/* line 14, ../scss/modules/_slide-templates.scss */
+img.slide-bkg {
+  min-height: 100%;
+  min-width: 100%;
+  height: auto;
+  max-width: none;
+  position: fixed;
+  top: 0;
+  left: auto;
+  right: 20%;
+  z-index: -10;
+}
+
+/* line 26, ../scss/modules/_slide-templates.scss */
 .slide-overlay {
   background: #121212;
   bottom: 25%;
@@ -1831,14 +1844,14 @@ input.disabled {
   position: fixed;
 }
 
-/* line 21, ../scss/modules/_slide-templates.scss */
+/* line 34, ../scss/modules/_slide-templates.scss */
 .slide-type {
   float: left;
   margin-right: 1em;
   position: absolute;
 }
 
-/* line 26, ../scss/modules/_slide-templates.scss */
+/* line 39, ../scss/modules/_slide-templates.scss */
 .slide-title {
   font-size: 4em;
   font-weight: 300;
@@ -1846,12 +1859,12 @@ input.disabled {
   padding-left: 100px;
 }
 
-/* line 33, ../scss/modules/_slide-templates.scss */
+/* line 46, ../scss/modules/_slide-templates.scss */
 .slide-template-project-slide .slide-title {
   padding-left: 0;
 }
 
-/* line 38, ../scss/modules/_slide-templates.scss */
+/* line 51, ../scss/modules/_slide-templates.scss */
 .slide-template-half-image .slide-overlay, .slide-template-half-map .slide-overlay {
   bottom: 0;
   max-width: 50%;
@@ -1861,24 +1874,24 @@ input.disabled {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 45, ../scss/modules/_slide-templates.scss */
+/* line 58, ../scss/modules/_slide-templates.scss */
 .slide-template-half-image .slide-type, .slide-template-half-map .slide-type {
   float: none;
   margin-right: auto;
   position: static;
   margin-bottom: 1em;
 }
-/* line 51, ../scss/modules/_slide-templates.scss */
+/* line 64, ../scss/modules/_slide-templates.scss */
 .slide-template-half-image .slide-title, .slide-template-half-map .slide-title {
   padding-left: 0;
 }
-/* line 54, ../scss/modules/_slide-templates.scss */
+/* line 67, ../scss/modules/_slide-templates.scss */
 .slide-template-half-image .full-image, .slide-template-half-map .full-image {
   left: auto;
   right: 20%;
 }
 
-/* line 62, ../scss/modules/_slide-templates.scss */
+/* line 75, ../scss/modules/_slide-templates.scss */
 .slide-image-container {
   border: 1px solid white;
   height: 30%;
@@ -1886,7 +1899,7 @@ input.disabled {
   overflow: hidden;
   margin-bottom: 1em;
 }
-/* line 68, ../scss/modules/_slide-templates.scss */
+/* line 81, ../scss/modules/_slide-templates.scss */
 .slide-image-container img {
   margin-left: -50%;
   margin-top: -35%;
@@ -1895,43 +1908,43 @@ input.disabled {
 }
 
 @media screen and (max-width: 1200px) {
-  /* line 77, ../scss/modules/_slide-templates.scss */
+  /* line 90, ../scss/modules/_slide-templates.scss */
   .full-image {
     left: 30%;
     margin-left: -400px;
   }
 
-  /* line 82, ../scss/modules/_slide-templates.scss */
+  /* line 95, ../scss/modules/_slide-templates.scss */
   .slide-template-half-image .full-image, .slide-template-half-map .full-image {
     margin-left: auto;
     right: 0;
   }
 
-  /* line 87, ../scss/modules/_slide-templates.scss */
+  /* line 100, ../scss/modules/_slide-templates.scss */
   .slide-image-container {
     height: 30%;
   }
-  /* line 89, ../scss/modules/_slide-templates.scss */
+  /* line 102, ../scss/modules/_slide-templates.scss */
   .slide-image-container img {
     margin-top: -25%;
   }
 }
 @media screen and (max-width: 900px) {
-  /* line 96, ../scss/modules/_slide-templates.scss */
+  /* line 109, ../scss/modules/_slide-templates.scss */
   .slide-template-half-image .full-image, .slide-template-half-map .full-image {
     right: -25%;
   }
-  /* line 99, ../scss/modules/_slide-templates.scss */
+  /* line 112, ../scss/modules/_slide-templates.scss */
   .slide-template-half-image .slide-title, .slide-template-half-map .slide-title {
     font-size: 3em;
   }
 
-  /* line 103, ../scss/modules/_slide-templates.scss */
+  /* line 116, ../scss/modules/_slide-templates.scss */
   .slide-image-container {
     height: auto;
     max-height: 25%;
   }
-  /* line 106, ../scss/modules/_slide-templates.scss */
+  /* line 119, ../scss/modules/_slide-templates.scss */
   .slide-image-container img {
     margin-left: auto;
     margin-top: auto;
@@ -1939,29 +1952,29 @@ input.disabled {
   }
 }
 @media screen and (max-width: 600px) {
-  /* line 114, ../scss/modules/_slide-templates.scss */
+  /* line 127, ../scss/modules/_slide-templates.scss */
   .slide-overlay {
     padding: 1em;
   }
 
-  /* line 117, ../scss/modules/_slide-templates.scss */
+  /* line 130, ../scss/modules/_slide-templates.scss */
   .full-image {
     left: 50%;
   }
 
-  /* line 120, ../scss/modules/_slide-templates.scss */
+  /* line 133, ../scss/modules/_slide-templates.scss */
   .slide-title {
     font-size: 2em;
     padding-left: 60px;
   }
 
-  /* line 124, ../scss/modules/_slide-templates.scss */
+  /* line 137, ../scss/modules/_slide-templates.scss */
   .slide-type img {
     width: 40px;
     height: 40px;
   }
 
-  /* line 129, ../scss/modules/_slide-templates.scss */
+  /* line 142, ../scss/modules/_slide-templates.scss */
   .slide-template-half-image .slide-overlay, .slide-template-half-map .slide-overlay {
     bottom: 0;
     left: 0;
@@ -1970,7 +1983,7 @@ input.disabled {
     right: 0;
     top: auto;
   }
-  /* line 137, ../scss/modules/_slide-templates.scss */
+  /* line 150, ../scss/modules/_slide-templates.scss */
   .slide-template-half-image .full-image, .slide-template-half-map .full-image {
     left: 30%;
     margin-left: -600px;
@@ -1978,24 +1991,24 @@ input.disabled {
     top: -25%;
   }
 
-  /* line 145, ../scss/modules/_slide-templates.scss */
+  /* line 158, ../scss/modules/_slide-templates.scss */
   .slide-template-half-map .slide-title {
     font-size: 2em;
   }
-  /* line 148, ../scss/modules/_slide-templates.scss */
+  /* line 161, ../scss/modules/_slide-templates.scss */
   .slide-template-half-map .lead {
     font-size: 1em;
   }
 }
 /* ----- Presentation controls ----- */
-/* line 155, ../scss/modules/_slide-templates.scss */
+/* line 168, ../scss/modules/_slide-templates.scss */
 .presentation-control {
   display: inline-block;
   position: absolute;
   bottom: 50%;
   z-index: 100;
 }
-/* line 161, ../scss/modules/_slide-templates.scss */
+/* line 174, ../scss/modules/_slide-templates.scss */
 .presentation-control a {
   font-size: 2em;
   padding: 0 0.65em 0.25em;
@@ -2021,18 +2034,18 @@ input.disabled {
   -o-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
-/* line 173, ../scss/modules/_slide-templates.scss */
+/* line 186, ../scss/modules/_slide-templates.scss */
 .presentation-control a:hover, .presentation-control a:focus, .presentation-control a:active {
   text-decoration: none;
   opacity: 1;
 }
 
-/* line 180, ../scss/modules/_slide-templates.scss */
+/* line 193, ../scss/modules/_slide-templates.scss */
 .presentation-control.previous {
   left: 1em;
 }
 
-/* line 183, ../scss/modules/_slide-templates.scss */
+/* line 196, ../scss/modules/_slide-templates.scss */
 .presentation-control.next {
   right: 1em;
 }
