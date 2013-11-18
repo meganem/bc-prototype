@@ -84,11 +84,10 @@ include $headerInclude;
 <div id="new-node" class="modal is-short hidden">
      <div class="modal-arrow"></div>
     <div id="new-node-cancel">
-        <a class="" href="#">
+        <a class="" href="#" onclick="closeThis('new-node');">
             <img class="icon-cancel" src="<?php print $pathPrefix; ?>img/icon-cancel.png" alt="Cancel" width="17" height="17" />
         </a>
     </div>
-
 
     <form id="new-node-form" class="" data-validate="parsley" novalidate>
         <div class="form-divider">
@@ -98,14 +97,6 @@ include $headerInclude;
 	<a id="new-node-image" onclick="selectImage()" class="dark-background" style="cursor:pointer;">
 		<img id="new-node-image-preview" class="icon-camera" src="<?php print $pathPrefix; ?>img/icon-camera.png" alt="Choose image" />
         </a>
-<!---
-            <form name="Upload" action="#" enctype="multipart/form-data" method="post">
-                <div class="file-upload dark-background">
-                     <img id="file-upload-cameraicon" class="icon-camera" src="<?php print $pathPrefix; ?>img/icon-camera.png" alt="Choose image" width="32" height="25" />
-                    <input type="file" name="submitfile" id="submitfile" onchange="handleFiles(this.files)" />
-                </div>
-            </form>
-	-->
         </div>
         
         <input id="new-node-form-title" name="node-title" type="text" placeholder="Name it" data-trigger="change focusout keyup" data-required="true" data-validation-minlength="0">
