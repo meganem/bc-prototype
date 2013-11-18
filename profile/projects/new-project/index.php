@@ -4,6 +4,8 @@ $nestLevel = 3;
 $loggedIn = true;
 $bodyclass = "logged-in project-page";
 $projectMenuActive = "story";
+$projectIconPath = "img/placeholder.png";
+$userIconPath = "img/user-placeholder-icon.png";
 
 // DETERMINE PATH PREFIX
 $pathLevel = "../";

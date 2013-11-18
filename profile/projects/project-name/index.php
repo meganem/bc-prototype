@@ -4,6 +4,9 @@ $nestLevel = 3;
 $loggedIn = true;
 $bodyclass = "logged-in project-page";
 $projectMenuActive = "story";
+$projectIconPath = "img/example/icon-new-tattoo.png";
+$userIconPath = "img/user-icon-megan.png";
+
 
 // DETERMINE PATH PREFIX
 $pathLevel = "../";
@@ -47,10 +50,13 @@ include $headerInclude;
                             <a href="#" onclick="exitPresentationMode()" class="button blue">Done</a>
                         </div>
                     </div>
+
                     <?php include $pathPrefix . "parts/project-actions-menu.php" ?>
                     
-                    <h1 class="project-title">My Project</h1>
+                    <h1 class="project-title">My new tattoo</h1>
+
                     <?php include $pathPrefix . "parts/project-menu.php" ?>
+
                 </div> <!-- End container -->
             </div> <!-- End project-header -->
             
