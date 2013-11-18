@@ -116,12 +116,16 @@ function nextSlide() {
     $('#slide-' + currentSlideNum).addClass('hidden');
     currentSlideNum = currentSlideNum + 1;
     $('#slide-' + currentSlideNum).removeClass('hidden');
+    if(currentSlideNum == 13) {
+        $('#presentation-control-next').addClass('hidden');
+    }
 }
 function previousSlide() {
+    $('#presentation-control-next').removeClass('hidden');
     $('#slide-' + currentSlideNum).addClass('hidden');
     currentSlideNum = currentSlideNum - 1;
     $('#slide-' + currentSlideNum).removeClass('hidden');
-    if(currentSlideNum = 1) {
+    if(currentSlideNum == 1) {
         $('#presentation-control-previous').addClass('hidden');
     }
 }
