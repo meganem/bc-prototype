@@ -4,6 +4,7 @@ $nestLevel = 1;
 $loggedIn = true;
 $bodyclass = "logged-in dashboard";
 $userMenuActive = "dashboard";
+$userIconPath = "img/user-placeholder-icon.png";
 
 // DETERMINE PATH PREFIX
 $pathLevel = "../";
