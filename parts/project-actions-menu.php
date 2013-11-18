@@ -2,7 +2,7 @@
                         <ul class="no-js">
                             <li>
                                 <a href="#" class="clicker">
-                                    <img src="<?php print $pathPrefix; ?>img/projectthumb-sm.png" width="35" height="35" alt="project thumbnail" />
+                                    <img src="<?php print $pathPrefix; print $projectIconPath; ?>" width="35" height="35" alt="project thumbnail" />
                                 </a>
                                 <ul id="project-actions-menu" class="menu dropdown">
                                     <li><a href="#"><img class="icon-edit" src="<?php print $pathPrefix; ?>img/icon-edit.png" alt="" width="20" height="20" /> Edit description</a></li>
