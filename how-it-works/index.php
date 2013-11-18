@@ -42,7 +42,7 @@ include $headerInclude;
             </div>
             <div class="container constrained light border-top">
                 <div class="row">
-                    <div class="float-left"><img src="<?php print $pathPrefix; ?>img/home-hero3.png" width="300" alt="" /></div>
+                    <div class="float-left"><img src="<?php print $pathPrefix; ?>img/features-presentationmode.jpg" width="300" alt="" /></div>
                 	<p class="lead">Tell the story behind your work</p>
                 	<p>Once you've added artifacts to your process map, you can choose which ones you want to include in a public presentation of your project. This is a curated way for you to tell your story. For each artifact, you can choose which presentation template you'd like to use and which order your "slides" should go in. Launch your project in Presentation mode to show-and-tell live, or send the presentation link to someone you want to share your project with. You can also allow people to browse your project in Story mode in addition to seeing your presentation.</p>
                 </div>
