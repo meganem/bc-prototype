@@ -4,6 +4,7 @@ $nestLevel = 1;
 $loggedIn = true;
 $bodyclass = "logged-in";
 $userMenuActive = "my-account";
+$userIconPath = "img/laurie-icon.jpg";
 
 // DETERMINE PATH PREFIX
 $pathLevel = "../";
@@ -25,7 +26,8 @@ include $headerInclude;
 	        <div class="container constrained light">
 
                 <h1>My Account</h1>
-                <p class="lead">stuff here</p>
+                <p class="lead">Here's where you can change your password, edit your settings, change your email.</p>
+                <p>Coming soon</p>
                
 
             </div>

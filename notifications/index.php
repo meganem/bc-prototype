@@ -3,6 +3,7 @@
 $nestLevel = 1;
 $loggedIn = true;
 $bodyclass = "logged-in";
+$userIconPath = "img/laurie-icon.jpg";
 
 // DETERMINE PATH PREFIX
 $pathLevel = "../";
@@ -23,7 +24,7 @@ include $headerInclude;
 
 	        <div class="container constrained light">
                     <h1>Notifications</h1>
-                    <p>All your notifications are belong to us.</p>
+                    <p>Coming soon.</p>
             </div>
 
 
