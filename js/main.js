@@ -115,14 +115,15 @@ function nextSlide() {
     $('#presentation-control-previous').removeClass('hidden');
     $('#slide-' + currentSlideNum).addClass('hidden');
     currentSlideNum = currentSlideNum + 1;
-    console.log ("Current slide is " + currentSlideNum);
     $('#slide-' + currentSlideNum).removeClass('hidden');
 }
 function previousSlide() {
     $('#slide-' + currentSlideNum).addClass('hidden');
     currentSlideNum = currentSlideNum - 1;
-    console.log ("Current slide is " + currentSlideNum);
     $('#slide-' + currentSlideNum).removeClass('hidden');
+    if(currentSlideNum = 1) {
+        $('#presentation-control-previous').addClass('hidden');
+    }
 }
 
 
