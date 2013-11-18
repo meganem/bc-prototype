@@ -105,3 +105,25 @@ function closeThis(theId) {
 function openThis(theId) {
     $('#' + theId).removeClass('hidden');
 }
+
+
+// Example presentation
+
+var currentSlideNum = 1;
+
+function nextSlide() {
+    $('#presentation-control-previous').removeClass('hidden');
+    $('#slide-' + currentSlideNum).addClass('hidden');
+    currentSlideNum = currentSlideNum + 1;
+    console.log ("Current slide is " + currentSlideNum);
+    $('#slide-' + currentSlideNum).removeClass('hidden');
+}
+function previousSlide() {
+    $('#slide-' + currentSlideNum).addClass('hidden');
+    currentSlideNum = currentSlideNum - 1;
+    console.log ("Current slide is " + currentSlideNum);
+    $('#slide-' + currentSlideNum).removeClass('hidden');
+}
+
+
+
