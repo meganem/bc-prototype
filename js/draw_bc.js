@@ -124,6 +124,7 @@ function drawBloomcase(fileName) {
     }
     
 function drawBC(nodeData,linkData) {
+    d3.select("#node-popup").select("a.node-info-more").attr("onclick", 'd3.select("#node-popup").classed("hidden", true)');
     d3.select("#new-node").classed("hidden", true).attr("class", "modal is-long");
     d3.selectAll("path.connections").remove();
     d3.selectAll("g.sec").remove();
@@ -276,7 +277,7 @@ function drawBC(nodeData,linkData) {
     .style("opacity", 0)
     .style("pointer-events", "none")
     .style("cursor", "pointer")
-    .on("click", function(d) {	panToCenter(1000, d.column, d.row);populateMorePanel(d);d3.select("#morePanel").classed("hidden", false)});
+    .on("click", function(d) {	panToCenter(1000, d.column, d.row);populateMorePanel(d);showMorePanel(d)});
 /*    .on("mousedown", startMove)
     .on("mouseup", endMove); */
 
@@ -313,7 +314,7 @@ function drawBC(nodeData,linkData) {
     secButtonDiv.append("a")
     .attr("class", "node-info-more button purple")
     .attr("href", "#")
-    .on("click", function(d) {	panToCenter(1000, d.column, d.row);populateMorePanel(d);d3.select("#morePanel").classed("hidden", false)})
+    .on("click", function(d) {	panToCenter(1000, d.column, d.row);populateMorePanel(d);showMorePanel(d)})
     .html("more")
 
     secG.append("circle")
@@ -532,7 +533,7 @@ function startMove(d,i) {
     updatingNode = d;
     d3.select("#new-node-type").attr("onclick", 'initializeTypeSelector(d3.select("#node'+d.nid+'"), false)')
     clickNotDrag = true;
-    clickDragTimer = setTimeout('draggingClicking()', 250);
+    clickDragTimer = setTimeout('draggingClicking()', 200);
     
     if (!d3.select("#genNode").empty()) {return;}
 
@@ -578,8 +579,8 @@ function populatePopup(incNode) {
 }
 
 function populateMorePanel(incNode) {
-    d3.select("#morePanel > .node-info-image > img").style("display", incNode.imgUrl.length > 2 ? "block" : "none")
-    .attr("src", incNode.imgUrl.substr(0,10) == "data:image" ? incNode.imgUrl : "../../../img/example/zoom3/" + incNode.imgUrl)
+    d3.select("#morePanel > #node-info-image > img").style("display", incNode.imgUrl.length > 2 ? "block" : "none")
+    .attr("src", incNode.imgUrl.substr(0,10) == "data:image" ? incNode.imgUrl : "../../../img/example/panel/" + incNode.imgUrl.split(".")[0] + ".jpg")
     d3.select("#morePanel > .node-info-title").html("<img class='node-info-type' src='../../../img/icon-"+incNode.kind.toLowerCase() +"-sm.png' />" + incNode.title)
     d3.select("#morePanel > .node-info-desc").html("<div>" + incNode.summary + "</div>")    
 }
@@ -591,7 +592,7 @@ function endMove(d,i) {
 	hideModal();
 	
 	if(!d3.select("#zoom-3").classed("active")) {
-	    d3.select("#node-popup .node-info-more").on("click", function() {d3.select("#morePanel").classed("hidden", false)})
+	    d3.select("#node-popup .node-info-more").on("click", function() {showMorePanel(updatingNode);})
 	    d3.select("#node-popup").classed("hidden", false);
 	    populatePopup(updatingNode);
 	    populateMorePanel(updatingNode)
@@ -1073,6 +1074,8 @@ function updatedEvolvedFromSimple(nodeID, incNode) {
 }
 
 function hideModal() {
+    d3.select("#betweenLayer").selectAll("div.zoom2").style("border", "2px solid #121212")
+    d3.selectAll(".highlighter").remove();
     d3.select("#morePanel").classed("hidden", true)
     d3.select("#node-popup").classed("hidden", true);
     d3.select("#new-node").classed("hidden", true);
@@ -1402,7 +1405,7 @@ function createRemainingNodeComponents(incNode) {
     .style("opacity", 0)
     .style("pointer-events", "none")
     .style("cursor", "pointer")
-    .on("click", function(d) {	panToCenter(1000, d.column, d.row);populateMorePanel(d);d3.select("#morePanel").classed("hidden", false)});
+    .on("click", function(d) {	panToCenter(1000, d.column, d.row);populateMorePanel(d);showMorePanel(d)});
 
     var newSecDiv = d3.select("#aboveLayer").append("div")
     .data([incNode])
@@ -1438,9 +1441,11 @@ function createRemainingNodeComponents(incNode) {
     secButtonDiv.append("a")
     .attr("class", "node-info-more button purple")
     .attr("href", "#")
-    .on("click", function(d) {	panToCenter(1000, d.column, d.row);populateMorePanel(d);d3.select("#morePanel").classed("hidden", false)})
+    .on("click", function(d) {	panToCenter(1000, d.column, d.row);populateMorePanel(d);showMorePanel(d)})
     .html("more");
     }
+    var thisZoom = d3.select("div.zoom2").style("pointer-events") == "none" ? 1 : 2;
+    setZoomLevel(thisZoom);
 }
 
 function editNode(incNode) {
@@ -1634,4 +1639,17 @@ function showReorderingPanel() {
 
 function hideReorderingPanel() {
     d3.select("#edit-presentation-reorder").style("display", "none")    
+}
+
+function showMorePanel(d) {
+    hideModal();
+    d3.select("#betweenLayer").selectAll("div.zoom2")
+    .style("border", "2px solid #121212")
+    d3.select("#betweenLayer").selectAll("div.zoom2").filter(function(p) {return p == d ? this : null})
+    .style("border", "5px solid #121212")
+//    if (d3.select("div.zoom2").style("pointer-events") == "none") {
+        d3.selectAll("g.sec").filter(function(p) {return p == d ? this : null})
+        .insert("circle", "path").attr("class","highlighter").attr("r", 20);
+//    }
+    d3.select("#morePanel").classed("hidden", false);
 }
