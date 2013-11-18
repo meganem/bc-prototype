@@ -6,6 +6,7 @@ $bodyclass = "logged-in";
 $projectIconPath = "img/example/icon-new-tattoo.png";
 $userName = "Megan";
 $projectName = "My new tattoo";
+$projectURL = "project-name";
 
 // DETERMINE PATH PREFIX
 $pathLevel = "../";

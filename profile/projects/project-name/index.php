@@ -6,6 +6,7 @@ $bodyclass = "logged-in project-page";
 $projectMenuActive = "story";
 $projectIconPath = "img/example/icon-new-tattoo.png";
 $userIconPath = "img/user-icon-megan.png";
+$projectURL = "project-name";
 
 
 // DETERMINE PATH PREFIX
