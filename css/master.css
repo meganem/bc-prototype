@@ -1774,6 +1774,13 @@ input.disabled {
   float: right;
 }
 
+/* ----- More info side panel ----- */
+/* line 28, ../scss/modules/_node-info.scss */
+#morePanel-close {
+  display: inline-block;
+  margin-bottom: 0.5em;
+}
+
 /* ----- Dashboard ----- */
 /* line 2, ../scss/modules/_dashboard.scss */
 .compact p {
