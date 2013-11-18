@@ -22,13 +22,13 @@
                        </ul>
                     </div> <!-- End click-nav -->
 
-                    <a href="<?php print $pathPrefix; ?>profile/projects/project-name"><?php print $projectName; ?></a> by <a href="<?php print $pathPrefix; ?>profile"><?php print $userName; ?></a>. Powered by 
+                    <a href="<?php print $pathPrefix; ?>profile/projects/<?php print $projectURL; ?>"><?php print $projectName; ?></a> by <a href="<?php print $pathPrefix; ?>profile"><?php print $userName; ?></a>. Powered by 
                     <a href="#" class="logo-link">
                         <div class="logo"><img src="<?php print $pathPrefix; ?>img/bc-logo-dark.png" width="37" height="43" alt="bloomcase logo" /></div>
                         <div class="site-title">bloomcase</div>
                     </a>
                     <div id="presentation-exit">
-                        <a href="<?php print $pathPrefix; ?>profile/projects/project-name" class="button">exit presentation</a>
+                        <a href="<?php print $pathPrefix; ?>profile/projects/<?php print $projectURL; ?>" class="button">exit presentation</a>
                     </div>
                 </div>
             </div>
