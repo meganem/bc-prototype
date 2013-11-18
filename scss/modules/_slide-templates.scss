@@ -30,6 +30,10 @@
     padding-left: 100px;
 }
 
+.slide-template-project-slide .slide-title {
+	padding-left:0;
+}
+
 .slide-template-half-image {
 	.slide-overlay {
 		bottom: 0;
@@ -72,7 +76,7 @@
 @media screen and (max-width: 1200px) { 
 	.full-image {
 		left: 30%;
-		margin-left: -600px;
+		margin-left: -400px;
 	}
 	.slide-template-half-image {
 		.full-image {
