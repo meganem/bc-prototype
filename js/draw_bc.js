@@ -25,6 +25,9 @@
     sD3 = .17;
     fD4 = .375;
     sD4 = .17;
+    upDown = 0;
+    forBack = 0;
+    
     
 window.onresize = function(event) {
 	resizePanels();
@@ -522,18 +525,12 @@ function setZoomLevel(zl) {
     redrawBC(500);
 }
 
-function draggingClicking() {
-    clickNotDrag = false;
-}
-
 
 function startMove(d,i) {
     this.parentNode.appendChild(this);
     d3.event.stopPropagation();
     updatingNode = d;
     d3.select("#new-node-type").attr("onclick", 'initializeTypeSelector(d3.select("#node'+d.nid+'"), false)')
-    clickNotDrag = true;
-    clickDragTimer = setTimeout('draggingClicking()', 200);
     
     if (!d3.select("#genNode").empty()) {return;}
 
@@ -587,8 +584,19 @@ function populateMorePanel(incNode) {
 
 function endMove(d,i) {
     d3.selectAll("svg").on("mouseup", function() {})
-    if(clickNotDrag == true) {
-	panToCenter(1000, updatingNode.column, updatingNode.row);
+    if (!d3.select(".options").empty()) {return;}
+    var curMouse = d3.mouse(this);
+    var blNodes = testLayout.nodes();
+    for (no in blNodes) {
+	var checkX = Math.abs((updatingNode.column * columnSize) - (blNodes[no].column * columnSize) + forBack);
+	var checkY = Math.abs(updatingNode.component * (updatingNode.row * rowSize) - blNodes[no].component * (blNodes[no].row * rowSize) + upDown);
+	
+	
+	
+	if (checkX < 20 && checkY < 20) {
+	if (blNodes[no] == updatingNode) {
+	
+    	panToCenter(500, updatingNode.column, updatingNode.row);
 	hideModal();
 	
 	if(!d3.select("#zoom-3").classed("active")) {
@@ -597,17 +605,10 @@ function endMove(d,i) {
 	    populatePopup(updatingNode);
 	    populateMorePanel(updatingNode)
 	}
-	
 	return;
-    }
-    if (!d3.select(".options").empty()) {return;}
-    var curMouse = d3.mouse(this);
-    var blNodes = testLayout.nodes();
-    for (no in blNodes) {
-	var checkX = Math.abs((updatingNode.column * columnSize) - (blNodes[no].column * columnSize) + forBack);
-	var checkY = Math.abs(updatingNode.component * (updatingNode.row * rowSize) - blNodes[no].component * (blNodes[no].row * rowSize) + upDown);
-	if (checkX < 20 && checkY < 20) {
-	    if (!(blNodes[no].evolvedFrom.indexOf(updatingNode.nid) > -1 || updatingNode.evolvedFrom.indexOf(blNodes[no].nid) > -1)) {
+	}
+
+	    else if (!(blNodes[no].evolvedFrom.indexOf(updatingNode.nid) > -1 || updatingNode.evolvedFrom.indexOf(blNodes[no].nid) > -1)) {
 	    
 		if (updatingNode.component != blNodes[no].component) {
 		    blNodes[no].evolvedFrom.length == 0 ? blNodes[no].evolvedFrom = updatingNode.nid : blNodes[no].evolvedFrom += ("," + updatingNode.nid)
