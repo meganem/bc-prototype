@@ -111,6 +111,90 @@ include $headerInclude;
 		</div>
 	</div>
 
+	<div id="slide-7" class="slide-template slide-template-half-map hidden">
+		<img class="slide-bkg" src="<?php print $pathPrefix; ?>img/example/slide-7-bkg.png" />
+		<div class="slide-overlay">
+			<div class="slide-image-container">
+				<img class="" src="<?php print $pathPrefix; ?>img/example/huge/finished-first-flower.jpg" />
+			</div>
+			<div class="slide-type">
+				<img src="<?php print $pathPrefix; ?>img/icon-draft-lg.png" width="70" height="70" alt="idea" />
+			</div>
+			<div class="slide-title">Finishing the first flower</div>
+			<p class="lead">I finished the first flower by removing the extra graphics from the original artwork I had found, and retracing it to make it my own.</p>
+		</div>
+	</div>
+
+	<div id="slide-8" class="slide-template slide-template-half-image hidden">
+		<img class="full-image" src="<?php print $pathPrefix; ?>img/example/huge/dahlia-photo.jpg" />
+		<div class="slide-overlay">
+			<div class="slide-type">
+				<img src="<?php print $pathPrefix; ?>img/icon-inspiration-lg.png" width="70" height="70" alt="idea" />
+			</div>
+			<div class="slide-title">A beautiful flower</div>
+			<p class="lead">This photo I found of a dahlia online was the one I decided to trace for my second flower.</p>
+		</div>
+	</div>
+
+	<div id="slide-9" class="slide-template slide-template-full-image hidden">
+		<img class="full-image" src="<?php print $pathPrefix; ?>img/example/huge/finished-outline.jpg" />
+		<div class="slide-overlay">
+			<div class="slide-type">
+				<img src="<?php print $pathPrefix; ?>img/icon-draft-lg.png" width="70" height="70" alt="idea" />
+			</div>
+			<div class="slide-title">Final draft of the outline</div>
+		</div>
+	</div>
+
+	<div id="slide-10" class="slide-template slide-template-half-map hidden">
+		<img class="slide-bkg" src="<?php print $pathPrefix; ?>img/example/slide-10-bkg.png" />
+		<div class="slide-overlay">
+			<div class="slide-image-container">
+				<img class="" src="<?php print $pathPrefix; ?>img/example/huge/first-inking.jpg" />
+			</div>
+			<div class="slide-type">
+				<img src="<?php print $pathPrefix; ?>img/icon-final-lg.png" width="70" height="70" alt="idea" />
+			</div>
+			<div class="slide-title">1st Inking Session</div>
+			<p class="lead">The first inking session took two hours, and my artist, Todd Tauscher of Hold Fast Studio in Redwood City, did an amazing job on the outline.</p>
+		</div>
+	</div>
+
+	<div id="slide-11" class="slide-template slide-template-half-image hidden">
+		<img class="full-image" src="<?php print $pathPrefix; ?>img/example/huge/considering-color.jpg" />
+		<div class="slide-overlay">
+			<div class="slide-type">
+				<img src="<?php print $pathPrefix; ?>img/icon-sketch-lg.png" width="70" height="70" alt="idea" />
+			</div>
+			<div class="slide-title">Considering Color</div>
+			<p class="lead">Before my final inking session, I played around in Photoshop to consider whether I wanted to add color to my tattoo.</p>
+		</div>
+	</div>
+
+	<div id="slide-12" class="slide-template slide-template-half-map hidden">
+		<img class="slide-bkg" src="<?php print $pathPrefix; ?>img/example/slide-12-bkg.png" />
+		<div class="slide-overlay">
+			<div class="slide-image-container">
+				<img class="" src="<?php print $pathPrefix; ?>img/example/huge/second-inking2.jpg" />
+			</div>
+			<div class="slide-type">
+				<img src="<?php print $pathPrefix; ?>img/icon-draft-lg.png" width="70" height="70" alt="idea" />
+			</div>
+			<div class="slide-title">2nd Inking Session</div>
+			<p class="lead">I did decide to get color when I went in to my second inking session.</p>
+		</div>
+	</div>
+
+	<div id="slide-13" class="slide-template slide-template-full-image hidden">
+		<img class="full-image" src="<?php print $pathPrefix; ?>img/example/huge/tattoo-finished.jpg" />
+		<div class="slide-overlay">
+			<div class="slide-type">
+				<img src="<?php print $pathPrefix; ?>img/icon-final-lg.png" width="70" height="70" alt="idea" />
+			</div>
+			<div class="slide-title">The finished tattoo</div>
+		</div>
+	</div>
+
 
 
 
