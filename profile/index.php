@@ -4,6 +4,7 @@ $nestLevel = 1;
 $loggedIn = true;
 $bodyclass = "logged-in profile";
 $userMenuActive = "my-profile";
+$userIconPath = "img/laurie-icon.jpg";
 
 // DETERMINE PATH PREFIX
 $pathLevel = "../";
@@ -55,7 +56,7 @@ include $headerInclude;
         				<p class="project-summary small">The final project for my Sustainable Architecture class where I was asked to design a custom, modular, solar home.</p>
         				<p><a href="#" class="tag">architecture</a> <a href="#" class="tag">CAD model</a> <a href="#" class="tag">home design</a> <a href="#" class="tag">sustainability</a></p>
         				<p class="date small">Last updated October 27, 2013 at 5:37pm</p>
-        				<p><a href="#" class="button green">View Presentation</a> </p>
+        				<p><a href="<?php print $pathPrefix; ?>profile/projects/solar-home/presentation" class="button green">View Presentation</a> </p>
         			</div>
         			<div class="row compact divider">
                 		<div class="float-left">
