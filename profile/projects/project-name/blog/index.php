@@ -4,6 +4,8 @@ $nestLevel = 4;
 $loggedIn = true;
 $bodyclass = "logged-in project-page blog-mode";
 $projectMenuActive = "blog";
+$projectIconPath = "img/example/icon-new-tattoo.png";
+$userIconPath = "img/user-icon-megan.png";
 
 // DETERMINE PATH PREFIX
 $pathLevel = "../";
