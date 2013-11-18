@@ -101,3 +101,7 @@ function closeThis(theId) {
     $('#' + theId).addClass('hidden');
 }
 
+//Open things 
+function openThis(theId) {
+    $('#' + theId).removeClass('hidden');
+}
