@@ -236,13 +236,13 @@ include $headerInclude;
     </div>
     <p>Share this project publicly using the following link:</p>
     <p class="small"><strong>Story mode:</strong><br>
-        <input type="text" onclick="this.select();" name="copylink" value="http://bloomcase.com/laurie-reid/projects/project-name">
+        <input type="text" onclick="this.select();" name="copylink" value="http://bloomcase.com/laurie-reid/projects/<?php print $projectURL; ?>">
     </p>
     <p class="small"><strong>Presentation mode:</strong><br>
-        <input type="text" onclick="this.select();" name="copylink" value="http://bloomcase.com/laurie-reid/projects/project-name/presentation">
+        <input type="text" onclick="this.select();" name="copylink" value="http://bloomcase.com/laurie-reid/projects/<?php print $projectURL; ?>/presentation">
     </p>
     <p class="small"><strong>Blog mode:</strong><br>
-        <input type="text" onclick="this.select();" name="copylink" value="http://bloomcase.com/laurie-reid/projects/project-name/blog">
+        <input type="text" onclick="this.select();" name="copylink" value="http://bloomcase.com/laurie-reid/projects/<?php print $projectURL; ?>/blog">
     </p>
 
     <p>Or share the link to this project through social media:</p>
