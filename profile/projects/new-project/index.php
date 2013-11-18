@@ -33,7 +33,7 @@ include $headerInclude;
                 
                     <?php include $pathPrefix . "parts/project-actions-menu.php" ?>
                     
-                    <h1 class="project-title">By the Bay</h1>
+                    <h1 class="project-title">Solar Home</h1>
 		    
 		        <div id="edit-presentation-header" style="display:none;">
                         <div class="click-nav click-nav-3">
