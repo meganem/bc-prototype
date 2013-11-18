@@ -56,7 +56,7 @@ include $headerInclude;
                         <p><strong>Presentation mode</strong> is a curated, step-by-step tour of your project where you can choose per artifact which template you would like to use. There are four presentation templates that you can choose from.</p>
                     </div>
                 	<div class="span4 align-left">                	
-                	   <img src="<?php print $pathPrefix; ?>img/placeholder.png" width="300" alt="" />
+                	   <img src="<?php print $pathPrefix; ?>img/features-blogmode.jpg" width="300" alt="" />
                         <p><strong>Blog mode</strong> is a more traditional, linear way of viewing your project contents, and is more suitable for printing and reading in a chronological fashion.</p>
                     </div>
                 </div>
