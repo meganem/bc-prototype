@@ -1642,7 +1642,7 @@ function populateEditPresentationPanel(d,i) {
     
     d3.select("#editPresentationPanel")
     .select("#edit-presentation-node-form-included")
-//    .prop("checked")
+    .property("checked", true)
     .on("click", function() {addRemovePresentationNode(d,i)})
 }
 
