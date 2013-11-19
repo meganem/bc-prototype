@@ -1760,6 +1760,17 @@ function viewPresentation() {
     return -1;
     return 0;
     });
+    
+    d3.select("#footer.presentation").select("#project-actions-menu").selectAll("li").remove();
+    
+    d3.select("#footer.presentation").select("#project-actions-menu").selectAll("li").data(slideNodes).enter()
+    .append("li")
+    .append("a")
+    .attr("href", "#")
+    .append("img")
+    .attr("src", function(d) {return "../../../img/icon-"+d.kind.toLowerCase()+"-sm.png"})
+    .attr("width", "20")
+    .attr("height", "20")
 
     var newSlide = d3.select("#slideLayer").selectAll("div.slide-template").data(slideNodes).enter()
     .append("div")
