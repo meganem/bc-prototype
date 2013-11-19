@@ -282,7 +282,7 @@ function drawBC(nodeData,linkData) {
     .style("opacity", 0)
     .style("pointer-events", "none")
     .style("cursor", "pointer")
-    .on("click", function(d) {	panToCenter(1000, d.column, d.row);populateMorePanel(d);showMorePanel(d)});
+    .on("click", function(d) {	panToCenter(1000, d.row, d.column);populateMorePanel(d);showMorePanel(d)});
 /*    .on("mousedown", startMove)
     .on("mouseup", endMove); */
 
@@ -319,7 +319,7 @@ function drawBC(nodeData,linkData) {
     secButtonDiv.append("a")
     .attr("class", "node-info-more button purple")
     .attr("href", "#")
-    .on("click", function(d) {	panToCenter(1000, d.column, d.row);populateMorePanel(d);showMorePanel(d)})
+    .on("click", function(d) {	panToCenter(1000, d.row, d.column);populateMorePanel(d);showMorePanel(d)})
     .html("more")
 
     secG.append("circle")
@@ -366,14 +366,14 @@ function drawBC(nodeData,linkData) {
 		.style("pointer-events", "none");
 		*/
 
-    panToCenter(0)
+    panToCenter(0,-1)
 }
 
-function panToCenter(transitionDuration, centerColumn,centerRow) {
+function panToCenter(transitionDuration,centerRow, centerColumn) {
     var svgCenter = (parseInt(d3.select("#map").style("width")) / 2);
     var svgMiddle = (parseInt(d3.select("#map").style("height")) / 2);
     var newCenter = centerColumn || d3.max(testLayout.nodes(), function(d) {return d.column}) / 2;
-    var newMiddle = centerRow + 0 || -1;
+    var newMiddle = centerRow;
 //    var newMiddle = 0;
     var newZoomX = svgCenter - (columnSize * newCenter);
     var newZoomY = (parseInt(d3.select("#map").style("height")) / 2) - (rowSize * newMiddle);
@@ -609,7 +609,7 @@ function endMove(d,i) {
 	
 	if (checkX < 20 && checkY < 20) {
 	if (blNodes[no] == updatingNode) {
-    	panToCenter(500, updatingNode.column, updatingNode.row);
+    	panToCenter(500, updatingNode.row, updatingNode.column);
 	hideModal();
 	
 	if(!d3.select("#zoom-3").classed("active")) {
@@ -980,7 +980,7 @@ function createNewNode(d,i) {
 
 
     var runLater = setTimeout(function() {nodeDetailsDialog(createdNode)}, 1000)
-    panToCenter(1000, newNode.column,newNode.row);
+    panToCenter(1000,newNode.row, newNode.column);
 
 }
 
@@ -1308,7 +1308,7 @@ function createFirstNode() {
     	d3.selectAll("g.sec").transition().duration(1000).style("opacity", 1);
 	d3.select("#disabledDiv").remove();
 
-    d3.select("g.sec").each(function(d,i) {panToCenter(1, d.column,d.row)});
+    d3.select("g.sec").each(function(d,i) {panToCenter(1,d.row, d.column)});
     initializeTypeSelector(d3.select("g.sec"), false)
     
 //    nodeDetailsDialog(d3.select("g.sec"));
@@ -1431,7 +1431,7 @@ function createRemainingNodeComponents(incNode) {
     .style("opacity", 0)
     .style("pointer-events", "none")
     .style("cursor", "pointer")
-    .on("click", function(d) {	panToCenter(1000, d.column, d.row);populateMorePanel(d);showMorePanel(d)});
+    .on("click", function(d) {	panToCenter(1000, d.row, d.column);populateMorePanel(d);showMorePanel(d)});
 
     var newSecDiv = d3.select("#aboveLayer").append("div")
     .data([incNode])
@@ -1467,7 +1467,7 @@ function createRemainingNodeComponents(incNode) {
     secButtonDiv.append("a")
     .attr("class", "node-info-more button purple")
     .attr("href", "#")
-    .on("click", function(d) {	panToCenter(1000, d.column, d.row);populateMorePanel(d);showMorePanel(d)})
+    .on("click", function(d) {	panToCenter(1000, d.row, d.column);populateMorePanel(d);showMorePanel(d)})
     .html("more");
     }
     var thisZoom = d3.select("div.zoom2").style("pointer-events") == "none" ? 1 : 2;
@@ -1858,4 +1858,21 @@ function endPresentation() {
     d3.select("#footer.presentation").classed("hidden", true);
     resizePanels();
 
+}
+
+function deleteNode() {
+    for (x in testLayout.nodes()) {
+	if (testLayout.nodes()[x].evolvedFromArray.indexOf(updatingNode) > -1) {
+	    updatedEvolvedFromSimple(updatingNode.nid, testLayout.nodes()[x])
+	    console.log("cut " + updatingNode.nid +"**"+ testLayout.nodes()[x].nid)
+	}
+	if (testLayout.nodes()[x] == updatingNode) {
+	    console.log("spliced " + testLayout.nodes()[x].nid)
+	    testLayout.nodes().splice(x,1);
+	}
+    }
+    
+    updatedBloomCase(testLayout.nodes(),testLayout.links())
+
+    
 }

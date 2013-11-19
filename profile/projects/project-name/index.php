@@ -120,7 +120,7 @@ include $headerInclude;
          ?>" data-type="dateIso" data-trigger="keyup" data-notblank="true">
         <input id="new-node-form-tags" name="node-tags" type="text" placeholder="Tag it, comma separated" data-trigger="keyup" data-notblank="true">
         <div id="new-node-form-buttons">
-            <input id="new-node-delete" class="button red" type="button" value="delete">
+            <input id="new-node-delete" class="button red" type="button" value="delete" onclick="deleteNode();">
             <input id="new-node-form-submit" class="button green" type="button" onclick="validateParsley();" value="done">
             <input id="new-node-more" class="button purple more-link" onclick="newNodeFormExpand();" type="button" value="more">
         </div>
