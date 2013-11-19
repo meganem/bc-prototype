@@ -1604,6 +1604,7 @@ function reorderDragLeave(d,i) {
 
 
 function exitPresentationMode() {
+        d3.select("#editPresentationPanel").classed("hidden", true)
     d3.select("#edit-presentation-reorder").style("display", "none")    
     d3.select("#edit-presentation-header").style("display", "none")
     d3.select("#project-menu").style("display", "block")
@@ -1614,8 +1615,40 @@ function exitPresentationMode() {
 }
 
 function setPresentation(d,i) {
-    var oldValue = parseInt(testLayout.nodes()[i].featured);
-    var newValue = (d.featured == 0 ? parseInt(d3.max(testLayout.nodes(), function(el) {return el.featured})) + 1 : 0);
+    
+    d3.select("#editPresentationPanel").classed("hidden", false);
+    populateEditPresentationPanel(d,i);
+    if (d.featured == 0) {
+	addRemovePresentationNode(d,i);
+    }
+}
+
+function populateEditPresentationPanel(d,i) {
+    d3.select("#editPresentationPanel")
+    .select("#edit-presentation-node")
+    .select("img")
+    .attr("src", d.imgUrl.substr(0,10) == "data:image" ? d.imgUrl : "../../../img/example/zoom3/" + d.imgUrl)
+
+    d3.select("#editPresentationPanel")
+    .select(".node-info-title")
+    .html(d.title)
+    .select("img")
+    .attr("src", "../../../img/icon-"+d.kind.toLowerCase()+"-sm.png")
+    
+    d3.select("#editPresentationPanel")
+    .select(".node-info-desc")
+    .select("div")
+    .html(d.summary)
+    
+    d3.select("#editPresentationPanel")
+    .select("#edit-presentation-node-form-included")
+//    .prop("checked")
+    .on("click", function() {addRemovePresentationNode(d,i)})
+}
+
+function addRemovePresentationNode(d,i) {
+        var oldValue = parseInt(testLayout.nodes()[i].featured);
+    var newValue = (d.featured == 0 ? parseInt(d3.max(testLayout.nodes(), function(el) {return parseInt(el.featured)})) + 1 : 0);
     testLayout.nodes()[i].featured = newValue;
     
     if (oldValue > 0) {
@@ -1627,6 +1660,7 @@ function setPresentation(d,i) {
     }
     refreshPresentationValues();
     reorderList();
+
 }
 
 function refreshPresentationValues() {
