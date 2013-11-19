@@ -12,7 +12,6 @@
     toolboxHidden = true;
     
     updatingNode = {};
-    forBack = 0;
     x1GenLine = 0;
     y1GenLine = 0;
     currentNewNode = "Idea";
@@ -527,6 +526,8 @@ function setZoomLevel(zl) {
 
 
 function startMove(d,i) {
+    	forBack = 0;
+	upDown = 0;
     this.parentNode.appendChild(this);
     d3.event.stopPropagation();
     updatingNode = d;
@@ -583,19 +584,26 @@ function populateMorePanel(incNode) {
 }
 
 function endMove(d,i) {
+    console.log(updatingNode);
     d3.selectAll("svg").on("mouseup", function() {})
     if (!d3.select(".options").empty()) {return;}
+    console.log("option fail?")
     var curMouse = d3.mouse(this);
     var blNodes = testLayout.nodes();
     for (no in blNodes) {
 	var checkX = Math.abs((updatingNode.column * columnSize) - (blNodes[no].column * columnSize) + forBack);
 	var checkY = Math.abs(updatingNode.component * (updatingNode.row * rowSize) - blNodes[no].component * (blNodes[no].row * rowSize) + upDown);
-	
-	
+console.log(checkX + "," + checkY)	
+
+	if (blNodes[no] == updatingNode) {
+console.log(forBack)
+console.log(upDown)
+console.log(updatingNode)
+console.log(blNodes[no])
+	}	
 	
 	if (checkX < 20 && checkY < 20) {
 	if (blNodes[no] == updatingNode) {
-	
     	panToCenter(500, updatingNode.column, updatingNode.row);
 	hideModal();
 	
@@ -604,6 +612,8 @@ function endMove(d,i) {
 	    d3.select("#node-popup").classed("hidden", false);
 	    populatePopup(updatingNode);
 	    populateMorePanel(updatingNode)
+	    	d3.select("#map").on("mousemove", null);
+
 	}
 	return;
 	}
@@ -823,6 +833,7 @@ function createNewNode(d,i) {
     timestamp: testLayout.nodes()[0].timestamp,
     row: -0.5,
     column: 0,
+    component: d.component,
     isMeta: false,
     imgUrl: '',
     evolvedFrom: "",
