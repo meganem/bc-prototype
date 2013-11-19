@@ -185,7 +185,7 @@ include $headerInclude;
         <div class="form-row">
             <input id="edit-presentation-node-form-included" type="checkbox" name="included" value="included" checked> Include in presentation
         </div>
-        <div class="form-row">
+        <div class="form-row hidden">
             <input id="edit-presentation-node-form-order" name="order" type="number" maxlength="5" placeholder="7"> Order in presentation
         </div>
         <div class="form-row">
@@ -193,22 +193,22 @@ include $headerInclude;
             <div class="edit-presentation-node-form-template-option">
                 <img class="" src="<?php print $pathPrefix; ?>img/placeholder.png" alt="" width="80" height="50" />
                 Full image
-                <input type="radio" name="template" value="full-image"> 
+                <input type="radio" id="full-image-radio" name="template" value="full-image"> 
             </div>
             <div class="edit-presentation-node-form-template-option">
                 <img class="" src="<?php print $pathPrefix; ?>img/placeholder.png" alt="" width="80" height="50" />
                 Half image
-                <input type="radio" name="template" value="half-image"> 
+                <input type="radio" id="half-image-radio" name="template" value="half-image"> 
             </div>
             <div class="edit-presentation-node-form-template-option">
                 <img class="" src="<?php print $pathPrefix; ?>img/placeholder.png" alt="" width="80" height="50" />
                 Half map
-                <input type="radio" name="template" value="half-map" checked> 
+                <input type="radio" id="half-map-radio" name="template" value="half-map" checked> 
             </div>
             <div class="edit-presentation-node-form-template-option">
                 <img class="" src="<?php print $pathPrefix; ?>img/placeholder.png" alt="" width="80" height="50" />
                 Full map
-                <input type="radio" name="template" value="full-map"> 
+                <input type="radio" id="full-map-radio" name="template" value="full-map"> 
             </div>
         </div>
         <div id="edit-presentation-node-form-buttons">

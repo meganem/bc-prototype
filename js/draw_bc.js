@@ -34,15 +34,16 @@ window.onresize = function(event) {
 
 function resizePanels() {
 
-    var a = document.getElementById("header").clientHeight;
-    var b = document.getElementById("project-header").clientHeight;
-    var c = document.getElementById("footer").clientHeight;
+    var a = d3.select("#header").property("clientHeight");
+    var b = d3.select("#project-header").property("clientHeight");
+    var c = d3.select("#footer").property("clientHeight");
+    var d = d3.select("#footer.presentation").property("clientHeight");
     
     var width = document.documentElement.clientWidth;
     var height = document.documentElement.clientHeight;
     
-    svgHeight = height - a - b - c;
-
+    svgHeight = height - a - b - c - d;
+    
     d3.selectAll("#background").style("width", width + "px").style("height", svgHeight + "px")
     d3.selectAll("#map").style("width", width + "px").style("height", svgHeight + "px")
     d3.select("#toolboxG").style("width", width + "px").attr("transform", "translate(0," + (svgHeight - toolboxOffset) + ")");
@@ -1624,6 +1625,7 @@ function setPresentation(d,i) {
 }
 
 function populateEditPresentationPanel(d,i) {
+    updatingNode = d;
     d3.select("#editPresentationPanel")
     .select("#edit-presentation-node")
     .select("img")
@@ -1644,6 +1646,31 @@ function populateEditPresentationPanel(d,i) {
     .select("#edit-presentation-node-form-included")
     .property("checked", true)
     .on("click", function() {addRemovePresentationNode(d,i)})
+    
+var presentationOption = d3.select("#editPresentationPanel");
+
+    presentationOption.select("#edit-presentation-node-form-template-option")
+    .selectAll("input").property("checked", false)
+    
+        switch(parseInt(d.presStyle)) {
+	case 0:
+	    presentationOption.select("#full-image-radio").property("checked", true)
+	break;
+	case 1:
+	    presentationOption.select("#half-image-radio").property("checked", true)
+	break;
+	case 2:
+	    presentationOption.select("#full-map-radio").property("checked", true)
+	break;
+	case 3:
+	    presentationOption.select("#half-map-radio").property("checked", true)
+	break;
+    }
+    
+    	    presentationOption.select("#full-image-radio").on("click", function() {d.presStyle = 0})
+	    presentationOption.select("#half-image-radio").on("click", function() {d.presStyle = 1})
+	    presentationOption.select("#full-map-radio").on("click", function() {d.presStyle = 2})
+	    presentationOption.select("#half-map-radio").on("click", function() {d.presStyle = 3})
 }
 
 function addRemovePresentationNode(d,i) {
@@ -1692,6 +1719,7 @@ function showMorePanel(d) {
 }
 
 function viewPresentation() {
+    
     d3.selectAll("#footer").classed("hidden", true);
     d3.selectAll("#header").classed("hidden", true);
     d3.selectAll("#project-header").classed("hidden", true);
@@ -1795,7 +1823,7 @@ function viewPresentation() {
     .attr("onclick", "nextSlide()")
     .html("&rsaquo;")
 
-
+    resizePanels();
 }
 
 function endPresentation() {
@@ -1806,4 +1834,6 @@ function endPresentation() {
     d3.selectAll("#header").classed("hidden", false);
     d3.selectAll("#project-header").classed("hidden", false);
     d3.select("#footer.presentation").classed("hidden", true);
+    resizePanels();
+
 }
