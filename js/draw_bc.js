@@ -526,8 +526,9 @@ function setZoomLevel(zl) {
 
 
 function startMove(d,i) {
-    	forBack = 0;
-	upDown = 0;
+    forBack = 0;
+    upDown = 0;
+
     this.parentNode.appendChild(this);
     d3.event.stopPropagation();
     updatingNode = d;
@@ -584,23 +585,13 @@ function populateMorePanel(incNode) {
 }
 
 function endMove(d,i) {
-    console.log(updatingNode);
     d3.selectAll("svg").on("mouseup", function() {})
     if (!d3.select(".options").empty()) {return;}
-    console.log("option fail?")
     var curMouse = d3.mouse(this);
     var blNodes = testLayout.nodes();
     for (no in blNodes) {
 	var checkX = Math.abs((updatingNode.column * columnSize) - (blNodes[no].column * columnSize) + forBack);
 	var checkY = Math.abs(updatingNode.component * (updatingNode.row * rowSize) - blNodes[no].component * (blNodes[no].row * rowSize) + upDown);
-console.log(checkX + "," + checkY)	
-
-	if (blNodes[no] == updatingNode) {
-console.log(forBack)
-console.log(upDown)
-console.log(updatingNode)
-console.log(blNodes[no])
-	}	
 	
 	if (checkX < 20 && checkY < 20) {
 	if (blNodes[no] == updatingNode) {
@@ -1664,4 +1655,121 @@ function showMorePanel(d) {
         .insert("circle", "path").attr("class","highlighter").attr("r", 20);
 //    }
     d3.select("#morePanel").classed("hidden", false);
+}
+
+function viewPresentation() {
+    d3.selectAll("#footer").classed("hidden", true);
+    d3.selectAll("#header").classed("hidden", true);
+    d3.selectAll("#project-header").classed("hidden", true);
+    d3.select("#footer.presentation").classed("hidden", false).style("z-index", 2);
+    d3.select("#presentation-exit").select("a").attr("href", "#").attr("onclick", "endPresentation()")
+    
+    d3.selectAll("div.slide-template").remove();
+    
+    d3.select("#presentation-controls").remove();
+
+    var slideNodes = testLayout.nodes().filter(function(el) {return el.featured > 0 ? this : null})
+    .sort(function (a,b) {
+    if (parseInt(a.featured) > parseInt(b.featured))
+    return 1;
+    if (parseInt(a.featured) < parseInt(b.featured))
+    return -1;
+    return 0;
+    });
+
+    var newSlide = d3.select("#slideLayer").selectAll("div.slide-template").data(slideNodes).enter()
+    .append("div")
+    .attr("id", function(d,i) {return "slide-" + d.featured})
+    .each(function(d,i) {
+    
+    var slideClass ="";
+    switch(parseInt(d.presStyle)) {
+	case 0:
+	    slideClass = "slide-template slide-template-full-image slide-template-project-slide hidden";
+	break;
+	case 1:
+	    slideClass = "slide-template slide-template-half-image hidden";
+	break;
+	case 2:
+	    slideClass = "slide-template slide-template-full-image hidden";
+	break;
+	case 3:
+	    slideClass = "slide-template slide-template-half-map hidden";
+	break;
+    }
+    
+    d3.select(this).attr("class", slideClass);
+
+    if (i==0) {
+	d3.select(this).classed("hidden", false)
+    };
+
+	var imgClass = "full-image"
+    
+    if (i==3) {
+	imgClass = "slide-bkg"
+    }
+    
+    d3.select(this).append("img")
+    .attr("class", imgClass)
+    .attr("src", d.imgUrl.substr(0,10) == "data:image" ? d.imgUrl : "../../../img/example/panel/" + d.imgUrl.split(".")[0] + ".jpg");
+    
+    var subSlide = d3.select(this).append("div")
+    .attr("class", "slide-overlay");
+    
+    if (d.presStyle > 0) {
+    subSlide.append("div")
+    .attr("class", "slide-type")
+    .append("img").attr("src", "../../../img/icon-"+d.kind.toLowerCase()+"-lg.png")
+    .attr("width", "70")
+    .attr("height", "70")
+    .attr("alt", "idea")
+    }
+    
+    subSlide.append("div")
+    .attr("class", "slide-title")
+    .html(d.title)
+
+    if (d.presStyle == 0 || d.presStyle == 3) {    
+    subSlide.append("p")
+    .attr("class", "lead")
+    .html(d.summary)
+    }
+    })
+    
+        var presControlDiv = d3.select("#slideLayer").append("div").attr("id", "presentation-controls")
+    
+    presControlDiv.append("div")
+    .attr("class", "presentation-control previous hidden")
+    .attr("id", "presentation-control-previous")
+    .append("a").attr("href", "#")
+    .attr("aria-label", "Previous")
+    .attr("role", "button")
+    .attr("tabindex", 0)
+    .attr("data-slide", "prev")
+    .attr("onclick", "previousSlide()")
+    .html("&lsaquo;")
+
+    presControlDiv.append("div")
+    .attr("class", "presentation-control next")
+    .attr("id", "presentation-control-next")
+    .append("a").attr("href", "#")
+    .attr("aria-label", "Next")
+    .attr("role", "button")
+    .attr("tabindex", 0)
+    .attr("data-slide", "next")
+    .attr("onclick", "nextSlide()")
+    .html("&rsaquo;")
+
+
+}
+
+function endPresentation() {
+    d3.selectAll("div.slide-template").remove();
+    d3.select("#presentation-controls").remove();
+
+    d3.selectAll("#footer").classed("hidden", false);
+    d3.selectAll("#header").classed("hidden", false);
+    d3.selectAll("#project-header").classed("hidden", false);
+    d3.select("#footer.presentation").classed("hidden", true);
 }

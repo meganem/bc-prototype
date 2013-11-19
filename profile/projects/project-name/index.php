@@ -21,6 +21,7 @@ if ($nestLevel > 0) {
 // SET PATHS FOR INCLUDE FILES
 $headerInclude = $pathPrefix . "parts/header.php";
 $footerInclude = $pathPrefix . "parts/footer.php";
+$footer2Include = $pathPrefix . "parts/footer-presentation.php";
 
 // INCLUDE HEADER
 include $headerInclude; 
@@ -85,6 +86,8 @@ include $headerInclude;
         			</script>
                 </svg>
                 <div class="light" id="aboveLayer">
+                </div>
+                <div class="light" id="slideLayer" style="z-index:1; position:relative;">
                 </div>
 
 <!-- New node form -->
@@ -259,5 +262,6 @@ include $headerInclude;
 
 <?php 
 //INCLUDE FOOTER
-include $footerInclude; 
+include $footerInclude;
+include $footer2Include;
 ?>
