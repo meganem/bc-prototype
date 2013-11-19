@@ -27,6 +27,8 @@
     upDown = 0;
     forBack = 0;
     
+    disableZoom = false;
+    
     
 window.onresize = function(event) {
 	resizePanels();
@@ -401,6 +403,11 @@ function panToCenter(transitionDuration, centerColumn,centerRow) {
 }
 
 function panBC() {
+    
+    if(disableZoom == true) {
+	bloomZoom.translate(d3.transform(d3.select("#bloomG").attr("transform")).translate)
+    }
+
     d3.select("#bloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
     d3.select("#bgBloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
     d3.select("#mgBloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
@@ -647,6 +654,7 @@ function endMove(d,i) {
 
 function initializeTypeSelector(selectedNode, isNew) {
     d3.select("#map").on("mousemove", null)
+    disableZoom = true;
     d3.select("#node-popup").classed("hidden", true);
     d3.select("#new-node").classed("hidden", true);
 
@@ -762,7 +770,7 @@ function initializeTypeSelector(selectedNode, isNew) {
 }
 
 function changeNodeType(newKind, selectedNode) {
-    
+    disableZoom = false;
     d3.select("#new-node-type > div").attr("class", "icon-" + newKind.toLowerCase()).html(newKind.toLowerCase())
     d3.event.stopPropagation();
     nodeDetailsDialog(selectedNode);
@@ -815,6 +823,7 @@ function selectNewNode(d,i,isNew, selectedNode) {
 }
 
 function createNewNode(d,i) {
+    disableZoom = false;
     d3.select("#newNodeTitle").remove();
     var evolvedVal = "";
     var newNodeID = "100" + testLayout.nodes().length;
@@ -1078,6 +1087,8 @@ function updatedEvolvedFromSimple(nodeID, incNode) {
 }
 
 function hideModal() {
+    disableZoom = false;
+
     d3.select("#betweenLayer").selectAll("div.zoom2").style("border", "2px solid #121212")
     d3.selectAll(".highlighter").remove();
     d3.select("#morePanel").classed("hidden", true)
