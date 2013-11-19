@@ -404,8 +404,9 @@ function panToCenter(transitionDuration, centerColumn,centerRow) {
 
 function panBC() {
     
-    if(disableZoom == true) {
+    if(disableZoom == true || !d3.select("#new-node").classed("hidden")) {
 	bloomZoom.translate(d3.transform(d3.select("#bloomG").attr("transform")).translate)
+	return;
     }
 
     d3.select("#bloomG").attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
@@ -534,11 +535,16 @@ function setZoomLevel(zl) {
 
 
 function startMove(d,i) {
+    d3.event.stopPropagation();
+        if(!d3.select("#new-node").classed("hidden")) {
+	    console.log("hidden")
+	    return;
+	}
+
     forBack = 0;
     upDown = 0;
 
     this.parentNode.appendChild(this);
-    d3.event.stopPropagation();
     updatingNode = d;
     d3.select("#new-node-type").attr("onclick", 'initializeTypeSelector(d3.select("#node'+d.nid+'"), false)')
     
@@ -1087,6 +1093,11 @@ function updatedEvolvedFromSimple(nodeID, incNode) {
 }
 
 function hideModal() {
+    
+        if(!d3.select("#new-node").classed("hidden")) {
+	    return;
+	}
+
     disableZoom = false;
 
     d3.select("#betweenLayer").selectAll("div.zoom2").style("border", "2px solid #121212")
