@@ -315,7 +315,7 @@ include $headerInclude;
 </div>
 
 <!-- Creative Process Modal -->
-<div id="creativeProcessModal" style="position:absolute;top:20px;left:20px;display:none;">
+<div id="creativeProcessModal" style="position:absolute;top:20px;left:20px;">
 <svg id="creativeSVG" style="background: white; border: 1px black solid;" height="200" width="300">
 	<g id="creativeG">
   <g
@@ -573,7 +573,7 @@ include $headerInclude;
        y="173.13254"
        x="234.80045"
        id="tspan3156"
-       sodipodi:role="line">producing</tspan></text>
+       sodipodi:role="line">presenting</tspan></text>
 	</g>
 </svg>
 </div>
