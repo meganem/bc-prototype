@@ -129,6 +129,7 @@ function drawBloomcase(fileName) {
     }
     
 function drawBC(nodeData,linkData) {
+    creativeProcess();
     d3.select("#node-popup").select("a.node-info-more").attr("onclick", 'd3.select("#node-popup").classed("hidden", true)');
     d3.select("#new-node").classed("hidden", true).attr("class", "modal is-long");
     d3.selectAll("path.connections").remove();
@@ -423,6 +424,8 @@ function panBC() {
 }
 
 function redrawBC(transitionSpeed) {
+    creativeProcess();
+    
     d3.select("#bloomG").transition().duration(transitionSpeed).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
     d3.select("#bgBloomG").transition().duration(transitionSpeed).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
     d3.select("#mgBloomG").transition().duration(transitionSpeed).attr("transform", "translate(" +bloomZoom.translate()[0]+","+bloomZoom.translate()[1]+")")
@@ -537,7 +540,6 @@ function setZoomLevel(zl) {
 function startMove(d,i) {
     d3.event.stopPropagation();
         if(!d3.select("#new-node").classed("hidden")) {
-	    console.log("hidden")
 	    return;
 	}
 
@@ -1733,10 +1735,10 @@ function showMorePanel(d) {
     .style("border", "2px solid #121212")
     d3.select("#betweenLayer").selectAll("div.zoom2").filter(function(p) {return p == d ? this : null})
     .style("border", "5px solid #121212")
-//    if (d3.select("div.zoom2").style("pointer-events") == "none") {
+    if (d3.select("div.zoom2").style("pointer-events") == "none") {
         d3.selectAll("g.sec").filter(function(p) {return p == d ? this : null})
         .insert("circle", "path").attr("class","highlighter").attr("r", 20);
-//    }
+    }
     d3.select("#morePanel").classed("hidden", false);
 }
 
@@ -1885,5 +1887,67 @@ function deleteNode() {
     
     updatedBloomCase(testLayout.nodes(),testLayout.links())
 
+}
+
+function creativeProcess() {
+    var processCount = {idea: 0, inspiration: 0, sketch: 0, draft: 0, final: 0};
+    arrowCount = {arrow_final: 1,
+    arrow_idea_inspiration: 1,
+    arrow_idea_sketch: 1,
+    arrow_inspiration_idea: 1,
+    arrow_sketch_idea: 1,
+    arrow_sketch_draft: 1,
+    arrow_draft_inspiration: 1,
+    arrow_draft_idea: 1,
+    arrow_draft_sketch: 1
+    };
+
+    var processMax = 0;
+    
+    for (x in testLayout.nodes()) {
+	processCount[testLayout.nodes()[x].kind.toLowerCase()] += 1;
+	processMax = Math.max(processCount[testLayout.nodes()[x].kind.toLowerCase()], processMax)
+	
+	if (testLayout.nodes()[x].evolvedFromArray) {
+	for (y in testLayout.nodes()[x].evolvedFromArray) {
+	    if (testLayout.nodes()[x].kind.toLowerCase() == "final") {
+		arrowCount["arrow_final"]++;
+	    }
+		var arrowName = "arrow_" + testLayout.nodes()[x].evolvedFromArray[y].kind.toLowerCase() + "_" + testLayout.nodes()[x].kind.toLowerCase();
+		
+	    if (arrowCount[arrowName]) {
+		arrowCount[arrowName]++;
+	    }
+	    else {
+		console.log(arrowName);
+		console.log("not found")
+	    }
+	}
+	}
+    }
+    
+    console.log(arrowCount)
+    
+    for (x in arrowCount) {
+	d3.select("#" + x).style("opacity", arrowCount[x] == 1 ? .5 : 1)
+	.selectAll("path").style("stroke-width", (arrowCount[x] * 2) + "px")
+	
+    }
+    
+    var sizeRamp = d3.scale.linear().range([0,30]).domain([0,processMax]);
+    var opacityRamp = d3.scale.linear().range([0,1]).domain([0,processMax]);
+    
+    for(x in processCount) {
+	d3.select("#shape_" + x).each(function() {
+	    var thisFill = d3.select(this).style("fill");
+	    d3.select(this)
+	    .style("stroke-width", sizeRamp(processCount[x]) + "px")
+	    .style("stroke-opacity", .25)
+	    .style("stroke", thisFill)
+	}
+	)
+	
+    }
+    
     
 }
