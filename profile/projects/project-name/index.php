@@ -7,6 +7,8 @@ $projectMenuActive = "story";
 $projectIconPath = "img/example/icon-new-tattoo.png";
 $userIconPath = "img/user-icon-megan.png";
 $projectURL = "project-name";
+$userName = "Megan";
+$projectName = "My new tattoo";
 
 
 // DETERMINE PATH PREFIX
@@ -57,7 +59,7 @@ include $headerInclude;
 
                     <?php include $pathPrefix . "parts/project-actions-menu.php" ?>
                     
-                    <h1 class="project-title">My new tattoo</h1>
+                    <h1 class="project-title"><?php print $projectName; ?></h1>
 
                     <?php include $pathPrefix . "parts/project-menu.php" ?>
 
@@ -168,7 +170,7 @@ include $headerInclude;
     </div>
 </div>
 
-<!--- Edit Presentation Node Sitde Panel -->
+<!--- Edit Presentation Node Side Panel -->
 <div class="panel hidden" id="editPresentationPanel">
     <div id="edit-presentation-node">
         <img class="" src="<?php print $pathPrefix; ?>img/node-big.png" alt="" width="347" height="200" />
