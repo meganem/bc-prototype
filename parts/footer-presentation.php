@@ -7,16 +7,16 @@
                                 <a href="#" class="clicker">
                                     <img src="<?php print $pathPrefix; print $projectIconPath; ?>" width="25" height="25" alt="project thumbnail" />
                                 </a>
-                                <ul id="project-actions-menu" class="menu dropdown">
-                                    <li><a href="#"><img src="<?php print $pathPrefix; ?>img/icon-idea-sm.png" alt="" width="20" height="20" /></a></li>
-                                    <li><a href="#"><img src="<?php print $pathPrefix; ?>img/icon-sketch-sm.png" alt="" width="20" height="20" /></a></li>
-                                    <li><a href="#"><img src="<?php print $pathPrefix; ?>img/icon-draft-sm.png" alt="" width="20" height="20" /></a></li>
-                                    <li><a href="#"><img src="<?php print $pathPrefix; ?>img/icon-idea-sm.png" alt="" width="20" height="20" /></a></li>
-                                    <li><a href="#"><img src="<?php print $pathPrefix; ?>img/icon-sketch-sm.png" alt="" width="20" height="20" /></a></li>
-                                    <li><a href="#"><img src="<?php print $pathPrefix; ?>img/icon-draft-sm.png" alt="" width="20" height="20" /></a></li>
-                                    <li><a href="#"><img src="<?php print $pathPrefix; ?>img/icon-idea-sm.png" alt="" width="20" height="20" /></a></li>
-                                    <li><a href="#"><img src="<?php print $pathPrefix; ?>img/icon-sketch-sm.png" alt="" width="20" height="20" /></a></li>
-                                    <li><a href="#"><img src="<?php print $pathPrefix; ?>img/icon-draft-sm.png" alt="" width="20" height="20" /></a></li>
+                                <ul id="presentation-navigator" class="menu dropdown">
+                                    <li><a href="#" data-title="Name of this slide"><img src="<?php print $pathPrefix; ?>img/icon-idea-sm.png" alt="" width="20" height="20" /></a></li>
+                                    <li><a href="#" data-title="Name of this slide"><img src="<?php print $pathPrefix; ?>img/icon-sketch-sm.png" alt="" width="20" height="20" /></a></li>
+                                    <li><a href="#" data-title="Name of this slide"><img src="<?php print $pathPrefix; ?>img/icon-draft-sm.png" alt="" width="20" height="20" /></a></li>
+                                    <li><a href="#" data-title="Name of this slide"><img src="<?php print $pathPrefix; ?>img/icon-idea-sm.png" alt="" width="20" height="20" /></a></li>
+                                    <li><a href="#" data-title="Name of this slide"><img src="<?php print $pathPrefix; ?>img/icon-sketch-sm.png" alt="" width="20" height="20" /></a></li>
+                                    <li><a href="#" data-title="Name of this slide"><img src="<?php print $pathPrefix; ?>img/icon-draft-sm.png" alt="" width="20" height="20" /></a></li>
+                                    <li><a href="#" data-title="Name of this slide"><img src="<?php print $pathPrefix; ?>img/icon-idea-sm.png" alt="" width="20" height="20" /></a></li>
+                                    <li><a href="#" data-title="Name of this slide"><img src="<?php print $pathPrefix; ?>img/icon-sketch-sm.png" alt="" width="20" height="20" /></a></li>
+                                    <li><a href="#" data-title="Name of this slide"><img src="<?php print $pathPrefix; ?>img/icon-draft-sm.png" alt="" width="20" height="20" /></a></li>
                                 </ul>
                             </li>
                        </ul>
