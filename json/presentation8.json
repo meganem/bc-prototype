@@ -4,11 +4,11 @@
 			"presentationId": "1",
 			"projectRef": "8",
 			"presentationTitle": "Project Name",
-			"titleSlideType": "1",
+			"titleSlideType": "5",
 			"titleSlideTitle": "",
 			"titleSlideContent": "Megan Miller - November 22, 2013",
 			"titleSlideImg": "img/example/huge/tattoo-finished.jpg",
-			"endSlideType": "1",
+			"endSlideType": "5",
 			"endSlideTitle": "Thank you!",
 			"endSlideContent": "Megan Miller - @meganerinmiller",
 			"endSlideImg": "img/example/huge/tattoo-finished.jpg",
@@ -41,7 +41,7 @@
 				{
 					"order": "5", 
 					"nid": "14", 
-					"slideType": "3"
+					"slideType": "4"
 				}
 				{
 					"order": "6", 
