@@ -41,6 +41,8 @@ include $headerInclude;
                                         <img src="<?php print $pathPrefix; ?>img/icon-edit-presentation.png" width="35" height="35" alt="" />
                                     </a>
                                     <ul id="edit-presentation-menu" class="menu dropdown">
+                                        <li><a href="#" ><img class="" src="<?php print $pathPrefix; ?>img/icon-edit-presentation.png" alt="" width="20" height="20" /> Edit title slide</a></li>
+                                        <li><a href="#" ><img class="" src="<?php print $pathPrefix; ?>img/icon-edit-presentation.png" alt="" width="20" height="20" /> Edit ending slide</a></li>
                                         <li><a href="#" onclick="showReorderingPanel()" ><img class="icon-history" src="<?php print $pathPrefix; ?>img/icon-history.png" alt="" width="20" height="20" /> Change order</a></li>
                                         <li><a href="#"><img class="icon-edit" src="<?php print $pathPrefix; ?>img/icon-edit.png" alt="" width="20" height="20" /> Edit styles</a></li>
                                     </ul>
