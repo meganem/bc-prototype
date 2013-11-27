@@ -1,0 +1,80 @@
+{
+	"presentations": [
+		{
+			"presentationId": "1",
+			"projectRef": "8",
+			"presentationTitle": "Project Name",
+			"titleSlideType": "1",
+			"titleSlideTitle": "",
+			"titleSlideContent": "Megan Miller - November 22, 2013",
+			"titleSlideImg": "img/example/huge/tattoo-finished.jpg",
+			"endSlideType": "1",
+			"endSlideTitle": "Thank you!",
+			"endSlideContent": "Megan Miller - @meganerinmiller",
+			"endSlideImg": "img/example/huge/tattoo-finished.jpg",
+			"slides": [
+				{
+					"order": "0", 
+					"nid": "1", 
+					"slideType": "2"
+				}
+				{
+					"order": "1", 
+					"nid": "5", 
+					"slideType": "1"
+				}
+				{
+					"order": "2", 
+					"nid": "6", 
+					"slideType": "3"
+				}
+				{
+					"order": "3", 
+					"nid": "9", 
+					"slideType": "2"
+				}
+				{
+					"order": "4", 
+					"nid": "12", 
+					"slideType": "1"
+				}
+				{
+					"order": "5", 
+					"nid": "14", 
+					"slideType": "3"
+				}
+				{
+					"order": "6", 
+					"nid": "15", 
+					"slideType": "2"
+				}
+				{
+					"order": "7", 
+					"nid": "17", 
+					"slideType": "1"
+				}
+				{
+					"order": "8", 
+					"nid": "18", 
+					"slideType": "3"
+				}
+				{
+					"order": "9", 
+					"nid": "19", 
+					"slideType": "2"
+				}
+				{
+					"order": "10", 
+					"nid": "20", 
+					"slideType": "3"
+				}
+				{
+					"order": "11", 
+					"nid": "21", 
+					"slideType": "1"
+				}
+			]
+
+		}
+	]
+}
