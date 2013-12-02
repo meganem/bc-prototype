@@ -225,6 +225,7 @@ d3_layout_bloomcase = function() {
     return 0;
     });
     
+    
     //Set the earliest node to column position 2 (we're numbering columns in intervals of 2 to leave room for meta-columns)
     
     while (currentComponent > 0) {
