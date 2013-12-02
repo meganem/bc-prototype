@@ -1951,3 +1951,7 @@ function creativeProcess() {
     
     
 }
+
+function deleteNode(d,i) {
+    //Here's where the stuff goes
+}
