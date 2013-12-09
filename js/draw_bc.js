@@ -29,6 +29,7 @@
     
     disableZoom = false;
     
+    var currentSlideNum = 1;
     
 window.onresize = function(event) {
 	resizePanels();
@@ -1869,6 +1870,7 @@ function endPresentation() {
     d3.selectAll("#header").classed("hidden", false);
     d3.selectAll("#project-header").classed("hidden", false);
     d3.select("#footer.presentation").classed("hidden", true);
+    currentSlideNum = 1;
     resizePanels();
 
 }
@@ -1954,4 +1956,29 @@ function creativeProcess() {
 
 function deleteNode(d,i) {
     //Here's where the stuff goes
+}
+
+// Example presentation
+
+
+function nextSlide() {
+    
+    var numSlides = d3.selectAll(".slide-template").size();
+
+    d3.select('#presentation-control-previous').classed('hidden', false);
+    d3.select('#slide-' + currentSlideNum).classed('hidden', true );
+    currentSlideNum = currentSlideNum + 1;
+    d3.select('#slide-' + currentSlideNum).classed('hidden', false);
+    if(currentSlideNum == numSlides) {
+        d3.select('#presentation-control-next').classed('hidden', true);
+    }
+}
+function previousSlide() {
+    d3.select('#presentation-control-next').classed('hidden', false);
+    d3.select('#slide-' + currentSlideNum).classed('hidden', true);
+    currentSlideNum = currentSlideNum - 1;
+    d3.select('#slide-' + currentSlideNum).classed('hidden', false);
+    if(currentSlideNum == 1) {
+        d3.select('#presentation-control-previous').classed('hidden', true);
+    }
 }
