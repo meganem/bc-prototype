@@ -1057,6 +1057,12 @@ g.sec {
   bottom: -0.5em;
 }
 
+/* -------------- Project stats panel ------------- */
+/* line 56, ../scss/modules/_map.scss */
+#creativeProcessModal {
+  display: none;
+}
+
 /* --------------- Zoom controls --------------- */
 /* line 2, ../scss/modules/_zoom-controls.scss */
 #zoom-controls {
