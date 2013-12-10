@@ -1,5 +1,13 @@
 /* ----- Slide Templates ----- */
-
+.slide-template, #presentation-controls {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	bottom: 0;
+}
+.slide-template {
+	background: $gray;
+}
 .full-image {
 	min-height: 100%;
 	min-width: 100%;
