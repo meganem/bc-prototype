@@ -179,7 +179,7 @@ function drawBC(nodeData,linkData) {
     d3.select("#bgBloomG")
     .selectAll("path.connections").data(linkData).enter().append("path")
     .style("stroke", "black")
-    .attr("class", "connections")
+    .attr("class", "connections link")
     .style("stroke-width", 2)
     .style("pointer-events", "none")
     .style("fill", "none")
@@ -193,7 +193,7 @@ function drawBC(nodeData,linkData) {
     .style("opacity", 1);
 
     var uiPathG = d3.select("#mgBloomG").selectAll("g.uiPath").data(linkData).enter().append("g")
-    .attr("class", "uiPath")
+    .attr("class", "uiPath link")
     .on("mouseover", pathOver)
     .on("mouseout", pathOut);
     
@@ -201,7 +201,7 @@ function drawBC(nodeData,linkData) {
     .append("path")
     .style("stroke", "orange")
     .style("stroke-linecap", "round")
-    .attr("class", "uiPath")
+    .attr("class", "uiPath link")
     .style("stroke-width", 8)
     .style("fill", "none")
     .attr("d", function(d) {return curvyLine([d.source.column * columnSize, d.source.component * (d.source.row * rowSize)],[d.target.column * columnSize, d.source.component * (d.target.row * rowSize)]) })
@@ -210,7 +210,7 @@ function drawBC(nodeData,linkData) {
     
     d3.selectAll("g.uiPath").filter(function(d) {return d.source.isMeta == false ? this : null})
     .append("circle")
-    .attr("class", "uiPath")
+    .attr("class", "uiPath link")
     .attr("r", 8)
     .attr("cx", function(d) {return ((d.target.column * columnSize) + (d.source.column * columnSize)) / 2})
     .attr("cy", function(d) {return d.source.component * ((d.target.row * rowSize) + (d.source.row * rowSize)) / 2})
@@ -226,7 +226,7 @@ function drawBC(nodeData,linkData) {
 
     d3.selectAll("g.uiPath").filter(function(d) {return d.source.isMeta == false ? this : null})
     .append("text")
-    .attr("class", "uiPath")
+    .attr("class", "uiPath link")
     .attr("x", function(d) {return (((d.target.column * columnSize) + (d.source.column * columnSize)) / 2) - 4})
     .attr("y", function(d) {return d.source.component * (((d.target.row * rowSize) + (d.source.row * rowSize)) / 2) + 4})
     .text("x")
@@ -239,14 +239,14 @@ function drawBC(nodeData,linkData) {
     .style("display", function(d) {return d.isMeta ? "none" : "block"})
 //    .style("display", function(d) {return d.isMeta ? "block" : "block"})
     .attr("id", function(d) {return "node" + d.nid})
-    .attr("class", "sec")
+    .attr("class", "sec vertex")
     .attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ (d.component * (d.row * rowSize)) +")"})
     .on("mousedown", startMove)
     .on("mouseup", endMove);
 
     var zoom2Div = d3.select("#betweenLayer").selectAll("div.zoom2").data(nodeData).enter().append("div")
     .style("display", function(d) {return d.isMeta ? "none" : "block"})
-    .attr("class", "zoom2")
+    .attr("class", "zoom2 vertex")
     .style("position", "absolute")
     .style("left", "30px")
     .style("top", "200px")
@@ -275,7 +275,7 @@ function drawBC(nodeData,linkData) {
 
     var secDiv = d3.select("#aboveLayer").selectAll("div.zoom2Overlay").data(nodeData).enter().append("div")
     .style("display", function(d) {return d.isMeta ? "none" : "block"})
-    .attr("class", "zoom2 zoom2Overlay")
+    .attr("class", "zoom2 zoom2Overlay vertex")
     .style("position", "absolute")
     .style("left", "30px")
     .style("top", "200px")
@@ -290,7 +290,7 @@ function drawBC(nodeData,linkData) {
 
     var secDiv = d3.select("#aboveLayer").selectAll("div.sec").data(nodeData).enter().append("div")
     .style("display", function(d) {return d.isMeta ? "none" : "block"})
-    .attr("class", "sec modal node-info")
+    .attr("class", "sec modal node-info vertex")
     .style("position", "absolute")
     .style("left", "30px")
     .style("top", "200px")
@@ -368,7 +368,9 @@ function drawBC(nodeData,linkData) {
 		.style("pointer-events", "none");
 		*/
 
-    panToCenter(0,-1)
+    panToCenter(0,-1);
+        d3.selectAll(".vertex").on("mouseover", vertexMouseover).on("mouseout", vertexMouseout);
+
 }
 
 function panToCenter(transitionDuration,centerRow, centerColumn) {
@@ -466,6 +468,26 @@ function redrawBC(transitionSpeed) {
     .attr("x", function(d) {return (((d.target.column * columnSize) + (d.source.column * columnSize)) / 2) - 4})
     .attr("y", function(d) {return d.source.component * (((d.target.row * rowSize) + (d.source.row * rowSize)) / 2) + 4});
 
+    d3.selectAll(".vertex").on("mouseover", vertexMouseover).on("mouseout", vertexMouseout)
+}
+
+function vertexMouseover(d,i) {
+    var theseLinks = testLayout.links().filter(function(p) {return p.source == d || p.target == d});
+    
+    for (x in theseLinks) {
+	if (theseLinks[x].source.isMeta) {
+	    theseLinks.push(testLayout.links().filter(function(p) {return p.target == theseLinks[x].source})[0]);
+	}
+	else if (theseLinks[x].target.isMeta) {
+	    theseLinks.push(testLayout.links().filter(function(p) {return p.source == theseLinks[x].target})[0]);
+	}
+    }
+    console.log(theseLinks)
+    d3.selectAll("path.uiPath").style("stroke", "blue").style("opacity", function(p) {return theseLinks.indexOf(p) > -1 ? .33 : 0})
+}
+
+function vertexMouseout(d,i) {
+    d3.selectAll("path.uiPath").style("stroke", "#ffa500").style("opacity", 0);
 }
 
 function setZoomLevel(zl) {
@@ -918,7 +940,7 @@ function createNewNode(d,i) {
     d3.select("#genLine")
     .data([{source: newSource, target: newTarget}])
     .attr("id", "inserted")
-    .attr("class", "connections")
+    .attr("class", "connections link")
     .style("pointer-events", "none")
     .transition()
     .duration(500)
@@ -926,7 +948,7 @@ function createNewNode(d,i) {
 
     var newUIG = d3.select("#mgBloomG").append("g").attr("id", "newUILine")
     .data([{source: newSource, target: newTarget}])
-    .attr("class", "uiPath")
+    .attr("class", "uiPath link")
     .on("mouseover", pathOver)
     .on("mouseout", pathOut);
     
@@ -934,7 +956,7 @@ function createNewNode(d,i) {
     .append("path")
     .style("stroke", "orange")
     .style("stroke-linecap", "round")
-    .attr("class", "uiPath")
+    .attr("class", "uiPath link")
     .style("stroke-width", 8)
     .style("fill", "none")
     .attr("d", function(d) {return curvyLine([d.source.column * columnSize, (d.source.row * rowSize)],[d.target.column * columnSize, (d.target.row * rowSize)]) })
@@ -943,7 +965,7 @@ function createNewNode(d,i) {
     
     newUIG
     .append("circle")
-    .attr("class", "uiPath")
+    .attr("class", "uiPath link")
     .attr("r", 8)
     .attr("cx", function(d) {return ((d.target.column * columnSize) + (d.source.column * columnSize)) / 2})
     .attr("cy", function(d) {return ((d.target.row * rowSize) + (d.source.row * rowSize)) / 2})
@@ -959,7 +981,7 @@ function createNewNode(d,i) {
 
     newUIG
     .append("text")
-    .attr("class", "uiPath")
+    .attr("class", "uiPath link")
     .attr("x", function(d) {return (((d.target.column * columnSize) + (d.source.column * columnSize)) / 2) - 4})
     .attr("y", function(d) {return (((d.target.row * rowSize) + (d.source.row * rowSize)) / 2) + 4})
     .text("x")
@@ -1162,7 +1184,7 @@ function updatedBloomCase(newBCNodes, newBCLinks) {
 	    }
 	}
 	if(foundNode == false) {
-	    d3.selectAll("g.sec").filter(function(el) {return el.nid == oldNodes[n].nid}).remove();
+	    d3.selectAll("g.vertex").filter(function(el) {return el.nid == oldNodes[n].nid}).remove();
 	    oldNodes.splice(n,1);
 	}
 	n--;
@@ -1403,7 +1425,7 @@ function createRemainingNodeComponents(incNode) {
 
     d3.select("div.newDiv")
     .data([incNode])
-    .attr("class", "zoom2")
+    .attr("class", "zoom2 vertex")
     .each(function(d,i) {
     if(d.imgUrl) {
     if (d.imgUrl.length > 2) {
@@ -1425,7 +1447,7 @@ function createRemainingNodeComponents(incNode) {
     var newSecDiv = d3.select("#aboveLayer").append("div")
     .data([incNode])
     .style("display", function(d) {return d.isMeta ? "none" : "block"})
-    .attr("class", "zoom2 zoom2Overlay")
+    .attr("class", "zoom2 zoom2Overlay vertex")
     .style("position", "absolute")
     .style("left", "30px")
     .style("top", "200px")
@@ -1439,7 +1461,7 @@ function createRemainingNodeComponents(incNode) {
     var newSecDiv = d3.select("#aboveLayer").append("div")
     .data([incNode])
     .style("display", function(d) {return d.isMeta ? "none" : "block"})
-    .attr("class", "sec modal node-info")
+    .attr("class", "sec modal node-info vertex")
     .style("position", "absolute")
     .style("left", "30px")
     .style("top", "200px")
@@ -1496,6 +1518,7 @@ function editNode(incNode) {
         d3.select("#new-node #new-node-image-preview").classed("icon-camera", true);
         d3.select("#new-node #new-node-image-preview").classed("image-preview", false);
 	}
+	d3.select("#new-node-delete.button").on("click", function() {deleteNode(updatingNode)});
 //	d3.selectAll(".parsley-validated").property("value", "")
 
 }
@@ -1647,6 +1670,10 @@ function setPresentation(d,i) {
     if (d.featured == 0) {
 	addRemovePresentationNode(d,i);
     }
+}
+
+function closePresentationPanel() {
+    d3.select("#editPresentationPanel").classed("hidden", true);
 }
 
 function populateEditPresentationPanel(d,i) {
@@ -1875,22 +1902,6 @@ function endPresentation() {
 
 }
 
-function deleteNode() {
-    for (x in testLayout.nodes()) {
-	if (testLayout.nodes()[x].evolvedFromArray.indexOf(updatingNode) > -1) {
-	    updatedEvolvedFromSimple(updatingNode.nid, testLayout.nodes()[x])
-	    console.log("cut " + updatingNode.nid +"**"+ testLayout.nodes()[x].nid)
-	}
-	if (testLayout.nodes()[x] == updatingNode) {
-	    console.log("spliced " + testLayout.nodes()[x].nid)
-	    testLayout.nodes().splice(x,1);
-	}
-    }
-    
-    updatedBloomCase(testLayout.nodes(),testLayout.links())
-
-}
-
 function creativeProcess() {
     var processCount = {idea: 0, inspiration: 0, sketch: 0, draft: 0, final: 0};
     arrowCount = {arrow_final: 1,
@@ -1921,15 +1932,11 @@ function creativeProcess() {
 		arrowCount[arrowName]++;
 	    }
 	    else {
-		console.log(arrowName);
-		console.log("not found")
 	    }
 	}
 	}
     }
-    
-    console.log(arrowCount)
-    
+        
     for (x in arrowCount) {
 	d3.select("#" + x).style("opacity", arrowCount[x] == 1 ? .5 : 1)
 	.selectAll("path").style("stroke-width", (arrowCount[x] * 2) + "px")
@@ -1956,6 +1963,28 @@ function creativeProcess() {
 
 function deleteNode(d,i) {
     //Here's where the stuff goes
+ //   d3.selectAll(".vertex").filter(function(p) {return p == d}).remove();
+    d3.selectAll(".link").filter(function(p) {return p.source.nid == d.nid || p.target.nid == d.nid}).remove();
+
+    var firstNewArray = testLayout.nodes().filter(function(el) {return el != d});
+    var newNodeArray = firstNewArray.filter(function(el) {return el.isMeta ? null : this});
+
+    
+    for (x in newNodeArray) {
+	var evolvedNID = newNodeArray[x].evolvedFrom.split(",");
+	console.log(evolvedNID);
+	if (evolvedNID.indexOf(d.nid) > -1) {
+	    newNodeArray[x].evolvedFromArray = newNodeArray[x].evolvedFromArray.filter(function(el) {return el.nid != d.nid});
+	    newNodeArray[x].evolvedFrom = evolvedNID.filter(function (el) {return el != d.nid}).join(",")
+
+	}
+    }
+    
+    var freshLayout = new d3_layout_bloomcase();
+    freshLayout.nodes(newNodeArray);
+    
+    updatedBloomCase(freshLayout.nodes(),freshLayout.links())
+
 }
 
 // Example presentation
