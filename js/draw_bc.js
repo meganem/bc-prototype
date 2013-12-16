@@ -1808,16 +1808,17 @@ function viewPresentation() {
     return 0;
     });
     
-    slideNodes.splice(0, 1, {presStyle: 99, title: "Demo Open", imgUrl: "earth-tattoo.png", summary: "here's some opening content", kind: "none", featured: 0})
-    slideNodes.push({presStyle: 99, title: "Demo Close", imgUrl: "earth-tattoo.png", summary: "here's some closing content", kind: "none", featured: slideNodes.length + 1})
+    slideNodes.splice(0, 1, {presStyle: 99, title: "Demo Open", imgUrl: "earth-tattoo.png", summary: "here's some opening content", kind: "presentation", featured: 0})
+    slideNodes.push({presStyle: 99, title: "Demo Close", imgUrl: "earth-tattoo.png", summary: "here's some closing content", kind: "presentation", featured: slideNodes.length + 1})
     
-    d3.select("#footer.presentation").select("#project-actions-menu").selectAll("li").remove();
+    d3.select("#footer.presentation").select("#presentation-navigator").selectAll("li").remove();
 
 // Add onclick go to a particular slide
     
-    d3.select("#footer.presentation").select("#project-actions-menu").selectAll("li").data(slideNodes).enter()
+    d3.select("#footer.presentation").select("#presentation-navigator").selectAll("li").data(slideNodes).enter()
     .append("li")
     .append("a")
+    .on("click", specificSlide)
     .attr("href", "#")
     .append("img")
     .attr("src", function(d) {return "../../../img/icon-"+d.kind.toLowerCase()+"-sm.png"})
@@ -1863,9 +1864,11 @@ function viewPresentation() {
 	imgClass = "slide-bkg"
     }
     
+    if (d.imgUrl.length > 1 && d.presStyle != 2 && d.presStyle != 3) {
     d3.select(this).append("img")
     .attr("class", imgClass)
     .attr("src", d.imgUrl.substr(0,10) == "data:image" ? d.imgUrl : "../../../img/example/panel/" + d.imgUrl.split(".")[0] + ".jpg");
+    }
 
     var subSlide = d3.select(this).append("div")
     .attr("class", "slide-overlay");
@@ -2036,6 +2039,17 @@ function previousSlide() {
     d3.select('#presentation-control-next').classed('hidden', false);
     d3.select('#slide-' + currentSlideNum).classed('hidden', true);
     currentSlideNum = currentSlideNum - 1;
+    d3.select('#slide-' + currentSlideNum).classed('hidden', false);
+    if(currentSlideNum == 0) {
+        d3.select('#presentation-control-previous').classed('hidden', true);
+    }
+}
+
+function specificSlide(d,i) {
+    console.log(d);
+    d3.select('#presentation-control-next').classed('hidden', false);
+    d3.select('#slide-' + currentSlideNum).classed('hidden', true);
+    currentSlideNum = d.featured;
     d3.select('#slide-' + currentSlideNum).classed('hidden', false);
     if(currentSlideNum == 0) {
         d3.select('#presentation-control-previous').classed('hidden', true);
