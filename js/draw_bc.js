@@ -29,7 +29,7 @@
     
     disableZoom = false;
     
-    var currentSlideNum = 1;
+    var currentSlideNum = 0;
     
 window.onresize = function(event) {
 	resizePanels();
@@ -194,6 +194,7 @@ function drawBC(nodeData,linkData) {
 
     var uiPathG = d3.select("#mgBloomG").selectAll("g.uiPath").data(linkData).enter().append("g")
     .attr("class", "uiPath link")
+    .on("click", function(d) {console.log(d);})
     .on("mouseover", pathOver)
     .on("mouseout", pathOut);
     
@@ -236,8 +237,8 @@ function drawBC(nodeData,linkData) {
     
     var secG = d3.select("#bloomG")
     .selectAll("g.sec").data(nodeData).enter().append("g")
-//    .style("display", function(d) {return d.isMeta ? "none" : "block"})
-    .style("display", function(d) {return d.isMeta ? "block" : "block"})
+    .style("display", function(d) {return d.isMeta ? "none" : "block"})
+//    .style("display", function(d) {return d.isMeta ? "block" : "block"})
     .attr("id", function(d) {return "node" + d.nid})
     .attr("class", "sec vertex")
     .attr("transform", function(d,i) {return "translate("+ (d.column * columnSize) +","+ (d.component * (d.row * rowSize)) +")"})
@@ -356,7 +357,8 @@ function drawBC(nodeData,linkData) {
     .transition()
     .duration(1000)
     .style("opacity", 1);
-    
+
+/*    
     secG.append("text")
                 .attr("dx", -1)
                 .attr("dy", ".35em")
@@ -365,6 +367,7 @@ function drawBC(nodeData,linkData) {
                 .style("fill", "white")
                 .text(function(d) { return "" + (d.nid)})
 		.style("pointer-events", "none");
+		*/
 
 
     panToCenter(0,-1);
@@ -1161,6 +1164,9 @@ function updatedBloomCase(newBCNodes, newBCLinks) {
 	for (y in oldNodes) {
 	    if (newBCNodes[x].nid == oldNodes[y].nid) {
 		newBCNodes[x] = oldNodes[y];
+		oldNodes[y].column = newBCNodes[x].column;		
+		oldNodes[y].row = newBCNodes[x].row;
+		oldNodes[y].laneTotal = newBCNodes[x].laneTotal;
 		foundNode = true;
 		break;
 	    }
@@ -1198,7 +1204,8 @@ function updatedBloomCase(newBCNodes, newBCLinks) {
 		break;
 	    }
 	}
-	if(foundLink == false) {	    
+	if(foundLink == false) {
+	    console.log("No link found")
 	    d3.selectAll(".link").filter(function(el) {return el.id == oldLinks[n].id}).remove();
 	    oldLinks.splice(n);
 	}
@@ -1711,6 +1718,8 @@ var presentationOption = d3.select("#editPresentationPanel");
 
     presentationOption.select("#edit-presentation-node-form-template-option")
     .selectAll("input").property("checked", false)
+
+    //Presentation case for start or end
     
         switch(parseInt(d.presStyle)) {
 	case 0:
@@ -1799,7 +1808,12 @@ function viewPresentation() {
     return 0;
     });
     
+    slideNodes.splice(0, 1, {presStyle: 99, title: "Demo Open", imgUrl: "earth-tattoo.png", summary: "here's some opening content", kind: "none", featured: 0})
+    slideNodes.push({presStyle: 99, title: "Demo Close", imgUrl: "earth-tattoo.png", summary: "here's some closing content", kind: "none", featured: slideNodes.length + 1})
+    
     d3.select("#footer.presentation").select("#project-actions-menu").selectAll("li").remove();
+
+// Add onclick go to a particular slide
     
     d3.select("#footer.presentation").select("#project-actions-menu").selectAll("li").data(slideNodes).enter()
     .append("li")
@@ -1815,20 +1829,26 @@ function viewPresentation() {
     .attr("id", function(d,i) {return "slide-" + d.featured})
     .each(function(d,i) {
     
+    //switch for begin and end slide
+    
     var slideClass ="";
     switch(parseInt(d.presStyle)) {
 	case 0:
-	    slideClass = "slide-template slide-template-full-image slide-template-project-slide hidden";
+	    slideClass = "slide-template slide-template-full-image hidden";
 	break;
 	case 1:
 	    slideClass = "slide-template slide-template-half-image hidden";
 	break;
 	case 2:
-	    slideClass = "slide-template slide-template-full-image hidden";
-	break;
-	case 3:
 	    slideClass = "slide-template slide-template-half-map hidden";
 	break;
+	case 3:
+	    slideClass = "slide-template slide-template-full-map hidden";
+	break;
+	case 99:
+	    slideClass = "slide-template slide-template-project-slide slide-template-full-image hidden"
+	break;
+	    
     }
     
     d3.select(this).attr("class", slideClass);
@@ -1846,11 +1866,11 @@ function viewPresentation() {
     d3.select(this).append("img")
     .attr("class", imgClass)
     .attr("src", d.imgUrl.substr(0,10) == "data:image" ? d.imgUrl : "../../../img/example/panel/" + d.imgUrl.split(".")[0] + ".jpg");
-    
+
     var subSlide = d3.select(this).append("div")
     .attr("class", "slide-overlay");
     
-    if (d.presStyle > 0) {
+    if (d.presStyle != 99) {
     subSlide.append("div")
     .attr("class", "slide-type")
     .append("img").attr("src", "../../../img/icon-"+d.kind.toLowerCase()+"-lg.png")
@@ -1863,7 +1883,7 @@ function viewPresentation() {
     .attr("class", "slide-title")
     .html(d.title)
 
-    if (d.presStyle == 0 || d.presStyle == 3) {    
+    if (d.presStyle != 0 && d.presStyle != 3) {    
     subSlide.append("p")
     .attr("class", "lead")
     .html(d.summary)
@@ -1905,7 +1925,7 @@ function endPresentation() {
     d3.selectAll("#header").classed("hidden", false);
     d3.selectAll("#project-header").classed("hidden", false);
     d3.select("#footer.presentation").classed("hidden", true);
-    currentSlideNum = 1;
+    currentSlideNum = 0;
     resizePanels();
 
 }
@@ -2017,7 +2037,7 @@ function previousSlide() {
     d3.select('#slide-' + currentSlideNum).classed('hidden', true);
     currentSlideNum = currentSlideNum - 1;
     d3.select('#slide-' + currentSlideNum).classed('hidden', false);
-    if(currentSlideNum == 1) {
+    if(currentSlideNum == 0) {
         d3.select('#presentation-control-previous').classed('hidden', true);
     }
 }
