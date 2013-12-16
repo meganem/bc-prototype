@@ -121,8 +121,8 @@ d3_layout_bloomcase = function() {
 			    targetCount: 0,
 			    evolvedFrom: incNodes[incNode].evolvedFrom,
 			    row: -1, column: -1, isMeta: true, nid: "meta" + incNodes[incNode].nid, evolvedFromArray: []}
-                        blNodes.push(metaNodeObject);
-                        incNodes[incNode].evolvedFromArray.push(metaNodeObject);
+			    blNodes.push(metaNodeObject);
+			    incNodes[incNode].evolvedFromArray.push(metaNodeObject);
                             blNodeHash["meta" + incNodes[incNode].nid] = metaNodeObject;
                         }
                         linkObject1.source = blNodeHash[linkArray[l]];
@@ -176,6 +176,7 @@ d3_layout_bloomcase = function() {
                         newTarget.evolvedFromArray = [newSource];
                         blLinks.splice(deleteLinkID,1);
                         updateLink.source = newSource;
+			updateLink.id = updateLink.id.replace("meta","");
                         blNodes.splice(deleteNodeID,1);
                     }
                 }
