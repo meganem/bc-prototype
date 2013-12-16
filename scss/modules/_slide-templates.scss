@@ -8,6 +8,9 @@
 .slide-template {
 	background: $gray;
 }
+.slide-template.slide-template-half-map, .slide-template.slide-template-full-map {
+	background:transparent;
+}
 .full-image {
 	min-height: 100%;
 	min-width: 100%;
